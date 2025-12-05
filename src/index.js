@@ -530,96 +530,80 @@ function getCookie(cname) {
 }
 
 function setupHookForFormSubmission() {
-  const form = document.querySelector('form.salesforce-form');
+  const forms = document.querySelectorAll('form');
+  if (!forms.length) return;
 
-  if (!form) return;
+  forms.forEach((form) => {
+    const emailInput = form.querySelector(
+      'input[name="Email"], input[name="email"], input[type="email"]'
+    );
 
-  form.action =
-    'https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00Da500001MRD5G';
-  form.method = 'POST';
+    if (!emailInput) return;
 
-  // We append an iframe so that we can avoid redirecting, which is the default
-  // behavior.
-  const iframe = document.createElement('iframe');
-  iframe.id = 'salesforce-iframe';
-  iframe.name = 'salesforce-iframe';
-  iframe.src = 'about:blank';
-  iframe.style.display = 'none';
-  form.appendChild(iframe);
-  form.setAttribute('target', 'salesforce-iframe');
+    const submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
+    let errorMessage = null;
 
-  // Show an error for the email input when users use an email from a personal
-  // email address.
-  const emailInput = form.querySelector('input[name="email"]');
-  const submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
-  let errorMessage = null;
-
-  function validateEmailDomain(emailDomain) {
-    const blockedDomains = ['gmail.com', 'aol.com', 'hotmail.com'];
-    return blockedDomains.includes(emailDomain);
-  }
-
-  function showErrorMessage(emailDomain) {
-    if (!errorMessage) {
-      errorMessage = document.createElement('div');
-      errorMessage.className = 'email-validation-error';
-      errorMessage.style.cssText = 'color: #e74c3c; font-size: 14px; margin-top: 5px;';
-      errorMessage.textContent = `Please use a business email address. ${emailDomain} is not allowed.`;
-      emailInput.parentNode.insertBefore(errorMessage, emailInput.nextSibling);
+    function validateEmailDomain(emailDomain) {
+      const blockedDomains = ['gmail.com', 'aol.com', 'hotmail.com', 'comcast.net', 'yahoo.com'];
+      return blockedDomains.includes(emailDomain.toLowerCase());
     }
-    errorMessage.style.display = 'block';
-  }
 
-  function hideErrorMessage() {
-    if (errorMessage) {
-      errorMessage.style.display = 'none';
+    function showErrorMessage(emailDomain) {
+      if (!errorMessage) {
+        errorMessage = document.createElement('div');
+        errorMessage.className = 'email-validation-error';
+        errorMessage.style.cssText = 'color: #e74c3c; font-size: 14px; margin-top: 5px;';
+        errorMessage.textContent = `Please use a business email address. ${emailDomain} is not allowed.`;
+        emailInput.parentNode.insertBefore(errorMessage, emailInput.nextSibling);
+      }
+      errorMessage.style.display = 'block';
     }
-  }
 
-  function setInputError(hasError) {
-    if (hasError) {
-      emailInput.style.outlineColor = '#e74c3c';
-      emailInput.style.outlineWidth = '2px';
-    } else {
-      emailInput.style.outlineColor = '';
-      emailInput.style.outlineWidth = '';
+    function hideErrorMessage() {
+      if (errorMessage) {
+        errorMessage.style.display = 'none';
+      }
     }
-  }
 
-  function setSubmitButtonState(disabled) {
-    if (submitButton) {
-      submitButton.disabled = disabled;
-      submitButton.style.opacity = disabled ? '0.5' : '1';
-      submitButton.style.cursor = disabled ? 'not-allowed' : 'pointer';
+    function setInputError(hasError) {
+      if (hasError) {
+        emailInput.style.outlineColor = '#e74c3c';
+        emailInput.style.outlineWidth = '2px';
+      } else {
+        emailInput.style.outlineColor = '';
+        emailInput.style.outlineWidth = '';
+      }
     }
-  }
 
-  emailInput.addEventListener('input', (ev) => {
-    const email = ev.target.value.trim();
-    const emailDomain = email.toLowerCase().split('@')[1];
+    function setSubmitButtonState(disabled) {
+      if (submitButton) {
+        submitButton.disabled = disabled;
+        submitButton.style.opacity = disabled ? '0.5' : '1';
+        submitButton.style.cursor = disabled ? 'not-allowed' : 'pointer';
+      }
+    }
 
-    if (email && email.includes('@')) {
-      const isBlocked = validateEmailDomain(emailDomain);
+    emailInput.addEventListener('input', (ev) => {
+      const email = ev.target.value.trim();
+      const emailDomain = email.toLowerCase().split('@')[1];
 
-      if (isBlocked) {
-        showErrorMessage(emailDomain);
-        setInputError(true);
-        setSubmitButtonState(true);
+      if (email && email.includes('@')) {
+        const isBlocked = validateEmailDomain(emailDomain);
+
+        if (isBlocked) {
+          showErrorMessage(emailDomain);
+          setInputError(true);
+          setSubmitButtonState(true);
+        } else {
+          hideErrorMessage();
+          setInputError(false);
+          setSubmitButtonState(false);
+        }
       } else {
         hideErrorMessage();
         setInputError(false);
         setSubmitButtonState(false);
       }
-    } else {
-      hideErrorMessage();
-      setInputError(false);
-      setSubmitButtonState(false);
-    }
-  });
-
-  form.addEventListener('submit', async function () {
-    form.parentElement.style.display = 'none';
-    $('.contact-form_success').css('display', 'flex');
-    window.history.replaceState({}, '', window.location.href.split('?')[0]);
+    });
   });
 }
