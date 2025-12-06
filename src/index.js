@@ -544,7 +544,28 @@ function setupHookForFormSubmission() {
     let errorMessage = null;
 
     function validateEmailDomain(emailDomain) {
-      const blockedDomains = ['gmail.com', 'aol.com', 'hotmail.com', 'comcast.net', 'yahoo.com'];
+      const blockedDomains = [
+        'comcast.net',
+        'gmail.com',
+        'live.com',
+        'yahoo.com',
+        'hotmail.com',
+        'mail.ru',
+        'web.de',
+        'gmx.net',
+        'live.net',
+        'mail.com',
+        'aol.com',
+        'msn.com',
+        'outlook.com',
+        'proton.me',
+        'protonmail.com',
+        'icloud.com',
+        'me.com',
+        'zoho.com',
+        'yandex.com',
+        'inbox.com',
+      ];
       return blockedDomains.includes(emailDomain.toLowerCase());
     }
 
