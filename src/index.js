@@ -530,14 +530,17 @@ function getCookie(cname) {
 }
 
 function setupHookForFormSubmission() {
+  console.log('setupHookForFormSubmission');
   const forms = document.querySelectorAll('form');
   if (!forms.length) return;
 
   forms.forEach((form) => {
     const honeypot = form.querySelector('#form-description');
     const submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
-    const firstNameInput = form.querySelector('input[name="First-Name"], input[name="First-name"]');
-    const lastNameInput = form.querySelector('input[name="Last-Name"], input[name="Last-name"]');
+    const firstNameInput = form.querySelector(
+      'input[name*="First-Name"], input[name*="First-name"]'
+    );
+    const lastNameInput = form.querySelector('input[name*="Last-Name"], input[name*="Last-name"]');
     const emailInput = form.querySelector('input[data-domain-check]');
 
     if (honeypot) {
