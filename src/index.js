@@ -530,7 +530,6 @@ function getCookie(cname) {
 }
 
 function setupHookForFormSubmission() {
-  console.log('setupHookForFormSubmission');
   const forms = document.querySelectorAll('form');
   if (!forms.length) return;
 
