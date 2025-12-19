@@ -538,9 +538,7 @@ function setupHookForFormSubmission() {
     const submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
     const firstNameInput = form.querySelector('input[name="First-Name"], input[name="First-name"]');
     const lastNameInput = form.querySelector('input[name="Last-Name"], input[name="Last-name"]');
-    const emailInput = form.querySelector(
-      'input[name="Email"], input[name="email"], input[type="email"]'
-    );
+    const emailInput = form.querySelector('input[data-domain-check]');
 
     if (honeypot) {
       honeypot.oninput = function () {
