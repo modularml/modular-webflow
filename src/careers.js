@@ -27,6 +27,9 @@ function appendJobsForDepartment(jobsForDepartment) {
     let jobTitle = job.title;
     let jobId = job.id;
     let jobLocation = job.location.name;
+
+    let listItem = document.createElement('li');
+
     let jobListItem = document.createElement('a');
     jobListItem.classList.add('roles-list_link');
     jobListItem.setAttribute(
@@ -34,9 +37,10 @@ function appendJobsForDepartment(jobsForDepartment) {
       `https://${hostName}/company/career-post?${jobId}&gh_jid=${jobId}`
     );
     jobListItem.setAttribute('data-job-id', jobId);
-    jobListItem.innerHTML = `<div><div class="margin-bottom margin-4"><p class="text-size-small-2 text-weight-medium text-style-tthoves">${jobTitle}</p></div><div class="text-color-twilight60-3"><p class="text-size-xsmall-7">${jobLocation}</p></div></div> <div class="text-color-twilight60-3"><div><p class="text-size-xsmall-7">Apply now</p></div></div>`;
+    jobListItem.innerHTML = `<div class="z-index-2"><div class="margin-bottom margin-4"><p class="text-size-small text-weight-medium text-style-tthoves">${jobTitle}</p></div><div class="text-color-twilight60"><p class="text-size-xsmall">${jobLocation}</p></div></div> <div class="text-color-twilight60 z-index-2"><div><p class="text-size-xsmall">Apply now</p></div></div><div class="roles-list_link-bg"></div>`;
 
-    document.querySelector('.roles-list_item').appendChild(jobListItem);
+    listItem.appendChild(jobListItem);
+    document.querySelector('.roles-list_item').appendChild(listItem);
   }
 }
 
@@ -51,21 +55,24 @@ if (document.querySelector('.roles_wrap')) {
       const tabsMenu = document.querySelector('.roles_wrap .roles-filters');
       tabsMenu.innerHTML = '';
 
+      const listItem = document.createElement('li');
+
       const departmentListItem = document.createElement('a');
-      departmentListItem.classList.add('tabs-item-2');
+      departmentListItem.classList.add('tabs-item');
       departmentListItem.href = '#';
       departmentListItem.innerHTML = `
-            <div>All</div>
-            <div>(${jobs.length})</div>`;
+                <div>All</div>
+                <div>(${jobs.length})</div>`;
 
       $(departmentListItem).on('click', function (e) {
-        $('.cc-current').removeClass('cc-current');
-        $(this).addClass('cc-current');
+        $('.is-active').removeClass('is-active');
+        $(this).addClass('is-active');
 
         appendJobsForDepartment(jobs);
       });
 
-      tabsMenu.appendChild(departmentListItem);
+      listItem.appendChild(departmentListItem);
+      tabsMenu.appendChild(listItem);
     }
     appendAllJobs(jobsData.jobs);
 
@@ -95,34 +102,38 @@ if (document.querySelector('.roles_wrap')) {
 
       departmentsWithJobs.forEach((department) => {
         const { id: departmentId, name: departmentName, jobs } = department;
+
+        const listItem = document.createElement('li');
+
         const departmentListItem = document.createElement('a');
 
-        departmentListItem.classList.add('tabs-item-2');
+        departmentListItem.classList.add('tabs-item');
         departmentListItem.dataset.departmentId = departmentId;
         departmentListItem.href = '#';
         departmentListItem.innerHTML = `
-                    <div">${departmentName}</div>
-                    <div">(${jobs.length})</div>
-                `;
+                        <div>${departmentName}</div>
+                        <div>(${jobs.length})</div>
+                    `;
 
         departmentListItem.addEventListener('click', (e) => {
-          const currentTab = document.querySelector('.cc-current');
-          if (currentTab) currentTab.classList.remove('cc-current');
+          const currentTab = document.querySelector('.is-active');
+          if (currentTab) currentTab.classList.remove('is-active');
 
           const targetLink = e.currentTarget.closest('a') || e.currentTarget.querySelector('a');
-          if (targetLink) targetLink.classList.add('cc-current');
+          if (targetLink) targetLink.classList.add('is-active');
 
           const jobsForDepartment = getJobsForDepartment(jobPositions, departmentId);
           appendJobsForDepartment(jobsForDepartment);
         });
 
-        tabsMenu.appendChild(departmentListItem);
+        listItem.appendChild(departmentListItem);
+        tabsMenu.appendChild(listItem);
       });
     }
 
     appendDepartmentsWithJobs(departmentsWithJobs);
 
-    document.querySelector('.roles-filters').firstElementChild.click();
+    document.querySelector('.roles-filters').querySelectorAll('.tabs-item')[0].click();
   }
 
   fetchData();
@@ -157,34 +168,5 @@ if (window.location.pathname === '/company/career-post') {
       document.getElementById('job-breadcrumb').innerHTML = jobTitle;
     });
 
-  function getRandomNumber() {
-    return Math.floor(Math.random() * 7) + 1;
-  }
-
-  var randomImage = getRandomNumber(7);
-
-  // array of 7 items
-  let images = [
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4c3fb8390c982f26ed_careers_1.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4c2a0972c00c89b518_careers_2.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4d866f802f73558a82_careers_3.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4d68cb5b9855976a3e_careers_4.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4cef8736f278b329bd_careers_5.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4d99662e786edecf7a_careers_6.jpg',
-    'https://uploads-ssl.webflow.com/63f9f100025c058594957cca/664e0a4c58f7db9766875803_careers_7.jpg',
-  ];
-
   document.getElementById('job-image').src = images[randomImage - 1];
 }
-
-// Swiper
-const swiper = new Swiper('.careers-testimonial_list', {
-  // Optional parameters
-  slidesPerView: 'auto',
-  spaceBetween: 20,
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-arrow.next',
-    prevEl: '.swiper-arrow.prev',
-  },
-});

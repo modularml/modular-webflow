@@ -1,113 +1,16 @@
-async function setupCodeBlocks() {
-  const legacyCodeBlocks = document.querySelectorAll('.text-rich-text .code');
+import { setupCodeBlocks } from './blog/code-highlight';
+import { initBlogLiveReload } from './blog/blog-live-reload';
+import { initCopyToClipboard } from './blog/copy-to-clipboard';
+import { initImageZoom } from './blog/image-zoom';
+import { initBlogFilters } from './blog/filters';
+import { initDecompute } from './blog/decompute';
 
-  const doesNeedHighlighter = legacyCodeBlocks.length > 0;
-  if (!doesNeedHighlighter) {
-    return;
-  }
-  loadPageScript('blog-code-highlight.js');
-}
-
-window.copyToClipboard = function copyToClipboard(buttonElement) {
-  const codeCell = buttonElement.previousElementSibling;
-  const textarea = document.createElement('textarea');
-
-  textarea.style.position = 'absolute';
-  textarea.style.left = '-9999px';
-
-  textarea.value = codeCell.textContent;
-
-  document.body.appendChild(textarea);
-
-  textarea.select();
-
-  try {
-    document.execCommand('copy');
-
-    // Change the button's text to 'Copied'
-    buttonElement.textContent = 'Copied...';
-
-    // Revert the button's text back to 'Copy Code' after some time
-    setTimeout(() => {
-      buttonElement.textContent = 'Copy';
-    }, 2000);
-  } catch (err) {
-    console.error('Failed to copy code:', err);
-  }
-
-  document.body.removeChild(textarea);
-};
-
-function clickListener(event) {
-  var images = document.querySelectorAll('img');
-  // Prevent the event from bubbling up to the document
-  event.stopPropagation();
-
-  // bind the current image so it doesn't lose context
-  const clickedImg = event.currentTarget;
-
-  images.forEach(function (innerImg) {
-    // Reset all other images to their original size
-    if (innerImg !== clickedImg) {
-      innerImg.classList.remove('img-enlarged');
-      innerImg.style.transform = '';
-    }
-  });
-
-  if (clickedImg.classList.contains('img-enlarged')) {
-    clickedImg.classList.remove('img-enlarged');
-    clickedImg.style.transform = ''; // Reset to original size
-  } else {
-    clickedImg.classList.add('img-enlarged');
-    // Calculate scale factor based on window width and height
-    var windowWidth = window.innerWidth;
-    var windowHeight = window.innerHeight;
-
-    var scaleX = windowWidth / this.width;
-    var scaleY = windowHeight / this.height;
-
-    // Max scale factor is 2 or window dimension, whichever is smaller
-    var scale = Math.min(scaleX, scaleY, 2);
-
-    clickedImg.style.transform = 'scale(' + scale + ')';
-  }
-}
-
-function minimizeImage() {
-  var images = document.querySelectorAll('img');
-
-  images.forEach((img) => {
-    img.classList.remove('img-enlarged');
-    img.style.transform = '';
-  });
-}
-function keyupListener(evt) {
-  if (evt.key === 'Escape') minimizeImage();
-}
-
-function addImageZoom() {
-  var images = document.querySelectorAll('img');
-  images.forEach(function (img) {
-    img.removeEventListener('click', clickListener);
-    img.addEventListener('click', clickListener);
-  });
-
-  window.removeEventListener('keyup', keyupListener);
-  window.addEventListener('keyup', keyupListener);
-  // Listener for clicks outside the images
-  document.removeEventListener('click', minimizeImage);
-  document.addEventListener('click', minimizeImage);
-}
-
-window.setupBlog = function setupBlog() {
+// init
+$(document).ready(function () {
   setupCodeBlocks();
-  addImageZoom();
-};
-
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    setupBlog();
-  });
-} else {
-  setupBlog();
-}
+  initBlogLiveReload();
+  initCopyToClipboard();
+  initImageZoom();
+  initBlogFilters();
+  initDecompute();
+});

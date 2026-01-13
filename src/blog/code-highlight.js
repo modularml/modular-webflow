@@ -44,4 +44,12 @@ async function highlightLegacyCode() {
   }
 }
 
-highlightLegacyCode();
+export async function setupCodeBlocks() {
+  const legacyCodeBlocks = document.querySelectorAll('.text-rich-text .code');
+
+  const doesNeedHighlighter = legacyCodeBlocks.length > 0;
+  if (!doesNeedHighlighter) {
+    return;
+  }
+  highlightLegacyCode();
+}

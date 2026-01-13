@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+export function initCookie() {
   const EU_TIMEZONES = [
     'Europe/Vienna',
     'Europe/Brussels',
@@ -127,28 +127,28 @@ window.addEventListener('load', function () {
                 },
               ],
             } /*, {
-                        title: 'Strictly necessary cookies',
-                        description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
-                        toggle: {
-                            value: 'necessary',
-                            enabled: true,
-                            readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
-                        }
-                    }, {
-                        title: 'Advertisement and Targeting cookies',
-                        description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
-                        toggle: {
-                            value: 'targeting',
-                            enabled: false,
-                            readonly: false
-                        }
-                    }, {
-                        title: 'More information',
-                        description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
-                    } */,
+                          title: 'Strictly necessary cookies',
+                          description: 'These cookies are essential for the proper functioning of my website. Without these cookies, the website would not work properly',
+                          toggle: {
+                              value: 'necessary',
+                              enabled: true,
+                              readonly: true          // cookie categories with readonly=true are all treated as "necessary cookies"
+                          }
+                      }, {
+                          title: 'Advertisement and Targeting cookies',
+                          description: 'These cookies collect information about how you use the website, which pages you visited and which links you clicked on. All of the data is anonymized and cannot be used to identify you',
+                          toggle: {
+                              value: 'targeting',
+                              enabled: false,
+                              readonly: false
+                          }
+                      }, {
+                          title: 'More information',
+                          description: 'For any queries in relation to our policy on cookies and your choices, please <a class="cc-link" href="#yourcontactpage">contact us</a>.',
+                      } */,
           ],
         },
       },
     },
   });
-});
+}

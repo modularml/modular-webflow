@@ -5,7 +5,11 @@ import morphdom from 'morphdom';
 async function setUpBlogReload() {
   const searchParams = new URLSearchParams(window.location.search);
   const pageId = searchParams.get('pageId');
+  if (!pageId) {
+    return;
+  }
   const renderUrl = new URL(searchParams.get('renderUrl'));
+
   const renderSecret = searchParams.get('secret');
 
   if (
@@ -82,10 +86,12 @@ async function setUpBlogReload() {
   }
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
+export function initBlogLiveReload() {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setUpBlogReload();
+    });
+  } else {
     setUpBlogReload();
-  });
-} else {
-  setUpBlogReload();
+  }
 }

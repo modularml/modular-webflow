@@ -1,55 +1,39 @@
-const swiper = new Swiper('.about-team_slider', {
-  // Optional parameters
-  slidesPerView: 'auto',
-  spaceBetween: 20,
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-arrow.next',
-    prevEl: '.swiper-arrow.prev',
-  },
-});
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
-const swiperModal = new Swiper('.about-team_modal-slider .max-width-full', {
-  // Optional parameters
-  slidesPerView: 1,
-  noSwiping: false,
-  navigation: {
-    prevEl: '.about-team-modal-arrow.prev',
-    nextEl: '.about-team-modal-arrow.next',
-  },
-  breakpoints: {
-    0: {
-      direction: 'horizontal',
-      spaceBetween: 8,
-      autoHeight: true,
-    },
-    992: {
-      direction: 'vertical',
-      spaceBetween: 20,
-      autoHeight: false,
-    },
-  },
-});
+function initHighlightText() {
+  let splitHeadingTargets = document.querySelectorAll('[data-highlight-text]');
+  splitHeadingTargets.forEach((heading) => {
+    const scrollStart = heading.getAttribute('data-highlight-scroll-start') || 'top 70%';
+    const scrollEnd = heading.getAttribute('data-highlight-scroll-end') || 'center 40%';
+    const fadedValue = heading.getAttribute('data-highlight-fade') || 0.2; // Opacity of letter
+    const staggerValue = heading.getAttribute('data-highlight-stagger') || 0.1; // Smoother reveal
 
-$('.about-team_card').on('click', function () {
-  revealModal($(this).closest('.w-dyn-item').index());
-});
-
-$('.blog-detail_hero-list-item')
-  .not('[fs-cmsstatic-element]')
-  .on('click', function () {
-    revealModal($(this).closest('.w-dyn-item').index());
+    new SplitText(heading, {
+      type: 'words, chars',
+      autoSplit: true,
+      onSplit(self) {
+        let ctx = gsap.context(() => {
+          let tl = gsap.timeline({
+            scrollTrigger: {
+              scrub: true,
+              trigger: heading,
+              start: scrollStart,
+              end: scrollEnd,
+            },
+          });
+          tl.from(self.chars, {
+            autoAlpha: fadedValue,
+            stagger: staggerValue,
+            ease: 'linear',
+          });
+        });
+        return ctx; // return our animations so GSAP can clean them up when onSplit fires
+      },
+    });
   });
-
-$('[data-modal="hide"]').on('click', hideModal);
-
-function revealModal(index) {
-  swiperModal.slideTo(index);
-  $('.about-team_modal').fadeIn();
-  $('html, body').addClass('overflow-hidden');
 }
 
-function hideModal() {
-  $('.about-team_modal').fadeOut();
-  $('html, body').removeClass('overflow-hidden');
-}
+// Initialize Highlight Text on Scroll
+document.addEventListener('DOMContentLoaded', () => {
+  initHighlightText();
+});
