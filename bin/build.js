@@ -9,18 +9,14 @@ const PRODUCTION = process.env.NODE_ENV === 'production';
 // Config entrypoint files
 const ENTRY_POINTS = [
   'src/index.js',
-  'src/homepage-new.js',
-  'src/legacy.js',
-  'src/cookies.js',
-  'src/sales.js',
-  'src/modconf.js',
-  'src/performance.js',
-  'src/mojo.js',
-  'src/about.js',
-  'src/careers.js',
+  'src/filter-basic.js',
   'src/blog.js',
-  'src/blog-live-reload.js',
-  'src/blog-code-highlight.js',
+  'src/democratizing-ai.js',
+  'src/careers.js',
+  'src/community.js',
+  'src/about.js',
+  'src/plyr.js',
+  'src/utils/nice-select.css',
 ];
 
 // Config dev serving
@@ -35,7 +31,7 @@ const context = await esbuild.context({
   outdir: BUILD_DIRECTORY,
   minify: PRODUCTION,
   sourcemap: !PRODUCTION,
-  target: PRODUCTION ? 'es2022' : 'esnext',
+  target: PRODUCTION ? 'es2019' : 'esnext',
   inject: LIVE_RELOAD ? ['./bin/live-reload.js'] : undefined,
   define: {
     SERVE_ORIGIN: JSON.stringify(SERVE_ORIGIN),
