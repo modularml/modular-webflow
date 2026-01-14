@@ -1,8 +1,4 @@
-if (window.location.host === 'modular-rebuild.webflow.io') {
-  var url = 'https://api.gem.com/job_board/v0/modular/job_posts/';
-} else {
-  url = 'https://boards-api.greenhouse.io/v1/boards/modularai/jobs';
-}
+var url = 'https://api.gem.com/job_board/v0/modular/job_posts/';
 
 var hostName = window.location.hostname;
 
