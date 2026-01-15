@@ -15,7 +15,24 @@ function appendJobs(jobs) {
   jobs.forEach((job) => {
     const jobTitle = job.title;
     const jobId = job.id;
-    const jobLocation = job.location.name || 'Remote';
+    const jobLocation = job.location.name;
+    const jobLocationType = job.location_type;
+    let jobLocationText = '';
+
+    if (jobLocation && jobLocation !== '') {
+      jobLocationText = jobLocation.replace(/_/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+    }
+
+    if (jobLocationType && jobLocationType !== '') {
+      const capitalizedType = jobLocationType
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, (l) => l.toUpperCase());
+      if (jobLocationText !== '') {
+        jobLocationText += ` · ${capitalizedType}`;
+      } else {
+        jobLocationText = capitalizedType;
+      }
+    }
 
     const listItem = $('<li>');
     const jobLink = $('<a>')
@@ -27,7 +44,7 @@ function appendJobs(jobs) {
             <p class="text-size-small text-weight-medium text-style-tthoves">${jobTitle}</p>
           </div>
           <div class="text-color-twilight60">
-            <p class="text-size-small">${jobLocation}</p>
+            <p class="text-size-small">${jobLocationText}</p>
           </div>
         </div>
         <div class="text-color-twilight60 z-index-2">
