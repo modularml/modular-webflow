@@ -160,13 +160,18 @@ function isLikelyInvalidName(name) {
 
   const vowels = name.match(/[aeiou]/gi) || [];
   const vowelRatio = vowels.length / name.replace(/\s/g, '').length;
-  if (vowelRatio < 0.15 || vowelRatio > 0.6) score += 2;
+  if (vowelRatio < 0.15 || vowelRatio > 0.7) score += 2;
 
   if (/asdf|qwer|zxcv|hjkl/i.test(name)) score += 3;
 
   if (/[^aeiou\s]{6,}/i.test(name)) score += 2;
 
-  if (/[^a-z\s'-]/i.test(name)) score += 2;
+  if (
+    /[^a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿāăąćčďđēėęěğģīįķĺļľłńņňőœŕřśşšţťũūůűųźżžșțə\s'-]/i.test(
+      name
+    )
+  )
+    score += 3;
 
   const capsScore = checkCapitalization(name);
   score += capsScore;
@@ -179,34 +184,37 @@ function checkCapitalization(name) {
 
   let suspiciousPatterns = 0;
 
-  const allLowercase = !/[A-Z]/.test(name);
-
   for (const word of words) {
     if (word.length === 0) continue;
 
-    const capitals = (word.match(/[A-Z]/g) || []).length;
-
-    if (word.length > 2 && capitals === word.length) {
-      suspiciousPatterns += 1;
+    if (/[A-Z]{3,}/.test(word)) {
+      suspiciousPatterns += 2;
     }
 
     if (word.length > 2) {
-      const randomCaps = /^[a-z]+[A-Z][a-z]*[A-Z]|^[A-Z][a-z]+[A-Z][a-z]+[A-Z]/;
-      const isException = /^(Ma?c|O'|D'|De|Van|Von|La|Le|Di|Da)[A-Z]/i.test(word);
-
-      if (randomCaps.test(word) && !isException) {
-        suspiciousPatterns += 1;
+      const isException = /^(ma?c|o'|d'|de|van|von|la|le|di|da)[A-Z]/i.test(
+        word
+      );
+      if (isException) {
+        return suspiciousPatterns;
       }
-    }
-  }
 
-  if (!allLowercase && words.length > 1) {
-    const hasLowercaseWord = words.some((w) => w.length > 2 && /^[a-z]+$/.test(w));
-    const hasUppercaseWord = words.some((w) => w.length > 2 && /^[A-Z]+$/.test(w));
-    const hasProperCaseWord = words.some((w) => /^[A-Z][a-z]+$/.test(w));
+      const startsWithLowerCase = /^[a-z]/.test(word);
 
-    if ((hasUppercaseWord && hasLowercaseWord) || (hasProperCaseWord && hasLowercaseWord)) {
-      suspiciousPatterns += 1;
+      let transitions = 0;
+      for (let i = 1; i < word.length; i++) {
+        const prevIsUpper = /[A-Z]/.test(word[i - 1]);
+        const currIsUpper = /[A-Z]/.test(word[i]);
+        if (prevIsUpper !== currIsUpper) {
+          transitions++;
+        }
+      }
+
+      if (startsWithLowerCase && transitions > 0) {
+        suspiciousPatterns += 3;
+      } else if (!startsWithLowerCase && transitions > 2) {
+        suspiciousPatterns += 3;
+      }
     }
   }
 
