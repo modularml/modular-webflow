@@ -15,7 +15,8 @@ function appendJobs(jobs) {
   jobs.forEach((job) => {
     const jobTitle = job.title;
     const jobId = job.id;
-    const jobLocation = job.location.name;
+    const jobLocation =
+      job.location.name || (job.offices && job.offices[0] && job.offices[0].name) || '';
     const jobLocationType = job.location_type;
     let jobLocationText = '';
 
