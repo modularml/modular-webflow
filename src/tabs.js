@@ -163,28 +163,39 @@ export function initTabs() {
       $(this).addClass('is-active');
 
       const index = $(this).closest('li').index();
+      const currentHeight = $wrap.height();
 
       $contents.each(function () {
-        const $content = $(this);
-        $content.hide();
+        $(this).hide();
       });
-
       $codes.hide();
 
       const $targetContent = $contents.eq(index);
       const $targetCode = $codes.eq(index);
+
       $targetContent.css('display', 'flex');
+      $targetCode.css('display', 'flex');
+
+      const newHeight = $wrap.height();
+
+      $wrap.css('height', currentHeight);
+      gsap.to($wrap, {
+        height: newHeight,
+        duration: 0.4,
+        ease: 'power2.out',
+        onComplete: () => {
+          $wrap.css('height', 'auto');
+        },
+      });
 
       if ($targetContent.is('ul, ol, li')) {
         const $items = $targetContent.find('li').add('[data-tabs="content-item"]');
         gsap.fromTo(
           $items,
           { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out' }
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out', delay: 0.2 }
         );
       }
-
-      $targetCode.css('display', 'flex');
 
       wrapTimeline = animateCode($targetCode);
     });

@@ -12,6 +12,7 @@ import { initTabs } from './tabs.js';
 import { initAmplitude } from './tracking/amplitude.js';
 import { initCookie } from './tracking/cookie.js';
 import { initExperiment } from './tracking/experiment.js';
+import { initCheckSectionThemeScroll } from './scroll-themes.js';
 
 $(document).ready(function () {
   initScrollToggle();
@@ -27,6 +28,7 @@ $(document).ready(function () {
   setupHookForFormSubmission();
   initExperiment();
   installAndScrollAnchorTags();
+  initCheckSectionThemeScroll();
 });
 
 $(document).ready(function () {
