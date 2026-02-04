@@ -178,15 +178,22 @@ export function initTabs() {
 
       const newHeight = $wrap.height();
 
-      $wrap.css('height', currentHeight);
-      gsap.to($wrap, {
-        height: newHeight,
-        duration: 0.4,
-        ease: 'power2.out',
-        onComplete: () => {
-          $wrap.css('height', 'auto');
-        },
-      });
+      const computedHeight = window.getComputedStyle($wrap[0]).height;
+      const inlineHeight = $wrap[0].style.height;
+
+      if (!inlineHeight) {
+        $wrap.css('height', currentHeight);
+        gsap.to($wrap, {
+          height: newHeight,
+          duration: 0.4,
+          ease: 'power2.out',
+          onComplete: () => {
+            $wrap.attr('style', '');
+          },
+        });
+      } else {
+        $wrap.css('height', 'auto');
+      }
 
       if ($targetContent.is('ul, ol, li')) {
         const $items = $targetContent.find('li').add('[data-tabs="content-item"]');
