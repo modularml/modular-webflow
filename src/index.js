@@ -7,12 +7,11 @@ import { initMaxReplacements } from './max.js';
 import { initModalBasic } from './modal.js';
 import { initNav } from './nav.js';
 import { initScrollToggle } from './scroll.js';
+import { initCheckSectionThemeScroll } from './scroll-themes.js';
 import { initSwipers } from './swipers.js';
 import { initTabs } from './tabs.js';
 import { initAmplitude } from './tracking/amplitude.js';
-import { initCookie } from './tracking/cookie.js';
 import { initExperiment } from './tracking/experiment.js';
-import { initCheckSectionThemeScroll } from './scroll-themes.js';
 
 $(document).ready(function () {
   initScrollToggle();
@@ -23,7 +22,6 @@ $(document).ready(function () {
   initMojoAnimations();
   initMaxReplacements();
   initAnims();
-  initCookie();
   initAmplitude();
   setupHookForFormSubmission();
   initExperiment();

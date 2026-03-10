@@ -11,7 +11,6 @@ const ENTRY_POINTS = [
   'src/index.js',
   'src/homepage-new.js',
   'src/legacy.js',
-  'src/cookies.js',
   'src/sales.js',
   'src/modconf.js',
   'src/performance.js',
