@@ -2,11 +2,11 @@ gsap.registerPlugin(InertiaPlugin);
 
 // __ Swiper
 !(function (e, s) {
-  'object' == typeof exports && 'undefined' != typeof module
+  'object' === typeof exports && 'undefined' !== typeof module
     ? (module.exports = s())
-    : 'function' == typeof define && define.amd
+    : 'function' === typeof define && define.amd
     ? define(s)
-    : ((e = 'undefined' != typeof globalThis ? globalThis : e || self).EffectCarousel = s());
+    : ((e = 'undefined' !== typeof globalThis ? globalThis : e || self).EffectCarousel = s());
 })(this, function () {
   'use strict';
   return function ({ swiper: e, on: s, extendParams: t }) {
@@ -113,12 +113,9 @@ function initCSSMarquee() {
       entries.forEach((entry) => {
         const $marquee = $(entry.target);
         if (!$marquee.data('clicked-paused')) {
-          entry.target
-            .querySelectorAll('[data-css-marquee-list]')
-            .forEach(
-              (list) =>
-                (list.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused')
-            );
+          entry.target.querySelectorAll('[data-css-marquee-list]').forEach((list) => {
+            list.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
+          });
         }
       });
     },
