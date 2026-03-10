@@ -1,1 +1,43 @@
-"use strict";(()=>{gsap.registerPlugin(ScrollTrigger,SplitText);function i(){document.querySelectorAll("[data-highlight-text]").forEach(t=>{let e=t.getAttribute("data-highlight-scroll-start")||"top 70%",r=t.getAttribute("data-highlight-scroll-end")||"center 40%",l=t.getAttribute("data-highlight-fade")||.2,a=t.getAttribute("data-highlight-stagger")||.1;new SplitText(t,{type:"words, chars",autoSplit:!0,onSplit(g){return gsap.context(()=>{gsap.timeline({scrollTrigger:{scrub:!0,trigger:t,start:e,end:r}}).from(g.chars,{autoAlpha:l,stagger:a,ease:"linear"})})}})})}document.addEventListener("DOMContentLoaded",()=>{i()});})();
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/about.js
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+  function initHighlightText() {
+    let splitHeadingTargets = document.querySelectorAll("[data-highlight-text]");
+    splitHeadingTargets.forEach((heading) => {
+      const scrollStart = heading.getAttribute("data-highlight-scroll-start") || "top 70%";
+      const scrollEnd = heading.getAttribute("data-highlight-scroll-end") || "center 40%";
+      const fadedValue = heading.getAttribute("data-highlight-fade") || 0.2;
+      const staggerValue = heading.getAttribute("data-highlight-stagger") || 0.1;
+      new SplitText(heading, {
+        type: "words, chars",
+        autoSplit: true,
+        onSplit(self) {
+          let ctx = gsap.context(() => {
+            let tl = gsap.timeline({
+              scrollTrigger: {
+                scrub: true,
+                trigger: heading,
+                start: scrollStart,
+                end: scrollEnd
+              }
+            });
+            tl.from(self.chars, {
+              autoAlpha: fadedValue,
+              stagger: staggerValue,
+              ease: "linear"
+            });
+          });
+          return ctx;
+        }
+      });
+    });
+  }
+  document.addEventListener("DOMContentLoaded", () => {
+    initHighlightText();
+  });
+})();
+//# sourceMappingURL=about.js.map

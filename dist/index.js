@@ -1,2 +1,5879 @@
-"use strict";(()=>{var Cr=Object.create;var he=Object.defineProperty;var Nr=Object.getOwnPropertyDescriptor;var Or=Object.getOwnPropertyNames;var Ir=Object.getPrototypeOf,Pr=Object.prototype.hasOwnProperty;var Rr=(e,t)=>()=>(t||e((t={exports:{}}).exports,t),t.exports);var Lr=(e,t,r,i)=>{if(t&&typeof t=="object"||typeof t=="function")for(let a of Or(t))!Pr.call(e,a)&&a!==r&&he(e,a,{get:()=>t[a],enumerable:!(i=Nr(t,a))||i.enumerable});return e};var $r=(e,t,r)=>(r=e!=null?Cr(Ir(e)):{},Lr(t||!e||!e.__esModule?he(r,"default",{value:e,enumerable:!0}):r,e));var ur=Rr((ht,It)=>{(function(e,t){"use strict";var r="0.7.33",i="",a="?",n="function",o="undefined",c="object",d="string",l="major",s="model",f="name",h="type",u="vendor",p="version",x="architecture",k="console",m="mobile",g="tablet",I="smarttv",V="wearable",vt="embedded",j=350,Pt="Amazon",K="Apple",re="ASUS",ie="BlackBerry",Z="Browser",mt="Chrome",Er="Edge",gt="Firefox",yt="Google",ne="Huawei",Rt="LG",Lt="Microsoft",ae="Motorola",wt="Opera",$t="Samsung",oe="Sharp",bt="Sony",Ut="Xiaomi",Bt="Zebra",se="Facebook",Tr=function(y,S){var w={};for(var T in y)S[T]&&S[T].length%2===0?w[T]=S[T].concat(y[T]):w[T]=y[T];return w},xt=function(y){for(var S={},w=0;w<y.length;w++)S[y[w].toUpperCase()]=y[w];return S},le=function(y,S){return typeof y===d?at(S).indexOf(at(y))!==-1:!1},at=function(y){return y.toLowerCase()},_r=function(y){return typeof y===d?y.replace(/[^\d\.]/g,i).split(".")[0]:t},Ht=function(y,S){if(typeof y===d)return y=y.replace(/^\s\s*/,i),typeof S===o?y:y.substring(0,j)},ot=function(y,S){for(var w=0,T,b,At,E,st,B;w<S.length&&!st;){var de=S[w],fe=S[w+1];for(T=b=0;T<de.length&&!st;)if(st=de[T++].exec(y),st)for(At=0;At<fe.length;At++)B=st[++b],E=fe[At],typeof E===c&&E.length>0?E.length===2?typeof E[1]==n?this[E[0]]=E[1].call(this,B):this[E[0]]=E[1]:E.length===3?typeof E[1]===n&&!(E[1].exec&&E[1].test)?this[E[0]]=B?E[1].call(this,B,E[2]):t:this[E[0]]=B?B.replace(E[1],E[2]):t:E.length===4&&(this[E[0]]=B?E[3].call(this,B.replace(E[1],E[2])):t):this[E]=B||t;w+=2}},Mt=function(y,S){for(var w in S)if(typeof S[w]===c&&S[w].length>0){for(var T=0;T<S[w].length;T++)if(le(S[w][T],y))return w===a?t:w}else if(le(S[w],y))return w===a?t:w;return y},kr={"1.0":"/8",1.2:"/1",1.3:"/3","2.0":"/412","2.0.2":"/416","2.0.3":"/417","2.0.4":"/419","?":"/"},ce={ME:"4.90","NT 3.11":"NT3.51","NT 4.0":"NT4.0",2e3:"NT 5.0",XP:["NT 5.1","NT 5.2"],Vista:"NT 6.0",7:"NT 6.1",8:"NT 6.2",8.1:"NT 6.3",10:["NT 6.4","NT 10.0"],RT:"ARM"},ue={browser:[[/\b(?:crmo|crios)\/([\w\.]+)/i],[p,[f,"Chrome"]],[/edg(?:e|ios|a)?\/([\w\.]+)/i],[p,[f,"Edge"]],[/(opera mini)\/([-\w\.]+)/i,/(opera [mobiletab]{3,6})\b.+version\/([-\w\.]+)/i,/(opera)(?:.+version\/|[\/ ]+)([\w\.]+)/i],[f,p],[/opios[\/ ]+([\w\.]+)/i],[p,[f,wt+" Mini"]],[/\bopr\/([\w\.]+)/i],[p,[f,wt]],[/(kindle)\/([\w\.]+)/i,/(lunascape|maxthon|netfront|jasmine|blazer)[\/ ]?([\w\.]*)/i,/(avant |iemobile|slim)(?:browser)?[\/ ]?([\w\.]*)/i,/(ba?idubrowser)[\/ ]?([\w\.]+)/i,/(?:ms|\()(ie) ([\w\.]+)/i,/(flock|rockmelt|midori|epiphany|silk|skyfire|ovibrowser|bolt|iron|vivaldi|iridium|phantomjs|bowser|quark|qupzilla|falkon|rekonq|puffin|brave|whale|qqbrowserlite|qq|duckduckgo)\/([-\w\.]+)/i,/(weibo)__([\d\.]+)/i],[f,p],[/(?:\buc? ?browser|(?:juc.+)ucweb)[\/ ]?([\w\.]+)/i],[p,[f,"UC"+Z]],[/microm.+\bqbcore\/([\w\.]+)/i,/\bqbcore\/([\w\.]+).+microm/i],[p,[f,"WeChat(Win) Desktop"]],[/micromessenger\/([\w\.]+)/i],[p,[f,"WeChat"]],[/konqueror\/([\w\.]+)/i],[p,[f,"Konqueror"]],[/trident.+rv[: ]([\w\.]{1,9})\b.+like gecko/i],[p,[f,"IE"]],[/yabrowser\/([\w\.]+)/i],[p,[f,"Yandex"]],[/(avast|avg)\/([\w\.]+)/i],[[f,/(.+)/,"$1 Secure "+Z],p],[/\bfocus\/([\w\.]+)/i],[p,[f,gt+" Focus"]],[/\bopt\/([\w\.]+)/i],[p,[f,wt+" Touch"]],[/coc_coc\w+\/([\w\.]+)/i],[p,[f,"Coc Coc"]],[/dolfin\/([\w\.]+)/i],[p,[f,"Dolphin"]],[/coast\/([\w\.]+)/i],[p,[f,wt+" Coast"]],[/miuibrowser\/([\w\.]+)/i],[p,[f,"MIUI "+Z]],[/fxios\/([-\w\.]+)/i],[p,[f,gt]],[/\bqihu|(qi?ho?o?|360)browser/i],[[f,"360 "+Z]],[/(oculus|samsung|sailfish|huawei)browser\/([\w\.]+)/i],[[f,/(.+)/,"$1 "+Z],p],[/(comodo_dragon)\/([\w\.]+)/i],[[f,/_/g," "],p],[/(electron)\/([\w\.]+) safari/i,/(tesla)(?: qtcarbrowser|\/(20\d\d\.[-\w\.]+))/i,/m?(qqbrowser|baiduboxapp|2345Explorer)[\/ ]?([\w\.]+)/i],[f,p],[/(metasr)[\/ ]?([\w\.]+)/i,/(lbbrowser)/i,/\[(linkedin)app\]/i],[f],[/((?:fban\/fbios|fb_iab\/fb4a)(?!.+fbav)|;fbav\/([\w\.]+);)/i],[[f,se],p],[/safari (line)\/([\w\.]+)/i,/\b(line)\/([\w\.]+)\/iab/i,/(chromium|instagram)[\/ ]([-\w\.]+)/i],[f,p],[/\bgsa\/([\w\.]+) .*safari\//i],[p,[f,"GSA"]],[/headlesschrome(?:\/([\w\.]+)| )/i],[p,[f,mt+" Headless"]],[/ wv\).+(chrome)\/([\w\.]+)/i],[[f,mt+" WebView"],p],[/droid.+ version\/([\w\.]+)\b.+(?:mobile safari|safari)/i],[p,[f,"Android "+Z]],[/(chrome|omniweb|arora|[tizenoka]{5} ?browser)\/v?([\w\.]+)/i],[f,p],[/version\/([\w\.\,]+) .*mobile\/\w+ (safari)/i],[p,[f,"Mobile Safari"]],[/version\/([\w(\.|\,)]+) .*(mobile ?safari|safari)/i],[p,f],[/webkit.+?(mobile ?safari|safari)(\/[\w\.]+)/i],[f,[p,Mt,kr]],[/(webkit|khtml)\/([\w\.]+)/i],[f,p],[/(navigator|netscape\d?)\/([-\w\.]+)/i],[[f,"Netscape"],p],[/mobile vr; rv:([\w\.]+)\).+firefox/i],[p,[f,gt+" Reality"]],[/ekiohf.+(flow)\/([\w\.]+)/i,/(swiftfox)/i,/(icedragon|iceweasel|camino|chimera|fennec|maemo browser|minimo|conkeror|klar)[\/ ]?([\w\.\+]+)/i,/(seamonkey|k-meleon|icecat|iceape|firebird|phoenix|palemoon|basilisk|waterfox)\/([-\w\.]+)$/i,/(firefox)\/([\w\.]+)/i,/(mozilla)\/([\w\.]+) .+rv\:.+gecko\/\d+/i,/(polaris|lynx|dillo|icab|doris|amaya|w3m|netsurf|sleipnir|obigo|mosaic|(?:go|ice|up)[\. ]?browser)[-\/ ]?v?([\w\.]+)/i,/(links) \(([\w\.]+)/i],[f,p],[/(cobalt)\/([\w\.]+)/i],[f,[p,/master.|lts./,""]]],cpu:[[/(?:(amd|x(?:(?:86|64)[-_])?|wow|win)64)[;\)]/i],[[x,"amd64"]],[/(ia32(?=;))/i],[[x,at]],[/((?:i[346]|x)86)[;\)]/i],[[x,"ia32"]],[/\b(aarch64|arm(v?8e?l?|_?64))\b/i],[[x,"arm64"]],[/\b(arm(?:v[67])?ht?n?[fl]p?)\b/i],[[x,"armhf"]],[/windows (ce|mobile); ppc;/i],[[x,"arm"]],[/((?:ppc|powerpc)(?:64)?)(?: mac|;|\))/i],[[x,/ower/,i,at]],[/(sun4\w)[;\)]/i],[[x,"sparc"]],[/((?:avr32|ia64(?=;))|68k(?=\))|\barm(?=v(?:[1-7]|[5-7]1)l?|;|eabi)|(?=atmel )avr|(?:irix|mips|sparc)(?:64)?\b|pa-risc)/i],[[x,at]]],device:[[/\b(sch-i[89]0\d|shw-m380s|sm-[ptx]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i],[s,[u,$t],[h,g]],[/\b((?:s[cgp]h|gt|sm)-\w+|galaxy nexus)/i,/samsung[- ]([-\w]+)/i,/sec-(sgh\w+)/i],[s,[u,$t],[h,m]],[/((ipod|iphone)\d+,\d+)/i],[s,[u,K],[h,m]],[/(ipad\d+,\d+)/i],[s,[u,K],[h,g]],[/\((ip(?:hone|od)[\w ]*);/i],[s,[u,K],[h,m]],[/\((ipad);[-\w\),; ]+apple/i,/applecoremedia\/[\w\.]+ \((ipad)/i,/\b(ipad)\d\d?,\d\d?[;\]].+ios/i],[s,[u,K],[h,g]],[/(macintosh);/i],[s,[u,K]],[/\b((?:ag[rs][23]?|bah2?|sht?|btv)-a?[lw]\d{2})\b(?!.+d\/s)/i],[s,[u,ne],[h,g]],[/(?:huawei|honor)([-\w ]+)[;\)]/i,/\b(nexus 6p|\w{2,4}e?-[atu]?[ln][\dx][012359c][adn]?)\b(?!.+d\/s)/i],[s,[u,ne],[h,m]],[/\b(poco[\w ]+)(?: bui|\))/i,/\b; (\w+) build\/hm\1/i,/\b(hm[-_ ]?note?[_ ]?(?:\d\w)?) bui/i,/\b(redmi[\-_ ]?(?:note|k)?[\w_ ]+)(?: bui|\))/i,/\b(mi[-_ ]?(?:a\d|one|one[_ ]plus|note lte|max|cc)?[_ ]?(?:\d?\w?)[_ ]?(?:plus|se|lite)?)(?: bui|\))/i],[[s,/_/g," "],[u,Ut],[h,m]],[/\b(mi[-_ ]?(?:pad)(?:[\w_ ]+))(?: bui|\))/i],[[s,/_/g," "],[u,Ut],[h,g]],[/; (\w+) bui.+ oppo/i,/\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i],[s,[u,"OPPO"],[h,m]],[/vivo (\w+)(?: bui|\))/i,/\b(v[12]\d{3}\w?[at])(?: bui|;)/i],[s,[u,"Vivo"],[h,m]],[/\b(rmx[12]\d{3})(?: bui|;|\))/i],[s,[u,"Realme"],[h,m]],[/\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i,/\bmot(?:orola)?[- ](\w*)/i,/((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i],[s,[u,ae],[h,m]],[/\b(mz60\d|xoom[2 ]{0,2}) build\//i],[s,[u,ae],[h,g]],[/((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i],[s,[u,Rt],[h,g]],[/(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i,/\blg[-e;\/ ]+((?!browser|netcast|android tv)\w+)/i,/\blg-?([\d\w]+) bui/i],[s,[u,Rt],[h,m]],[/(ideatab[-\w ]+)/i,/lenovo ?(s[56]000[-\w]+|tab(?:[\w ]+)|yt[-\d\w]{6}|tb[-\d\w]{6})/i],[s,[u,"Lenovo"],[h,g]],[/(?:maemo|nokia).*(n900|lumia \d+)/i,/nokia[-_ ]?([-\w\.]*)/i],[[s,/_/g," "],[u,"Nokia"],[h,m]],[/(pixel c)\b/i],[s,[u,yt],[h,g]],[/droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i],[s,[u,yt],[h,m]],[/droid.+ (a?\d[0-2]{2}so|[c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i],[s,[u,bt],[h,m]],[/sony tablet [ps]/i,/\b(?:sony)?sgp\w+(?: bui|\))/i],[[s,"Xperia Tablet"],[u,bt],[h,g]],[/ (kb2005|in20[12]5|be20[12][59])\b/i,/(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i],[s,[u,"OnePlus"],[h,m]],[/(alexa)webm/i,/(kf[a-z]{2}wi)( bui|\))/i,/(kf[a-z]+)( bui|\)).+silk\//i],[s,[u,Pt],[h,g]],[/((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i],[[s,/(.+)/g,"Fire Phone $1"],[u,Pt],[h,m]],[/(playbook);[-\w\),; ]+(rim)/i],[s,u,[h,g]],[/\b((?:bb[a-f]|st[hv])100-\d)/i,/\(bb10; (\w+)/i],[s,[u,ie],[h,m]],[/(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i],[s,[u,re],[h,g]],[/ (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i],[s,[u,re],[h,m]],[/(nexus 9)/i],[s,[u,"HTC"],[h,g]],[/(htc)[-;_ ]{1,2}([\w ]+(?=\)| bui)|\w+)/i,/(zte)[- ]([\w ]+?)(?: bui|\/|\))/i,/(alcatel|geeksphone|nexian|panasonic|sony(?!-bra))[-_ ]?([-\w]*)/i],[u,[s,/_/g," "],[h,m]],[/droid.+; ([ab][1-7]-?[0178a]\d\d?)/i],[s,[u,"Acer"],[h,g]],[/droid.+; (m[1-5] note) bui/i,/\bmz-([-\w]{2,})/i],[s,[u,"Meizu"],[h,m]],[/\b(sh-?[altvz]?\d\d[a-ekm]?)/i],[s,[u,oe],[h,m]],[/(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus|dell|meizu|motorola|polytron)[-_ ]?([-\w]*)/i,/(hp) ([\w ]+\w)/i,/(asus)-?(\w+)/i,/(microsoft); (lumia[\w ]+)/i,/(lenovo)[-_ ]?([-\w]+)/i,/(jolla)/i,/(oppo) ?([\w ]+) bui/i],[u,s,[h,m]],[/(archos) (gamepad2?)/i,/(hp).+(touchpad(?!.+tablet)|tablet)/i,/(kindle)\/([\w\.]+)/i,/(nook)[\w ]+build\/(\w+)/i,/(dell) (strea[kpr\d ]*[\dko])/i,/(le[- ]+pan)[- ]+(\w{1,9}) bui/i,/(trinity)[- ]*(t\d{3}) bui/i,/(gigaset)[- ]+(q\w{1,9}) bui/i,/(vodafone) ([\w ]+)(?:\)| bui)/i],[u,s,[h,g]],[/(surface duo)/i],[s,[u,Lt],[h,g]],[/droid [\d\.]+; (fp\du?)(?: b|\))/i],[s,[u,"Fairphone"],[h,m]],[/(u304aa)/i],[s,[u,"AT&T"],[h,m]],[/\bsie-(\w*)/i],[s,[u,"Siemens"],[h,m]],[/\b(rct\w+) b/i],[s,[u,"RCA"],[h,g]],[/\b(venue[\d ]{2,7}) b/i],[s,[u,"Dell"],[h,g]],[/\b(q(?:mv|ta)\w+) b/i],[s,[u,"Verizon"],[h,g]],[/\b(?:barnes[& ]+noble |bn[rt])([\w\+ ]*) b/i],[s,[u,"Barnes & Noble"],[h,g]],[/\b(tm\d{3}\w+) b/i],[s,[u,"NuVision"],[h,g]],[/\b(k88) b/i],[s,[u,"ZTE"],[h,g]],[/\b(nx\d{3}j) b/i],[s,[u,"ZTE"],[h,m]],[/\b(gen\d{3}) b.+49h/i],[s,[u,"Swiss"],[h,m]],[/\b(zur\d{3}) b/i],[s,[u,"Swiss"],[h,g]],[/\b((zeki)?tb.*\b) b/i],[s,[u,"Zeki"],[h,g]],[/\b([yr]\d{2}) b/i,/\b(dragon[- ]+touch |dt)(\w{5}) b/i],[[u,"Dragon Touch"],s,[h,g]],[/\b(ns-?\w{0,9}) b/i],[s,[u,"Insignia"],[h,g]],[/\b((nxa|next)-?\w{0,9}) b/i],[s,[u,"NextBook"],[h,g]],[/\b(xtreme\_)?(v(1[045]|2[015]|[3469]0|7[05])) b/i],[[u,"Voice"],s,[h,m]],[/\b(lvtel\-)?(v1[12]) b/i],[[u,"LvTel"],s,[h,m]],[/\b(ph-1) /i],[s,[u,"Essential"],[h,m]],[/\b(v(100md|700na|7011|917g).*\b) b/i],[s,[u,"Envizen"],[h,g]],[/\b(trio[-\w\. ]+) b/i],[s,[u,"MachSpeed"],[h,g]],[/\btu_(1491) b/i],[s,[u,"Rotor"],[h,g]],[/(shield[\w ]+) b/i],[s,[u,"Nvidia"],[h,g]],[/(sprint) (\w+)/i],[u,s,[h,m]],[/(kin\.[onetw]{3})/i],[[s,/\./g," "],[u,Lt],[h,m]],[/droid.+; (cc6666?|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i],[s,[u,Bt],[h,g]],[/droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i],[s,[u,Bt],[h,m]],[/(ouya)/i,/(nintendo) ([wids3utch]+)/i],[u,s,[h,k]],[/droid.+; (shield) bui/i],[s,[u,"Nvidia"],[h,k]],[/(playstation [345portablevi]+)/i],[s,[u,bt],[h,k]],[/\b(xbox(?: one)?(?!; xbox))[\); ]/i],[s,[u,Lt],[h,k]],[/smart-tv.+(samsung)/i],[u,[h,I]],[/hbbtv.+maple;(\d+)/i],[[s,/^/,"SmartTV"],[u,$t],[h,I]],[/(nux; netcast.+smarttv|lg (netcast\.tv-201\d|android tv))/i],[[u,Rt],[h,I]],[/(apple) ?tv/i],[u,[s,K+" TV"],[h,I]],[/crkey/i],[[s,mt+"cast"],[u,yt],[h,I]],[/droid.+aft(\w)( bui|\))/i],[s,[u,Pt],[h,I]],[/\(dtv[\);].+(aquos)/i,/(aquos-tv[\w ]+)\)/i],[s,[u,oe],[h,I]],[/(bravia[\w ]+)( bui|\))/i],[s,[u,bt],[h,I]],[/(mitv-\w{5}) bui/i],[s,[u,Ut],[h,I]],[/\b(roku)[\dx]*[\)\/]((?:dvp-)?[\d\.]*)/i,/hbbtv\/\d+\.\d+\.\d+ +\([\w ]*; *(\w[^;]*);([^;]*)/i],[[u,Ht],[s,Ht],[h,I]],[/\b(android tv|smart[- ]?tv|opera tv|tv; rv:)\b/i],[[h,I]],[/((pebble))app/i],[u,s,[h,V]],[/droid.+; (glass) \d/i],[s,[u,yt],[h,V]],[/droid.+; (wt63?0{2,3})\)/i],[s,[u,Bt],[h,V]],[/(quest( 2)?)/i],[s,[u,se],[h,V]],[/(tesla)(?: qtcarbrowser|\/[-\w\.]+)/i],[u,[h,vt]],[/droid .+?; ([^;]+?)(?: bui|\) applew).+? mobile safari/i],[s,[h,m]],[/droid .+?; ([^;]+?)(?: bui|\) applew).+?(?! mobile) safari/i],[s,[h,g]],[/\b((tablet|tab)[;\/]|focus\/\d(?!.+mobile))/i],[[h,g]],[/(phone|mobile(?:[;\/]| [ \w\/\.]*safari)|pda(?=.+windows ce))/i],[[h,m]],[/(android[-\w\. ]{0,9});.+buil/i],[s,[u,"Generic"]]],engine:[[/windows.+ edge\/([\w\.]+)/i],[p,[f,Er+"HTML"]],[/webkit\/537\.36.+chrome\/(?!27)([\w\.]+)/i],[p,[f,"Blink"]],[/(presto)\/([\w\.]+)/i,/(webkit|trident|netfront|netsurf|amaya|lynx|w3m|goanna)\/([\w\.]+)/i,/ekioh(flow)\/([\w\.]+)/i,/(khtml|tasman|links)[\/ ]\(?([\w\.]+)/i,/(icab)[\/ ]([23]\.[\d\.]+)/i],[f,p],[/rv\:([\w\.]{1,9})\b.+(gecko)/i],[p,f]],os:[[/microsoft (windows) (vista|xp)/i],[f,p],[/(windows) nt 6\.2; (arm)/i,/(windows (?:phone(?: os)?|mobile))[\/ ]?([\d\.\w ]*)/i,/(windows)[\/ ]?([ntce\d\. ]+\w)(?!.+xbox)/i],[f,[p,Mt,ce]],[/(win(?=3|9|n)|win 9x )([nt\d\.]+)/i],[[f,"Windows"],[p,Mt,ce]],[/ip[honead]{2,4}\b(?:.*os ([\w]+) like mac|; opera)/i,/cfnetwork\/.+darwin/i],[[p,/_/g,"."],[f,"iOS"]],[/(mac os x) ?([\w\. ]*)/i,/(macintosh|mac_powerpc\b)(?!.+haiku)/i],[[f,"Mac OS"],[p,/_/g,"."]],[/droid ([\w\.]+)\b.+(android[- ]x86|harmonyos)/i],[p,f],[/(android|webos|qnx|bada|rim tablet os|maemo|meego|sailfish)[-\/ ]?([\w\.]*)/i,/(blackberry)\w*\/([\w\.]*)/i,/(tizen|kaios)[\/ ]([\w\.]+)/i,/\((series40);/i],[f,p],[/\(bb(10);/i],[p,[f,ie]],[/(?:symbian ?os|symbos|s60(?=;)|series60)[-\/ ]?([\w\.]*)/i],[p,[f,"Symbian"]],[/mozilla\/[\d\.]+ \((?:mobile|tablet|tv|mobile; [\w ]+); rv:.+ gecko\/([\w\.]+)/i],[p,[f,gt+" OS"]],[/web0s;.+rt(tv)/i,/\b(?:hp)?wos(?:browser)?\/([\w\.]+)/i],[p,[f,"webOS"]],[/crkey\/([\d\.]+)/i],[p,[f,mt+"cast"]],[/(cros) [\w]+ ([\w\.]+\w)/i],[[f,"Chromium OS"],p],[/(nintendo|playstation) ([wids345portablevuch]+)/i,/(xbox); +xbox ([^\);]+)/i,/\b(joli|palm)\b ?(?:os)?\/?([\w\.]*)/i,/(mint)[\/\(\) ]?(\w*)/i,/(mageia|vectorlinux)[; ]/i,/([kxln]?ubuntu|debian|suse|opensuse|gentoo|arch(?= linux)|slackware|fedora|mandriva|centos|pclinuxos|red ?hat|zenwalk|linpus|raspbian|plan 9|minix|risc os|contiki|deepin|manjaro|elementary os|sabayon|linspire)(?: gnu\/linux)?(?: enterprise)?(?:[- ]linux)?(?:-gnu)?[-\/ ]?(?!chrom|package)([-\w\.]*)/i,/(hurd|linux) ?([\w\.]*)/i,/(gnu) ?([\w\.]*)/i,/\b([-frentopcghs]{0,5}bsd|dragonfly)[\/ ]?(?!amd|[ix346]{1,2}86)([\w\.]*)/i,/(haiku) (\w+)/i],[f,p],[/(sunos) ?([\w\.\d]*)/i],[[f,"Solaris"],p],[/((?:open)?solaris)[-\/ ]?([\w\.]*)/i,/(aix) ((\d)(?=\.|\)| )[\w\.])*/i,/\b(beos|os\/2|amigaos|morphos|openvms|fuchsia|hp-ux)/i,/(unix) ?([\w\.]*)/i],[f,p]]},L=function(y,S){if(typeof y===c&&(S=y,y=t),!(this instanceof L))return new L(y,S).getResult();var w=y||(typeof e!==o&&e.navigator&&e.navigator.userAgent?e.navigator.userAgent:i),T=S?Tr(ue,S):ue;return this.getBrowser=function(){var b={};return b[f]=t,b[p]=t,ot.call(b,w,T.browser),b.major=_r(b.version),b},this.getCPU=function(){var b={};return b[x]=t,ot.call(b,w,T.cpu),b},this.getDevice=function(){var b={};return b[u]=t,b[s]=t,b[h]=t,ot.call(b,w,T.device),b},this.getEngine=function(){var b={};return b[f]=t,b[p]=t,ot.call(b,w,T.engine),b},this.getOS=function(){var b={};return b[f]=t,b[p]=t,ot.call(b,w,T.os),b},this.getResult=function(){return{ua:this.getUA(),browser:this.getBrowser(),engine:this.getEngine(),os:this.getOS(),device:this.getDevice(),cpu:this.getCPU()}},this.getUA=function(){return w},this.setUA=function(b){return w=typeof b===d&&b.length>j?Ht(b,j):b,this},this.setUA(w),this};L.VERSION=r,L.BROWSER=xt([f,p,l]),L.CPU=xt([x]),L.DEVICE=xt([s,u,h,k,m,I,g,V,vt]),L.ENGINE=L.OS=xt([f,p]),typeof ht!==o?(typeof It!==o&&It.exports&&(ht=It.exports=L),ht.UAParser=L):typeof define===n&&define.amd?define(function(){return L}):typeof e!==o&&(e.UAParser=L);var X=typeof e!==o&&(e.jQuery||e.Zepto);if(X&&!X.ua){var St=new L;X.ua=St.getResult(),X.ua.get=function(){return St.getUA()},X.ua.set=function(y){St.setUA(y);var S=St.getResult();for(var w in S)X.ua[w]=S[w]}}})(typeof window=="object"?window:ht)});function pe(){document.querySelectorAll("h1,h2,h3").forEach(e=>{let t=e.innerText.toLowerCase().split(" ").map(i=>i.replace(/\W/g,"")).join("-");e.style.position="relative";let r=document.createElement("div");r.style.position="absolute",r.style.top="-90px",r.style.left="0",r.id=t,e.appendChild(r),requestAnimationFrame(()=>{if(window.location.hash){let i=document.getElementById(window.location.hash.replace("#",""));window.scrollTo({top:i.getBoundingClientRect().top+window.scrollY})}},1)})}function ve(){$("[data-line-dividers]").each(function(){let e=$(this);e.find(".line-divider").each(function(r){let i=$(this).attr("data-start-scale")||0,a=$(this).attr("data-end-scale")||.2;gsap.set($(this),{scaleY:i,transformOrigin:"bottom"}),gsap.to($(this),{scaleY:a,ease:"power2.out",scrollTrigger:{trigger:e,start:"top bottom",end:"bottom top",scrub:1}})})})}ve();function me(){ve()}function ye(){let e=document.querySelectorAll("form");e.length&&e.forEach(t=>{let r=t.querySelector("#form-description"),i=t.querySelector('input[type="submit"], button[type="submit"]'),a=t.querySelector('input[name*="First-Name"], input[name*="First-name"]'),n=t.querySelector('input[name*="Last-Name"], input[name*="Last-name"]'),o=t.querySelector("input[data-domain-check]");r&&(r.oninput=function(){r.value.length>0&&(i.disabled=!0)});let c=new Map;function d(u,p){let x=c.get(u);x||(x=document.createElement("div"),x.className="field-validation-error",x.style.cssText="color: #e74c3c; font-size: 14px; margin-top: 5px;",u.parentNode.insertBefore(x,u.nextSibling),c.set(u,x)),x.textContent=p,x.style.display="block"}function l(u){let p=c.get(u);p&&(p.style.display="none")}function s(u,p){p?(u.style.outlineColor="#e74c3c",u.style.outlineWidth="2px"):(u.style.outlineColor="",u.style.outlineWidth="")}function f(u){i&&(i.disabled=u,i.style.opacity=u?"0.5":"1",i.style.cursor=u?"not-allowed":"pointer")}if(a&&a.addEventListener("input",u=>{let p=u.target.value.trim();ge(p)?(d(a,"Please enter a valid name. Names should contain standard letters and spacing."),s(a,!0),f(!0)):(l(a),s(a,!1),f(!1))}),n&&n.addEventListener("input",u=>{let p=u.target.value.trim();ge(p)?(d(n,"Please enter a valid name. Names should contain standard letters and spacing."),s(n,!0),f(!0)):(l(n),s(n,!1),f(!1))}),!o)return;function h(u){return["comcast.net","gmail.com","live.com","yahoo.com","hotmail.com","mail.ru","web.de","gmx.net","live.net","mail.com","aol.com","msn.com","outlook.com","proton.me","protonmail.com","icloud.com","me.com","zoho.com","yandex.com","inbox.com"].includes(u.toLowerCase())}o.addEventListener("input",u=>{let p=u.target.value.trim(),x=p.toLowerCase().split("@")[1];p&&p.includes("@")&&h(x)?(d(o,`Please use a business email address. ${x} is not allowed.`),s(o,!0),f(!0)):(l(o),s(o,!1),f(!1))})})}function ge(e){let t=0;/(.)\1{2,}/.test(e)&&(t+=3);let i=(e.match(/[aeiou]/gi)||[]).length/e.replace(/\s/g,"").length;(i<.15||i>.7)&&(t+=2),/asdf|qwer|zxcv|hjkl/i.test(e)&&(t+=3),/[^aeiou\s]{6,}/i.test(e)&&(t+=2),/[^a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿāăąćčďđēėęěğģīįķĺļľłńņňőœŕřśşšţťũūůűųźżžșțə\s'-]/i.test(e)&&(t+=3);let a=Ur(e);return t+=a,t>=3}function Ur(e){let t=e.split(/[\s-]+/),r=0;for(let i of t)if(i.length!==0&&(/[A-Z]{3,}/.test(i)&&(r+=2),i.length>2)){if(/^(ma?c|o'|d'|de|van|von|la|le|di|da)[A-Z]/i.test(i))return r;let n=/^[a-z]/.test(i),o=0;for(let c=1;c<i.length;c++){let d=/[A-Z]/.test(i[c-1]),l=/[A-Z]/.test(i[c]);d!==l&&o++}(n&&o>0||!n&&o>2)&&(r+=3)}return r>=2?3:r===1?1:0}function we(){gsap.registerPlugin(ScrollTrigger);let e=window.matchMedia("(prefers-reduced-motion: reduce)").matches;$("h1, h2, h3, h4, h5, h6").each(function(){if($(this).is("[data-emoji-exclude]")||$(this).closest(".w-richtext").length)return;let t=$(this),r=t.html();if(r.includes("Mojo")){let i=r.replace(/Mojo/g,'<span style="display: inline-flex;align-items: center;"><span>Mojo</span><span style="width: 1em; display: inline-block;height: 1em" data-lottie data-lottie-src="https://cdn.prod.website-files.com/68c9c3107effc2ea46e1a81f/694322d8b5849da406718d9a_MojoEmoji.json"></span></span>');t.html(i)}}),$("[data-lottie]").each(function(){let t=this,r;ScrollTrigger.create({trigger:t,start:"top bottom+=50%",end:"bottom top-=25%",onEnter:i,onEnterBack:i,onLeave:a,onLeaveBack:a});function i(){t.hasAttribute("data-lottie-fired")?r&&!e&&r.play():(t.setAttribute("data-lottie-fired","true"),r=lottie.loadAnimation({container:t,renderer:"svg",loop:!0,autoplay:!e,path:t.getAttribute("data-lottie-src")}),r.setSpeed(1.5),r.addEventListener("DOMLoaded",()=>{if(e){let n=parseInt(t.getAttribute("data-lottie-frame")||"0",10);r.goToAndStop(n,!0)}}))}function a(){r&&!e&&r.pause()}})}function Dt(){$("h1, h2, h3, h4, h5, h6").each(function(){let e=$(this);if(e.attr("data-max-processed")||e.is("data-emoji-exclude")||e.closest(".w-richtext").length)return;let t=e.html();if(/\bMAX\b/.test(t)){let r='<svg width="100%" height="100%" viewBox="0 0 62 20" style="width: 2.2em; margin-left: 0.05em;" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0849 5.92771C17.9874 5.92771 17.9084 5.8487 17.9084 5.75123V0.206055H15.4824L10.9206 13.7531H10.3676L5.80588 0.206055H0V19.559H3.59412V6.15017H4.14706L8.70882 19.559H12.5794L17.1341 6.1711C17.1388 6.11056 17.1895 6.06283 17.2513 6.06283L17.5794 6.06284C17.6339 6.06284 17.6797 6.09989 17.6931 6.15017H17.6941V6.15434C17.696 6.16275 17.697 6.1715 17.697 6.18049V11.8734C17.697 11.8823 17.696 11.8911 17.6941 11.8995V19.559H21.2882V5.92771H18.0849Z" fill="currentColor"></path><path d="M42.4204 19.559L49.0557 9.60606L42.8351 0.206055H47.1204L51.2675 6.56488H51.8204L55.9675 0.206055H60.2528L54.0322 9.60606L60.6675 19.559H56.3822L51.8204 12.6472H51.2675L46.7057 19.559H42.4204Z" fill="currentColor"></path><path d="M22.4322 19.559L29.344 0.206055H34.5969L41.5087 19.559H37.4998L36.0345 15.4119H27.9063L26.441 19.559H22.4322ZM29.0675 12.0943H34.8734L32.2469 4.35311H31.694L29.0675 12.0943Z" fill="currentColor"></path></svg>',i=t.replace(/\bMAX\b/g,'<span style="display: inline-block;"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">MAX</span>'+r+"</span>");e.html(i),e.attr("data-max-processed","true")}})}$(document).ready(function(){Dt()});function be(){let e=document.querySelector("[data-modal-group-status]"),t=document.querySelectorAll("[data-modal-name]"),r=document.querySelectorAll("[data-modal-target]");function i(n){let o=n.find("[data-modal-list]");if(!o.length)return;n.off("wheel touchstart touchmove"),o.off("scroll"),$(window).off("resize.modalCounter"+n.attr("data-modal-name"));let c=o.find("[data-modal-item]"),d=c.length;n.find('[data-modal-counter="total"]').text(d);function l(){let f=o[0].getBoundingClientRect(),h=f.bottom-f.height*.25,u=0;c.each(function(p){$(this)[0].getBoundingClientRect().top<=h&&(u=p)}),n.find('[data-modal-counter="current"]').text(u+1)}l(),o.on("scroll",l),$(window).on("resize.modalCounter"+n.attr("data-modal-name"),l),n.on("wheel",function(f){f.preventDefault(),o.scrollTop(o.scrollTop()+f.originalEvent.deltaY)});let s=0;n.on("touchstart",function(f){s=f.originalEvent.touches[0].clientY}),n.on("touchmove",function(f){f.preventDefault();let h=f.originalEvent.touches[0].clientY,u=s-h;o.scrollTop(o.scrollTop()+u),s=h})}r.forEach(n=>{n.addEventListener("click",function(){let o=this.getAttribute("data-modal-target"),c=$(this).parent().index();r.forEach(l=>l.setAttribute("data-modal-status","not-active")),t.forEach(l=>{l.setAttribute("data-modal-status","not-active"),$(l).off("wheel touchstart touchmove"),$(l).find("[data-modal-list]").off("scroll")}),document.querySelector(`[data-modal-target="${o}"]`).setAttribute("data-modal-status","active");let d=$(`[data-modal-name="${o}"]`);d.attr("data-modal-status","active"),e&&e.setAttribute("data-modal-group-status","active"),i(d),setTimeout(()=>{let l=d.find("[data-modal-list]"),s=l.find("[data-modal-item]").eq(c);if(s.length){let f=l[0].getBoundingClientRect(),u=s[0].getBoundingClientRect().top-f.top+l.scrollTop();l.scrollTop(u)}},0)})}),document.querySelectorAll("[data-modal-close]").forEach(n=>{n.addEventListener("click",a)}),document.addEventListener("keydown",function(n){n.key==="Escape"&&a()});function a(){r.forEach(n=>n.setAttribute("data-modal-status","not-active")),t.forEach(n=>{n.setAttribute("data-modal-status","not-active");let o=n.getAttribute("data-modal-name");$(n).off("wheel touchstart touchmove"),$(n).find("[data-modal-list]").off("scroll"),$(window).off("resize.modalCounter"+o)}),e&&e.setAttribute("data-modal-group-status","not-active")}}var xe=$(".snackbar"),Ft=$(".nav-wrapper"),z=$(".nav"),lt=$(".nav_menu-wrap"),G=$(".nav_menu"),Et=lt.find(".nav_menu-item, .nav_part"),Vt=$(".nav_part").eq(0),Br=$(".nav_menu-ham"),J=$(".nav_menu-link"),M=$(".nav_menu-inner"),tt=$(".nav_menu-inner-bg"),W=$(".nav_menu-back"),xn=$("[data-dropdown-trigger]"),P=$("[data-dropdown-target]"),qt=null,ct=null;function et(){gsap.killTweensOf(M),gsap.killTweensOf(tt),gsap.killTweensOf(M),P.each(function(){gsap.killTweensOf($(this)),gsap.killTweensOf($(this).find("li"))})}function jt(){gsap.set(lt,{clearProps:"all"}),gsap.set(G,{clearProps:"all"}),gsap.set(Et,{clearProps:"all"}),gsap.set(Vt,{clearProps:"all"}),gsap.set(M,{clearProps:"all"}),gsap.set(tt,{clearProps:"all"}),gsap.set(W,{clearProps:"all"}),gsap.set(P,{clearProps:"all"}),P.each(function(){let e=$(this);e.removeClass("is-active"),gsap.set(e.find("li"),{clearProps:"all"});let t=e.prev("li");if(t.length){let r=t.siblings("li");gsap.set(r,{clearProps:"all"})}}),J.each(function(){let e=$(this).closest("li");gsap.set(e,{clearProps:"all"})})}function Hr(e){P.each(function(){let t=$(this);t.removeClass("is-active"),gsap.set(t,{autoAlpha:0}),gsap.set(t.find("li"),{autoAlpha:0,y:0})}),e&&e()}function Mr(e){e.addClass("is-active"),gsap.set(e,{autoAlpha:1});let t=e.outerWidth(),r=e.outerHeight();gsap.to(tt,{width:t,height:r,autoAlpha:1,duration:.25,ease:"power2.out"})}function Se(e){Mr(e),gsap.fromTo(e.find("li"),{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.2,stagger:.03,ease:"power2.out",delay:.05})}function Dr(e,t){gsap.to(e.find("li"),{autoAlpha:0,y:-10,duration:.15,stagger:.02,onComplete:()=>{e.removeClass("is-active"),gsap.set(e,{autoAlpha:0}),t&&t()}})}function Fr(e){if(qt===e)return;et();let t=$(`[data-dropdown-target="${e}"]`),r=$(`[data-dropdown-trigger="${e}"]`),i=P.filter(".is-active");qt=e,gsap.set(t,{autoAlpha:1});let a=M.parent()[0].getBoundingClientRect(),n=r[0].getBoundingClientRect(),o=M.outerWidth(),c=n.left+n.width/2,d=a.left+a.width/2,l=c-d,s=a.left+l,f=s+o,h=$(window).width(),u=20;s<u?l+=u-s:f>h-u&&(l-=f-(h-u)),gsap.to([M,tt],{x:l,duration:.3,ease:"power2.out"}),i.length?Hr(()=>Se(t)):(gsap.to(M,{autoAlpha:1,duration:.2}),Se(t))}function Ae(){et();let e=P.filter(".is-active");qt=null,e.length&&(Dr(e),gsap.to(tt,{autoAlpha:0,duration:.2,delay:.1}),gsap.to(M,{autoAlpha:0,duration:.2,delay:.2}))}function Ee(){et(),gsap.set(W,{autoAlpha:0}),gsap.set(Vt,{autoAlpha:1}),gsap.set(P,{display:"none",autoAlpha:0,clearProps:"height"}),P.removeClass("is-active");let e=G.find("li").not("[data-dropdown-target]");gsap.set(e,{display:"block",autoAlpha:1}),gsap.set(G,{autoAlpha:1})}function qr(e,t){let r=t.siblings("li");gsap.set(Vt,{autoAlpha:0}),gsap.set(W,{autoAlpha:1}),gsap.to(G,{autoAlpha:0,duration:.15}),gsap.to([r,P],{autoAlpha:0,duration:.15,onComplete:()=>{gsap.set(r,{display:"none"}),gsap.set(P,{display:"none"}),P.removeClass("is-active"),e.addClass("is-active"),gsap.set(e,{display:"block",height:"auto"});let i=e.outerHeight();gsap.set(e,{height:0}),gsap.to(G,{autoAlpha:1,duration:.1}),gsap.to(e,{height:i,autoAlpha:1,duration:.25,ease:"power2.out",onComplete:()=>gsap.set(e,{height:"auto"})}),gsap.fromTo(e.find("li"),{autoAlpha:0,x:-10},{autoAlpha:1,x:0,duration:.2,stagger:.03,ease:"power2.out",delay:.1})}})}function Te(){let e=P.filter(".is-active");e.length&&(gsap.to(e.find("li"),{autoAlpha:0,x:10,duration:.15,stagger:.02}),gsap.to(e,{height:0,autoAlpha:0,duration:.2,ease:"power2.in",onComplete:()=>Ee()}))}function Vr(e,t){e.preventDefault(),et();let r=$(`[data-dropdown-target="${t}"]`),i=$(e.currentTarget).closest("li");r.hasClass("is-active")?Te():qr(r,i)}function jr(){et(),jt(),ct&&ct.length&&P.each(function(){$(this).appendTo(ct)}),gsap.set(M,{autoAlpha:0}),gsap.set(tt,{autoAlpha:0}),gsap.set(P,{autoAlpha:0}),gsap.set(W,{autoAlpha:0}),J.off("click mouseenter").on("mouseenter",function(){let e=$(this).attr("data-dropdown-trigger");e?Fr(e):Ae()}),z.off("mouseleave").on("mouseleave",()=>Ae()),W.off("click")}function zr(){et(),jt(),gsap.set(P,{display:"none",autoAlpha:0}),gsap.set(W,{autoAlpha:0}),J.off("mouseenter"),J.off("mouseleave"),z.off("mouseleave"),ct||(ct=P.first().parent()),J.each(function(){let e=$(this).attr("data-dropdown-trigger");if(e){let t=$(this).closest("li"),r=$(`[data-dropdown-target="${e}"]`);r.length&&t.length&&r.insertAfter(t)}}),J.on("click",function(e){let t=$(this).attr("data-dropdown-trigger");t&&Vr(e,t)}),W.on("click",Te)}function Gr(){$(window).width()<992?(gsap.set(lt,{autoAlpha:0,display:"none"}),gsap.set(Et,{autoAlpha:0,y:"1em"})):jt();function e(){let r=gsap.timeline();xe.hide(),r.to(lt,{autoAlpha:1,display:"flex"}),r.to(G,{autoAlpha:1}),r.to(Et,{autoAlpha:1,y:"0em",duration:.4,stagger:.02,ease:"power2.inOut"},"<")}function t(){Ee(),xe.css("display","flex");let r=gsap.timeline();r.to(G,{autoAlpha:0}),r.to(Et,{autoAlpha:0,y:"1em",duration:.4,stagger:.02,ease:"power2.inOut"},"<"),r.to(lt,{autoAlpha:0,display:"flex"})}Br.on("click",function(){$(this).hasClass("is-active")?(t(),$(this).removeClass("is-active")):(e(),$(this).addClass("is-active"))})}function Wr(){var e="fixed";z.hasClass(e)||$(window).on("scroll load",function(){var t=$(window).scrollTop();t>=80?z.hasClass(e)||z.addClass(e):z.removeClass(e)})}function Qr(){if(!($(window).width()>992&&$(".subnav").length>0))return;let t=0,r=z.outerHeight();$(window).on("scroll",function(){let i=$(this).scrollTop();i>t&&i>r?gsap.to(Ft,{y:-r,duration:.6,ease:"power2.out"}):i<t&&gsap.to(Ft,{y:0,duration:.6,ease:"power2.out",onComplete:()=>{Ft.attr("style","")}}),t=i})}function Yr(){function e(){$("[data-snackbar-text]").each(function(){let r=$(this),i=r.data("original-text")||r.text().trim();r.data("original-text")||r.data("original-text",i);let a=i.lastIndexOf("-");if(a===-1)return;let n=i.substring(0,a),o=i.substring(a),d=parseFloat(r.css("line-height"))*2.1;if(r.css("overflow","hidden"),r.html(n+o),r.prop("scrollHeight")<=d)return;let l=n.split(" ");for(;r.prop("scrollHeight")>d&&l.length>0;)l.pop(),n=l.join(" "),r.html(n+"... "+o);r.css("max-height",d+"px")})}e();let t;$(window).on("resize",function(){clearTimeout(t),t=setTimeout(e,150)})}function _e(){let e=gsap.matchMedia();e.add("(min-width: 992px)",jr),e.add("(max-width: 991px)",zr),Gr(),Wr(),Qr(),Yr()}function ke(){var e=$(document.body),t=0,r=!1,i="";function a(){r?o():n()}function n(){var f=e.innerWidth();t=window.pageYOffset,e.css({overflow:"hidden",position:"fixed",top:`-${t}px`,width:f}),r=!0}function o(){e.css({overflow:"",position:"",top:"",width:""}),$(window).scrollTop(t),r=!1}$('[data-scroll="toggle"]').on("click",a);let c=[991,767,479],d=window.innerWidth;function l(f){r&&o()}function s(){let f=window.innerWidth;c.forEach(h=>{(d<=h&&f>h||d>=h&&f<h)&&l(h)}),d=f}window.addEventListener("resize",s)}function Ce(){let e=document.querySelector("[data-nav-bar-height]"),t=e?e.offsetHeight/2:0;function r(){let n=document.body;n.hasAttribute("data-theme-nav")||n.setAttribute("data-theme-nav","light"),document.querySelectorAll("section").forEach(function(c){c.hasAttribute("data-theme-section")||c.setAttribute("data-theme-section","light")})}function i(){document.querySelectorAll("[data-theme-section]").forEach(function(o){let c=o.getBoundingClientRect(),d=c.top,l=c.bottom;if(d<=t&&l>=t){let s=o.getAttribute("data-theme-section");document.querySelectorAll("[data-theme-nav]").forEach(function(f){f.getAttribute("data-theme-nav")!==s&&f.setAttribute("data-theme-nav",s)})}})}function a(){document.addEventListener("scroll",i)}r(),i(),a()}function Kr(){$(".section_testimonials").each(function(e){var t=$(this),r=t.find(".testimonials_slider"),i=t.find(".testimonials_menu-item"),a=t.find(".swiper-arrow.is-next"),n=t.find(".swiper-arrow.is-prev"),o=new Swiper(r[0],{slidesPerView:1,spaceBetween:0,effect:"fade",fadeEffect:{crossFade:!0},navigation:{nextEl:a[0],prevEl:n[0]},on:{init:function(){c(this)},slideChange:function(){c(this)}}});function c(l){i.removeClass("is-active").eq(l.realIndex).addClass("is-active")}function d(){i.on("click",function(){o.slideTo($(this).index())})}d()})}function Zr(){$(".testimonial-cards_wrap").each(function(e){var t=$(this),r=t.find(".testimonial-cards_slider"),i=t.find(".swiper-arrow.is-next"),a=t.find(".swiper-arrow.is-prev"),n=new Swiper(r[0],{slidesPerView:1,effect:"fade",fadeEffect:{crossFade:!0},navigation:{nextEl:i[0],prevEl:a[0]}})})}function Xr(){$(".section_latest-blog").each(function(e){var t=$(this),r=t.find(".latest-blog_slider"),i=t.find(".swiper-arrow.is-next"),a=t.find(".swiper-arrow.is-prev"),n=new Swiper(r[0],{slidesPerView:"auto",spaceBetween:20,navigation:{nextEl:i[0],prevEl:a[0]}})})}function Jr(){$(".section_deploy-slider").each(function(e){var t=$(this),r=t.find(".deploy-slider"),i=t.find(".swiper-arrow.is-next"),a=t.find(".swiper-arrow.is-prev"),n=new Swiper(r[0],{slidesPerView:"auto",spaceBetween:20,navigation:{nextEl:i[0],prevEl:a[0]},pagination:{el:".swiper-navigation",type:"bullets",bulletActiveClass:"is-active",bulletClass:"swiper-dot",clickable:!0}})})}function ti(){if($(".about-company_slider").length==0)return;function t(){gsap.set(".cursor-box_wrap",{xPercent:-50,yPercent:-50});let i=gsap.quickTo(".cursor-box_wrap","x",{duration:.6,ease:"power3"}),a=gsap.quickTo(".cursor-box_wrap","y",{duration:.6,ease:"power3"});window.addEventListener("mousemove",n=>{i(n.clientX),a(n.clientY)})}let r=new Swiper(".about-company_slider",{slidesPerView:1,loop:!0,effect:"fade",fadeEffect:{crossFade:!0},navigation:{nextEl:".swiper-arrow.is-next",prevEl:".swiper-arrow.is-prev"}});gsap.set(".cursor-box_wrap",{display:"hidden"}),gsap.set(".cursor-box",{scale:0}),$(".about-company_desktop-box").on("mouseenter",function(){if($(window).width()<992)return;gsap.to(".cursor-box_wrap",{display:"flex"}),gsap.to(".cursor-box",{scale:1,duration:.3,ease:"back.out"});let i=$('[cursor-arrow="next"]'),a=$('[cursor-arrow="prev"]');$(this).hasClass("is-right")?(i.show(),a.hide()):$(this).hasClass("is-left")&&(a.show(),i.hide())}),$(".about-company_desktop-box").on("mouseleave",function(){$(window).width()<992||(gsap.to(".cursor-box_wrap",{display:"none"}),gsap.to(".cursor-box",{scale:0,duration:.3,ease:"back.out"}))}),t()}function Ne(){Kr(),Xr(),Jr(),Zr(),ti()}var ei=e=>{let t=r=>{if(r.nodeType===Node.TEXT_NODE){if(!r.parentNode.classList.contains("letter")){let i=r.textContent,a=document.createDocumentFragment();for(let n=0;n<i.length;n++){let o=document.createElement("span");o.className="letter",o.textContent=i[n],a.appendChild(o)}r.parentNode.replaceChild(a,r)}}else r.nodeType===Node.ELEMENT_NODE&&r.tagName!=="BR"&&Array.from(r.childNodes).forEach(t)};$(e).contents().each(function(){t(this)})},ri=e=>{$(e).each((t,r)=>{let i=$(r).find(".letter").not(".line-numbers-row .code-letter"),a=$(r).find(".word-highlight");if(gsap.set(i,{visibility:"hidden"}),a.length){let n=a[0],o=window.getComputedStyle(n).getPropertyValue("background-color"),c=window.getComputedStyle(n).getPropertyValue("box-shadow"),d=(u,p)=>{let[x,k,m]=u.match(/\w\w/g).map(g=>parseInt(g,16));return`rgba(${x}, ${k}, ${m}, ${p})`},l=u=>{let p=u.replace(/^rgba?\(/,"").replace(/\)$/,"").split(",");return`rgba(${p[0]}, ${p[1]}, ${p[2]}, 0)`},s=u=>/^#(?:[0-9a-f]{3}){1,2}$/i.test(u),f=s(o)?d(o,0):l(o),h=c.replace(/rgba?\([^)]+\)/g,u=>s(u)?d(u,0):l(u));gsap.set(a,{backgroundColor:f,boxShadow:h})}})},ii=(e,t=.01)=>{let r=gsap.timeline(),i=0,a=0,n=0;return $(e).each((o,c)=>{let d=$(c).find(".letter").not(".line-numbers-row .code-letter");a+=d.length}),$(e).each((o,c)=>{let d=$(c).find(".letter").not(".line-numbers-row .code-letter"),l=$(c).find(".word-highlight");if(d.each((s,f)=>{let h=i/a,u=t*Math.pow(.3,h*3);r.fromTo(f,{visibility:"hidden"},{visibility:"initial"},n),n+=u,i++}),l.length){let s=l[0],f=window.getComputedStyle(s).getPropertyValue("background-color"),h=window.getComputedStyle(s).getPropertyValue("box-shadow");r.to(l,{backgroundColor:f,boxShadow:h,duration:.35},"<")}}),r},ni=e=>{let t=e.find("code"),r=t.find(".line-numbers-rows").eq(0).clone();return t.find(".line-numbers-rows").remove(),t.find(".letter").length||ei(t),ri(t),t.css("visibility","visible"),t.prepend(r),ii(t)};function Oe(){$('[data-tabs="wrap"]').each(function(){let e=$(this),r=e.find('[data-tabs="menu"]').find('[data-tabs="menu-item"]'),i=e.find('[data-tabs="content"]'),a=e.find('[data-tabs="code"]'),n=null;r.on("click",function(){n&&(n.kill(),n=null),r.removeClass("is-active"),$(this).addClass("is-active");let o=$(this).closest("li").index(),c=e.height();i.each(function(){$(this).hide()}),a.hide();let d=i.eq(o),l=a.eq(o);d.css("display","flex"),l.css("display","flex");let s=e.height(),f=window.getComputedStyle(e[0]).height;if(e[0].style.height?e.css("height","auto"):(e.css("height",c),gsap.to(e,{height:s,duration:.4,ease:"power2.out",onComplete:()=>{e.attr("style","")}})),d.is("ul, ol, li")){let u=d.find("li").add('[data-tabs="content-item"]');gsap.fromTo(u,{opacity:0,y:20},{opacity:1,y:0,duration:.4,stagger:.08,ease:"power2.out",delay:.2})}n=ni(l)})})}function Re(){let e=setInterval(()=>{let t=document.querySelectorAll("input[type=email]");t.length&&(ai(t),clearInterval(e))},1e3)}var Ie="";function ai(e){for(let t of e){if(t.classList.contains("emailCheck"))continue;let r=t.parentElement;for(;r&&r.nodeName!=="FORM"&&r.nodeName!=="BODY";)r=r.parentElement;let{formId:i}=r.dataset,a=oi((n,o)=>{Pe(n)&&(Ie=n.value,amplitude.track("emailInput",{email:n.value,formId:o}))},3e3);t.addEventListener("input",n=>{n.target.value!==Ie&&Pe(n.target)&&a(n.target,i)}),t.classList.add("emailCheck")}}function Pe(e){return e.checkValidity()&&!e.classList.contains("error")&&e.value!==""}var oi=(e,t)=>{let r=null;return(...i)=>{window.clearTimeout(r),r=window.setTimeout(()=>{e(...i)},t)}};function Le(){Re();function e(n,o){return()=>{amplitude.track(o,{href:window.location.href,location:n.dataset.analyticsLocation})}}setTimeout(()=>{[...document.querySelectorAll("a")].filter(n=>n.href==="https://docs.modular.com/").forEach(n=>{n.onclick=e(n,"DownloadMaxClicked")})},100),setTimeout(()=>{[...document.querySelectorAll("a")].filter(n=>n.href==="https://modular.com/enterprise#form").forEach(n=>{n.onclick=e(n,"ContactSalesClicked")})},200),setTimeout(()=>{[...document.querySelectorAll("[data-analytics-onclick]")].forEach(n=>{n.onclick=e(n,n.dataset.analyticsOnclick)})},300);let t=new Date;function r(n){if(!t)return;let o=Math.round(new Date().getTime()-t.getTime())/1e3;amplitude.track("TimeOnPage",{duration:`${Math.round(o)}`,minutes:`${Math.round(o/60)}`,pathname:n})}function i(){let{documentElement:n}=document,{body:o}=document;return Math.round((n.scrollTop||o.scrollTop)/((n.scrollHeight||o.scrollHeight)-n.clientHeight)*100)}let a=0;setInterval(()=>{let n=i();n>a&&(a=n)},500),window.addEventListener("beforeunload",()=>{let{pathname:n}=window.location;r(n),amplitude.track("MaxScrollPercentage",{maxScroll:a,pathname:n})})}async function si(e=15){await new Promise(t=>setTimeout(()=>requestAnimationFrame(()=>{t()}),e))}async function $e(e,t=1e3){let r=0;for(;!e()&&r<t;)r=r+1,await si()}var li=function(){function e(){}return e.prototype.getApplicationContext=function(){return{versionName:this.versionName,language:ci(),platform:"Web",os:void 0,deviceModel:void 0}},e}(),ci=function(){return typeof navigator!="undefined"&&(navigator.languages&&navigator.languages[0]||navigator.language)||""},ui=function(){function e(){this.queue=[]}return e.prototype.logEvent=function(t){this.receiver?this.receiver(t):this.queue.length<512&&this.queue.push(t)},e.prototype.setEventReceiver=function(t){this.receiver=t,this.queue.length>0&&(this.queue.forEach(function(r){t(r)}),this.queue=[])},e}(),F=function(){return F=Object.assign||function(t){for(var r,i=1,a=arguments.length;i<a;i++){r=arguments[i];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(t[n]=r[n])}return t},F.apply(this,arguments)},Tt=function(e,t){var r=["string","number","boolean","undefined"],i=typeof e,a=typeof t;if(i!==a)return!1;for(var n=0,o=r;n<o.length;n++){var c=o[n];if(c===i)return e===t}if(e==null&&t==null)return!0;if(e==null||t==null||e.length!==t.length)return!1;var d=Array.isArray(e),l=Array.isArray(t);if(d!==l)return!1;if(d&&l){for(var s=0;s<e.length;s++)if(!Tt(e[s],t[s]))return!1}else{var f=Object.keys(e).sort(),h=Object.keys(t).sort();if(!Tt(f,h))return!1;var u=!0;return Object.keys(e).forEach(function(p){Tt(e[p],t[p])||(u=!1)}),u}return!0},di="$set",fi="$unset",hi="$clearAll";Object.entries||(Object.entries=function(e){for(var t=Object.keys(e),r=t.length,i=new Array(r);r--;)i[r]=[t[r],e[t[r]]];return i});var pi=function(){function e(){this.identity={userProperties:{}},this.listeners=new Set}return e.prototype.editIdentity=function(){var t=this,r=F({},this.identity.userProperties),i=F(F({},this.identity),{userProperties:r});return{setUserId:function(a){return i.userId=a,this},setDeviceId:function(a){return i.deviceId=a,this},setUserProperties:function(a){return i.userProperties=a,this},setOptOut:function(a){return i.optOut=a,this},updateUserProperties:function(a){for(var n=i.userProperties||{},o=0,c=Object.entries(a);o<c.length;o++){var d=c[o],l=d[0],s=d[1];switch(l){case di:for(var f=0,h=Object.entries(s);f<h.length;f++){var u=h[f],p=u[0],x=u[1];n[p]=x}break;case fi:for(var k=0,m=Object.keys(s);k<m.length;k++){var p=m[k];delete n[p]}break;case hi:n={};break}}return i.userProperties=n,this},commit:function(){return t.setIdentity(i),this}}},e.prototype.getIdentity=function(){return F({},this.identity)},e.prototype.setIdentity=function(t){var r=F({},this.identity);this.identity=F({},t),Tt(r,this.identity)||this.listeners.forEach(function(i){i(t)})},e.prototype.addIdentityListener=function(t){this.listeners.add(t)},e.prototype.removeIdentityListener=function(t){this.listeners.delete(t)},e}(),ut=typeof globalThis!="undefined"?globalThis:typeof global!="undefined"?global:self,zt=function(){function e(){this.identityStore=new pi,this.eventBridge=new ui,this.applicationContextProvider=new li}return e.getInstance=function(t){return ut.analyticsConnectorInstances||(ut.analyticsConnectorInstances={}),ut.analyticsConnectorInstances[t]||(ut.analyticsConnectorInstances[t]=new e),ut.analyticsConnectorInstances[t]},e}();var Gt=function(e,t){return Gt=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(r,i){r.__proto__=i}||function(r,i){for(var a in i)Object.prototype.hasOwnProperty.call(i,a)&&(r[a]=i[a])},Gt(e,t)};function vi(e,t){if(typeof t!="function"&&t!==null)throw new TypeError("Class extends value "+String(t)+" is not a constructor or null");Gt(e,t);function r(){this.constructor=e}e.prototype=t===null?Object.create(t):(r.prototype=t.prototype,new r)}var q=function(){return q=Object.assign||function(t){for(var r,i=1,a=arguments.length;i<a;i++){r=arguments[i];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(t[n]=r[n])}return t},q.apply(this,arguments)};function Ve(e,t,r,i){function a(n){return n instanceof r?n:new r(function(o){o(n)})}return new(r||(r=Promise))(function(n,o){function c(s){try{l(i.next(s))}catch(f){o(f)}}function d(s){try{l(i.throw(s))}catch(f){o(f)}}function l(s){s.done?n(s.value):a(s.value).then(c,d)}l((i=i.apply(e,t||[])).next())})}function je(e,t){var r={label:0,sent:function(){if(n[0]&1)throw n[1];return n[1]},trys:[],ops:[]},i,a,n,o;return o={next:c(0),throw:c(1),return:c(2)},typeof Symbol=="function"&&(o[Symbol.iterator]=function(){return this}),o;function c(l){return function(s){return d([l,s])}}function d(l){if(i)throw new TypeError("Generator is already executing.");for(;o&&(o=0,l[0]&&(r=0)),r;)try{if(i=1,a&&(n=l[0]&2?a.return:l[0]?a.throw||((n=a.return)&&n.call(a),0):a.next)&&!(n=n.call(a,l[1])).done)return n;switch(a=0,n&&(l=[l[0]&2,n.value]),l[0]){case 0:case 1:n=l;break;case 4:return r.label++,{value:l[1],done:!1};case 5:r.label++,a=l[1],l=[0];continue;case 7:l=r.ops.pop(),r.trys.pop();continue;default:if(n=r.trys,!(n=n.length>0&&n[n.length-1])&&(l[0]===6||l[0]===2)){r=0;continue}if(l[0]===3&&(!n||l[1]>n[0]&&l[1]<n[3])){r.label=l[1];break}if(l[0]===6&&r.label<n[1]){r.label=n[1],n=l;break}if(n&&r.label<n[2]){r.label=n[2],r.ops.push(l);break}n[2]&&r.ops.pop(),r.trys.pop();continue}l=t.call(e,r)}catch(s){l=[6,s],a=0}finally{i=n=0}if(l[0]&5)throw l[1];return{value:l[0]?l[1]:void 0,done:!0}}}function U(e){var t=typeof Symbol=="function"&&Symbol.iterator,r=t&&e[t],i=0;if(r)return r.call(e);if(e&&typeof e.length=="number")return{next:function(){return e&&i>=e.length&&(e=void 0),{value:e&&e[i++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")}function Yt(e,t){var r=typeof Symbol=="function"&&e[Symbol.iterator];if(!r)return e;var i=r.call(e),a,n=[],o;try{for(;(t===void 0||t-- >0)&&!(a=i.next()).done;)n.push(a.value)}catch(c){o={error:c}}finally{try{a&&!a.done&&(r=i.return)&&r.call(i)}finally{if(o)throw o.error}}return n}function Kt(e,t,r){if(r||arguments.length===2)for(var i=0,a=t.length,n;i<a;i++)(n||!(i in t))&&(n||(n=Array.prototype.slice.call(t,0,i)),n[i]=t[i]);return e.concat(n||Array.prototype.slice.call(t))}var v={IS:"is",IS_NOT:"is not",CONTAINS:"contains",DOES_NOT_CONTAIN:"does not contain",LESS_THAN:"less",LESS_THAN_EQUALS:"less or equal",GREATER_THAN:"greater",GREATER_THAN_EQUALS:"greater or equal",VERSION_LESS_THAN:"version less",VERSION_LESS_THAN_EQUALS:"version less or equal",VERSION_GREATER_THAN:"version greater",VERSION_GREATER_THAN_EQUALS:"version greater or equal",SET_IS:"set is",SET_IS_NOT:"set is not",SET_CONTAINS:"set contains",SET_DOES_NOT_CONTAIN:"set does not contain",SET_CONTAINS_ANY:"set contains any",SET_DOES_NOT_CONTAIN_ANY:"set does not contain any",REGEX_MATCH:"regex match",REGEX_DOES_NOT_MATCH:"regex does not match"},mi=function(e){for(var t=[],r=0,i=0;i<e.length;i++){var a=e.charCodeAt(i);a<128?t[r++]=a:a<2048?(t[r++]=a>>6|192,t[r++]=a&63|128):(a&64512)==55296&&i+1<e.length&&(e.charCodeAt(i+1)&64512)==56320?(a=65536+((a&1023)<<10)+(e.charCodeAt(++i)&1023),t[r++]=a>>18|240,t[r++]=a>>12&63|128,t[r++]=a>>6&63|128,t[r++]=a&63|128):(t[r++]=a>>12|224,t[r++]=a>>6&63|128,t[r++]=a&63|128)}return Uint8Array.from(t)},kt=-862048943,Ct=461845907,Nt=15,gi=13,yi=5,wi=-430675100,bi=function(e,t){t===void 0&&(t=0);for(var r=mi(e),i=r.length,a=i>>2,n=t,o=0;o<a;o++){var c=o<<2,d=Ai(r,c);n=xi(d,n)}var l=a<<2,s=0;switch(i-l){case 3:s^=r[l+2]<<16,s^=r[l+1]<<8,s^=r[l],s=Math.imul(s,kt),s=ft(s,Nt),s=Math.imul(s,Ct),n^=s;break;case 2:s^=r[l+1]<<8,s^=r[l],s=Math.imul(s,kt),s=ft(s,Nt),s=Math.imul(s,Ct),n^=s;break;case 1:s^=r[l],s=Math.imul(s,kt),s=ft(s,Nt),s=Math.imul(s,Ct),n^=s;break}return n^=i,Si(n)>>>0},xi=function(e,t){var r=e,i=t;return r=Math.imul(r,kt),r=ft(r,Nt),r=Math.imul(r,Ct),i^=r,i=ft(i,gi),i=Math.imul(i,yi),i+wi|0},Si=function(e){var t=e;return t^=t>>>16,t=Math.imul(t,-2048144789),t^=t>>>13,t=Math.imul(t,-1028477387),t^=t>>>16,t},ft=function(e,t,r){r===void 0&&(r=32),t>r&&(t=t%r);var i=4294967295<<r-t>>>0,a=(e&i)>>>0>>>r-t>>>0;return(e<<t|a)>>>0},Ai=function(e,t){t===void 0&&(t=0);var r=e[t]<<24|e[t+1]<<16|e[t+2]<<8|e[t+3];return Ei(r)},Ei=function(e){return(e&-16777216)>>>24|(e&16711680)>>>8|(e&65280)<<8|(e&255)<<24},Ue=function(e,t){var r,i;if(!(!t||t.length===0)){try{for(var a=U(t),n=a.next();!n.done;n=a.next()){var o=n.value;if(!o||!e||typeof e!="object")return;e=e[o]}}catch(c){r={error:c}}finally{try{n&&!n.done&&(i=a.return)&&i.call(a)}finally{if(r)throw r.error}}if(e)return e}},Ti="(\\d+)\\.(\\d+)",_i="(\\d+)",ki="(-(([-\\w]+\\.?)*))?",Ci="^".concat(Ti,"(\\.").concat(_i).concat(ki,")?$"),Ni=function(){function e(t,r,i,a){a===void 0&&(a=void 0),this.major=t,this.minor=r,this.patch=i,this.preRelease=a}return e.parse=function(t){if(t){var r=new RegExp(Ci).exec(t);if(r){var i=Number(r[1]),a=Number(r[2]);if(!(isNaN(i)||isNaN(a))){var n=Number(r[4])||0,o=r[5]||void 0;return new e(i,a,n,o)}}}},e.prototype.compareTo=function(t){return this.major>t.major?1:this.major<t.major?-1:this.minor>t.minor?1:this.minor<t.minor?-1:this.patch>t.patch?1:this.patch<t.patch||this.preRelease&&!t.preRelease?-1:!this.preRelease&&t.preRelease?1:this.preRelease&&t.preRelease?this.preRelease>t.preRelease?1:this.preRelease<t.preRelease?-1:0:0},e}(),ze=function(){function e(){}return e.prototype.evaluate=function(t,r){var i,a,n={},o={context:t,result:n};try{for(var c=U(r),d=c.next();!d.done;d=c.next()){var l=d.value,s=this.evaluateFlag(o,l);s&&(n[l.key]=s)}}catch(f){i={error:f}}finally{try{d&&!d.done&&(a=c.return)&&a.call(c)}finally{if(i)throw i.error}}return n},e.prototype.evaluateFlag=function(t,r){var i,a,n;try{for(var o=U(r.segments),c=o.next();!c.done;c=o.next()){var d=c.value;if(n=this.evaluateSegment(t,r,d),n){var l=q(q(q({},r.metadata),d.metadata),n.metadata);n=q(q({},n),{metadata:l});break}}}catch(s){i={error:s}}finally{try{c&&!c.done&&(a=o.return)&&a.call(o)}finally{if(i)throw i.error}}return n},e.prototype.evaluateSegment=function(t,r,i){var a,n,o,c;if(!i.conditions){var d=this.bucket(t,i);return d!==void 0?r.variants[d]:void 0}try{for(var l=U(i.conditions),s=l.next();!s.done;s=l.next()){var f=s.value,h=!0;try{for(var u=(o=void 0,U(f)),p=u.next();!p.done;p=u.next()){var x=p.value;if(h=this.matchCondition(t,x),!h)break}}catch(k){o={error:k}}finally{try{p&&!p.done&&(c=u.return)&&c.call(u)}finally{if(o)throw o.error}}if(h){var d=this.bucket(t,i);return d!==void 0?r.variants[d]:void 0}}}catch(k){a={error:k}}finally{try{s&&!s.done&&(n=l.return)&&n.call(l)}finally{if(a)throw a.error}}},e.prototype.matchCondition=function(t,r){var i=Ue(t,r.selector);if(i)if(this.isSetOperator(r.op)){var a=this.coerceStringArray(i);return a?this.matchSet(a,r.op,r.values):!1}else{var n=this.coerceString(i);return n!==void 0?this.matchString(n,r.op,r.values):!1}else return this.matchNull(r.op,r.values)},e.prototype.getHash=function(t){return bi(t)},e.prototype.bucket=function(t,r){var i,a,n,o;if(!r.bucket)return r.variant;var c=this.coerceString(Ue(t,r.bucket.selector));if(!c||c.length===0)return r.variant;var d="".concat(r.bucket.salt,"/").concat(c),l=this.getHash(d),s=l%100,f=Math.floor(l/100);try{for(var h=U(r.bucket.allocations),u=h.next();!u.done;u=h.next()){var p=u.value,x=p.range[0],k=p.range[1];if(s>=x&&s<k)try{for(var m=(n=void 0,U(p.distributions)),g=m.next();!g.done;g=m.next()){var I=g.value,V=I.range[0],vt=I.range[1];if(f>=V&&f<vt)return I.variant}}catch(j){n={error:j}}finally{try{g&&!g.done&&(o=m.return)&&o.call(m)}finally{if(n)throw n.error}}}}catch(j){i={error:j}}finally{try{u&&!u.done&&(a=h.return)&&a.call(h)}finally{if(i)throw i.error}}return r.variant},e.prototype.matchNull=function(t,r){var i=this.containsNone(r);switch(t){case v.IS:case v.CONTAINS:case v.LESS_THAN:case v.LESS_THAN_EQUALS:case v.GREATER_THAN:case v.GREATER_THAN_EQUALS:case v.VERSION_LESS_THAN:case v.VERSION_LESS_THAN_EQUALS:case v.VERSION_GREATER_THAN:case v.VERSION_GREATER_THAN_EQUALS:case v.SET_IS:case v.SET_CONTAINS:case v.SET_CONTAINS_ANY:return i;case v.IS_NOT:case v.DOES_NOT_CONTAIN:case v.SET_DOES_NOT_CONTAIN:case v.SET_DOES_NOT_CONTAIN_ANY:return!i;default:return!1}},e.prototype.matchSet=function(t,r,i){switch(r){case v.SET_IS:return this.setEquals(t,i);case v.SET_IS_NOT:return!this.setEquals(t,i);case v.SET_CONTAINS:return this.matchesSetContainsAll(t,i);case v.SET_DOES_NOT_CONTAIN:return!this.matchesSetContainsAll(t,i);case v.SET_CONTAINS_ANY:return this.matchesSetContainsAny(t,i);case v.SET_DOES_NOT_CONTAIN_ANY:return!this.matchesSetContainsAny(t,i);default:return!1}},e.prototype.matchString=function(t,r,i){var a=this;switch(r){case v.IS:return this.matchesIs(t,i);case v.IS_NOT:return!this.matchesIs(t,i);case v.CONTAINS:return this.matchesContains(t,i);case v.DOES_NOT_CONTAIN:return!this.matchesContains(t,i);case v.LESS_THAN:case v.LESS_THAN_EQUALS:case v.GREATER_THAN:case v.GREATER_THAN_EQUALS:return this.matchesComparable(t,r,i,function(n){return a.parseNumber(n)},this.comparator);case v.VERSION_LESS_THAN:case v.VERSION_LESS_THAN_EQUALS:case v.VERSION_GREATER_THAN:case v.VERSION_GREATER_THAN_EQUALS:return this.matchesComparable(t,r,i,function(n){return Ni.parse(n)},this.versionComparator);case v.REGEX_MATCH:return this.matchesRegex(t,i);case v.REGEX_DOES_NOT_MATCH:return!this.matchesRegex(t,i);default:return!1}},e.prototype.matchesIs=function(t,r){if(this.containsBooleans(r)){var i=t.toLowerCase();if(i==="true"||i==="false")return r.some(function(a){return a.toLowerCase()===i})}return r.some(function(a){return t===a})},e.prototype.matchesContains=function(t,r){var i,a;try{for(var n=U(r),o=n.next();!o.done;o=n.next()){var c=o.value;if(t.toLowerCase().includes(c.toLowerCase()))return!0}}catch(d){i={error:d}}finally{try{o&&!o.done&&(a=n.return)&&a.call(n)}finally{if(i)throw i.error}}return!1},e.prototype.matchesComparable=function(t,r,i,a,n){var o=this,c=a(t),d=i.map(function(l){return a(l)}).filter(function(l){return l!==void 0});return c===void 0||d.length===0?i.some(function(l){return o.comparator(t,r,l)}):d.some(function(l){return n(c,r,l)})},e.prototype.comparator=function(t,r,i){switch(r){case v.LESS_THAN:case v.VERSION_LESS_THAN:return t<i;case v.LESS_THAN_EQUALS:case v.VERSION_LESS_THAN_EQUALS:return t<=i;case v.GREATER_THAN:case v.VERSION_GREATER_THAN:return t>i;case v.GREATER_THAN_EQUALS:case v.VERSION_GREATER_THAN_EQUALS:return t>=i;default:return!1}},e.prototype.versionComparator=function(t,r,i){var a=t.compareTo(i);switch(r){case v.LESS_THAN:case v.VERSION_LESS_THAN:return a<0;case v.LESS_THAN_EQUALS:case v.VERSION_LESS_THAN_EQUALS:return a<=0;case v.GREATER_THAN:case v.VERSION_GREATER_THAN:return a>0;case v.GREATER_THAN_EQUALS:case v.VERSION_GREATER_THAN_EQUALS:return a>=0;default:return!1}},e.prototype.matchesRegex=function(t,r){return r.some(function(i){return!!new RegExp(i).exec(t)})},e.prototype.containsNone=function(t){return t.some(function(r){return r==="(none)"})},e.prototype.containsBooleans=function(t){return t.some(function(r){switch(r.toLowerCase()){case"true":case"false":return!0;default:return!1}})},e.prototype.parseNumber=function(t){var r;return(r=Number(t))!==null&&r!==void 0?r:void 0},e.prototype.coerceString=function(t){if(t)return typeof t=="object"?JSON.stringify(t):String(t)},e.prototype.coerceStringArray=function(t){var r=this;if(Array.isArray(t)){var i=t;return i.map(function(o){return r.coerceString(o)}).filter(Boolean)}var a=String(t);try{var n=JSON.parse(a);if(Array.isArray(n)){var i=t;return i.map(function(c){return r.coerceString(c)}).filter(Boolean)}else return}catch{return}},e.prototype.isSetOperator=function(t){switch(t){case v.SET_IS:case v.SET_IS_NOT:case v.SET_CONTAINS:case v.SET_DOES_NOT_CONTAIN:case v.SET_CONTAINS_ANY:case v.SET_DOES_NOT_CONTAIN_ANY:return!0;default:return!1}},e.prototype.setEquals=function(t,r){var i=new Set(t),a=new Set(r);return i.size===a.size&&Kt([],Yt(a),!1).every(function(n){return i.has(n)})},e.prototype.matchesSetContainsAll=function(t,r){var i,a;if(t.length<r.length)return!1;try{for(var n=U(r),o=n.next();!o.done;o=n.next()){var c=o.value;if(!this.matchesIs(c,t))return!1}}catch(d){i={error:d}}finally{try{o&&!o.done&&(a=n.return)&&a.call(n)}finally{if(i)throw i.error}}return!0},e.prototype.matchesSetContainsAny=function(t,r){var i,a;try{for(var n=U(r),o=n.next();!o.done;o=n.next()){var c=o.value;if(this.matchesIs(c,t))return!0}}catch(d){i={error:d}}finally{try{o&&!o.done&&(a=n.return)&&a.call(n)}finally{if(i)throw i.error}}return!1},e}(),Ge=function(e,t){var r,i,a=q({},e),n=[],o=t||Object.keys(a);try{for(var c=U(o),d=c.next();!d.done;d=c.next()){var l=d.value,s=We(l,a);s&&n.push.apply(n,Kt([],Yt(s),!1))}}catch(f){r={error:f}}finally{try{d&&!d.done&&(i=c.return)&&i.call(c)}finally{if(r)throw r.error}}return n},We=function(e,t,r){var i,a;r===void 0&&(r=[]);var n=t[e];if(n){if(!n.dependencies||n.dependencies.length===0)return delete t[n.key],[n]}else return;r.push(n.key);var o=[],c=function(f){if(r.some(function(u){return u===f}))throw Error("Detected a cycle between flags ".concat(r));var h=We(f,t,r);h&&o.push.apply(o,Kt([],Yt(h),!1))};try{for(var d=U(n.dependencies),l=d.next();!l.done;l=d.next()){var s=l.value;c(s)}}catch(f){i={error:f}}finally{try{l&&!l.done&&(a=d.return)&&a.call(d)}finally{if(i)throw i.error}}return o.push(n),r.pop(),delete t[n.key],o},Qe="3.7.5",Oi=Qe,Ii=typeof atob=="function",Pi=typeof btoa=="function",it=typeof Buffer=="function",Be=typeof TextDecoder=="function"?new TextDecoder:void 0,He=typeof TextEncoder=="function"?new TextEncoder:void 0,Ri="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",dt=Array.prototype.slice.call(Ri),_t=(e=>{let t={};return e.forEach((r,i)=>t[r]=i),t})(dt),Li=/^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/,C=String.fromCharCode.bind(String),Me=typeof Uint8Array.from=="function"?Uint8Array.from.bind(Uint8Array):e=>new Uint8Array(Array.prototype.slice.call(e,0)),Ye=e=>e.replace(/=/g,"").replace(/[+\/]/g,t=>t=="+"?"-":"_"),Ke=e=>e.replace(/[^A-Za-z0-9\+\/]/g,""),Ze=e=>{let t,r,i,a,n="",o=e.length%3;for(let c=0;c<e.length;){if((r=e.charCodeAt(c++))>255||(i=e.charCodeAt(c++))>255||(a=e.charCodeAt(c++))>255)throw new TypeError("invalid character found");t=r<<16|i<<8|a,n+=dt[t>>18&63]+dt[t>>12&63]+dt[t>>6&63]+dt[t&63]}return o?n.slice(0,o-3)+"===".substring(o):n},Zt=Pi?e=>btoa(e):it?e=>Buffer.from(e,"binary").toString("base64"):Ze,Wt=it?e=>Buffer.from(e).toString("base64"):e=>{let r=[];for(let i=0,a=e.length;i<a;i+=4096)r.push(C.apply(null,e.subarray(i,i+4096)));return Zt(r.join(""))},Ot=(e,t=!1)=>t?Ye(Wt(e)):Wt(e),$i=e=>{if(e.length<2){var t=e.charCodeAt(0);return t<128?e:t<2048?C(192|t>>>6)+C(128|t&63):C(224|t>>>12&15)+C(128|t>>>6&63)+C(128|t&63)}else{var t=65536+(e.charCodeAt(0)-55296)*1024+(e.charCodeAt(1)-56320);return C(240|t>>>18&7)+C(128|t>>>12&63)+C(128|t>>>6&63)+C(128|t&63)}},Ui=/[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g,Xe=e=>e.replace(Ui,$i),De=it?e=>Buffer.from(e,"utf8").toString("base64"):He?e=>Wt(He.encode(e)):e=>Zt(Xe(e)),rt=(e,t=!1)=>t?Ye(De(e)):De(e),Fe=e=>rt(e,!0),Bi=/[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3}/g,Hi=e=>{switch(e.length){case 4:var t=(7&e.charCodeAt(0))<<18|(63&e.charCodeAt(1))<<12|(63&e.charCodeAt(2))<<6|63&e.charCodeAt(3),r=t-65536;return C((r>>>10)+55296)+C((r&1023)+56320);case 3:return C((15&e.charCodeAt(0))<<12|(63&e.charCodeAt(1))<<6|63&e.charCodeAt(2));default:return C((31&e.charCodeAt(0))<<6|63&e.charCodeAt(1))}},Je=e=>e.replace(Bi,Hi),tr=e=>{if(e=e.replace(/\s+/g,""),!Li.test(e))throw new TypeError("malformed base64.");e+="==".slice(2-(e.length&3));let t,r="",i,a;for(let n=0;n<e.length;)t=_t[e.charAt(n++)]<<18|_t[e.charAt(n++)]<<12|(i=_t[e.charAt(n++)])<<6|(a=_t[e.charAt(n++)]),r+=i===64?C(t>>16&255):a===64?C(t>>16&255,t>>8&255):C(t>>16&255,t>>8&255,t&255);return r},Xt=Ii?e=>atob(Ke(e)):it?e=>Buffer.from(e,"base64").toString("binary"):tr,er=it?e=>Me(Buffer.from(e,"base64")):e=>Me(Xt(e).split("").map(t=>t.charCodeAt(0))),rr=e=>er(ir(e)),Mi=it?e=>Buffer.from(e,"base64").toString("utf8"):Be?e=>Be.decode(er(e)):e=>Je(Xt(e)),ir=e=>Ke(e.replace(/[-_]/g,t=>t=="-"?"+":"/")),Qt=e=>Mi(ir(e)),Di=e=>{if(typeof e!="string")return!1;let t=e.replace(/\s+/g,"").replace(/={0,2}$/,"");return!/[^\s0-9a-zA-Z\+/]/.test(t)||!/[^\s0-9a-zA-Z\-_]/.test(t)},nr=e=>({value:e,enumerable:!1,writable:!0,configurable:!0}),ar=function(){let e=(t,r)=>Object.defineProperty(String.prototype,t,nr(r));e("fromBase64",function(){return Qt(this)}),e("toBase64",function(t){return rt(this,t)}),e("toBase64URI",function(){return rt(this,!0)}),e("toBase64URL",function(){return rt(this,!0)}),e("toUint8Array",function(){return rr(this)})},or=function(){let e=(t,r)=>Object.defineProperty(Uint8Array.prototype,t,nr(r));e("toBase64",function(t){return Ot(this,t)}),e("toBase64URI",function(){return Ot(this,!0)}),e("toBase64URL",function(){return Ot(this,!0)})},Fi=()=>{ar(),or()},qe={version:Qe,VERSION:Oi,atob:Xt,atobPolyfill:tr,btoa:Zt,btoaPolyfill:Ze,fromBase64:Qt,toBase64:rt,encode:rt,encodeURI:Fe,encodeURL:Fe,utob:Xe,btou:Je,decode:Qt,isValid:Di,fromUint8Array:Ot,toUint8Array:rr,extendString:ar,extendUint8Array:or,extendBuiltins:Fi},Jt=function(e){vi(t,e);function t(r,i){var a=e.call(this,i)||this;return a.statusCode=r,Object.setPrototypeOf(a,t.prototype),a}return t}(Error),sr=function(){function e(t,r,i){this.deploymentKey=t,this.serverUrl=r,this.httpClient=i}return e.prototype.getVariants=function(t,r){return Ve(this,void 0,void 0,function(){var i,a,n,o;return je(this,function(c){switch(c.label){case 0:return i=qe.encodeURL(JSON.stringify(t)),a={Authorization:"Api-Key ".concat(this.deploymentKey),"X-Amp-Exp-User":i},r!=null&&r.flagKeys&&(a["X-Amp-Exp-Flag-Keys"]=qe.encodeURL(JSON.stringify(r.flagKeys))),r!=null&&r.trackingOption&&(a["X-Amp-Exp-Track"]=r.trackingOption),n=new URL("".concat(this.serverUrl,"/sdk/v2/vardata?v=0")),r!=null&&r.evaluationMode&&n.searchParams.append("eval_mode",r==null?void 0:r.evaluationMode),r!=null&&r.deliveryMethod&&n.searchParams.append("delivery_method",r==null?void 0:r.deliveryMethod),[4,this.httpClient.request({requestUrl:n.toString(),method:"GET",headers:a,timeoutMillis:r==null?void 0:r.timeoutMillis})];case 1:if(o=c.sent(),o.status!=200)throw new Jt(o.status,"Fetch error response: status=".concat(o.status));return[2,JSON.parse(o.body)]}})})},e}(),lr=function(){function e(t,r,i){this.deploymentKey=t,this.serverUrl=r,this.httpClient=i}return e.prototype.getFlags=function(t){return Ve(this,void 0,void 0,function(){var r,i,a;return je(this,function(n){switch(n.label){case 0:return r={Authorization:"Api-Key ".concat(this.deploymentKey)},t!=null&&t.libraryName&&(t!=null&&t.libraryVersion)&&(r["X-Amp-Exp-Library"]="".concat(t.libraryName,"/").concat(t.libraryVersion)),[4,this.httpClient.request({requestUrl:"".concat(this.serverUrl,"/sdk/v2/flags"),method:"GET",headers:r,timeoutMillis:t==null?void 0:t.timeoutMillis})];case 1:if(i=n.sent(),i.status!=200)throw Error("Flags error response: status=".concat(i.status));return a=JSON.parse(i.body),[2,a.reduce(function(o,c){return o[c.key]=c,o},{})]}})})},e}(),Q=typeof globalThis!="undefined"?globalThis:global||self,cr=function(){function e(t,r){this.poller=void 0,this.action=t,this.ms=r}return e.prototype.start=function(){this.poller||(this.poller=Q.setInterval(this.action,this.ms),this.action())},e.prototype.stop=function(){this.poller&&(Q.clearInterval(this.poller),this.poller=void 0)},e}();var vr=$r(ur()),$n=function(){function e(t){this.amplitudeInstance=t}return e.prototype.getUser=function(){var t,r,i,a,n,o,c,d,l,s;return{device_id:(r=(t=this.amplitudeInstance)===null||t===void 0?void 0:t.options)===null||r===void 0?void 0:r.deviceId,user_id:(a=(i=this.amplitudeInstance)===null||i===void 0?void 0:i.options)===null||a===void 0?void 0:a.userId,version:(o=(n=this.amplitudeInstance)===null||n===void 0?void 0:n.options)===null||o===void 0?void 0:o.versionName,language:(d=(c=this.amplitudeInstance)===null||c===void 0?void 0:c.options)===null||d===void 0?void 0:d.language,platform:(s=(l=this.amplitudeInstance)===null||l===void 0?void 0:l.options)===null||s===void 0?void 0:s.platform,os:this.getOs(),device_model:this.getDeviceModel()}},e.prototype.getOs=function(){var t,r,i,a,n,o;return[(i=(r=(t=this.amplitudeInstance)===null||t===void 0?void 0:t._ua)===null||r===void 0?void 0:r.browser)===null||i===void 0?void 0:i.name,(o=(n=(a=this.amplitudeInstance)===null||a===void 0?void 0:a._ua)===null||n===void 0?void 0:n.browser)===null||o===void 0?void 0:o.major].filter(function(c){return c!=null}).join(" ")},e.prototype.getDeviceModel=function(){var t,r,i;return(i=(r=(t=this.amplitudeInstance)===null||t===void 0?void 0:t._ua)===null||r===void 0?void 0:r.os)===null||i===void 0?void 0:i.name},e}(),Un=function(){function e(t){this.amplitudeInstance=t}return e.prototype.track=function(t){this.amplitudeInstance.logEvent(t.name,t.properties)},e.prototype.setUserProperty=function(t){var r,i;this.amplitudeInstance.setUserProperties((r={},r[t.userProperty]=(i=t.variant)===null||i===void 0?void 0:i.value,r))},e.prototype.unsetUserProperty=function(t){var r;this.amplitudeInstance._logEvent("$identify",null,null,{$unset:(r={},r[t.userProperty]="-",r)})},e}(),A=function(){return A=Object.assign||function(t){for(var r,i=1,a=arguments.length;i<a;i++){r=arguments[i];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(t[n]=r[n])}return t},A.apply(this,arguments)};function N(e,t,r,i){function a(n){return n instanceof r?n:new r(function(o){o(n)})}return new(r||(r=Promise))(function(n,o){function c(s){try{l(i.next(s))}catch(f){o(f)}}function d(s){try{l(i.throw(s))}catch(f){o(f)}}function l(s){s.done?n(s.value):a(s.value).then(c,d)}l((i=i.apply(e,t||[])).next())})}function O(e,t){var r={label:0,sent:function(){if(n[0]&1)throw n[1];return n[1]},trys:[],ops:[]},i,a,n,o;return o={next:c(0),throw:c(1),return:c(2)},typeof Symbol=="function"&&(o[Symbol.iterator]=function(){return this}),o;function c(l){return function(s){return d([l,s])}}function d(l){if(i)throw new TypeError("Generator is already executing.");for(;o&&(o=0,l[0]&&(r=0)),r;)try{if(i=1,a&&(n=l[0]&2?a.return:l[0]?a.throw||((n=a.return)&&n.call(a),0):a.next)&&!(n=n.call(a,l[1])).done)return n;switch(a=0,n&&(l=[l[0]&2,n.value]),l[0]){case 0:case 1:n=l;break;case 4:return r.label++,{value:l[1],done:!1};case 5:r.label++,a=l[1],l=[0];continue;case 7:l=r.ops.pop(),r.trys.pop();continue;default:if(n=r.trys,!(n=n.length>0&&n[n.length-1])&&(l[0]===6||l[0]===2)){r=0;continue}if(l[0]===3&&(!n||l[1]>n[0]&&l[1]<n[3])){r.label=l[1];break}if(l[0]===6&&r.label<n[1]){r.label=n[1],n=l;break}if(n&&r.label<n[2]){r.label=n[2],r.ops.push(l);break}n[2]&&r.ops.pop(),r.trys.pop();continue}l=t.call(e,r)}catch(s){l=[6,s],a=0}finally{i=n=0}if(l[0]&5)throw l[1];return{value:l[0]?l[1]:void 0,done:!0}}}function pt(e){var t=typeof Symbol=="function"&&Symbol.iterator,r=t&&e[t],i=0;if(r)return r.call(e);if(e&&typeof e.length=="number")return{next:function(){return e&&i>=e.length&&(e=void 0),{value:e&&e[i++],done:!e}}};throw new TypeError(t?"Object is not iterable.":"Symbol.iterator is not defined.")}function qi(e,t){var r=typeof Symbol=="function"&&e[Symbol.iterator];if(!r)return e;var i=r.call(e),a,n=[],o;try{for(;(t===void 0||t-- >0)&&!(a=i.next()).done;)n.push(a.value)}catch(c){o={error:c}}finally{try{a&&!a.done&&(r=i.return)&&r.call(i)}finally{if(o)throw o.error}}return n}function Vi(e,t,r){if(r||arguments.length===2)for(var i=0,a=t.length,n;i<a;i++)(n||!(i in t))&&(n||(n=Array.prototype.slice.call(t,0,i)),n[i]=t[i]);return e.concat(n||Array.prototype.slice.call(t))}function ji(e,t){return t=t||{},new Promise(function(r,i){var a=new XMLHttpRequest,n=[],o=[],c={},d=function(){return{ok:(a.status/100|0)==2,statusText:a.statusText,status:a.status,url:a.responseURL,text:function(){return Promise.resolve(a.responseText)},json:function(){return Promise.resolve(JSON.parse(a.responseText))},blob:function(){return Promise.resolve(new Blob([a.response]))},clone:d,headers:{keys:function(){return n},entries:function(){return o},get:function(s){return c[s.toLowerCase()]},has:function(s){return s.toLowerCase()in c}}}};for(var l in a.open(t.method||"get",e,!0),a.onload=function(){a.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm,function(s,f,h){n.push(f=f.toLowerCase()),o.push([f,h]),c[f]=c[f]?c[f]+","+h:h}),r(d())},a.onerror=i,a.withCredentials=t.credentials=="include",t.headers)a.setRequestHeader(l,t.headers[l]);a.send(t.body||null)})}var zi=Q.fetch||ji,Gi=function(e,t){return t==null||t<=0?e:new Promise(function(r,i){Q.setTimeout(function(){i(Error("Request timeout after "+t+" milliseconds"))},t),e.then(r,i)})},Wi=function(e,t,r,i,a){var n=function(){return N(void 0,void 0,void 0,function(){var o,c,d;return O(this,function(l){switch(l.label){case 0:return[4,zi(e,{method:t,headers:r,body:i})];case 1:return o=l.sent(),d={status:o.status},[4,o.text()];case 2:return c=(d.body=l.sent(),d),[2,c]}})})};return Gi(n(),a)},Qi=function(){function e(t){this.client=t}return e.prototype.request=function(t){return N(this,void 0,void 0,function(){return O(this,function(r){switch(r.label){case 0:return[4,this.client.request(t.requestUrl,t.method,t.headers,null,t.timeoutMillis)];case 1:return[2,r.sent()]}})})},e}(),mr={request:Wi},D;(function(e){e.LocalStorage="localStorage",e.InitialVariants="initialVariants"})(D||(D={}));var _;(function(e){e.LocalStorage="storage",e.InitialVariants="initial",e.SecondaryLocalStorage="secondary-storage",e.SecondaryInitialVariants="secondary-initial",e.FallbackInline="fallback-inline",e.FallbackConfig="fallback-config",e.LocalEvaluation="local-evaluation"})(_||(_={}));var dr=function(e){return!e||e===_.FallbackInline||e===_.FallbackConfig||e===_.SecondaryInitialVariants},nt={debug:!1,instanceName:"$default_instance",fallbackVariant:{},initialVariants:{},initialFlags:void 0,source:D.LocalStorage,serverUrl:"https://api.lab.amplitude.com",flagsServerUrl:"https://flag.lab.amplitude.com",serverZone:"US",fetchTimeoutMillis:1e4,retryFetchOnFailure:!0,automaticExposureTracking:!0,pollOnStart:!0,fetchOnStart:!0,automaticFetchOnAmplitudeIdentityChange:!1,userProvider:null,analyticsProvider:null,exposureTrackingProvider:null,httpClient:mr},fr="1.11.0",gr=function(){function e(t){this.identityStore=t}return e.prototype.identityReady=function(t){return N(this,void 0,void 0,function(){var r,i=this;return O(this,function(a){return r=this.identityStore.getIdentity(),!r.userId&&!r.deviceId?[2,Promise.race([new Promise(function(n){var o=function(){n(void 0),i.identityStore.removeIdentityListener(o)};i.identityStore.addIdentityListener(o)}),new Promise(function(n,o){Q.setTimeout(o,t,"Timed out waiting for Amplitude Analytics SDK to initialize. You must ensure that the analytics SDK is initialized prior to calling fetch().")})])]:[2]})})},e.prototype.getUser=function(){var t=this.identityStore.getIdentity(),r=void 0;try{r=t.userProperties}catch{console.warn("[Experiment] failed to cast user properties")}return{user_id:t.userId,device_id:t.deviceId,user_properties:r}},e}(),Yi=function(){function e(t){this.eventBridge=t}return e.prototype.track=function(t){this.eventBridge.logEvent({eventType:"$exposure",eventProperties:t})},e}(),ee=function(){function e(t,r){this.ua=new vr.UAParser(typeof navigator!="undefined"?navigator.userAgent:null).getResult(),this.contextProvider=t,this.userProvider=r}return e.prototype.getUser=function(){var t,r=((t=this.userProvider)===null||t===void 0?void 0:t.getUser())||{},i=this.contextProvider.getApplicationContext();return A({version:i.versionName,language:i.language,platform:i.platform,os:i.os||this.getOs(this.ua),device_model:i.deviceModel||this.getDeviceModel(this.ua)},r)},e.prototype.getOs=function(t){var r,i;return[(r=t.browser)===null||r===void 0?void 0:r.name,(i=t.browser)===null||i===void 0?void 0:i.major].filter(function(a){return a!=null}).join(" ")},e.prototype.getDeviceModel=function(t){var r;return(r=t.os)===null||r===void 0?void 0:r.name},e}(),yr=function(){function e(){}return e.prototype.get=function(t){return localStorage.getItem(t)},e.prototype.put=function(t,r){localStorage.setItem(t,r)},e.prototype.delete=function(t){localStorage.removeItem(t)},e}(),Ki=function(e,t,r){var i=e.substring(e.length-6),a="amp-exp-".concat(t,"-").concat(i);return new wr(a,r,br)},Zi=function(e,t,r){r===void 0&&(r=new yr);var i=e.substring(e.length-6),a="amp-exp-".concat(t,"-").concat(i,"-flags");return new wr(a,r)},wr=function(){function e(t,r,i){this.cache={},this.namespace=t,this.storage=r,this.transformer=i}return e.prototype.get=function(t){return this.cache[t]},e.prototype.getAll=function(){return A({},this.cache)},e.prototype.put=function(t,r){this.cache[t]=r},e.prototype.putAll=function(t){var r,i;try{for(var a=pt(Object.keys(t)),n=a.next();!n.done;n=a.next()){var o=n.value;this.cache[o]=t[o]}}catch(c){r={error:c}}finally{try{n&&!n.done&&(i=a.return)&&i.call(a)}finally{if(r)throw r.error}}},e.prototype.remove=function(t){delete this.cache[t]},e.prototype.clear=function(){this.cache={}},e.prototype.load=function(){var t,r,i=this.storage.get(this.namespace),a;try{a=JSON.parse(i)||{}}catch{return}var n={};try{for(var o=pt(Object.keys(a)),c=o.next();!c.done;c=o.next()){var d=c.value;try{var l=void 0;this.transformer?l=this.transformer(a[d]):l=a[d],l&&(n[d]=l)}catch{}}}catch(s){t={error:s}}finally{try{c&&!c.done&&(r=o.return)&&r.call(o)}finally{if(t)throw t.error}}this.clear(),this.putAll(n)},e.prototype.store=function(t){t===void 0&&(t=this.cache),this.storage.put(this.namespace,JSON.stringify(t))},e}(),br=function(e){if(typeof e=="string")return{key:e,value:e};if(typeof e=="object"){var t=e.key,r=e.value,i=e.payload,a=e.metadata,n=e.expKey;a&&a.experimentKey?n=a.experimentKey:n&&(a=a||{},a.experimentKey=n);var o={};return t?o.key=t:r&&(o.key=r),r&&(o.value=r),a&&(o.metadata=a),i&&(o.payload=i),n&&(o.expKey=n),o}},Xi=function(e,t,r,i){var a,n="[Experiment] Exposure",o=r==null?void 0:r.value,c="[Experiment] ".concat(t);return{name:n,user:e,key:t,variant:r,userProperty:c,properties:{key:t,variant:o,source:i},userProperties:(a={},a[c]=o,a)}},H=function(e){return e==null},te=function(e){return H(e)?!0:e&&Object.keys(e).length===0},hr=function(e){var t;return((t=e==null?void 0:e.metadata)===null||t===void 0?void 0:t.evaluationMode)==="local"},Ji=function(){function e(t,r,i,a){this.started=!1,this.done=!1,this.attempts=t,this.min=r,this.max=i,this.scalar=a}return e.prototype.start=function(t){return N(this,void 0,void 0,function(){return O(this,function(r){switch(r.label){case 0:if(!this.started)this.started=!0;else throw Error("Backoff already started");return[4,this.backoff(t,0,this.min)];case 1:return r.sent(),[2]}})})},e.prototype.cancel=function(){this.done=!0,clearTimeout(this.timeoutHandle)},e.prototype.backoff=function(t,r,i){return N(this,void 0,void 0,function(){var a=this;return O(this,function(n){return this.done?[2]:(this.timeoutHandle=Q.setTimeout(function(){return N(a,void 0,void 0,function(){var o,c;return O(this,function(d){switch(d.label){case 0:return d.trys.push([0,2,,3]),[4,t()];case 1:return d.sent(),[3,3];case 2:return d.sent(),o=r+1,o<this.attempts&&(c=Math.min(i*this.scalar,this.max),this.backoff(t,o,c)),[3,3];case 3:return[2]}})})},i),[2])})})},e}(),tn=function(e){var t,r,i,a;if(!e)return{};var n={user:e},o={};if(!e.groups)return n;try{for(var c=pt(Object.keys(e.groups)),d=c.next();!d.done;d=c.next()){var l=d.value,s=e.groups[l];if(s.length>0&&s[0]){var f=s[0],h={group_name:f},u=(a=(i=e.group_properties)===null||i===void 0?void 0:i[l])===null||a===void 0?void 0:a[f];u&&Object.keys(u).length>0&&(h.group_properties=u),o[l]=h}}}catch(p){t={error:p}}finally{try{d&&!d.done&&(r=c.return)&&r.call(c)}finally{if(t)throw t.error}}return Object.keys(o).length>0&&(n.groups=o),delete n.user.groups,delete n.user.group_properties,n},R=function(e){return e==null?{}:typeof e=="string"?{key:e,value:e}:e},pr=function(e){if(!e)return{};var t=void 0;e.metadata&&(t=e.metadata.experimentKey);var r={};return e.key&&(r.key=e.key),e.value&&(r.value=e.value),e.payload&&(r.payload=e.payload),t&&(r.expKey=t),e.metadata&&(r.metadata=e.metadata),r},en=function(){function e(t){this.setProperties={},this.unsetProperties={},this.analyticsProvider=t}return e.prototype.track=function(t){this.setProperties[t.key]!=t.variant.value&&(this.setProperties[t.key]=t.variant.value,delete this.unsetProperties[t.key],this.analyticsProvider.track(t))},e.prototype.setUserProperty=function(t){this.setProperties[t.key]!=t.variant.value&&this.analyticsProvider.setUserProperty(t)},e.prototype.unsetUserProperty=function(t){this.unsetProperties[t.key]||(this.unsetProperties[t.key]="unset",delete this.setProperties[t.key],this.analyticsProvider.unsetUserProperty(t))},e}(),rn=function(){function e(t){this.tracked={},this.exposureTrackingProvider=t}return e.prototype.track=function(t){var r=this.tracked[t.flag_key];r&&r.variant===t.variant||(this.tracked[t.flag_key]=t,this.exposureTrackingProvider.track(t))},e}(),nn=1e4,an=8,on=500,sn=1e4,ln=1.5,cn=6e4,un="https://api.lab.eu.amplitude.com",dn="https://flag.lab.eu.amplitude.com",xr=function(){function e(t,r){var i=this,a,n;if(this.engine=new ze,this.poller=new cr(function(){return i.doFlags()},cn),this.isRunning=!1,this.apiKey=t,this.config=A(A(A({},nt),r),{serverUrl:(r==null?void 0:r.serverUrl)||(((a=r==null?void 0:r.serverZone)===null||a===void 0?void 0:a.toLowerCase())==="eu"?un:nt.serverUrl),flagsServerUrl:(r==null?void 0:r.flagsServerUrl)||(((n=r==null?void 0:r.serverZone)===null||n===void 0?void 0:n.toLowerCase())==="eu"?dn:nt.flagsServerUrl)}),this.config.initialVariants)for(var o in this.config.initialVariants)this.config.initialVariants[o]=br(this.config.initialVariants[o]);this.config.userProvider&&(this.userProvider=this.config.userProvider),this.config.analyticsProvider&&(this.analyticsProvider=new en(this.config.analyticsProvider)),this.config.exposureTrackingProvider&&(this.exposureTrackingProvider=new rn(this.config.exposureTrackingProvider));var c=new Qi(this.config.httpClient||mr);this.flagApi=new lr(this.apiKey,this.config.flagsServerUrl,c),this.evaluationApi=new sr(this.apiKey,this.config.serverUrl,c);var d=new yr;this.variants=Ki(this.apiKey,this.config.instanceName,d),this.flags=Zi(this.apiKey,this.config.instanceName,d);try{this.flags.load(),this.variants.load()}catch{}this.mergeInitialFlagsWithStorage()}return e.prototype.start=function(t){var r;return N(this,void 0,void 0,function(){var i,a;return O(this,function(n){switch(n.label){case 0:return this.isRunning?[2]:(this.isRunning=!0,this.setUser(t),i=this.doFlags(),a=(r=this.config.fetchOnStart)!==null&&r!==void 0?r:!0,a?[4,Promise.all([this.fetch(t),i])]:[3,2]);case 1:return n.sent(),[3,4];case 2:return[4,i];case 3:n.sent(),n.label=4;case 4:return this.config.pollOnStart&&this.poller.start(),[2]}})})},e.prototype.stop=function(){this.isRunning&&(this.poller.stop(),this.isRunning=!1)},e.prototype.fetch=function(t,r){return t===void 0&&(t=this.user),N(this,void 0,void 0,function(){var i;return O(this,function(a){switch(a.label){case 0:this.setUser(t||{}),a.label=1;case 1:return a.trys.push([1,3,,4]),[4,this.fetchInternal(t,this.config.fetchTimeoutMillis,this.config.retryFetchOnFailure,r)];case 2:return a.sent(),[3,4];case 3:return i=a.sent(),console.error(i),[3,4];case 4:return[2,this]}})})},e.prototype.variant=function(t,r){var i,a;if(!this.apiKey)return{value:void 0};var n=this.variantAndSource(t,r);return this.config.automaticExposureTracking&&this.exposureInternal(t,n),this.debug("[Experiment] variant for ".concat(t," is ").concat(((i=n.variant)===null||i===void 0?void 0:i.key)||((a=n.variant)===null||a===void 0?void 0:a.value))),n.variant||{}},e.prototype.exposure=function(t){var r=this.variantAndSource(t);this.exposureInternal(t,r)},e.prototype.all=function(){if(!this.apiKey)return{};var t=this.evaluate();for(var r in t){var i=this.flags.get(r);hr(i)||delete t[r]}return A(A(A({},this.secondaryVariants()),this.sourceVariants()),t)},e.prototype.clear=function(){this.variants.clear();try{this.variants.store()}catch{}},e.prototype.getUser=function(){var t;if(!this.user)return this.user;if(!((t=this.user)===null||t===void 0)&&t.user_properties){var r=A({},this.user.user_properties);return A(A({},this.user),{user_properties:r})}else return A({},this.user)},e.prototype.setUser=function(t){var r;if(!t){this.user=null;return}if(!((r=this.user)===null||r===void 0)&&r.user_properties){var i=A({},t.user_properties);this.user=A(A({},t),{user_properties:i})}else this.user=A({},t)},e.prototype.getUserProvider=function(){return this.userProvider},e.prototype.setUserProvider=function(t){return this.userProvider=t,this},e.prototype.mergeInitialFlagsWithStorage=function(){var t=this;if(this.config.initialFlags){var r=JSON.parse(this.config.initialFlags);r.forEach(function(i){t.flags.get(i.key)||t.flags.put(i.key,i)})}},e.prototype.evaluate=function(t){var r,i,a=this.addContext(this.user),n=Ge(this.flags.getAll(),t),o=tn(a),c=this.engine.evaluate(o,n),d={};try{for(var l=pt(Object.keys(c)),s=l.next();!s.done;s=l.next()){var f=s.value;d[f]=pr(c[f])}}catch(h){r={error:h}}finally{try{s&&!s.done&&(i=l.return)&&i.call(l)}finally{if(r)throw r.error}}return d},e.prototype.variantAndSource=function(t,r){var i={};this.config.source===D.LocalStorage?i=this.localStorageVariantAndSource(t,r):this.config.source===D.InitialVariants&&(i=this.initialVariantsVariantAndSource(t,r));var a=this.flags.get(t);return(hr(a)||!i.variant&&a)&&(i=this.localEvaluationVariantAndSource(t,a,r)),i},e.prototype.localEvaluationVariantAndSource=function(t,r,i){var a,n={},o=this.evaluate([r.key])[t],c=_.LocalEvaluation,d=(a=o==null?void 0:o.metadata)===null||a===void 0?void 0:a.default;if(!H(o)&&!d)return{variant:R(o),source:c,hasDefaultVariant:!1};if(d&&(n={variant:R(o),source:c,hasDefaultVariant:!0}),!H(i))return{variant:R(i),source:_.FallbackInline,hasDefaultVariant:n.hasDefaultVariant};var l=this.config.initialVariants[t];if(!H(l))return{variant:R(l),source:_.SecondaryInitialVariants,hasDefaultVariant:n.hasDefaultVariant};var s=R(this.config.fallbackVariant),f={variant:s,source:_.FallbackConfig,hasDefaultVariant:n.hasDefaultVariant};return te(s)?n:f},e.prototype.localStorageVariantAndSource=function(t,r){var i,a={},n=this.variants.get(t),o=(i=n==null?void 0:n.metadata)===null||i===void 0?void 0:i.default;if(!H(n)&&!o)return{variant:R(n),source:_.LocalStorage,hasDefaultVariant:!1};if(o&&(a={variant:R(n),source:_.LocalStorage,hasDefaultVariant:!0}),!H(r))return{variant:R(r),source:_.FallbackInline,hasDefaultVariant:a.hasDefaultVariant};var c=this.config.initialVariants[t];if(!H(c))return{variant:R(c),source:_.SecondaryInitialVariants,hasDefaultVariant:a.hasDefaultVariant};var d=R(this.config.fallbackVariant),l={variant:d,source:_.FallbackConfig,hasDefaultVariant:a.hasDefaultVariant};return te(d)?a:l},e.prototype.initialVariantsVariantAndSource=function(t,r){var i,a={},n=this.config.initialVariants[t];if(!H(n))return{variant:R(n),source:_.InitialVariants,hasDefaultVariant:!1};var o=this.variants.get(t),c=(i=o==null?void 0:o.metadata)===null||i===void 0?void 0:i.default;if(!H(o)&&!c)return{variant:R(o),source:_.LocalStorage,hasDefaultVariant:!1};if(c&&(a={variant:R(o),source:_.LocalStorage,hasDefaultVariant:!0}),!H(r))return{variant:R(r),source:_.FallbackInline,hasDefaultVariant:a.hasDefaultVariant};var d=R(this.config.fallbackVariant),l={variant:d,source:_.FallbackConfig,hasDefaultVariant:a.hasDefaultVariant};return te(d)?a:l},e.prototype.fetchInternal=function(t,r,i,a){return N(this,void 0,void 0,function(){var n,o;return O(this,function(c){switch(c.label){case 0:if(!this.apiKey)throw Error("Experiment API key is empty");this.debug("[Experiment] Fetch all: retry=".concat(i)),i&&this.stopRetries(),c.label=1;case 1:return c.trys.push([1,4,,5]),[4,this.doFetch(t,r,a)];case 2:return n=c.sent(),[4,this.storeVariants(n,a)];case 3:return c.sent(),[2,n];case 4:throw o=c.sent(),i&&this.shouldRetryFetch(o)&&this.startRetries(t,a),o;case 5:return[2]}})})},e.prototype.doFetch=function(t,r,i){return N(this,void 0,void 0,function(){var a,n,o,c,d,l,s;return O(this,function(f){switch(f.label){case 0:return[4,this.addContextOrWait(t,1e4)];case 1:return t=f.sent(),this.debug("[Experiment] Fetch variants for user: ",t),[4,this.evaluationApi.getVariants(t,A({timeoutMillis:r},i))];case 2:a=f.sent(),n={};try{for(o=pt(Object.keys(a)),c=o.next();!c.done;c=o.next())d=c.value,n[d]=pr(a[d])}catch(h){l={error:h}}finally{try{c&&!c.done&&(s=o.return)&&s.call(o)}finally{if(l)throw l.error}}return this.debug("[Experiment] Received variants: ",n),[2,n]}})})},e.prototype.doFlags=function(){return N(this,void 0,void 0,function(){var t;return O(this,function(r){switch(r.label){case 0:return[4,this.flagApi.getFlags({libraryName:"experiment-js-client",libraryVersion:fr,timeoutMillis:this.config.fetchTimeoutMillis})];case 1:t=r.sent(),this.flags.clear(),this.flags.putAll(t);try{this.flags.store()}catch{}return this.mergeInitialFlagsWithStorage(),[2]}})})},e.prototype.storeVariants=function(t,r){return N(this,void 0,void 0,function(){var i,a,n,o,o;return O(this,function(c){i=r&&r.flagKeys?r.flagKeys:[],i.length===0&&this.variants.clear(),a=function(d){i=i.filter(function(l){return l!==d}),n.variants.put(d,t[d])},n=this;for(o in t)a(o);for(o in i)this.variants.remove(o);try{this.variants.store()}catch{}return this.debug("[Experiment] Stored variants: ",t),[2]})})},e.prototype.startRetries=function(t,r){return N(this,void 0,void 0,function(){var i=this;return O(this,function(a){return this.debug("[Experiment] Retry fetch"),this.retriesBackoff=new Ji(an,on,sn,ln),this.retriesBackoff.start(function(){return N(i,void 0,void 0,function(){return O(this,function(n){switch(n.label){case 0:return[4,this.fetchInternal(t,nn,!1,r)];case 1:return n.sent(),[2]}})})}),[2]})})},e.prototype.stopRetries=function(){this.retriesBackoff&&this.retriesBackoff.cancel()},e.prototype.addContext=function(t){var r,i,a=(r=this.userProvider)===null||r===void 0?void 0:r.getUser(),n=A(A({},t==null?void 0:t.user_properties),a==null?void 0:a.user_properties);return A(A(A({library:"experiment-js-client/".concat(fr)},(i=this.userProvider)===null||i===void 0?void 0:i.getUser()),t),{user_properties:n})},e.prototype.addContextOrWait=function(t,r){return N(this,void 0,void 0,function(){return O(this,function(i){switch(i.label){case 0:return this.userProvider instanceof ee?this.userProvider.userProvider instanceof gr?[4,this.userProvider.userProvider.identityReady(r)]:[3,2]:[3,2];case 1:i.sent(),i.label=2;case 2:return[2,this.addContext(t)]}})})},e.prototype.sourceVariants=function(){if(this.config.source==D.LocalStorage)return this.variants.getAll();if(this.config.source==D.InitialVariants)return this.config.initialVariants},e.prototype.secondaryVariants=function(){if(this.config.source==D.LocalStorage)return this.config.initialVariants;if(this.config.source==D.InitialVariants)return this.variants.getAll()},e.prototype.exposureInternal=function(t,r){var i,a,n,o,c,d;this.legacyExposureInternal(t,r.variant,r.source);var l={flag_key:t},s=dr(r.source);if(!(s&&!r.hasDefaultVariant)){!((i=r.variant)===null||i===void 0)&&i.expKey&&(l.experiment_key=(a=r.variant)===null||a===void 0?void 0:a.expKey);var f=(n=r.variant)===null||n===void 0?void 0:n.metadata;!s&&!(f!=null&&f.default)&&(!((o=r.variant)===null||o===void 0)&&o.key?l.variant=r.variant.key:!((c=r.variant)===null||c===void 0)&&c.value&&(l.variant=r.variant.value)),f&&(l.metadata=f),(d=this.exposureTrackingProvider)===null||d===void 0||d.track(l)}},e.prototype.legacyExposureInternal=function(t,r,i){var a,n,o,c,d;if(this.analyticsProvider){var l=this.addContext(this.getUser()),s=Xi(l,t,r,i);dr(i)||!(r!=null&&r.value)?(n=(a=this.analyticsProvider)===null||a===void 0?void 0:a.unsetUserProperty)===null||n===void 0||n.call(a,s):r!=null&&r.value&&((c=(o=this.analyticsProvider)===null||o===void 0?void 0:o.setUserProperty)===null||c===void 0||c.call(o,s),(d=this.analyticsProvider)===null||d===void 0||d.track(s))}},e.prototype.debug=function(t){for(var r=[],i=1;i<arguments.length;i++)r[i-1]=arguments[i];this.config.debug&&console.debug.apply(console,Vi([t],qi(r),!1))},e.prototype.shouldRetryFetch=function(t){return t instanceof Jt?t.statusCode<400||t.statusCode>=500||t.statusCode===429:!0},e}(),Y={},fn=function(e,t){var r=(t==null?void 0:t.instanceName)||nt.instanceName,i="".concat(r,".").concat(e),a=zt.getInstance(r);return Y[i]||(t=A(A({},t),{userProvider:new ee(a.applicationContextProvider,t==null?void 0:t.userProvider)}),Y[i]=new xr(e,t)),Y[i]},hn=function(e,t){var r=(t==null?void 0:t.instanceName)||nt.instanceName,i="".concat(r,".").concat(e),a=zt.getInstance(r);return Y[i]||(t=A({userProvider:new ee(a.applicationContextProvider,new gr(a.identityStore)),exposureTrackingProvider:new Yi(a.eventBridge)},t),Y[i]=new xr(e,t),t.automaticFetchOnAmplitudeIdentityChange&&a.identityStore.addIdentityListener(function(){Y[i].fetch()})),Y[i]},Sr={initialize:fn,initializeWithAmplitudeAnalytics:hn},Bn=function(){function e(){}return e.prototype.getUser=function(){return{}},e.prototype.start=function(t){return N(this,void 0,void 0,function(){return O(this,function(r){return[2]})})},e.prototype.stop=function(){},e.prototype.setUser=function(t){},e.prototype.fetch=function(t){return N(this,void 0,void 0,function(){return O(this,function(r){return[2,this]})})},e.prototype.getUserProvider=function(){return null},e.prototype.setUserProvider=function(t){return this},e.prototype.variant=function(t,r){return nt.fallbackVariant},e.prototype.all=function(){return{}},e.prototype.clear=function(){},e.prototype.exposure=function(t){},e}();function Ar(){async function e(){try{let r=new URL(window.location.href).host==="modular-prod-dev.webflow.io"?"client-ejPfaOrUEtTflNBKKrNtLWx5IB1QbAmy":"client-fhQfFdzMgOCoCAWmoV0W8KvnbhFe2dUu",i=Sr.initializeWithAmplitudeAnalytics(r);await i.fetch(),Object.entries(i.variants.getAll()).forEach(([a,n])=>{if(n.payload){i.exposure(a);let o=n.payload.hide?`.${n.payload.hide} { display: none !important; }
-`:"",c=n.payload.hide?`.${n.payload.show} { display: flex !important; }`:"",d=document.createElement("style");d.type="text/css",d.innerHTML=o+c,document.getElementsByTagName("head")[0].appendChild(d)}})}catch{}document.querySelector(".section_hp-hero")&&(document.querySelector(".section_hp-hero").style.opacity=1)}$e(()=>window.amplitude).then(()=>{let t=location.href.indexOf("www.modular.com")!==0,r=window.sessionReplay.plugin({sampleRate:t?.1:0});window.amplitude.add(r),window.amplitude.init(t?"3878a0571d1575870a7d0a5f7e644d23":"d8bf208ebdc1b1000d38da8b826a74c4"),e()})}$(document).ready(function(){ke(),_e(),Oe(),Ne(),be(),we(),Dt(),me(),Le(),ye(),Ar(),pe(),Ce()});$(document).ready(function(){let e=document.querySelector(".cta-button"),t=document.querySelector(".section-content-blog-template");if(e&&t){let n=function(){i&&!a?e.style.opacity=1:e.style.opacity=0};var r=n;e.style.transition="opacity 0.2s ease, transform 0.2s ease",e.style.opacity=0;let i=!1,a=!1;new IntersectionObserver(d=>{i=d[0].isIntersecting,n()}).observe(t);let c=t.nextElementSibling;c&&new IntersectionObserver(l=>{a=l[0].isIntersecting,n()}).observe(c)}});})();
+"use strict";
+(() => {
+  var __create = Object.create;
+  var __defProp = Object.defineProperty;
+  var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+  var __getOwnPropNames = Object.getOwnPropertyNames;
+  var __getProtoOf = Object.getPrototypeOf;
+  var __hasOwnProp = Object.prototype.hasOwnProperty;
+  var __esm = (fn, res) => function __init() {
+    return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
+  };
+  var __commonJS = (cb, mod) => function __require() {
+    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+  };
+  var __copyProps = (to, from, except, desc) => {
+    if (from && typeof from === "object" || typeof from === "function") {
+      for (let key of __getOwnPropNames(from))
+        if (!__hasOwnProp.call(to, key) && key !== except)
+          __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
+    }
+    return to;
+  };
+  var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+    // If the importer is in node compatibility mode or this is not an ESM
+    // file that has been converted to a CommonJS file using a Babel-
+    // compatible transform (i.e. "__esModule" has not been set), then set
+    // "default" to the CommonJS "module.exports" for node compatibility.
+    isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+    mod
+  ));
+
+  // bin/live-reload.js
+  var init_live_reload = __esm({
+    "bin/live-reload.js"() {
+      "use strict";
+      new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+    }
+  });
+
+  // node_modules/@amplitude/ua-parser-js/src/ua-parser.js
+  var require_ua_parser = __commonJS({
+    "node_modules/@amplitude/ua-parser-js/src/ua-parser.js"(exports, module) {
+      init_live_reload();
+      (function(window2, undefined2) {
+        "use strict";
+        var LIBVERSION = "0.7.33", EMPTY = "", UNKNOWN = "?", FUNC_TYPE = "function", UNDEF_TYPE = "undefined", OBJ_TYPE = "object", STR_TYPE = "string", MAJOR = "major", MODEL = "model", NAME = "name", TYPE = "type", VENDOR = "vendor", VERSION2 = "version", ARCHITECTURE = "architecture", CONSOLE = "console", MOBILE = "mobile", TABLET = "tablet", SMARTTV = "smarttv", WEARABLE = "wearable", EMBEDDED = "embedded", UA_MAX_LENGTH = 350;
+        var AMAZON = "Amazon", APPLE = "Apple", ASUS = "ASUS", BLACKBERRY = "BlackBerry", BROWSER = "Browser", CHROME = "Chrome", EDGE = "Edge", FIREFOX = "Firefox", GOOGLE = "Google", HUAWEI = "Huawei", LG = "LG", MICROSOFT = "Microsoft", MOTOROLA = "Motorola", OPERA = "Opera", SAMSUNG = "Samsung", SHARP = "Sharp", SONY = "Sony", XIAOMI = "Xiaomi", ZEBRA = "Zebra", FACEBOOK = "Facebook";
+        var extend = function(regexes2, extensions) {
+          var mergedRegexes = {};
+          for (var i in regexes2) {
+            if (extensions[i] && extensions[i].length % 2 === 0) {
+              mergedRegexes[i] = extensions[i].concat(regexes2[i]);
+            } else {
+              mergedRegexes[i] = regexes2[i];
+            }
+          }
+          return mergedRegexes;
+        }, enumerize = function(arr) {
+          var enums = {};
+          for (var i = 0; i < arr.length; i++) {
+            enums[arr[i].toUpperCase()] = arr[i];
+          }
+          return enums;
+        }, has = function(str1, str2) {
+          return typeof str1 === STR_TYPE ? lowerize(str2).indexOf(lowerize(str1)) !== -1 : false;
+        }, lowerize = function(str) {
+          return str.toLowerCase();
+        }, majorize = function(version3) {
+          return typeof version3 === STR_TYPE ? version3.replace(/[^\d\.]/g, EMPTY).split(".")[0] : undefined2;
+        }, trim = function(str, len) {
+          if (typeof str === STR_TYPE) {
+            str = str.replace(/^\s\s*/, EMPTY);
+            return typeof len === UNDEF_TYPE ? str : str.substring(0, UA_MAX_LENGTH);
+          }
+        };
+        var rgxMapper = function(ua, arrays) {
+          var i = 0, j, k, p, q, matches, match;
+          while (i < arrays.length && !matches) {
+            var regex = arrays[i], props = arrays[i + 1];
+            j = k = 0;
+            while (j < regex.length && !matches) {
+              matches = regex[j++].exec(ua);
+              if (!!matches) {
+                for (p = 0; p < props.length; p++) {
+                  match = matches[++k];
+                  q = props[p];
+                  if (typeof q === OBJ_TYPE && q.length > 0) {
+                    if (q.length === 2) {
+                      if (typeof q[1] == FUNC_TYPE) {
+                        this[q[0]] = q[1].call(this, match);
+                      } else {
+                        this[q[0]] = q[1];
+                      }
+                    } else if (q.length === 3) {
+                      if (typeof q[1] === FUNC_TYPE && !(q[1].exec && q[1].test)) {
+                        this[q[0]] = match ? q[1].call(this, match, q[2]) : undefined2;
+                      } else {
+                        this[q[0]] = match ? match.replace(q[1], q[2]) : undefined2;
+                      }
+                    } else if (q.length === 4) {
+                      this[q[0]] = match ? q[3].call(this, match.replace(q[1], q[2])) : undefined2;
+                    }
+                  } else {
+                    this[q] = match ? match : undefined2;
+                  }
+                }
+              }
+            }
+            i += 2;
+          }
+        }, strMapper = function(str, map) {
+          for (var i in map) {
+            if (typeof map[i] === OBJ_TYPE && map[i].length > 0) {
+              for (var j = 0; j < map[i].length; j++) {
+                if (has(map[i][j], str)) {
+                  return i === UNKNOWN ? undefined2 : i;
+                }
+              }
+            } else if (has(map[i], str)) {
+              return i === UNKNOWN ? undefined2 : i;
+            }
+          }
+          return str;
+        };
+        var oldSafariMap = {
+          "1.0": "/8",
+          1.2: "/1",
+          1.3: "/3",
+          "2.0": "/412",
+          "2.0.2": "/416",
+          "2.0.3": "/417",
+          "2.0.4": "/419",
+          "?": "/"
+        }, windowsVersionMap = {
+          ME: "4.90",
+          "NT 3.11": "NT3.51",
+          "NT 4.0": "NT4.0",
+          2e3: "NT 5.0",
+          XP: ["NT 5.1", "NT 5.2"],
+          Vista: "NT 6.0",
+          7: "NT 6.1",
+          8: "NT 6.2",
+          8.1: "NT 6.3",
+          10: ["NT 6.4", "NT 10.0"],
+          RT: "ARM"
+        };
+        var regexes = {
+          browser: [
+            [
+              /\b(?:crmo|crios)\/([\w\.]+)/i
+              // Chrome for Android/iOS
+            ],
+            [VERSION2, [NAME, "Chrome"]],
+            [
+              /edg(?:e|ios|a)?\/([\w\.]+)/i
+              // Microsoft Edge
+            ],
+            [VERSION2, [NAME, "Edge"]],
+            [
+              // Presto based
+              /(opera mini)\/([-\w\.]+)/i,
+              // Opera Mini
+              /(opera [mobiletab]{3,6})\b.+version\/([-\w\.]+)/i,
+              // Opera Mobi/Tablet
+              /(opera)(?:.+version\/|[\/ ]+)([\w\.]+)/i
+              // Opera
+            ],
+            [NAME, VERSION2],
+            [
+              /opios[\/ ]+([\w\.]+)/i
+              // Opera mini on iphone >= 8.0
+            ],
+            [VERSION2, [NAME, OPERA + " Mini"]],
+            [
+              /\bopr\/([\w\.]+)/i
+              // Opera Webkit
+            ],
+            [VERSION2, [NAME, OPERA]],
+            [
+              // Mixed
+              /(kindle)\/([\w\.]+)/i,
+              // Kindle
+              /(lunascape|maxthon|netfront|jasmine|blazer)[\/ ]?([\w\.]*)/i,
+              // Lunascape/Maxthon/Netfront/Jasmine/Blazer
+              // Trident based
+              /(avant |iemobile|slim)(?:browser)?[\/ ]?([\w\.]*)/i,
+              // Avant/IEMobile/SlimBrowser
+              /(ba?idubrowser)[\/ ]?([\w\.]+)/i,
+              // Baidu Browser
+              /(?:ms|\()(ie) ([\w\.]+)/i,
+              // Internet Explorer
+              // Webkit/KHTML based                                               // Flock/RockMelt/Midori/Epiphany/Silk/Skyfire/Bolt/Iron/Iridium/PhantomJS/Bowser/QupZilla/Falkon
+              /(flock|rockmelt|midori|epiphany|silk|skyfire|ovibrowser|bolt|iron|vivaldi|iridium|phantomjs|bowser|quark|qupzilla|falkon|rekonq|puffin|brave|whale|qqbrowserlite|qq|duckduckgo)\/([-\w\.]+)/i,
+              // Rekonq/Puffin/Brave/Whale/QQBrowserLite/QQ, aka ShouQ
+              /(weibo)__([\d\.]+)/i
+              // Weibo
+            ],
+            [NAME, VERSION2],
+            [
+              /(?:\buc? ?browser|(?:juc.+)ucweb)[\/ ]?([\w\.]+)/i
+              // UCBrowser
+            ],
+            [VERSION2, [NAME, "UC" + BROWSER]],
+            [
+              /microm.+\bqbcore\/([\w\.]+)/i,
+              // WeChat Desktop for Windows Built-in Browser
+              /\bqbcore\/([\w\.]+).+microm/i
+            ],
+            [VERSION2, [NAME, "WeChat(Win) Desktop"]],
+            [
+              /micromessenger\/([\w\.]+)/i
+              // WeChat
+            ],
+            [VERSION2, [NAME, "WeChat"]],
+            [
+              /konqueror\/([\w\.]+)/i
+              // Konqueror
+            ],
+            [VERSION2, [NAME, "Konqueror"]],
+            [
+              /trident.+rv[: ]([\w\.]{1,9})\b.+like gecko/i
+              // IE11
+            ],
+            [VERSION2, [NAME, "IE"]],
+            [
+              /yabrowser\/([\w\.]+)/i
+              // Yandex
+            ],
+            [VERSION2, [NAME, "Yandex"]],
+            [
+              /(avast|avg)\/([\w\.]+)/i
+              // Avast/AVG Secure Browser
+            ],
+            [[NAME, /(.+)/, "$1 Secure " + BROWSER], VERSION2],
+            [
+              /\bfocus\/([\w\.]+)/i
+              // Firefox Focus
+            ],
+            [VERSION2, [NAME, FIREFOX + " Focus"]],
+            [
+              /\bopt\/([\w\.]+)/i
+              // Opera Touch
+            ],
+            [VERSION2, [NAME, OPERA + " Touch"]],
+            [
+              /coc_coc\w+\/([\w\.]+)/i
+              // Coc Coc Browser
+            ],
+            [VERSION2, [NAME, "Coc Coc"]],
+            [
+              /dolfin\/([\w\.]+)/i
+              // Dolphin
+            ],
+            [VERSION2, [NAME, "Dolphin"]],
+            [
+              /coast\/([\w\.]+)/i
+              // Opera Coast
+            ],
+            [VERSION2, [NAME, OPERA + " Coast"]],
+            [
+              /miuibrowser\/([\w\.]+)/i
+              // MIUI Browser
+            ],
+            [VERSION2, [NAME, "MIUI " + BROWSER]],
+            [
+              /fxios\/([-\w\.]+)/i
+              // Firefox for iOS
+            ],
+            [VERSION2, [NAME, FIREFOX]],
+            [
+              /\bqihu|(qi?ho?o?|360)browser/i
+              // 360
+            ],
+            [[NAME, "360 " + BROWSER]],
+            [/(oculus|samsung|sailfish|huawei)browser\/([\w\.]+)/i],
+            [[NAME, /(.+)/, "$1 " + BROWSER], VERSION2],
+            [
+              // Oculus/Samsung/Sailfish/Huawei Browser
+              /(comodo_dragon)\/([\w\.]+)/i
+              // Comodo Dragon
+            ],
+            [[NAME, /_/g, " "], VERSION2],
+            [
+              /(electron)\/([\w\.]+) safari/i,
+              // Electron-based App
+              /(tesla)(?: qtcarbrowser|\/(20\d\d\.[-\w\.]+))/i,
+              // Tesla
+              /m?(qqbrowser|baiduboxapp|2345Explorer)[\/ ]?([\w\.]+)/i
+              // QQBrowser/Baidu App/2345 Browser
+            ],
+            [NAME, VERSION2],
+            [
+              /(metasr)[\/ ]?([\w\.]+)/i,
+              // SouGouBrowser
+              /(lbbrowser)/i,
+              // LieBao Browser
+              /\[(linkedin)app\]/i
+              // LinkedIn App for iOS & Android
+            ],
+            [NAME],
+            [
+              // WebView
+              /((?:fban\/fbios|fb_iab\/fb4a)(?!.+fbav)|;fbav\/([\w\.]+);)/i
+              // Facebook App for iOS & Android
+            ],
+            [[NAME, FACEBOOK], VERSION2],
+            [
+              /safari (line)\/([\w\.]+)/i,
+              // Line App for iOS
+              /\b(line)\/([\w\.]+)\/iab/i,
+              // Line App for Android
+              /(chromium|instagram)[\/ ]([-\w\.]+)/i
+              // Chromium/Instagram
+            ],
+            [NAME, VERSION2],
+            [
+              /\bgsa\/([\w\.]+) .*safari\//i
+              // Google Search Appliance on iOS
+            ],
+            [VERSION2, [NAME, "GSA"]],
+            [
+              /headlesschrome(?:\/([\w\.]+)| )/i
+              // Chrome Headless
+            ],
+            [VERSION2, [NAME, CHROME + " Headless"]],
+            [
+              / wv\).+(chrome)\/([\w\.]+)/i
+              // Chrome WebView
+            ],
+            [[NAME, CHROME + " WebView"], VERSION2],
+            [
+              /droid.+ version\/([\w\.]+)\b.+(?:mobile safari|safari)/i
+              // Android Browser
+            ],
+            [VERSION2, [NAME, "Android " + BROWSER]],
+            [
+              /(chrome|omniweb|arora|[tizenoka]{5} ?browser)\/v?([\w\.]+)/i
+              // Chrome/OmniWeb/Arora/Tizen/Nokia
+            ],
+            [NAME, VERSION2],
+            [
+              /version\/([\w\.\,]+) .*mobile\/\w+ (safari)/i
+              // Mobile Safari
+            ],
+            [VERSION2, [NAME, "Mobile Safari"]],
+            [
+              /version\/([\w(\.|\,)]+) .*(mobile ?safari|safari)/i
+              // Safari & Safari Mobile
+            ],
+            [VERSION2, NAME],
+            [
+              /webkit.+?(mobile ?safari|safari)(\/[\w\.]+)/i
+              // Safari < 3.0
+            ],
+            [NAME, [VERSION2, strMapper, oldSafariMap]],
+            [/(webkit|khtml)\/([\w\.]+)/i],
+            [NAME, VERSION2],
+            [
+              // Gecko based
+              /(navigator|netscape\d?)\/([-\w\.]+)/i
+              // Netscape
+            ],
+            [[NAME, "Netscape"], VERSION2],
+            [
+              /mobile vr; rv:([\w\.]+)\).+firefox/i
+              // Firefox Reality
+            ],
+            [VERSION2, [NAME, FIREFOX + " Reality"]],
+            [
+              /ekiohf.+(flow)\/([\w\.]+)/i,
+              // Flow
+              /(swiftfox)/i,
+              // Swiftfox
+              /(icedragon|iceweasel|camino|chimera|fennec|maemo browser|minimo|conkeror|klar)[\/ ]?([\w\.\+]+)/i,
+              // IceDragon/Iceweasel/Camino/Chimera/Fennec/Maemo/Minimo/Conkeror/Klar
+              /(seamonkey|k-meleon|icecat|iceape|firebird|phoenix|palemoon|basilisk|waterfox)\/([-\w\.]+)$/i,
+              // Firefox/SeaMonkey/K-Meleon/IceCat/IceApe/Firebird/Phoenix
+              /(firefox)\/([\w\.]+)/i,
+              // Other Firefox-based
+              /(mozilla)\/([\w\.]+) .+rv\:.+gecko\/\d+/i,
+              // Mozilla
+              // Other
+              /(polaris|lynx|dillo|icab|doris|amaya|w3m|netsurf|sleipnir|obigo|mosaic|(?:go|ice|up)[\. ]?browser)[-\/ ]?v?([\w\.]+)/i,
+              // Polaris/Lynx/Dillo/iCab/Doris/Amaya/w3m/NetSurf/Sleipnir/Obigo/Mosaic/Go/ICE/UP.Browser
+              /(links) \(([\w\.]+)/i
+              // Links
+            ],
+            [NAME, VERSION2],
+            [
+              /(cobalt)\/([\w\.]+)/i
+              // Cobalt
+            ],
+            [NAME, [VERSION2, /master.|lts./, ""]]
+          ],
+          cpu: [
+            [
+              /(?:(amd|x(?:(?:86|64)[-_])?|wow|win)64)[;\)]/i
+              // AMD64 (x64)
+            ],
+            [[ARCHITECTURE, "amd64"]],
+            [
+              /(ia32(?=;))/i
+              // IA32 (quicktime)
+            ],
+            [[ARCHITECTURE, lowerize]],
+            [
+              /((?:i[346]|x)86)[;\)]/i
+              // IA32 (x86)
+            ],
+            [[ARCHITECTURE, "ia32"]],
+            [
+              /\b(aarch64|arm(v?8e?l?|_?64))\b/i
+              // ARM64
+            ],
+            [[ARCHITECTURE, "arm64"]],
+            [
+              /\b(arm(?:v[67])?ht?n?[fl]p?)\b/i
+              // ARMHF
+            ],
+            [[ARCHITECTURE, "armhf"]],
+            [
+              // PocketPC mistakenly identified as PowerPC
+              /windows (ce|mobile); ppc;/i
+            ],
+            [[ARCHITECTURE, "arm"]],
+            [
+              /((?:ppc|powerpc)(?:64)?)(?: mac|;|\))/i
+              // PowerPC
+            ],
+            [[ARCHITECTURE, /ower/, EMPTY, lowerize]],
+            [
+              /(sun4\w)[;\)]/i
+              // SPARC
+            ],
+            [[ARCHITECTURE, "sparc"]],
+            [
+              /((?:avr32|ia64(?=;))|68k(?=\))|\barm(?=v(?:[1-7]|[5-7]1)l?|;|eabi)|(?=atmel )avr|(?:irix|mips|sparc)(?:64)?\b|pa-risc)/i
+              // IA64, 68K, ARM/64, AVR/32, IRIX/64, MIPS/64, SPARC/64, PA-RISC
+            ],
+            [[ARCHITECTURE, lowerize]]
+          ],
+          device: [
+            [
+              //////////////////////////
+              // MOBILES & TABLETS
+              // Ordered by popularity
+              /////////////////////////
+              // Samsung
+              /\b(sch-i[89]0\d|shw-m380s|sm-[ptx]\w{2,4}|gt-[pn]\d{2,4}|sgh-t8[56]9|nexus 10)/i
+            ],
+            [MODEL, [VENDOR, SAMSUNG], [TYPE, TABLET]],
+            [
+              /\b((?:s[cgp]h|gt|sm)-\w+|galaxy nexus)/i,
+              /samsung[- ]([-\w]+)/i,
+              /sec-(sgh\w+)/i
+            ],
+            [MODEL, [VENDOR, SAMSUNG], [TYPE, MOBILE]],
+            [
+              // Apple
+              /((ipod|iphone)\d+,\d+)/i
+              // iPod/iPhone model
+            ],
+            [MODEL, [VENDOR, APPLE], [TYPE, MOBILE]],
+            [
+              /(ipad\d+,\d+)/i
+              // iPad model
+            ],
+            [MODEL, [VENDOR, APPLE], [TYPE, TABLET]],
+            [
+              /\((ip(?:hone|od)[\w ]*);/i
+              // iPod/iPhone
+            ],
+            [MODEL, [VENDOR, APPLE], [TYPE, MOBILE]],
+            [
+              /\((ipad);[-\w\),; ]+apple/i,
+              // iPad
+              /applecoremedia\/[\w\.]+ \((ipad)/i,
+              /\b(ipad)\d\d?,\d\d?[;\]].+ios/i
+            ],
+            [MODEL, [VENDOR, APPLE], [TYPE, TABLET]],
+            [/(macintosh);/i],
+            [MODEL, [VENDOR, APPLE]],
+            [
+              // Huawei
+              /\b((?:ag[rs][23]?|bah2?|sht?|btv)-a?[lw]\d{2})\b(?!.+d\/s)/i
+            ],
+            [MODEL, [VENDOR, HUAWEI], [TYPE, TABLET]],
+            [
+              /(?:huawei|honor)([-\w ]+)[;\)]/i,
+              /\b(nexus 6p|\w{2,4}e?-[atu]?[ln][\dx][012359c][adn]?)\b(?!.+d\/s)/i
+            ],
+            [MODEL, [VENDOR, HUAWEI], [TYPE, MOBILE]],
+            [
+              // Xiaomi
+              /\b(poco[\w ]+)(?: bui|\))/i,
+              // Xiaomi POCO
+              /\b; (\w+) build\/hm\1/i,
+              // Xiaomi Hongmi 'numeric' models
+              /\b(hm[-_ ]?note?[_ ]?(?:\d\w)?) bui/i,
+              // Xiaomi Hongmi
+              /\b(redmi[\-_ ]?(?:note|k)?[\w_ ]+)(?: bui|\))/i,
+              // Xiaomi Redmi
+              /\b(mi[-_ ]?(?:a\d|one|one[_ ]plus|note lte|max|cc)?[_ ]?(?:\d?\w?)[_ ]?(?:plus|se|lite)?)(?: bui|\))/i
+              // Xiaomi Mi
+            ],
+            [
+              [MODEL, /_/g, " "],
+              [VENDOR, XIAOMI],
+              [TYPE, MOBILE]
+            ],
+            [
+              /\b(mi[-_ ]?(?:pad)(?:[\w_ ]+))(?: bui|\))/i
+              // Mi Pad tablets
+            ],
+            [
+              [MODEL, /_/g, " "],
+              [VENDOR, XIAOMI],
+              [TYPE, TABLET]
+            ],
+            [
+              // OPPO
+              /; (\w+) bui.+ oppo/i,
+              /\b(cph[12]\d{3}|p(?:af|c[al]|d\w|e[ar])[mt]\d0|x9007|a101op)\b/i
+            ],
+            [MODEL, [VENDOR, "OPPO"], [TYPE, MOBILE]],
+            [
+              // Vivo
+              /vivo (\w+)(?: bui|\))/i,
+              /\b(v[12]\d{3}\w?[at])(?: bui|;)/i
+            ],
+            [MODEL, [VENDOR, "Vivo"], [TYPE, MOBILE]],
+            [
+              // Realme
+              /\b(rmx[12]\d{3})(?: bui|;|\))/i
+            ],
+            [MODEL, [VENDOR, "Realme"], [TYPE, MOBILE]],
+            [
+              // Motorola
+              /\b(milestone|droid(?:[2-4x]| (?:bionic|x2|pro|razr))?:?( 4g)?)\b[\w ]+build\//i,
+              /\bmot(?:orola)?[- ](\w*)/i,
+              /((?:moto[\w\(\) ]+|xt\d{3,4}|nexus 6)(?= bui|\)))/i
+            ],
+            [MODEL, [VENDOR, MOTOROLA], [TYPE, MOBILE]],
+            [/\b(mz60\d|xoom[2 ]{0,2}) build\//i],
+            [MODEL, [VENDOR, MOTOROLA], [TYPE, TABLET]],
+            [
+              // LG
+              /((?=lg)?[vl]k\-?\d{3}) bui| 3\.[-\w; ]{10}lg?-([06cv9]{3,4})/i
+            ],
+            [MODEL, [VENDOR, LG], [TYPE, TABLET]],
+            [
+              /(lm(?:-?f100[nv]?|-[\w\.]+)(?= bui|\))|nexus [45])/i,
+              /\blg[-e;\/ ]+((?!browser|netcast|android tv)\w+)/i,
+              /\blg-?([\d\w]+) bui/i
+            ],
+            [MODEL, [VENDOR, LG], [TYPE, MOBILE]],
+            [
+              // Lenovo
+              /(ideatab[-\w ]+)/i,
+              /lenovo ?(s[56]000[-\w]+|tab(?:[\w ]+)|yt[-\d\w]{6}|tb[-\d\w]{6})/i
+            ],
+            [MODEL, [VENDOR, "Lenovo"], [TYPE, TABLET]],
+            [
+              // Nokia
+              /(?:maemo|nokia).*(n900|lumia \d+)/i,
+              /nokia[-_ ]?([-\w\.]*)/i
+            ],
+            [
+              [MODEL, /_/g, " "],
+              [VENDOR, "Nokia"],
+              [TYPE, MOBILE]
+            ],
+            [
+              // Google
+              /(pixel c)\b/i
+              // Google Pixel C
+            ],
+            [MODEL, [VENDOR, GOOGLE], [TYPE, TABLET]],
+            [
+              /droid.+; (pixel[\daxl ]{0,6})(?: bui|\))/i
+              // Google Pixel
+            ],
+            [MODEL, [VENDOR, GOOGLE], [TYPE, MOBILE]],
+            [
+              // Sony
+              /droid.+ (a?\d[0-2]{2}so|[c-g]\d{4}|so[-gl]\w+|xq-a\w[4-7][12])(?= bui|\).+chrome\/(?![1-6]{0,1}\d\.))/i
+            ],
+            [MODEL, [VENDOR, SONY], [TYPE, MOBILE]],
+            [/sony tablet [ps]/i, /\b(?:sony)?sgp\w+(?: bui|\))/i],
+            [
+              [MODEL, "Xperia Tablet"],
+              [VENDOR, SONY],
+              [TYPE, TABLET]
+            ],
+            [
+              // OnePlus
+              / (kb2005|in20[12]5|be20[12][59])\b/i,
+              /(?:one)?(?:plus)? (a\d0\d\d)(?: b|\))/i
+            ],
+            [MODEL, [VENDOR, "OnePlus"], [TYPE, MOBILE]],
+            [
+              // Amazon
+              /(alexa)webm/i,
+              /(kf[a-z]{2}wi)( bui|\))/i,
+              // Kindle Fire without Silk
+              /(kf[a-z]+)( bui|\)).+silk\//i
+              // Kindle Fire HD
+            ],
+            [MODEL, [VENDOR, AMAZON], [TYPE, TABLET]],
+            [
+              /((?:sd|kf)[0349hijorstuw]+)( bui|\)).+silk\//i
+              // Fire Phone
+            ],
+            [
+              [MODEL, /(.+)/g, "Fire Phone $1"],
+              [VENDOR, AMAZON],
+              [TYPE, MOBILE]
+            ],
+            [
+              // BlackBerry
+              /(playbook);[-\w\),; ]+(rim)/i
+              // BlackBerry PlayBook
+            ],
+            [MODEL, VENDOR, [TYPE, TABLET]],
+            [
+              /\b((?:bb[a-f]|st[hv])100-\d)/i,
+              /\(bb10; (\w+)/i
+              // BlackBerry 10
+            ],
+            [MODEL, [VENDOR, BLACKBERRY], [TYPE, MOBILE]],
+            [
+              // Asus
+              /(?:\b|asus_)(transfo[prime ]{4,10} \w+|eeepc|slider \w+|nexus 7|padfone|p00[cj])/i
+            ],
+            [MODEL, [VENDOR, ASUS], [TYPE, TABLET]],
+            [/ (z[bes]6[027][012][km][ls]|zenfone \d\w?)\b/i],
+            [MODEL, [VENDOR, ASUS], [TYPE, MOBILE]],
+            [
+              // HTC
+              /(nexus 9)/i
+              // HTC Nexus 9
+            ],
+            [MODEL, [VENDOR, "HTC"], [TYPE, TABLET]],
+            [
+              /(htc)[-;_ ]{1,2}([\w ]+(?=\)| bui)|\w+)/i,
+              // HTC
+              // ZTE
+              /(zte)[- ]([\w ]+?)(?: bui|\/|\))/i,
+              /(alcatel|geeksphone|nexian|panasonic|sony(?!-bra))[-_ ]?([-\w]*)/i
+              // Alcatel/GeeksPhone/Nexian/Panasonic/Sony
+            ],
+            [VENDOR, [MODEL, /_/g, " "], [TYPE, MOBILE]],
+            [
+              // Acer
+              /droid.+; ([ab][1-7]-?[0178a]\d\d?)/i
+            ],
+            [MODEL, [VENDOR, "Acer"], [TYPE, TABLET]],
+            [
+              // Meizu
+              /droid.+; (m[1-5] note) bui/i,
+              /\bmz-([-\w]{2,})/i
+            ],
+            [MODEL, [VENDOR, "Meizu"], [TYPE, MOBILE]],
+            [
+              // Sharp
+              /\b(sh-?[altvz]?\d\d[a-ekm]?)/i
+            ],
+            [MODEL, [VENDOR, SHARP], [TYPE, MOBILE]],
+            [
+              // MIXED
+              /(blackberry|benq|palm(?=\-)|sonyericsson|acer|asus|dell|meizu|motorola|polytron)[-_ ]?([-\w]*)/i,
+              // BlackBerry/BenQ/Palm/Sony-Ericsson/Acer/Asus/Dell/Meizu/Motorola/Polytron
+              /(hp) ([\w ]+\w)/i,
+              // HP iPAQ
+              /(asus)-?(\w+)/i,
+              // Asus
+              /(microsoft); (lumia[\w ]+)/i,
+              // Microsoft Lumia
+              /(lenovo)[-_ ]?([-\w]+)/i,
+              // Lenovo
+              /(jolla)/i,
+              // Jolla
+              /(oppo) ?([\w ]+) bui/i
+              // OPPO
+            ],
+            [VENDOR, MODEL, [TYPE, MOBILE]],
+            [
+              /(archos) (gamepad2?)/i,
+              // Archos
+              /(hp).+(touchpad(?!.+tablet)|tablet)/i,
+              // HP TouchPad
+              /(kindle)\/([\w\.]+)/i,
+              // Kindle
+              /(nook)[\w ]+build\/(\w+)/i,
+              // Nook
+              /(dell) (strea[kpr\d ]*[\dko])/i,
+              // Dell Streak
+              /(le[- ]+pan)[- ]+(\w{1,9}) bui/i,
+              // Le Pan Tablets
+              /(trinity)[- ]*(t\d{3}) bui/i,
+              // Trinity Tablets
+              /(gigaset)[- ]+(q\w{1,9}) bui/i,
+              // Gigaset Tablets
+              /(vodafone) ([\w ]+)(?:\)| bui)/i
+              // Vodafone
+            ],
+            [VENDOR, MODEL, [TYPE, TABLET]],
+            [
+              /(surface duo)/i
+              // Surface Duo
+            ],
+            [MODEL, [VENDOR, MICROSOFT], [TYPE, TABLET]],
+            [
+              /droid [\d\.]+; (fp\du?)(?: b|\))/i
+              // Fairphone
+            ],
+            [MODEL, [VENDOR, "Fairphone"], [TYPE, MOBILE]],
+            [
+              /(u304aa)/i
+              // AT&T
+            ],
+            [MODEL, [VENDOR, "AT&T"], [TYPE, MOBILE]],
+            [
+              /\bsie-(\w*)/i
+              // Siemens
+            ],
+            [MODEL, [VENDOR, "Siemens"], [TYPE, MOBILE]],
+            [
+              /\b(rct\w+) b/i
+              // RCA Tablets
+            ],
+            [MODEL, [VENDOR, "RCA"], [TYPE, TABLET]],
+            [
+              /\b(venue[\d ]{2,7}) b/i
+              // Dell Venue Tablets
+            ],
+            [MODEL, [VENDOR, "Dell"], [TYPE, TABLET]],
+            [
+              /\b(q(?:mv|ta)\w+) b/i
+              // Verizon Tablet
+            ],
+            [MODEL, [VENDOR, "Verizon"], [TYPE, TABLET]],
+            [
+              /\b(?:barnes[& ]+noble |bn[rt])([\w\+ ]*) b/i
+              // Barnes & Noble Tablet
+            ],
+            [MODEL, [VENDOR, "Barnes & Noble"], [TYPE, TABLET]],
+            [/\b(tm\d{3}\w+) b/i],
+            [MODEL, [VENDOR, "NuVision"], [TYPE, TABLET]],
+            [
+              /\b(k88) b/i
+              // ZTE K Series Tablet
+            ],
+            [MODEL, [VENDOR, "ZTE"], [TYPE, TABLET]],
+            [
+              /\b(nx\d{3}j) b/i
+              // ZTE Nubia
+            ],
+            [MODEL, [VENDOR, "ZTE"], [TYPE, MOBILE]],
+            [
+              /\b(gen\d{3}) b.+49h/i
+              // Swiss GEN Mobile
+            ],
+            [MODEL, [VENDOR, "Swiss"], [TYPE, MOBILE]],
+            [
+              /\b(zur\d{3}) b/i
+              // Swiss ZUR Tablet
+            ],
+            [MODEL, [VENDOR, "Swiss"], [TYPE, TABLET]],
+            [
+              /\b((zeki)?tb.*\b) b/i
+              // Zeki Tablets
+            ],
+            [MODEL, [VENDOR, "Zeki"], [TYPE, TABLET]],
+            [
+              /\b([yr]\d{2}) b/i,
+              /\b(dragon[- ]+touch |dt)(\w{5}) b/i
+              // Dragon Touch Tablet
+            ],
+            [[VENDOR, "Dragon Touch"], MODEL, [TYPE, TABLET]],
+            [
+              /\b(ns-?\w{0,9}) b/i
+              // Insignia Tablets
+            ],
+            [MODEL, [VENDOR, "Insignia"], [TYPE, TABLET]],
+            [
+              /\b((nxa|next)-?\w{0,9}) b/i
+              // NextBook Tablets
+            ],
+            [MODEL, [VENDOR, "NextBook"], [TYPE, TABLET]],
+            [
+              /\b(xtreme\_)?(v(1[045]|2[015]|[3469]0|7[05])) b/i
+              // Voice Xtreme Phones
+            ],
+            [[VENDOR, "Voice"], MODEL, [TYPE, MOBILE]],
+            [
+              /\b(lvtel\-)?(v1[12]) b/i
+              // LvTel Phones
+            ],
+            [[VENDOR, "LvTel"], MODEL, [TYPE, MOBILE]],
+            [
+              /\b(ph-1) /i
+              // Essential PH-1
+            ],
+            [MODEL, [VENDOR, "Essential"], [TYPE, MOBILE]],
+            [
+              /\b(v(100md|700na|7011|917g).*\b) b/i
+              // Envizen Tablets
+            ],
+            [MODEL, [VENDOR, "Envizen"], [TYPE, TABLET]],
+            [
+              /\b(trio[-\w\. ]+) b/i
+              // MachSpeed Tablets
+            ],
+            [MODEL, [VENDOR, "MachSpeed"], [TYPE, TABLET]],
+            [
+              /\btu_(1491) b/i
+              // Rotor Tablets
+            ],
+            [MODEL, [VENDOR, "Rotor"], [TYPE, TABLET]],
+            [
+              /(shield[\w ]+) b/i
+              // Nvidia Shield Tablets
+            ],
+            [MODEL, [VENDOR, "Nvidia"], [TYPE, TABLET]],
+            [
+              /(sprint) (\w+)/i
+              // Sprint Phones
+            ],
+            [VENDOR, MODEL, [TYPE, MOBILE]],
+            [
+              /(kin\.[onetw]{3})/i
+              // Microsoft Kin
+            ],
+            [
+              [MODEL, /\./g, " "],
+              [VENDOR, MICROSOFT],
+              [TYPE, MOBILE]
+            ],
+            [
+              /droid.+; (cc6666?|et5[16]|mc[239][23]x?|vc8[03]x?)\)/i
+              // Zebra
+            ],
+            [MODEL, [VENDOR, ZEBRA], [TYPE, TABLET]],
+            [/droid.+; (ec30|ps20|tc[2-8]\d[kx])\)/i],
+            [MODEL, [VENDOR, ZEBRA], [TYPE, MOBILE]],
+            [
+              ///////////////////
+              // CONSOLES
+              ///////////////////
+              /(ouya)/i,
+              // Ouya
+              /(nintendo) ([wids3utch]+)/i
+              // Nintendo
+            ],
+            [VENDOR, MODEL, [TYPE, CONSOLE]],
+            [
+              /droid.+; (shield) bui/i
+              // Nvidia
+            ],
+            [MODEL, [VENDOR, "Nvidia"], [TYPE, CONSOLE]],
+            [
+              /(playstation [345portablevi]+)/i
+              // Playstation
+            ],
+            [MODEL, [VENDOR, SONY], [TYPE, CONSOLE]],
+            [
+              /\b(xbox(?: one)?(?!; xbox))[\); ]/i
+              // Microsoft Xbox
+            ],
+            [MODEL, [VENDOR, MICROSOFT], [TYPE, CONSOLE]],
+            [
+              ///////////////////
+              // SMARTTVS
+              ///////////////////
+              /smart-tv.+(samsung)/i
+              // Samsung
+            ],
+            [VENDOR, [TYPE, SMARTTV]],
+            [/hbbtv.+maple;(\d+)/i],
+            [
+              [MODEL, /^/, "SmartTV"],
+              [VENDOR, SAMSUNG],
+              [TYPE, SMARTTV]
+            ],
+            [
+              /(nux; netcast.+smarttv|lg (netcast\.tv-201\d|android tv))/i
+              // LG SmartTV
+            ],
+            [
+              [VENDOR, LG],
+              [TYPE, SMARTTV]
+            ],
+            [
+              /(apple) ?tv/i
+              // Apple TV
+            ],
+            [VENDOR, [MODEL, APPLE + " TV"], [TYPE, SMARTTV]],
+            [
+              /crkey/i
+              // Google Chromecast
+            ],
+            [
+              [MODEL, CHROME + "cast"],
+              [VENDOR, GOOGLE],
+              [TYPE, SMARTTV]
+            ],
+            [
+              /droid.+aft(\w)( bui|\))/i
+              // Fire TV
+            ],
+            [MODEL, [VENDOR, AMAZON], [TYPE, SMARTTV]],
+            [
+              /\(dtv[\);].+(aquos)/i,
+              /(aquos-tv[\w ]+)\)/i
+              // Sharp
+            ],
+            [MODEL, [VENDOR, SHARP], [TYPE, SMARTTV]],
+            [
+              /(bravia[\w ]+)( bui|\))/i
+              // Sony
+            ],
+            [MODEL, [VENDOR, SONY], [TYPE, SMARTTV]],
+            [
+              /(mitv-\w{5}) bui/i
+              // Xiaomi
+            ],
+            [MODEL, [VENDOR, XIAOMI], [TYPE, SMARTTV]],
+            [
+              /\b(roku)[\dx]*[\)\/]((?:dvp-)?[\d\.]*)/i,
+              // Roku
+              /hbbtv\/\d+\.\d+\.\d+ +\([\w ]*; *(\w[^;]*);([^;]*)/i
+              // HbbTV devices
+            ],
+            [
+              [VENDOR, trim],
+              [MODEL, trim],
+              [TYPE, SMARTTV]
+            ],
+            [
+              /\b(android tv|smart[- ]?tv|opera tv|tv; rv:)\b/i
+              // SmartTV from Unidentified Vendors
+            ],
+            [[TYPE, SMARTTV]],
+            [
+              ///////////////////
+              // WEARABLES
+              ///////////////////
+              /((pebble))app/i
+              // Pebble
+            ],
+            [VENDOR, MODEL, [TYPE, WEARABLE]],
+            [
+              /droid.+; (glass) \d/i
+              // Google Glass
+            ],
+            [MODEL, [VENDOR, GOOGLE], [TYPE, WEARABLE]],
+            [/droid.+; (wt63?0{2,3})\)/i],
+            [MODEL, [VENDOR, ZEBRA], [TYPE, WEARABLE]],
+            [
+              /(quest( 2)?)/i
+              // Oculus Quest
+            ],
+            [MODEL, [VENDOR, FACEBOOK], [TYPE, WEARABLE]],
+            [
+              ///////////////////
+              // EMBEDDED
+              ///////////////////
+              /(tesla)(?: qtcarbrowser|\/[-\w\.]+)/i
+              // Tesla
+            ],
+            [VENDOR, [TYPE, EMBEDDED]],
+            [
+              ////////////////////
+              // MIXED (GENERIC)
+              ///////////////////
+              /droid .+?; ([^;]+?)(?: bui|\) applew).+? mobile safari/i
+              // Android Phones from Unidentified Vendors
+            ],
+            [MODEL, [TYPE, MOBILE]],
+            [
+              /droid .+?; ([^;]+?)(?: bui|\) applew).+?(?! mobile) safari/i
+              // Android Tablets from Unidentified Vendors
+            ],
+            [MODEL, [TYPE, TABLET]],
+            [
+              /\b((tablet|tab)[;\/]|focus\/\d(?!.+mobile))/i
+              // Unidentifiable Tablet
+            ],
+            [[TYPE, TABLET]],
+            [
+              /(phone|mobile(?:[;\/]| [ \w\/\.]*safari)|pda(?=.+windows ce))/i
+              // Unidentifiable Mobile
+            ],
+            [[TYPE, MOBILE]],
+            [
+              /(android[-\w\. ]{0,9});.+buil/i
+              // Generic Android Device
+            ],
+            [MODEL, [VENDOR, "Generic"]]
+          ],
+          engine: [
+            [
+              /windows.+ edge\/([\w\.]+)/i
+              // EdgeHTML
+            ],
+            [VERSION2, [NAME, EDGE + "HTML"]],
+            [
+              /webkit\/537\.36.+chrome\/(?!27)([\w\.]+)/i
+              // Blink
+            ],
+            [VERSION2, [NAME, "Blink"]],
+            [
+              /(presto)\/([\w\.]+)/i,
+              // Presto
+              /(webkit|trident|netfront|netsurf|amaya|lynx|w3m|goanna)\/([\w\.]+)/i,
+              // WebKit/Trident/NetFront/NetSurf/Amaya/Lynx/w3m/Goanna
+              /ekioh(flow)\/([\w\.]+)/i,
+              // Flow
+              /(khtml|tasman|links)[\/ ]\(?([\w\.]+)/i,
+              // KHTML/Tasman/Links
+              /(icab)[\/ ]([23]\.[\d\.]+)/i
+              // iCab
+            ],
+            [NAME, VERSION2],
+            [
+              /rv\:([\w\.]{1,9})\b.+(gecko)/i
+              // Gecko
+            ],
+            [VERSION2, NAME]
+          ],
+          os: [
+            [
+              // Windows
+              /microsoft (windows) (vista|xp)/i
+              // Windows (iTunes)
+            ],
+            [NAME, VERSION2],
+            [
+              /(windows) nt 6\.2; (arm)/i,
+              // Windows RT
+              /(windows (?:phone(?: os)?|mobile))[\/ ]?([\d\.\w ]*)/i,
+              // Windows Phone
+              /(windows)[\/ ]?([ntce\d\. ]+\w)(?!.+xbox)/i
+            ],
+            [NAME, [VERSION2, strMapper, windowsVersionMap]],
+            [/(win(?=3|9|n)|win 9x )([nt\d\.]+)/i],
+            [
+              [NAME, "Windows"],
+              [VERSION2, strMapper, windowsVersionMap]
+            ],
+            [
+              // iOS/macOS
+              /ip[honead]{2,4}\b(?:.*os ([\w]+) like mac|; opera)/i,
+              // iOS
+              /cfnetwork\/.+darwin/i
+            ],
+            [
+              [VERSION2, /_/g, "."],
+              [NAME, "iOS"]
+            ],
+            [
+              /(mac os x) ?([\w\. ]*)/i,
+              /(macintosh|mac_powerpc\b)(?!.+haiku)/i
+              // Mac OS
+            ],
+            [
+              [NAME, "Mac OS"],
+              [VERSION2, /_/g, "."]
+            ],
+            [
+              // Mobile OSes
+              /droid ([\w\.]+)\b.+(android[- ]x86|harmonyos)/i
+              // Android-x86/HarmonyOS
+            ],
+            [VERSION2, NAME],
+            [
+              // Android/WebOS/QNX/Bada/RIM/Maemo/MeeGo/Sailfish OS
+              /(android|webos|qnx|bada|rim tablet os|maemo|meego|sailfish)[-\/ ]?([\w\.]*)/i,
+              /(blackberry)\w*\/([\w\.]*)/i,
+              // Blackberry
+              /(tizen|kaios)[\/ ]([\w\.]+)/i,
+              // Tizen/KaiOS
+              /\((series40);/i
+              // Series 40
+            ],
+            [NAME, VERSION2],
+            [
+              /\(bb(10);/i
+              // BlackBerry 10
+            ],
+            [VERSION2, [NAME, BLACKBERRY]],
+            [
+              /(?:symbian ?os|symbos|s60(?=;)|series60)[-\/ ]?([\w\.]*)/i
+              // Symbian
+            ],
+            [VERSION2, [NAME, "Symbian"]],
+            [
+              /mozilla\/[\d\.]+ \((?:mobile|tablet|tv|mobile; [\w ]+); rv:.+ gecko\/([\w\.]+)/i
+              // Firefox OS
+            ],
+            [VERSION2, [NAME, FIREFOX + " OS"]],
+            [
+              /web0s;.+rt(tv)/i,
+              /\b(?:hp)?wos(?:browser)?\/([\w\.]+)/i
+              // WebOS
+            ],
+            [VERSION2, [NAME, "webOS"]],
+            [
+              // Google Chromecast
+              /crkey\/([\d\.]+)/i
+              // Google Chromecast
+            ],
+            [VERSION2, [NAME, CHROME + "cast"]],
+            [
+              /(cros) [\w]+ ([\w\.]+\w)/i
+              // Chromium OS
+            ],
+            [[NAME, "Chromium OS"], VERSION2],
+            [
+              // Console
+              /(nintendo|playstation) ([wids345portablevuch]+)/i,
+              // Nintendo/Playstation
+              /(xbox); +xbox ([^\);]+)/i,
+              // Microsoft Xbox (360, One, X, S, Series X, Series S)
+              // Other
+              /\b(joli|palm)\b ?(?:os)?\/?([\w\.]*)/i,
+              // Joli/Palm
+              /(mint)[\/\(\) ]?(\w*)/i,
+              // Mint
+              /(mageia|vectorlinux)[; ]/i,
+              // Mageia/VectorLinux
+              /([kxln]?ubuntu|debian|suse|opensuse|gentoo|arch(?= linux)|slackware|fedora|mandriva|centos|pclinuxos|red ?hat|zenwalk|linpus|raspbian|plan 9|minix|risc os|contiki|deepin|manjaro|elementary os|sabayon|linspire)(?: gnu\/linux)?(?: enterprise)?(?:[- ]linux)?(?:-gnu)?[-\/ ]?(?!chrom|package)([-\w\.]*)/i,
+              // Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware/Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus/Raspbian/Plan9/Minix/RISCOS/Contiki/Deepin/Manjaro/elementary/Sabayon/Linspire
+              /(hurd|linux) ?([\w\.]*)/i,
+              // Hurd/Linux
+              /(gnu) ?([\w\.]*)/i,
+              // GNU
+              /\b([-frentopcghs]{0,5}bsd|dragonfly)[\/ ]?(?!amd|[ix346]{1,2}86)([\w\.]*)/i,
+              // FreeBSD/NetBSD/OpenBSD/PC-BSD/GhostBSD/DragonFly
+              /(haiku) (\w+)/i
+              // Haiku
+            ],
+            [NAME, VERSION2],
+            [
+              /(sunos) ?([\w\.\d]*)/i
+              // Solaris
+            ],
+            [[NAME, "Solaris"], VERSION2],
+            [
+              /((?:open)?solaris)[-\/ ]?([\w\.]*)/i,
+              // Solaris
+              /(aix) ((\d)(?=\.|\)| )[\w\.])*/i,
+              // AIX
+              /\b(beos|os\/2|amigaos|morphos|openvms|fuchsia|hp-ux)/i,
+              // BeOS/OS2/AmigaOS/MorphOS/OpenVMS/Fuchsia/HP-UX
+              /(unix) ?([\w\.]*)/i
+              // UNIX
+            ],
+            [NAME, VERSION2]
+          ]
+        };
+        var UAParser2 = function(ua, extensions) {
+          if (typeof ua === OBJ_TYPE) {
+            extensions = ua;
+            ua = undefined2;
+          }
+          if (!(this instanceof UAParser2)) {
+            return new UAParser2(ua, extensions).getResult();
+          }
+          var _ua = ua || (typeof window2 !== UNDEF_TYPE && window2.navigator && window2.navigator.userAgent ? window2.navigator.userAgent : EMPTY);
+          var _rgxmap = extensions ? extend(regexes, extensions) : regexes;
+          this.getBrowser = function() {
+            var _browser = {};
+            _browser[NAME] = undefined2;
+            _browser[VERSION2] = undefined2;
+            rgxMapper.call(_browser, _ua, _rgxmap.browser);
+            _browser.major = majorize(_browser.version);
+            return _browser;
+          };
+          this.getCPU = function() {
+            var _cpu = {};
+            _cpu[ARCHITECTURE] = undefined2;
+            rgxMapper.call(_cpu, _ua, _rgxmap.cpu);
+            return _cpu;
+          };
+          this.getDevice = function() {
+            var _device = {};
+            _device[VENDOR] = undefined2;
+            _device[MODEL] = undefined2;
+            _device[TYPE] = undefined2;
+            rgxMapper.call(_device, _ua, _rgxmap.device);
+            return _device;
+          };
+          this.getEngine = function() {
+            var _engine = {};
+            _engine[NAME] = undefined2;
+            _engine[VERSION2] = undefined2;
+            rgxMapper.call(_engine, _ua, _rgxmap.engine);
+            return _engine;
+          };
+          this.getOS = function() {
+            var _os = {};
+            _os[NAME] = undefined2;
+            _os[VERSION2] = undefined2;
+            rgxMapper.call(_os, _ua, _rgxmap.os);
+            return _os;
+          };
+          this.getResult = function() {
+            return {
+              ua: this.getUA(),
+              browser: this.getBrowser(),
+              engine: this.getEngine(),
+              os: this.getOS(),
+              device: this.getDevice(),
+              cpu: this.getCPU()
+            };
+          };
+          this.getUA = function() {
+            return _ua;
+          };
+          this.setUA = function(ua2) {
+            _ua = typeof ua2 === STR_TYPE && ua2.length > UA_MAX_LENGTH ? trim(ua2, UA_MAX_LENGTH) : ua2;
+            return this;
+          };
+          this.setUA(_ua);
+          return this;
+        };
+        UAParser2.VERSION = LIBVERSION;
+        UAParser2.BROWSER = enumerize([NAME, VERSION2, MAJOR]);
+        UAParser2.CPU = enumerize([ARCHITECTURE]);
+        UAParser2.DEVICE = enumerize([
+          MODEL,
+          VENDOR,
+          TYPE,
+          CONSOLE,
+          MOBILE,
+          SMARTTV,
+          TABLET,
+          WEARABLE,
+          EMBEDDED
+        ]);
+        UAParser2.ENGINE = UAParser2.OS = enumerize([NAME, VERSION2]);
+        if (typeof exports !== UNDEF_TYPE) {
+          if (typeof module !== UNDEF_TYPE && module.exports) {
+            exports = module.exports = UAParser2;
+          }
+          exports.UAParser = UAParser2;
+        } else {
+          if (typeof define === FUNC_TYPE && define.amd) {
+            define(function() {
+              return UAParser2;
+            });
+          } else if (typeof window2 !== UNDEF_TYPE) {
+            window2.UAParser = UAParser2;
+          }
+        }
+        var $2 = typeof window2 !== UNDEF_TYPE && (window2.jQuery || window2.Zepto);
+        if ($2 && !$2.ua) {
+          var parser = new UAParser2();
+          $2.ua = parser.getResult();
+          $2.ua.get = function() {
+            return parser.getUA();
+          };
+          $2.ua.set = function(ua) {
+            parser.setUA(ua);
+            var result = parser.getResult();
+            for (var prop in result) {
+              $2.ua[prop] = result[prop];
+            }
+          };
+        }
+      })(typeof window === "object" ? window : exports);
+    }
+  });
+
+  // src/index.js
+  init_live_reload();
+
+  // src/anchor-tags.js
+  init_live_reload();
+  function installAndScrollAnchorTags() {
+    document.querySelectorAll("h1,h2,h3").forEach((el) => {
+      const id = el.innerText.toLowerCase().split(" ").map((a) => a.replace(/\W/g, "")).join("-");
+      el.style.position = "relative";
+      const anchorEl = document.createElement("div");
+      anchorEl.style.position = "absolute";
+      anchorEl.style.top = "-90px";
+      anchorEl.style.left = "0";
+      anchorEl.id = id;
+      el.appendChild(anchorEl);
+      requestAnimationFrame(() => {
+        if (window.location.hash) {
+          const hashEl = document.getElementById(window.location.hash.replace("#", ""));
+          window.scrollTo({
+            top: hashEl.getBoundingClientRect().top + window.scrollY
+          });
+        }
+      }, 1);
+    });
+  }
+
+  // src/animations.js
+  init_live_reload();
+  function animateLines() {
+    $("[data-line-dividers]").each(function() {
+      let wrap = $(this);
+      let lines = wrap.find(".line-divider");
+      lines.each(function(index) {
+        let scaleStart = $(this).attr("data-start-scale") || 0;
+        let scaleEnd = $(this).attr("data-end-scale") || 0.2;
+        gsap.set($(this), {
+          scaleY: scaleStart,
+          transformOrigin: "bottom"
+        });
+        gsap.to($(this), {
+          scaleY: scaleEnd,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: wrap,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1
+          }
+        });
+      });
+    });
+  }
+  animateLines();
+  function initAnims() {
+    animateLines();
+  }
+
+  // src/forms/form.js
+  init_live_reload();
+  function setupHookForFormSubmission() {
+    const forms = document.querySelectorAll("form");
+    if (!forms.length)
+      return;
+    forms.forEach((form) => {
+      const honeypot = form.querySelector("#form-description");
+      const submitButton = form.querySelector('input[type="submit"], button[type="submit"]');
+      const firstNameInput = form.querySelector(
+        'input[name*="First-Name"], input[name*="First-name"]'
+      );
+      const lastNameInput = form.querySelector('input[name*="Last-Name"], input[name*="Last-name"]');
+      const emailInput = form.querySelector("input[data-domain-check]");
+      if (honeypot) {
+        honeypot.oninput = function() {
+          if (honeypot.value.length > 0) {
+            submitButton.disabled = true;
+          }
+        };
+      }
+      const fieldErrors = /* @__PURE__ */ new Map();
+      function showFieldError(field, message) {
+        let errorElement = fieldErrors.get(field);
+        if (!errorElement) {
+          errorElement = document.createElement("div");
+          errorElement.className = "field-validation-error";
+          errorElement.style.cssText = "color: #e74c3c; font-size: 14px; margin-top: 5px;";
+          field.parentNode.insertBefore(errorElement, field.nextSibling);
+          fieldErrors.set(field, errorElement);
+        }
+        errorElement.textContent = message;
+        errorElement.style.display = "block";
+      }
+      function hideFieldError(field) {
+        const errorElement = fieldErrors.get(field);
+        if (errorElement) {
+          errorElement.style.display = "none";
+        }
+      }
+      function setFieldInputError(field, hasError) {
+        if (hasError) {
+          field.style.outlineColor = "#e74c3c";
+          field.style.outlineWidth = "2px";
+        } else {
+          field.style.outlineColor = "";
+          field.style.outlineWidth = "";
+        }
+      }
+      function setSubmitButtonState(disabled) {
+        if (submitButton) {
+          submitButton.disabled = disabled;
+          submitButton.style.opacity = disabled ? "0.5" : "1";
+          submitButton.style.cursor = disabled ? "not-allowed" : "pointer";
+        }
+      }
+      if (firstNameInput) {
+        firstNameInput.addEventListener("input", (ev) => {
+          const name = ev.target.value.trim();
+          if (isLikelyInvalidName(name)) {
+            showFieldError(
+              firstNameInput,
+              "Please enter a valid name. Names should contain standard letters and spacing."
+            );
+            setFieldInputError(firstNameInput, true);
+            setSubmitButtonState(true);
+          } else {
+            hideFieldError(firstNameInput);
+            setFieldInputError(firstNameInput, false);
+            setSubmitButtonState(false);
+          }
+        });
+      }
+      if (lastNameInput) {
+        lastNameInput.addEventListener("input", (ev) => {
+          const name = ev.target.value.trim();
+          if (isLikelyInvalidName(name)) {
+            showFieldError(
+              lastNameInput,
+              "Please enter a valid name. Names should contain standard letters and spacing."
+            );
+            setFieldInputError(lastNameInput, true);
+            setSubmitButtonState(true);
+          } else {
+            hideFieldError(lastNameInput);
+            setFieldInputError(lastNameInput, false);
+            setSubmitButtonState(false);
+          }
+        });
+      }
+      if (!emailInput) {
+        return;
+      }
+      function validateEmailDomain(emailDomain) {
+        const blockedDomains = [
+          "comcast.net",
+          "gmail.com",
+          "live.com",
+          "yahoo.com",
+          "hotmail.com",
+          "mail.ru",
+          "web.de",
+          "gmx.net",
+          "live.net",
+          "mail.com",
+          "aol.com",
+          "msn.com",
+          "outlook.com",
+          "proton.me",
+          "protonmail.com",
+          "icloud.com",
+          "me.com",
+          "zoho.com",
+          "yandex.com",
+          "inbox.com"
+        ];
+        return blockedDomains.includes(emailDomain.toLowerCase());
+      }
+      emailInput.addEventListener("input", (ev) => {
+        const email = ev.target.value.trim();
+        const emailDomain = email.toLowerCase().split("@")[1];
+        if (email && email.includes("@")) {
+          const isBlocked = validateEmailDomain(emailDomain);
+          if (isBlocked) {
+            showFieldError(
+              emailInput,
+              `Please use a business email address. ${emailDomain} is not allowed.`
+            );
+            setFieldInputError(emailInput, true);
+            setSubmitButtonState(true);
+          } else {
+            hideFieldError(emailInput);
+            setFieldInputError(emailInput, false);
+            setSubmitButtonState(false);
+          }
+        } else {
+          hideFieldError(emailInput);
+          setFieldInputError(emailInput, false);
+          setSubmitButtonState(false);
+        }
+      });
+    });
+  }
+  function isLikelyInvalidName(name) {
+    let score = 0;
+    if (/(.)\1{2,}/.test(name))
+      score += 3;
+    const vowels = name.match(/[aeiou]/gi) || [];
+    const vowelRatio = vowels.length / name.replace(/\s/g, "").length;
+    if (vowelRatio < 0.15 || vowelRatio > 0.7)
+      score += 2;
+    if (/asdf|qwer|zxcv|hjkl/i.test(name))
+      score += 3;
+    if (/[^aeiou\s]{6,}/i.test(name))
+      score += 2;
+    if (/[^a-zàáâãäåæçèéêëìíîïðñòóôõöøùúûüýþÿāăąćčďđēėęěğģīįķĺļľłńņňőœŕřśşšţťũūůűųźżžșțə\s'-]/i.test(
+      name
+    ))
+      score += 3;
+    const capsScore = checkCapitalization(name);
+    score += capsScore;
+    return score >= 3;
+  }
+  function checkCapitalization(name) {
+    const words = name.split(/[\s-]+/);
+    let suspiciousPatterns = 0;
+    for (const word of words) {
+      if (word.length === 0)
+        continue;
+      if (/[A-Z]{3,}/.test(word)) {
+        suspiciousPatterns += 2;
+      }
+      if (word.length > 2) {
+        const isException = /^(ma?c|o'|d'|de|van|von|la|le|di|da)[A-Z]/i.test(
+          word
+        );
+        if (isException) {
+          return suspiciousPatterns;
+        }
+        const startsWithLowerCase = /^[a-z]/.test(word);
+        let transitions = 0;
+        for (let i = 1; i < word.length; i++) {
+          const prevIsUpper = /[A-Z]/.test(word[i - 1]);
+          const currIsUpper = /[A-Z]/.test(word[i]);
+          if (prevIsUpper !== currIsUpper) {
+            transitions++;
+          }
+        }
+        if (startsWithLowerCase && transitions > 0) {
+          suspiciousPatterns += 3;
+        } else if (!startsWithLowerCase && transitions > 2) {
+          suspiciousPatterns += 3;
+        }
+      }
+    }
+    if (suspiciousPatterns >= 2)
+      return 3;
+    if (suspiciousPatterns === 1)
+      return 1;
+    return 0;
+  }
+
+  // src/lottie.js
+  init_live_reload();
+  function initMojoAnimations() {
+    gsap.registerPlugin(ScrollTrigger);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    $("h1, h2, h3, h4, h5, h6").each(function() {
+      if ($(this).is("[data-emoji-exclude]") || $(this).closest(".w-richtext").length) {
+        return;
+      }
+      const $heading = $(this);
+      let html = $heading.html();
+      if (html.includes("Mojo")) {
+        const newHtml = html.replace(
+          /Mojo/g,
+          '<span style="display: inline-flex;align-items: center;"><span>Mojo</span><span style="width: 1em; display: inline-block;height: 1em" data-lottie data-lottie-src="https://cdn.prod.website-files.com/68c9c3107effc2ea46e1a81f/694322d8b5849da406718d9a_MojoEmoji.json"></span></span>'
+        );
+        $heading.html(newHtml);
+      }
+    });
+    $("[data-lottie]").each(function() {
+      const target = this;
+      let anim;
+      ScrollTrigger.create({
+        trigger: target,
+        start: "top bottom+=50%",
+        end: "bottom top-=25%",
+        onEnter: handleEnter,
+        onEnterBack: handleEnter,
+        onLeave: handleLeave,
+        onLeaveBack: handleLeave
+      });
+      function handleEnter() {
+        if (!target.hasAttribute("data-lottie-fired")) {
+          target.setAttribute("data-lottie-fired", "true");
+          anim = lottie.loadAnimation({
+            container: target,
+            renderer: "svg",
+            loop: true,
+            autoplay: !reduceMotion,
+            path: target.getAttribute("data-lottie-src")
+          });
+          anim.setSpeed(1.5);
+          anim.addEventListener("DOMLoaded", () => {
+            if (reduceMotion) {
+              const frame = parseInt(target.getAttribute("data-lottie-frame") || "0", 10);
+              anim.goToAndStop(frame, true);
+            }
+          });
+        } else if (anim && !reduceMotion) {
+          anim.play();
+        }
+      }
+      function handleLeave() {
+        if (anim && !reduceMotion) {
+          anim.pause();
+        }
+      }
+    });
+  }
+
+  // src/max.js
+  init_live_reload();
+  function initMaxReplacements() {
+    $("h1, h2, h3, h4, h5, h6").each(function() {
+      const $heading = $(this);
+      if ($heading.attr("data-max-processed") || $heading.is("data-emoji-exclude") || $heading.closest(".w-richtext").length) {
+        return;
+      }
+      let html = $heading.html();
+      if (/\bMAX\b/.test(html)) {
+        const maxSvg = '<svg width="100%" height="100%" viewBox="0 0 62 20" style="width: 2.2em; margin-left: 0.05em;" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.0849 5.92771C17.9874 5.92771 17.9084 5.8487 17.9084 5.75123V0.206055H15.4824L10.9206 13.7531H10.3676L5.80588 0.206055H0V19.559H3.59412V6.15017H4.14706L8.70882 19.559H12.5794L17.1341 6.1711C17.1388 6.11056 17.1895 6.06283 17.2513 6.06283L17.5794 6.06284C17.6339 6.06284 17.6797 6.09989 17.6931 6.15017H17.6941V6.15434C17.696 6.16275 17.697 6.1715 17.697 6.18049V11.8734C17.697 11.8823 17.696 11.8911 17.6941 11.8995V19.559H21.2882V5.92771H18.0849Z" fill="currentColor"></path><path d="M42.4204 19.559L49.0557 9.60606L42.8351 0.206055H47.1204L51.2675 6.56488H51.8204L55.9675 0.206055H60.2528L54.0322 9.60606L60.6675 19.559H56.3822L51.8204 12.6472H51.2675L46.7057 19.559H42.4204Z" fill="currentColor"></path><path d="M22.4322 19.559L29.344 0.206055H34.5969L41.5087 19.559H37.4998L36.0345 15.4119H27.9063L26.441 19.559H22.4322ZM29.0675 12.0943H34.8734L32.2469 4.35311H31.694L29.0675 12.0943Z" fill="currentColor"></path></svg>';
+        const newHtml = html.replace(
+          /\bMAX\b/g,
+          '<span style="display: inline-block;"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0);">MAX</span>' + maxSvg + "</span>"
+        );
+        $heading.html(newHtml);
+        $heading.attr("data-max-processed", "true");
+      }
+    });
+  }
+  $(document).ready(function() {
+    initMaxReplacements();
+  });
+
+  // src/modal.js
+  init_live_reload();
+  function initModalBasic() {
+    const modalGroup = document.querySelector("[data-modal-group-status]");
+    const modals = document.querySelectorAll("[data-modal-name]");
+    const modalTargets = document.querySelectorAll("[data-modal-target]");
+    function initModalList($modal) {
+      const $list = $modal.find("[data-modal-list]");
+      if (!$list.length)
+        return;
+      $modal.off("wheel touchstart touchmove");
+      $list.off("scroll");
+      $(window).off("resize.modalCounter" + $modal.attr("data-modal-name"));
+      const $items = $list.find("[data-modal-item]");
+      const total = $items.length;
+      $modal.find('[data-modal-counter="total"]').text(total);
+      function updateCurrentCounter() {
+        const listRect = $list[0].getBoundingClientRect();
+        const threshold = listRect.bottom - listRect.height * 0.25;
+        let currentIndex = 0;
+        $items.each(function(index) {
+          const itemRect = $(this)[0].getBoundingClientRect();
+          if (itemRect.top <= threshold) {
+            currentIndex = index;
+          }
+        });
+        $modal.find('[data-modal-counter="current"]').text(currentIndex + 1);
+      }
+      updateCurrentCounter();
+      $list.on("scroll", updateCurrentCounter);
+      $(window).on("resize.modalCounter" + $modal.attr("data-modal-name"), updateCurrentCounter);
+      $modal.on("wheel", function(e) {
+        e.preventDefault();
+        $list.scrollTop($list.scrollTop() + e.originalEvent.deltaY);
+      });
+      let touchStart = 0;
+      $modal.on("touchstart", function(e) {
+        touchStart = e.originalEvent.touches[0].clientY;
+      });
+      $modal.on("touchmove", function(e) {
+        e.preventDefault();
+        const touchCurrent = e.originalEvent.touches[0].clientY;
+        const delta = touchStart - touchCurrent;
+        $list.scrollTop($list.scrollTop() + delta);
+        touchStart = touchCurrent;
+      });
+    }
+    modalTargets.forEach((modalTarget) => {
+      modalTarget.addEventListener("click", function() {
+        const modalTargetName = this.getAttribute("data-modal-target");
+        const index = $(this).parent().index();
+        modalTargets.forEach((target) => target.setAttribute("data-modal-status", "not-active"));
+        modals.forEach((modal) => {
+          modal.setAttribute("data-modal-status", "not-active");
+          $(modal).off("wheel touchstart touchmove");
+          $(modal).find("[data-modal-list]").off("scroll");
+        });
+        document.querySelector(`[data-modal-target="${modalTargetName}"]`).setAttribute("data-modal-status", "active");
+        const $activeModal = $(`[data-modal-name="${modalTargetName}"]`);
+        $activeModal.attr("data-modal-status", "active");
+        if (modalGroup) {
+          modalGroup.setAttribute("data-modal-group-status", "active");
+        }
+        initModalList($activeModal);
+        setTimeout(() => {
+          const $list = $activeModal.find("[data-modal-list]");
+          const $targetItem = $list.find("[data-modal-item]").eq(index);
+          if ($targetItem.length) {
+            const listRect = $list[0].getBoundingClientRect();
+            const itemRect = $targetItem[0].getBoundingClientRect();
+            const scrollOffset = itemRect.top - listRect.top + $list.scrollTop();
+            $list.scrollTop(scrollOffset);
+          }
+        }, 0);
+      });
+    });
+    document.querySelectorAll("[data-modal-close]").forEach((closeBtn) => {
+      closeBtn.addEventListener("click", closeAllModals);
+    });
+    document.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeAllModals();
+      }
+    });
+    function closeAllModals() {
+      modalTargets.forEach((target) => target.setAttribute("data-modal-status", "not-active"));
+      modals.forEach((modal) => {
+        modal.setAttribute("data-modal-status", "not-active");
+        const modalName = modal.getAttribute("data-modal-name");
+        $(modal).off("wheel touchstart touchmove");
+        $(modal).find("[data-modal-list]").off("scroll");
+        $(window).off("resize.modalCounter" + modalName);
+      });
+      if (modalGroup) {
+        modalGroup.setAttribute("data-modal-group-status", "not-active");
+      }
+    }
+  }
+
+  // src/nav.js
+  init_live_reload();
+  var $snackBar = $(".snackbar");
+  var $navWrapper = $(".nav-wrapper");
+  var $nav = $(".nav");
+  var $navWrap = $(".nav_menu-wrap");
+  var $navMenu = $(".nav_menu");
+  var $navItems = $navWrap.find(".nav_menu-item, .nav_part");
+  var $navBrand = $(".nav_part").eq(0);
+  var $navHam = $(".nav_menu-ham");
+  var $navLinks = $(".nav_menu-link");
+  var $menuInner = $(".nav_menu-inner");
+  var $menuBg = $(".nav_menu-inner-bg");
+  var $menuBack = $(".nav_menu-back");
+  var $allTriggers = $("[data-dropdown-trigger]");
+  var $allTargets = $("[data-dropdown-target]");
+  var currentTrigger = null;
+  var originalParent = null;
+  function killAllTweens() {
+    gsap.killTweensOf($menuInner);
+    gsap.killTweensOf($menuBg);
+    gsap.killTweensOf($menuInner);
+    $allTargets.each(function() {
+      gsap.killTweensOf($(this));
+      gsap.killTweensOf($(this).find("li"));
+    });
+  }
+  function resetAllStyles() {
+    gsap.set($navWrap, { clearProps: "all" });
+    gsap.set($navMenu, { clearProps: "all" });
+    gsap.set($navItems, { clearProps: "all" });
+    gsap.set($navBrand, { clearProps: "all" });
+    gsap.set($menuInner, { clearProps: "all" });
+    gsap.set($menuBg, { clearProps: "all" });
+    gsap.set($menuBack, { clearProps: "all" });
+    gsap.set($allTargets, { clearProps: "all" });
+    $allTargets.each(function() {
+      const $target = $(this);
+      $target.removeClass("is-active");
+      gsap.set($target.find("li"), { clearProps: "all" });
+      const $triggerLi = $target.prev("li");
+      if ($triggerLi.length) {
+        const $siblings = $triggerLi.siblings("li");
+        gsap.set($siblings, { clearProps: "all" });
+      }
+    });
+    $navLinks.each(function() {
+      const $li = $(this).closest("li");
+      gsap.set($li, { clearProps: "all" });
+    });
+  }
+  function hideAllTargets(callback) {
+    $allTargets.each(function() {
+      const $target = $(this);
+      $target.removeClass("is-active");
+      gsap.set($target, { autoAlpha: 0 });
+      gsap.set($target.find("li"), { autoAlpha: 0, y: 0 });
+    });
+    if (callback)
+      callback();
+  }
+  function resizeBackground($target) {
+    $target.addClass("is-active");
+    gsap.set($target, { autoAlpha: 1 });
+    const targetWidth = $target.outerWidth();
+    const targetHeight = $target.outerHeight();
+    gsap.to($menuBg, {
+      width: targetWidth,
+      height: targetHeight,
+      autoAlpha: 1,
+      duration: 0.25,
+      ease: "power2.out"
+    });
+  }
+  function showTarget($target) {
+    resizeBackground($target);
+    gsap.fromTo(
+      $target.find("li"),
+      { autoAlpha: 0, y: 10 },
+      {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.2,
+        stagger: 0.03,
+        ease: "power2.out",
+        delay: 0.05
+      }
+    );
+  }
+  function hideTarget($target, callback) {
+    gsap.to($target.find("li"), {
+      autoAlpha: 0,
+      y: -10,
+      duration: 0.15,
+      stagger: 0.02,
+      onComplete: () => {
+        $target.removeClass("is-active");
+        gsap.set($target, { autoAlpha: 0 });
+        if (callback)
+          callback();
+      }
+    });
+  }
+  function handleTriggerHover(targetName) {
+    if (currentTrigger === targetName)
+      return;
+    killAllTweens();
+    const $currentTarget = $(`[data-dropdown-target="${targetName}"]`);
+    const $currentTriggerEl = $(`[data-dropdown-trigger="${targetName}"]`);
+    const $prevTarget = $allTargets.filter(".is-active");
+    currentTrigger = targetName;
+    gsap.set($currentTarget, { autoAlpha: 1 });
+    const parentRect = $menuInner.parent()[0].getBoundingClientRect();
+    const triggerRect = $currentTriggerEl[0].getBoundingClientRect();
+    const menuWidth = $menuInner.outerWidth();
+    const triggerCenter = triggerRect.left + triggerRect.width / 2;
+    const parentCenter = parentRect.left + parentRect.width / 2;
+    let offsetFromCenter = triggerCenter - parentCenter;
+    const finalLeft = parentRect.left + offsetFromCenter;
+    const finalRight = finalLeft + menuWidth;
+    const windowWidth = $(window).width();
+    const edgePadding = 20;
+    if (finalLeft < edgePadding) {
+      offsetFromCenter += edgePadding - finalLeft;
+    } else if (finalRight > windowWidth - edgePadding) {
+      offsetFromCenter -= finalRight - (windowWidth - edgePadding);
+    }
+    gsap.to([$menuInner, $menuBg], {
+      x: offsetFromCenter,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+    if ($prevTarget.length) {
+      hideAllTargets(() => showTarget($currentTarget));
+    } else {
+      gsap.to($menuInner, {
+        autoAlpha: 1,
+        duration: 0.2
+      });
+      showTarget($currentTarget);
+    }
+  }
+  function handleNavLeave() {
+    killAllTweens();
+    const $activeTarget = $allTargets.filter(".is-active");
+    currentTrigger = null;
+    if ($activeTarget.length) {
+      hideTarget($activeTarget);
+      gsap.to($menuBg, {
+        autoAlpha: 0,
+        duration: 0.2,
+        delay: 0.1
+      });
+      gsap.to($menuInner, {
+        autoAlpha: 0,
+        duration: 0.2,
+        delay: 0.2
+      });
+    }
+  }
+  function resetToDefault() {
+    killAllTweens();
+    gsap.set($menuBack, { autoAlpha: 0 });
+    gsap.set($navBrand, { autoAlpha: 1 });
+    gsap.set($allTargets, { display: "none", autoAlpha: 0, clearProps: "height" });
+    $allTargets.removeClass("is-active");
+    const $siblings = $navMenu.find("li").not("[data-dropdown-target]");
+    gsap.set($siblings, { display: "block", autoAlpha: 1 });
+    gsap.set($navMenu, { autoAlpha: 1 });
+  }
+  function showTargetMobile($target, $triggerLi) {
+    const $siblings = $triggerLi.siblings("li");
+    gsap.set($navBrand, { autoAlpha: 0 });
+    gsap.set($menuBack, { autoAlpha: 1 });
+    gsap.to($navMenu, { autoAlpha: 0, duration: 0.15 });
+    gsap.to([$siblings, $allTargets], {
+      autoAlpha: 0,
+      duration: 0.15,
+      onComplete: () => {
+        gsap.set($siblings, { display: "none" });
+        gsap.set($allTargets, { display: "none" });
+        $allTargets.removeClass("is-active");
+        $target.addClass("is-active");
+        gsap.set($target, { display: "block", height: "auto" });
+        const targetHeight = $target.outerHeight();
+        gsap.set($target, { height: 0 });
+        gsap.to($navMenu, { autoAlpha: 1, duration: 0.1 });
+        gsap.to($target, {
+          height: targetHeight,
+          autoAlpha: 1,
+          duration: 0.25,
+          ease: "power2.out",
+          onComplete: () => gsap.set($target, { height: "auto" })
+        });
+        gsap.fromTo(
+          $target.find("li"),
+          { autoAlpha: 0, x: -10 },
+          { autoAlpha: 1, x: 0, duration: 0.2, stagger: 0.03, ease: "power2.out", delay: 0.1 }
+        );
+      }
+    });
+  }
+  function hideTargetMobile() {
+    const $activeTarget = $allTargets.filter(".is-active");
+    if (!$activeTarget.length)
+      return;
+    gsap.to($activeTarget.find("li"), {
+      autoAlpha: 0,
+      x: 10,
+      duration: 0.15,
+      stagger: 0.02
+    });
+    gsap.to($activeTarget, {
+      height: 0,
+      autoAlpha: 0,
+      duration: 0.2,
+      ease: "power2.in",
+      onComplete: () => resetToDefault()
+    });
+  }
+  function handleTriggerClick(e, targetName) {
+    e.preventDefault();
+    killAllTweens();
+    const $currentTarget = $(`[data-dropdown-target="${targetName}"]`);
+    const $triggerLi = $(e.currentTarget).closest("li");
+    if ($currentTarget.hasClass("is-active")) {
+      hideTargetMobile();
+    } else {
+      showTargetMobile($currentTarget, $triggerLi);
+    }
+  }
+  function setupDesktop() {
+    killAllTweens();
+    resetAllStyles();
+    if (originalParent && originalParent.length) {
+      $allTargets.each(function() {
+        $(this).appendTo(originalParent);
+      });
+    }
+    gsap.set($menuInner, { autoAlpha: 0 });
+    gsap.set($menuBg, { autoAlpha: 0 });
+    gsap.set($allTargets, { autoAlpha: 0 });
+    gsap.set($menuBack, { autoAlpha: 0 });
+    $navLinks.off("click mouseenter").on("mouseenter", function() {
+      const targetName = $(this).attr("data-dropdown-trigger");
+      if (targetName)
+        handleTriggerHover(targetName);
+      else {
+        handleNavLeave();
+      }
+    });
+    $nav.off("mouseleave").on("mouseleave", () => handleNavLeave());
+    $menuBack.off("click");
+  }
+  function setupMobile() {
+    killAllTweens();
+    resetAllStyles();
+    gsap.set($allTargets, { display: "none", autoAlpha: 0 });
+    gsap.set($menuBack, { autoAlpha: 0 });
+    $navLinks.off("mouseenter");
+    $navLinks.off("mouseleave");
+    $nav.off("mouseleave");
+    if (!originalParent) {
+      originalParent = $allTargets.first().parent();
+    }
+    $navLinks.each(function() {
+      const triggerName = $(this).attr("data-dropdown-trigger");
+      if (triggerName) {
+        const $triggerLi = $(this).closest("li");
+        const $targetToMove = $(`[data-dropdown-target="${triggerName}"]`);
+        if ($targetToMove.length && $triggerLi.length) {
+          $targetToMove.insertAfter($triggerLi);
+        }
+      }
+    });
+    $navLinks.on("click", function(e) {
+      const targetName = $(this).attr("data-dropdown-trigger");
+      if (targetName)
+        handleTriggerClick(e, targetName);
+    });
+    $menuBack.on("click", hideTargetMobile);
+  }
+  function animateNav() {
+    if ($(window).width() < 992) {
+      gsap.set($navWrap, { autoAlpha: 0, display: "none" });
+      gsap.set($navItems, { autoAlpha: 0, y: "1em" });
+    } else {
+      resetAllStyles();
+    }
+    function revealNav() {
+      let tl = gsap.timeline();
+      $snackBar.hide();
+      tl.to($navWrap, { autoAlpha: 1, display: "flex" });
+      tl.to($navMenu, { autoAlpha: 1 });
+      tl.to(
+        $navItems,
+        {
+          autoAlpha: 1,
+          y: "0em",
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "power2.inOut"
+        },
+        "<"
+      );
+    }
+    function hideNav() {
+      resetToDefault();
+      $snackBar.css("display", "flex");
+      let tl = gsap.timeline();
+      tl.to($navMenu, { autoAlpha: 0 });
+      tl.to(
+        $navItems,
+        {
+          autoAlpha: 0,
+          y: "1em",
+          duration: 0.4,
+          stagger: 0.02,
+          ease: "power2.inOut"
+        },
+        "<"
+      );
+      tl.to($navWrap, { autoAlpha: 0, display: "flex" });
+    }
+    $navHam.on("click", function() {
+      if (!$(this).hasClass("is-active")) {
+        revealNav();
+        $(this).addClass("is-active");
+      } else {
+        hideNav();
+        $(this).removeClass("is-active");
+      }
+    });
+  }
+  function initNavScrollBorder() {
+    var classAdd = "fixed";
+    if ($nav.hasClass(classAdd))
+      return;
+    $(window).on("scroll load", function() {
+      var scroll = $(window).scrollTop();
+      if (scroll >= 80) {
+        if (!$nav.hasClass(classAdd)) {
+          $nav.addClass(classAdd);
+        }
+      } else {
+        $nav.removeClass(classAdd);
+      }
+    });
+  }
+  function initNavScroll() {
+    const shouldRun = $(window).width() > 992 && $(".subnav").length > 0;
+    if (!shouldRun)
+      return;
+    let lastScroll = 0;
+    const navHeight = $nav.outerHeight();
+    $(window).on("scroll", function() {
+      const currentScroll = $(this).scrollTop();
+      if (currentScroll > lastScroll && currentScroll > navHeight) {
+        gsap.to($navWrapper, {
+          y: -navHeight,
+          duration: 0.6,
+          ease: "power2.out"
+        });
+      } else if (currentScroll < lastScroll) {
+        gsap.to($navWrapper, {
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          onComplete: () => {
+            $navWrapper.attr("style", "");
+          }
+        });
+      }
+      lastScroll = currentScroll;
+    });
+  }
+  function initSnackbar() {
+    function truncateSnackbar() {
+      $("[data-snackbar-text]").each(function() {
+        const $el = $(this);
+        const fullText = $el.data("original-text") || $el.text().trim();
+        if (!$el.data("original-text")) {
+          $el.data("original-text", fullText);
+        }
+        const dashIndex = fullText.lastIndexOf("-");
+        if (dashIndex === -1)
+          return;
+        let beforeDash = fullText.substring(0, dashIndex);
+        const afterDash = fullText.substring(dashIndex);
+        const lineHeight = parseFloat($el.css("line-height"));
+        const maxHeight = lineHeight * 2.1;
+        $el.css("overflow", "hidden");
+        $el.html(beforeDash + afterDash);
+        if ($el.prop("scrollHeight") <= maxHeight)
+          return;
+        const words = beforeDash.split(" ");
+        while ($el.prop("scrollHeight") > maxHeight && words.length > 0) {
+          words.pop();
+          beforeDash = words.join(" ");
+          $el.html(beforeDash + "... " + afterDash);
+        }
+        $el.css("max-height", maxHeight + "px");
+      });
+    }
+    truncateSnackbar();
+    let resizeTimer;
+    $(window).on("resize", function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(truncateSnackbar, 150);
+    });
+  }
+  function initNav() {
+    const mm = gsap.matchMedia();
+    mm.add("(min-width: 992px)", setupDesktop);
+    mm.add("(max-width: 991px)", setupMobile);
+    animateNav();
+    initNavScrollBorder();
+    initNavScroll();
+    initSnackbar();
+  }
+
+  // src/scroll.js
+  init_live_reload();
+  function initScrollToggle() {
+    var $body = $(document.body);
+    var scrollPosition = 0;
+    var isScrollDisabled = false;
+    var currentBreakpoint = "";
+    function toggleScroll() {
+      if (isScrollDisabled) {
+        enableScroll();
+      } else {
+        disableScroll();
+      }
+    }
+    function disableScroll() {
+      var oldWidth = $body.innerWidth();
+      scrollPosition = window.pageYOffset;
+      $body.css({
+        overflow: "hidden",
+        position: "fixed",
+        top: `-${scrollPosition}px`,
+        width: oldWidth
+      });
+      isScrollDisabled = true;
+    }
+    function enableScroll() {
+      $body.css({
+        overflow: "",
+        position: "",
+        top: "",
+        width: ""
+      });
+      $(window).scrollTop(scrollPosition);
+      isScrollDisabled = false;
+    }
+    $('[data-scroll="toggle"]').on("click", toggleScroll);
+    const breakpoints = [991, 767, 479];
+    let lastWidth = window.innerWidth;
+    function handleBreakpoint(breakpoint) {
+      if (isScrollDisabled) {
+        enableScroll();
+      }
+    }
+    function checkBreakpoints() {
+      const currentWidth = window.innerWidth;
+      breakpoints.forEach((breakpoint) => {
+        if (lastWidth <= breakpoint && currentWidth > breakpoint || lastWidth >= breakpoint && currentWidth < breakpoint) {
+          handleBreakpoint(breakpoint);
+        }
+      });
+      lastWidth = currentWidth;
+    }
+    window.addEventListener("resize", checkBreakpoints);
+  }
+
+  // src/scroll-themes.js
+  init_live_reload();
+  function initCheckSectionThemeScroll() {
+    const navBarHeight = document.querySelector("[data-nav-bar-height]");
+    const themeObserverOffset = navBarHeight ? navBarHeight.offsetHeight / 2 : 0;
+    function initializeAttributes() {
+      const body = document.body;
+      if (!body.hasAttribute("data-theme-nav")) {
+        body.setAttribute("data-theme-nav", "light");
+      }
+      const sections = document.querySelectorAll("section");
+      sections.forEach(function(section) {
+        if (!section.hasAttribute("data-theme-section")) {
+          section.setAttribute("data-theme-section", "light");
+        }
+      });
+    }
+    function checkThemeSection() {
+      const themeSections = document.querySelectorAll("[data-theme-section]");
+      themeSections.forEach(function(themeSection) {
+        const rect = themeSection.getBoundingClientRect();
+        const themeSectionTop = rect.top;
+        const themeSectionBottom = rect.bottom;
+        if (themeSectionTop <= themeObserverOffset && themeSectionBottom >= themeObserverOffset) {
+          const themeSectionActive = themeSection.getAttribute("data-theme-section");
+          document.querySelectorAll("[data-theme-nav]").forEach(function(elem) {
+            if (elem.getAttribute("data-theme-nav") !== themeSectionActive) {
+              elem.setAttribute("data-theme-nav", themeSectionActive);
+            }
+          });
+        }
+      });
+    }
+    function startThemeCheck() {
+      document.addEventListener("scroll", checkThemeSection);
+    }
+    initializeAttributes();
+    checkThemeSection();
+    startThemeCheck();
+  }
+
+  // src/swipers.js
+  init_live_reload();
+  function initTestimonials() {
+    $(".section_testimonials").each(function(index) {
+      var currentSection = $(this);
+      var slider = currentSection.find(".testimonials_slider");
+      var items = currentSection.find(".testimonials_menu-item");
+      var nextArrow = currentSection.find(".swiper-arrow.is-next");
+      var prevArrow = currentSection.find(".swiper-arrow.is-prev");
+      var csQuote = new Swiper(slider[0], {
+        slidesPerView: 1,
+        spaceBetween: 0,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true
+        },
+        navigation: {
+          nextEl: nextArrow[0],
+          prevEl: prevArrow[0]
+        },
+        on: {
+          init: function() {
+            updateActiveNav(this);
+          },
+          slideChange: function() {
+            updateActiveNav(this);
+          }
+        }
+      });
+      function updateActiveNav(swiper) {
+        items.removeClass("is-active").eq(swiper.realIndex).addClass("is-active");
+      }
+      function slideToItem() {
+        items.on("click", function() {
+          csQuote.slideTo($(this).index());
+        });
+      }
+      slideToItem();
+    });
+  }
+  function initTestimonialCards() {
+    $(".testimonial-cards_wrap").each(function(index) {
+      var currentSection = $(this);
+      var slider = currentSection.find(".testimonial-cards_slider");
+      var nextArrow = currentSection.find(".swiper-arrow.is-next");
+      var prevArrow = currentSection.find(".swiper-arrow.is-prev");
+      var csQuote = new Swiper(slider[0], {
+        slidesPerView: 1,
+        effect: "fade",
+        fadeEffect: {
+          crossFade: true
+        },
+        navigation: {
+          nextEl: nextArrow[0],
+          prevEl: prevArrow[0]
+        }
+      });
+    });
+  }
+  function initLatestBlog() {
+    $(".section_latest-blog").each(function(index) {
+      var currentSection = $(this);
+      var slider = currentSection.find(".latest-blog_slider");
+      var nextArrow = currentSection.find(".swiper-arrow.is-next");
+      var prevArrow = currentSection.find(".swiper-arrow.is-prev");
+      var csQuote = new Swiper(slider[0], {
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        navigation: {
+          nextEl: nextArrow[0],
+          prevEl: prevArrow[0]
+        }
+      });
+    });
+  }
+  function initDeploy() {
+    $(".section_deploy-slider").each(function(index) {
+      var currentSection = $(this);
+      var slider = currentSection.find(".deploy-slider");
+      var nextArrow = currentSection.find(".swiper-arrow.is-next");
+      var prevArrow = currentSection.find(".swiper-arrow.is-prev");
+      var csQuote = new Swiper(slider[0], {
+        slidesPerView: "auto",
+        spaceBetween: 20,
+        navigation: {
+          nextEl: nextArrow[0],
+          prevEl: prevArrow[0]
+        },
+        pagination: {
+          el: ".swiper-navigation",
+          type: "bullets",
+          bulletActiveClass: "is-active",
+          bulletClass: "swiper-dot",
+          clickable: true
+        }
+      });
+    });
+  }
+  function initCareerGallery() {
+    let slider = $(".about-company_slider");
+    if (slider.length == 0)
+      return;
+    function initBasicCustomCursor() {
+      gsap.set(".cursor-box_wrap", { xPercent: -50, yPercent: -50 });
+      let xTo = gsap.quickTo(".cursor-box_wrap", "x", { duration: 0.6, ease: "power3" });
+      let yTo = gsap.quickTo(".cursor-box_wrap", "y", { duration: 0.6, ease: "power3" });
+      window.addEventListener("mousemove", (e) => {
+        xTo(e.clientX);
+        yTo(e.clientY);
+      });
+    }
+    const swiperTestimonial = new Swiper(".about-company_slider", {
+      slidesPerView: 1,
+      loop: true,
+      effect: "fade",
+      fadeEffect: {
+        crossFade: true
+      },
+      navigation: {
+        nextEl: ".swiper-arrow.is-next",
+        prevEl: ".swiper-arrow.is-prev"
+      }
+    });
+    gsap.set(".cursor-box_wrap", { display: "hidden" });
+    gsap.set(".cursor-box", { scale: 0 });
+    $(".about-company_desktop-box").on("mouseenter", function() {
+      if ($(window).width() < 992)
+        return;
+      gsap.to(".cursor-box_wrap", { display: "flex" });
+      gsap.to(".cursor-box", { scale: 1, duration: 0.3, ease: "back.out" });
+      let next = $('[cursor-arrow="next"]');
+      let prev = $('[cursor-arrow="prev"]');
+      if ($(this).hasClass("is-right")) {
+        next.show();
+        prev.hide();
+      } else if ($(this).hasClass("is-left")) {
+        prev.show();
+        next.hide();
+      }
+    });
+    $(".about-company_desktop-box").on("mouseleave", function() {
+      if ($(window).width() < 992)
+        return;
+      gsap.to(".cursor-box_wrap", { display: "none" });
+      gsap.to(".cursor-box", { scale: 0, duration: 0.3, ease: "back.out" });
+    });
+    initBasicCustomCursor();
+  }
+  function initSwipers() {
+    initTestimonials();
+    initLatestBlog();
+    initDeploy();
+    initTestimonialCards();
+    initCareerGallery();
+  }
+
+  // src/tabs.js
+  init_live_reload();
+  var wrapLetters = (element) => {
+    const processNode = (node) => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        if (!node.parentNode.classList.contains("letter")) {
+          const codeText = node.textContent;
+          const fragment = document.createDocumentFragment();
+          for (let i = 0; i < codeText.length; i++) {
+            const span = document.createElement("span");
+            span.className = "letter";
+            span.textContent = codeText[i];
+            fragment.appendChild(span);
+          }
+          node.parentNode.replaceChild(fragment, node);
+        }
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        if (node.tagName !== "BR") {
+          const childNodes = Array.from(node.childNodes);
+          childNodes.forEach(processNode);
+        }
+      }
+    };
+    $(element).contents().each(function() {
+      processNode(this);
+    });
+  };
+  var resetLetters = (elements) => {
+    $(elements).each((elementIndex, element) => {
+      const letters = $(element).find(".letter").not(".line-numbers-row .code-letter");
+      const highlights = $(element).find(".word-highlight");
+      gsap.set(letters, { visibility: "hidden" });
+      if (highlights.length) {
+        const firstHighlight = highlights[0];
+        const currentBgColor = window.getComputedStyle(firstHighlight).getPropertyValue("background-color");
+        const currentBoxShadow = window.getComputedStyle(firstHighlight).getPropertyValue("box-shadow");
+        const hexToRGBA = (hex, alpha) => {
+          const [r, g, b] = hex.match(/\w\w/g).map((x) => parseInt(x, 16));
+          return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        };
+        const rgbaToTransparent = (rgba) => {
+          const rgbaArray = rgba.replace(/^rgba?\(/, "").replace(/\)$/, "").split(",");
+          return `rgba(${rgbaArray[0]}, ${rgbaArray[1]}, ${rgbaArray[2]}, 0)`;
+        };
+        const isHex = (color) => /^#(?:[0-9a-f]{3}){1,2}$/i.test(color);
+        const initialBackgroundColor = isHex(currentBgColor) ? hexToRGBA(currentBgColor, 0) : rgbaToTransparent(currentBgColor);
+        const initialBoxShadow = currentBoxShadow.replace(/rgba?\([^)]+\)/g, (match) => {
+          return isHex(match) ? hexToRGBA(match, 0) : rgbaToTransparent(match);
+        });
+        gsap.set(highlights, {
+          backgroundColor: initialBackgroundColor,
+          boxShadow: initialBoxShadow
+        });
+      }
+    });
+  };
+  var revealLetters = (elements, baseDelay = 0.01) => {
+    const timeline = gsap.timeline();
+    let globalLetterIndex = 0;
+    let totalLetters = 0;
+    let cumulativeTime = 0;
+    $(elements).each((elementIndex, element) => {
+      const letters = $(element).find(".letter").not(".line-numbers-row .code-letter");
+      totalLetters += letters.length;
+    });
+    $(elements).each((elementIndex, element) => {
+      const letters = $(element).find(".letter").not(".line-numbers-row .code-letter");
+      const highlights = $(element).find(".word-highlight");
+      letters.each((letterIndex, letter) => {
+        const progress = globalLetterIndex / totalLetters;
+        const exponentialDelay = baseDelay * Math.pow(0.3, progress * 3);
+        timeline.fromTo(letter, { visibility: "hidden" }, { visibility: "initial" }, cumulativeTime);
+        cumulativeTime += exponentialDelay;
+        globalLetterIndex++;
+      });
+      if (highlights.length) {
+        const firstHighlight = highlights[0];
+        const currentBgColor = window.getComputedStyle(firstHighlight).getPropertyValue("background-color");
+        const currentBoxShadow = window.getComputedStyle(firstHighlight).getPropertyValue("box-shadow");
+        timeline.to(
+          highlights,
+          {
+            backgroundColor: currentBgColor,
+            boxShadow: currentBoxShadow,
+            duration: 0.35
+          },
+          "<"
+        );
+      }
+    });
+    return timeline;
+  };
+  var animateCode = ($codeBlock) => {
+    const codeElement = $codeBlock.find("code");
+    const lineNumbers = codeElement.find(".line-numbers-rows").eq(0).clone();
+    codeElement.find(".line-numbers-rows").remove();
+    if (!codeElement.find(".letter").length) {
+      wrapLetters(codeElement);
+    }
+    resetLetters(codeElement);
+    codeElement.css("visibility", "visible");
+    codeElement.prepend(lineNumbers);
+    return revealLetters(codeElement);
+  };
+  function initTabs() {
+    $('[data-tabs="wrap"]').each(function() {
+      const $wrap = $(this);
+      const $menu = $wrap.find('[data-tabs="menu"]');
+      const $menuItems = $menu.find('[data-tabs="menu-item"]');
+      const $contents = $wrap.find('[data-tabs="content"]');
+      const $codes = $wrap.find('[data-tabs="code"]');
+      let wrapTimeline = null;
+      $menuItems.on("click", function() {
+        if (wrapTimeline) {
+          wrapTimeline.kill();
+          wrapTimeline = null;
+        }
+        $menuItems.removeClass("is-active");
+        $(this).addClass("is-active");
+        const index = $(this).closest("li").index();
+        const currentHeight = $wrap.height();
+        $contents.each(function() {
+          $(this).hide();
+        });
+        $codes.hide();
+        const $targetContent = $contents.eq(index);
+        const $targetCode = $codes.eq(index);
+        $targetContent.css("display", "flex");
+        $targetCode.css("display", "flex");
+        const newHeight = $wrap.height();
+        const computedHeight = window.getComputedStyle($wrap[0]).height;
+        const inlineHeight = $wrap[0].style.height;
+        if (!inlineHeight) {
+          $wrap.css("height", currentHeight);
+          gsap.to($wrap, {
+            height: newHeight,
+            duration: 0.4,
+            ease: "power2.out",
+            onComplete: () => {
+              $wrap.attr("style", "");
+            }
+          });
+        } else {
+          $wrap.css("height", "auto");
+        }
+        if ($targetContent.is("ul, ol, li")) {
+          const $items = $targetContent.find("li").add('[data-tabs="content-item"]');
+          gsap.fromTo(
+            $items,
+            { opacity: 0, y: 20 },
+            { opacity: 1, y: 0, duration: 0.4, stagger: 0.08, ease: "power2.out", delay: 0.2 }
+          );
+        }
+        wrapTimeline = animateCode($targetCode);
+      });
+    });
+  }
+
+  // src/tracking/amplitude.js
+  init_live_reload();
+
+  // src/forms/sniffEmail.js
+  init_live_reload();
+  function SniffEmailForAmplitude() {
+    const interval = setInterval(() => {
+      const inputs = document.querySelectorAll("input[type=email]");
+      if (inputs.length) {
+        sniffEmail(inputs);
+        clearInterval(interval);
+      }
+    }, 1e3);
+  }
+  var lastFire = "";
+  function sniffEmail(inputs) {
+    for (let input of inputs) {
+      if (input.classList.contains("emailCheck")) {
+        continue;
+      }
+      let formParent = input.parentElement;
+      while (formParent && formParent.nodeName !== "FORM" && formParent.nodeName !== "BODY") {
+        formParent = formParent.parentElement;
+      }
+      const { formId } = formParent.dataset;
+      const debouncedAmpCall = debounce((input2, formId2) => {
+        if (!isValid(input2)) {
+          return;
+        }
+        lastFire = input2.value;
+        amplitude.track("emailInput", { email: input2.value, formId: formId2 });
+      }, 3e3);
+      input.addEventListener("input", (ev) => {
+        if (ev.target.value === lastFire) {
+          return;
+        }
+        if (isValid(ev.target)) {
+          debouncedAmpCall(ev.target, formId);
+        }
+      });
+      input.classList.add("emailCheck");
+    }
+  }
+  function isValid(el) {
+    return el.checkValidity() && !el.classList.contains("error") && el.value !== "";
+  }
+  var debounce = (callback, wait2) => {
+    let timeoutId = null;
+    return (...args) => {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(() => {
+        callback(...args);
+      }, wait2);
+    };
+  };
+
+  // src/tracking/amplitude.js
+  function initAmplitude() {
+    SniffEmailForAmplitude();
+    function amplitudeTrack(anchorTag, trackTitle) {
+      return () => {
+        amplitude.track(trackTitle, {
+          href: window.location.href,
+          location: anchorTag.dataset.analyticsLocation
+        });
+      };
+    }
+    setTimeout(() => {
+      [...document.querySelectorAll("a")].filter((a) => a.href === "https://docs.modular.com/").forEach((a) => {
+        a.onclick = amplitudeTrack(a, "DownloadMaxClicked");
+      });
+    }, 100);
+    setTimeout(() => {
+      [...document.querySelectorAll("a")].filter((a) => a.href === "https://modular.com/enterprise#form").forEach((a) => {
+        a.onclick = amplitudeTrack(a, "ContactSalesClicked");
+      });
+    }, 200);
+    setTimeout(() => {
+      [...document.querySelectorAll("[data-analytics-onclick]")].forEach((a) => {
+        a.onclick = amplitudeTrack(a, a.dataset.analyticsOnclick);
+      });
+    }, 300);
+    let timeStartedOnPage = /* @__PURE__ */ new Date();
+    function trackTimeOnPage(pathname) {
+      if (!timeStartedOnPage) {
+        return;
+      }
+      const durationInSeconds = Math.round((/* @__PURE__ */ new Date()).getTime() - timeStartedOnPage.getTime()) / 1e3;
+      amplitude.track("TimeOnPage", {
+        duration: `${Math.round(durationInSeconds)}`,
+        minutes: `${Math.round(durationInSeconds / 60)}`,
+        pathname
+      });
+    }
+    function scrollPercentage() {
+      const { documentElement } = document, { body } = document;
+      return Math.round(
+        (documentElement.scrollTop || body.scrollTop) / ((documentElement.scrollHeight || body.scrollHeight) - documentElement.clientHeight) * 100
+      );
+    }
+    let maxScroll = 0;
+    setInterval(() => {
+      const curScroll = scrollPercentage();
+      if (curScroll > maxScroll) {
+        maxScroll = curScroll;
+      }
+    }, 500);
+    window.addEventListener("beforeunload", () => {
+      const { pathname } = window.location;
+      trackTimeOnPage(pathname);
+      amplitude.track("MaxScrollPercentage", { maxScroll, pathname });
+      return void 0;
+    });
+  }
+
+  // src/tracking/experiment.js
+  init_live_reload();
+
+  // src/utils/wait.js
+  init_live_reload();
+  async function wait(ms = 15) {
+    await new Promise(
+      (resolve) => setTimeout(
+        () => requestAnimationFrame(() => {
+          resolve();
+        }),
+        ms
+      )
+    );
+  }
+  async function waitUntil(condition, maxChecks = 1e3) {
+    let timesChecked = 0;
+    while (!condition() && timesChecked < maxChecks) {
+      timesChecked = timesChecked + 1;
+      await wait();
+    }
+  }
+
+  // node_modules/@amplitude/experiment-js-client/dist/experiment.esm.js
+  init_live_reload();
+
+  // node_modules/@amplitude/analytics-connector/dist/analytics-connector.esm.js
+  init_live_reload();
+  var ApplicationContextProviderImpl = (
+    /** @class */
+    function() {
+      function ApplicationContextProviderImpl2() {
+      }
+      ApplicationContextProviderImpl2.prototype.getApplicationContext = function() {
+        return {
+          versionName: this.versionName,
+          language: getLanguage(),
+          platform: "Web",
+          os: void 0,
+          deviceModel: void 0
+        };
+      };
+      return ApplicationContextProviderImpl2;
+    }()
+  );
+  var getLanguage = function() {
+    return typeof navigator !== "undefined" && (navigator.languages && navigator.languages[0] || navigator.language) || "";
+  };
+  var EventBridgeImpl = (
+    /** @class */
+    function() {
+      function EventBridgeImpl2() {
+        this.queue = [];
+      }
+      EventBridgeImpl2.prototype.logEvent = function(event) {
+        if (!this.receiver) {
+          if (this.queue.length < 512) {
+            this.queue.push(event);
+          }
+        } else {
+          this.receiver(event);
+        }
+      };
+      EventBridgeImpl2.prototype.setEventReceiver = function(receiver) {
+        this.receiver = receiver;
+        if (this.queue.length > 0) {
+          this.queue.forEach(function(event) {
+            receiver(event);
+          });
+          this.queue = [];
+        }
+      };
+      return EventBridgeImpl2;
+    }()
+  );
+  var __assign = function() {
+    __assign = Object.assign || function __assign4(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+      }
+      return t;
+    };
+    return __assign.apply(this, arguments);
+  };
+  var isEqual = function(obj1, obj2) {
+    var primitive = ["string", "number", "boolean", "undefined"];
+    var typeA = typeof obj1;
+    var typeB = typeof obj2;
+    if (typeA !== typeB) {
+      return false;
+    }
+    for (var _i = 0, primitive_1 = primitive; _i < primitive_1.length; _i++) {
+      var p = primitive_1[_i];
+      if (p === typeA) {
+        return obj1 === obj2;
+      }
+    }
+    if (obj1 == null && obj2 == null) {
+      return true;
+    } else if (obj1 == null || obj2 == null) {
+      return false;
+    }
+    if (obj1.length !== obj2.length) {
+      return false;
+    }
+    var isArrayA = Array.isArray(obj1);
+    var isArrayB = Array.isArray(obj2);
+    if (isArrayA !== isArrayB) {
+      return false;
+    }
+    if (isArrayA && isArrayB) {
+      for (var i = 0; i < obj1.length; i++) {
+        if (!isEqual(obj1[i], obj2[i])) {
+          return false;
+        }
+      }
+    } else {
+      var sorted1 = Object.keys(obj1).sort();
+      var sorted2 = Object.keys(obj2).sort();
+      if (!isEqual(sorted1, sorted2)) {
+        return false;
+      }
+      var result_1 = true;
+      Object.keys(obj1).forEach(function(key) {
+        if (!isEqual(obj1[key], obj2[key])) {
+          result_1 = false;
+        }
+      });
+      return result_1;
+    }
+    return true;
+  };
+  var ID_OP_SET = "$set";
+  var ID_OP_UNSET = "$unset";
+  var ID_OP_CLEAR_ALL = "$clearAll";
+  if (!Object.entries) {
+    Object.entries = function(obj) {
+      var ownProps = Object.keys(obj);
+      var i = ownProps.length;
+      var resArray = new Array(i);
+      while (i--) {
+        resArray[i] = [ownProps[i], obj[ownProps[i]]];
+      }
+      return resArray;
+    };
+  }
+  var IdentityStoreImpl = (
+    /** @class */
+    function() {
+      function IdentityStoreImpl2() {
+        this.identity = { userProperties: {} };
+        this.listeners = /* @__PURE__ */ new Set();
+      }
+      IdentityStoreImpl2.prototype.editIdentity = function() {
+        var self2 = this;
+        var actingUserProperties = __assign({}, this.identity.userProperties);
+        var actingIdentity = __assign(__assign({}, this.identity), { userProperties: actingUserProperties });
+        return {
+          setUserId: function(userId) {
+            actingIdentity.userId = userId;
+            return this;
+          },
+          setDeviceId: function(deviceId) {
+            actingIdentity.deviceId = deviceId;
+            return this;
+          },
+          setUserProperties: function(userProperties) {
+            actingIdentity.userProperties = userProperties;
+            return this;
+          },
+          setOptOut: function(optOut) {
+            actingIdentity.optOut = optOut;
+            return this;
+          },
+          updateUserProperties: function(actions) {
+            var actingProperties = actingIdentity.userProperties || {};
+            for (var _i = 0, _a = Object.entries(actions); _i < _a.length; _i++) {
+              var _b = _a[_i], action = _b[0], properties = _b[1];
+              switch (action) {
+                case ID_OP_SET:
+                  for (var _c = 0, _d = Object.entries(properties); _c < _d.length; _c++) {
+                    var _e = _d[_c], key = _e[0], value = _e[1];
+                    actingProperties[key] = value;
+                  }
+                  break;
+                case ID_OP_UNSET:
+                  for (var _f = 0, _g = Object.keys(properties); _f < _g.length; _f++) {
+                    var key = _g[_f];
+                    delete actingProperties[key];
+                  }
+                  break;
+                case ID_OP_CLEAR_ALL:
+                  actingProperties = {};
+                  break;
+              }
+            }
+            actingIdentity.userProperties = actingProperties;
+            return this;
+          },
+          commit: function() {
+            self2.setIdentity(actingIdentity);
+            return this;
+          }
+        };
+      };
+      IdentityStoreImpl2.prototype.getIdentity = function() {
+        return __assign({}, this.identity);
+      };
+      IdentityStoreImpl2.prototype.setIdentity = function(identity) {
+        var originalIdentity = __assign({}, this.identity);
+        this.identity = __assign({}, identity);
+        if (!isEqual(originalIdentity, this.identity)) {
+          this.listeners.forEach(function(listener) {
+            listener(identity);
+          });
+        }
+      };
+      IdentityStoreImpl2.prototype.addIdentityListener = function(listener) {
+        this.listeners.add(listener);
+      };
+      IdentityStoreImpl2.prototype.removeIdentityListener = function(listener) {
+        this.listeners.delete(listener);
+      };
+      return IdentityStoreImpl2;
+    }()
+  );
+  var safeGlobal = typeof globalThis !== "undefined" ? globalThis : typeof global !== "undefined" ? global : self;
+  var AnalyticsConnector = (
+    /** @class */
+    function() {
+      function AnalyticsConnector2() {
+        this.identityStore = new IdentityStoreImpl();
+        this.eventBridge = new EventBridgeImpl();
+        this.applicationContextProvider = new ApplicationContextProviderImpl();
+      }
+      AnalyticsConnector2.getInstance = function(instanceName) {
+        if (!safeGlobal["analyticsConnectorInstances"]) {
+          safeGlobal["analyticsConnectorInstances"] = {};
+        }
+        if (!safeGlobal["analyticsConnectorInstances"][instanceName]) {
+          safeGlobal["analyticsConnectorInstances"][instanceName] = new AnalyticsConnector2();
+        }
+        return safeGlobal["analyticsConnectorInstances"][instanceName];
+      };
+      return AnalyticsConnector2;
+    }()
+  );
+
+  // node_modules/@amplitude/experiment-core/dist/experiment-core.esm.js
+  init_live_reload();
+  var extendStatics = function(d, b) {
+    extendStatics = Object.setPrototypeOf || {
+      __proto__: []
+    } instanceof Array && function(d2, b2) {
+      d2.__proto__ = b2;
+    } || function(d2, b2) {
+      for (var p in b2)
+        if (Object.prototype.hasOwnProperty.call(b2, p))
+          d2[p] = b2[p];
+    };
+    return extendStatics(d, b);
+  };
+  function __extends(d, b) {
+    if (typeof b !== "function" && b !== null)
+      throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+    extendStatics(d, b);
+    function __() {
+      this.constructor = d;
+    }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  }
+  var __assign2 = function() {
+    __assign2 = Object.assign || function __assign4(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+      }
+      return t;
+    };
+    return __assign2.apply(this, arguments);
+  };
+  function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+      return value instanceof P ? value : new P(function(resolve) {
+        resolve(value);
+      });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+      function fulfilled(value) {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function rejected(value) {
+        try {
+          step(generator["throw"](value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function step(result) {
+        result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+      }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+  }
+  function __generator(thisArg, body) {
+    var _ = {
+      label: 0,
+      sent: function() {
+        if (t[0] & 1)
+          throw t[1];
+        return t[1];
+      },
+      trys: [],
+      ops: []
+    }, f, y, t, g;
+    return g = {
+      next: verb(0),
+      "throw": verb(1),
+      "return": verb(2)
+    }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
+      return this;
+    }), g;
+    function verb(n) {
+      return function(v) {
+        return step([n, v]);
+      };
+    }
+    function step(op) {
+      if (f)
+        throw new TypeError("Generator is already executing.");
+      while (g && (g = 0, op[0] && (_ = 0)), _)
+        try {
+          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
+            return t;
+          if (y = 0, t)
+            op = [op[0] & 2, t.value];
+          switch (op[0]) {
+            case 0:
+            case 1:
+              t = op;
+              break;
+            case 4:
+              _.label++;
+              return {
+                value: op[1],
+                done: false
+              };
+            case 5:
+              _.label++;
+              y = op[1];
+              op = [0];
+              continue;
+            case 7:
+              op = _.ops.pop();
+              _.trys.pop();
+              continue;
+            default:
+              if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                _ = 0;
+                continue;
+              }
+              if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+                _.label = op[1];
+                break;
+              }
+              if (op[0] === 6 && _.label < t[1]) {
+                _.label = t[1];
+                t = op;
+                break;
+              }
+              if (t && _.label < t[2]) {
+                _.label = t[2];
+                _.ops.push(op);
+                break;
+              }
+              if (t[2])
+                _.ops.pop();
+              _.trys.pop();
+              continue;
+          }
+          op = body.call(thisArg, _);
+        } catch (e) {
+          op = [6, e];
+          y = 0;
+        } finally {
+          f = t = 0;
+        }
+      if (op[0] & 5)
+        throw op[1];
+      return {
+        value: op[0] ? op[1] : void 0,
+        done: true
+      };
+    }
+  }
+  function __values(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m)
+      return m.call(o);
+    if (o && typeof o.length === "number")
+      return {
+        next: function() {
+          if (o && i >= o.length)
+            o = void 0;
+          return {
+            value: o && o[i++],
+            done: !o
+          };
+        }
+      };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  }
+  function __read(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m)
+      return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+      while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+        ar.push(r.value);
+    } catch (error) {
+      e = {
+        error
+      };
+    } finally {
+      try {
+        if (r && !r.done && (m = i["return"]))
+          m.call(i);
+      } finally {
+        if (e)
+          throw e.error;
+      }
+    }
+    return ar;
+  }
+  function __spreadArray(to, from, pack) {
+    if (pack || arguments.length === 2)
+      for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+          if (!ar)
+            ar = Array.prototype.slice.call(from, 0, i);
+          ar[i] = from[i];
+        }
+      }
+    return to.concat(ar || Array.prototype.slice.call(from));
+  }
+  var EvaluationOperator = {
+    IS: "is",
+    IS_NOT: "is not",
+    CONTAINS: "contains",
+    DOES_NOT_CONTAIN: "does not contain",
+    LESS_THAN: "less",
+    LESS_THAN_EQUALS: "less or equal",
+    GREATER_THAN: "greater",
+    GREATER_THAN_EQUALS: "greater or equal",
+    VERSION_LESS_THAN: "version less",
+    VERSION_LESS_THAN_EQUALS: "version less or equal",
+    VERSION_GREATER_THAN: "version greater",
+    VERSION_GREATER_THAN_EQUALS: "version greater or equal",
+    SET_IS: "set is",
+    SET_IS_NOT: "set is not",
+    SET_CONTAINS: "set contains",
+    SET_DOES_NOT_CONTAIN: "set does not contain",
+    SET_CONTAINS_ANY: "set contains any",
+    SET_DOES_NOT_CONTAIN_ANY: "set does not contain any",
+    REGEX_MATCH: "regex match",
+    REGEX_DOES_NOT_MATCH: "regex does not match"
+  };
+  var stringToUtf8ByteArray = function(str) {
+    var out = [];
+    var p = 0;
+    for (var i = 0; i < str.length; i++) {
+      var c = str.charCodeAt(i);
+      if (c < 128) {
+        out[p++] = c;
+      } else if (c < 2048) {
+        out[p++] = c >> 6 | 192;
+        out[p++] = c & 63 | 128;
+      } else if ((c & 64512) == 55296 && i + 1 < str.length && (str.charCodeAt(i + 1) & 64512) == 56320) {
+        c = 65536 + ((c & 1023) << 10) + (str.charCodeAt(++i) & 1023);
+        out[p++] = c >> 18 | 240;
+        out[p++] = c >> 12 & 63 | 128;
+        out[p++] = c >> 6 & 63 | 128;
+        out[p++] = c & 63 | 128;
+      } else {
+        out[p++] = c >> 12 | 224;
+        out[p++] = c >> 6 & 63 | 128;
+        out[p++] = c & 63 | 128;
+      }
+    }
+    return Uint8Array.from(out);
+  };
+  var C1_32 = -862048943;
+  var C2_32 = 461845907;
+  var R1_32 = 15;
+  var R2_32 = 13;
+  var M_32 = 5;
+  var N_32 = -430675100;
+  var hash32x86 = function(input, seed) {
+    if (seed === void 0) {
+      seed = 0;
+    }
+    var data = stringToUtf8ByteArray(input);
+    var length = data.length;
+    var nBlocks = length >> 2;
+    var hash = seed;
+    for (var i = 0; i < nBlocks; i++) {
+      var index_1 = i << 2;
+      var k = readIntLe(data, index_1);
+      hash = mix32(k, hash);
+    }
+    var index = nBlocks << 2;
+    var k1 = 0;
+    switch (length - index) {
+      case 3:
+        k1 ^= data[index + 2] << 16;
+        k1 ^= data[index + 1] << 8;
+        k1 ^= data[index];
+        k1 = Math.imul(k1, C1_32);
+        k1 = rotateLeft(k1, R1_32);
+        k1 = Math.imul(k1, C2_32);
+        hash ^= k1;
+        break;
+      case 2:
+        k1 ^= data[index + 1] << 8;
+        k1 ^= data[index];
+        k1 = Math.imul(k1, C1_32);
+        k1 = rotateLeft(k1, R1_32);
+        k1 = Math.imul(k1, C2_32);
+        hash ^= k1;
+        break;
+      case 1:
+        k1 ^= data[index];
+        k1 = Math.imul(k1, C1_32);
+        k1 = rotateLeft(k1, R1_32);
+        k1 = Math.imul(k1, C2_32);
+        hash ^= k1;
+        break;
+    }
+    hash ^= length;
+    return fmix32(hash) >>> 0;
+  };
+  var mix32 = function(k, hash) {
+    var kResult = k;
+    var hashResult = hash;
+    kResult = Math.imul(kResult, C1_32);
+    kResult = rotateLeft(kResult, R1_32);
+    kResult = Math.imul(kResult, C2_32);
+    hashResult ^= kResult;
+    hashResult = rotateLeft(hashResult, R2_32);
+    hashResult = Math.imul(hashResult, M_32);
+    return hashResult + N_32 | 0;
+  };
+  var fmix32 = function(hash) {
+    var hashResult = hash;
+    hashResult ^= hashResult >>> 16;
+    hashResult = Math.imul(hashResult, -2048144789);
+    hashResult ^= hashResult >>> 13;
+    hashResult = Math.imul(hashResult, -1028477387);
+    hashResult ^= hashResult >>> 16;
+    return hashResult;
+  };
+  var rotateLeft = function(x, n, width) {
+    if (width === void 0) {
+      width = 32;
+    }
+    if (n > width)
+      n = n % width;
+    var mask = 4294967295 << width - n >>> 0;
+    var r = (x & mask) >>> 0 >>> width - n >>> 0;
+    return (x << n | r) >>> 0;
+  };
+  var readIntLe = function(data, index) {
+    if (index === void 0) {
+      index = 0;
+    }
+    var n = data[index] << 24 | data[index + 1] << 16 | data[index + 2] << 8 | data[index + 3];
+    return reverseBytes(n);
+  };
+  var reverseBytes = function(n) {
+    return (n & -16777216) >>> 24 | (n & 16711680) >>> 8 | (n & 65280) << 8 | (n & 255) << 24;
+  };
+  var select = function(selectable, selector) {
+    var e_1, _a;
+    if (!selector || selector.length === 0) {
+      return void 0;
+    }
+    try {
+      for (var selector_1 = __values(selector), selector_1_1 = selector_1.next(); !selector_1_1.done; selector_1_1 = selector_1.next()) {
+        var selectorElement = selector_1_1.value;
+        if (!selectorElement || !selectable || typeof selectable !== "object") {
+          return void 0;
+        }
+        selectable = selectable[selectorElement];
+      }
+    } catch (e_1_1) {
+      e_1 = { error: e_1_1 };
+    } finally {
+      try {
+        if (selector_1_1 && !selector_1_1.done && (_a = selector_1.return))
+          _a.call(selector_1);
+      } finally {
+        if (e_1)
+          throw e_1.error;
+      }
+    }
+    if (!selectable) {
+      return void 0;
+    } else {
+      return selectable;
+    }
+  };
+  var MAJOR_MINOR_REGEX = "(\\d+)\\.(\\d+)";
+  var PATCH_REGEX = "(\\d+)";
+  var PRERELEASE_REGEX = "(-(([-\\w]+\\.?)*))?";
+  var VERSION_PATTERN = "^".concat(MAJOR_MINOR_REGEX, "(\\.").concat(PATCH_REGEX).concat(PRERELEASE_REGEX, ")?$");
+  var SemanticVersion = (
+    /** @class */
+    function() {
+      function SemanticVersion2(major, minor, patch, preRelease) {
+        if (preRelease === void 0) {
+          preRelease = void 0;
+        }
+        this.major = major;
+        this.minor = minor;
+        this.patch = patch;
+        this.preRelease = preRelease;
+      }
+      SemanticVersion2.parse = function(version3) {
+        if (!version3) {
+          return void 0;
+        }
+        var matchGroup = new RegExp(VERSION_PATTERN).exec(version3);
+        if (!matchGroup) {
+          return void 0;
+        }
+        var major = Number(matchGroup[1]);
+        var minor = Number(matchGroup[2]);
+        if (isNaN(major) || isNaN(minor)) {
+          return void 0;
+        }
+        var patch = Number(matchGroup[4]) || 0;
+        var preRelease = matchGroup[5] || void 0;
+        return new SemanticVersion2(major, minor, patch, preRelease);
+      };
+      SemanticVersion2.prototype.compareTo = function(other) {
+        if (this.major > other.major)
+          return 1;
+        if (this.major < other.major)
+          return -1;
+        if (this.minor > other.minor)
+          return 1;
+        if (this.minor < other.minor)
+          return -1;
+        if (this.patch > other.patch)
+          return 1;
+        if (this.patch < other.patch)
+          return -1;
+        if (this.preRelease && !other.preRelease)
+          return -1;
+        if (!this.preRelease && other.preRelease)
+          return 1;
+        if (this.preRelease && other.preRelease) {
+          if (this.preRelease > other.preRelease)
+            return 1;
+          if (this.preRelease < other.preRelease)
+            return -1;
+          return 0;
+        }
+        return 0;
+      };
+      return SemanticVersion2;
+    }()
+  );
+  var EvaluationEngine = (
+    /** @class */
+    function() {
+      function EvaluationEngine2() {
+      }
+      EvaluationEngine2.prototype.evaluate = function(context, flags) {
+        var e_1, _a;
+        var results = {};
+        var target = {
+          context,
+          result: results
+        };
+        try {
+          for (var flags_1 = __values(flags), flags_1_1 = flags_1.next(); !flags_1_1.done; flags_1_1 = flags_1.next()) {
+            var flag = flags_1_1.value;
+            var variant = this.evaluateFlag(target, flag);
+            if (variant) {
+              results[flag.key] = variant;
+            }
+          }
+        } catch (e_1_1) {
+          e_1 = { error: e_1_1 };
+        } finally {
+          try {
+            if (flags_1_1 && !flags_1_1.done && (_a = flags_1.return))
+              _a.call(flags_1);
+          } finally {
+            if (e_1)
+              throw e_1.error;
+          }
+        }
+        return results;
+      };
+      EvaluationEngine2.prototype.evaluateFlag = function(target, flag) {
+        var e_2, _a;
+        var result;
+        try {
+          for (var _b = __values(flag.segments), _c = _b.next(); !_c.done; _c = _b.next()) {
+            var segment = _c.value;
+            result = this.evaluateSegment(target, flag, segment);
+            if (result) {
+              var metadata = __assign2(__assign2(__assign2({}, flag.metadata), segment.metadata), result.metadata);
+              result = __assign2(__assign2({}, result), { metadata });
+              break;
+            }
+          }
+        } catch (e_2_1) {
+          e_2 = { error: e_2_1 };
+        } finally {
+          try {
+            if (_c && !_c.done && (_a = _b.return))
+              _a.call(_b);
+          } finally {
+            if (e_2)
+              throw e_2.error;
+          }
+        }
+        return result;
+      };
+      EvaluationEngine2.prototype.evaluateSegment = function(target, flag, segment) {
+        var e_3, _a, e_4, _b;
+        if (!segment.conditions) {
+          var variantKey = this.bucket(target, segment);
+          if (variantKey !== void 0) {
+            return flag.variants[variantKey];
+          } else {
+            return void 0;
+          }
+        }
+        try {
+          for (var _c = __values(segment.conditions), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var conditions = _d.value;
+            var match = true;
+            try {
+              for (var conditions_1 = (e_4 = void 0, __values(conditions)), conditions_1_1 = conditions_1.next(); !conditions_1_1.done; conditions_1_1 = conditions_1.next()) {
+                var condition = conditions_1_1.value;
+                match = this.matchCondition(target, condition);
+                if (!match) {
+                  break;
+                }
+              }
+            } catch (e_4_1) {
+              e_4 = { error: e_4_1 };
+            } finally {
+              try {
+                if (conditions_1_1 && !conditions_1_1.done && (_b = conditions_1.return))
+                  _b.call(conditions_1);
+              } finally {
+                if (e_4)
+                  throw e_4.error;
+              }
+            }
+            if (match) {
+              var variantKey = this.bucket(target, segment);
+              if (variantKey !== void 0) {
+                return flag.variants[variantKey];
+              } else {
+                return void 0;
+              }
+            }
+          }
+        } catch (e_3_1) {
+          e_3 = { error: e_3_1 };
+        } finally {
+          try {
+            if (_d && !_d.done && (_a = _c.return))
+              _a.call(_c);
+          } finally {
+            if (e_3)
+              throw e_3.error;
+          }
+        }
+        return void 0;
+      };
+      EvaluationEngine2.prototype.matchCondition = function(target, condition) {
+        var propValue = select(target, condition.selector);
+        if (!propValue) {
+          return this.matchNull(condition.op, condition.values);
+        } else if (this.isSetOperator(condition.op)) {
+          var propValueStringList = this.coerceStringArray(propValue);
+          if (!propValueStringList) {
+            return false;
+          }
+          return this.matchSet(propValueStringList, condition.op, condition.values);
+        } else {
+          var propValueString = this.coerceString(propValue);
+          if (propValueString !== void 0) {
+            return this.matchString(propValueString, condition.op, condition.values);
+          } else {
+            return false;
+          }
+        }
+      };
+      EvaluationEngine2.prototype.getHash = function(key) {
+        return hash32x86(key);
+      };
+      EvaluationEngine2.prototype.bucket = function(target, segment) {
+        var e_5, _a, e_6, _b;
+        if (!segment.bucket) {
+          return segment.variant;
+        }
+        var bucketingValue = this.coerceString(select(target, segment.bucket.selector));
+        if (!bucketingValue || bucketingValue.length === 0) {
+          return segment.variant;
+        }
+        var keyToHash = "".concat(segment.bucket.salt, "/").concat(bucketingValue);
+        var hash = this.getHash(keyToHash);
+        var allocationValue = hash % 100;
+        var distributionValue = Math.floor(hash / 100);
+        try {
+          for (var _c = __values(segment.bucket.allocations), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var allocation = _d.value;
+            var allocationStart = allocation.range[0];
+            var allocationEnd = allocation.range[1];
+            if (allocationValue >= allocationStart && allocationValue < allocationEnd) {
+              try {
+                for (var _e = (e_6 = void 0, __values(allocation.distributions)), _f = _e.next(); !_f.done; _f = _e.next()) {
+                  var distribution = _f.value;
+                  var distributionStart = distribution.range[0];
+                  var distributionEnd = distribution.range[1];
+                  if (distributionValue >= distributionStart && distributionValue < distributionEnd) {
+                    return distribution.variant;
+                  }
+                }
+              } catch (e_6_1) {
+                e_6 = { error: e_6_1 };
+              } finally {
+                try {
+                  if (_f && !_f.done && (_b = _e.return))
+                    _b.call(_e);
+                } finally {
+                  if (e_6)
+                    throw e_6.error;
+                }
+              }
+            }
+          }
+        } catch (e_5_1) {
+          e_5 = { error: e_5_1 };
+        } finally {
+          try {
+            if (_d && !_d.done && (_a = _c.return))
+              _a.call(_c);
+          } finally {
+            if (e_5)
+              throw e_5.error;
+          }
+        }
+        return segment.variant;
+      };
+      EvaluationEngine2.prototype.matchNull = function(op, filterValues) {
+        var containsNone = this.containsNone(filterValues);
+        switch (op) {
+          case EvaluationOperator.IS:
+          case EvaluationOperator.CONTAINS:
+          case EvaluationOperator.LESS_THAN:
+          case EvaluationOperator.LESS_THAN_EQUALS:
+          case EvaluationOperator.GREATER_THAN:
+          case EvaluationOperator.GREATER_THAN_EQUALS:
+          case EvaluationOperator.VERSION_LESS_THAN:
+          case EvaluationOperator.VERSION_LESS_THAN_EQUALS:
+          case EvaluationOperator.VERSION_GREATER_THAN:
+          case EvaluationOperator.VERSION_GREATER_THAN_EQUALS:
+          case EvaluationOperator.SET_IS:
+          case EvaluationOperator.SET_CONTAINS:
+          case EvaluationOperator.SET_CONTAINS_ANY:
+            return containsNone;
+          case EvaluationOperator.IS_NOT:
+          case EvaluationOperator.DOES_NOT_CONTAIN:
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN:
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN_ANY:
+            return !containsNone;
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.matchSet = function(propValues, op, filterValues) {
+        switch (op) {
+          case EvaluationOperator.SET_IS:
+            return this.setEquals(propValues, filterValues);
+          case EvaluationOperator.SET_IS_NOT:
+            return !this.setEquals(propValues, filterValues);
+          case EvaluationOperator.SET_CONTAINS:
+            return this.matchesSetContainsAll(propValues, filterValues);
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN:
+            return !this.matchesSetContainsAll(propValues, filterValues);
+          case EvaluationOperator.SET_CONTAINS_ANY:
+            return this.matchesSetContainsAny(propValues, filterValues);
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN_ANY:
+            return !this.matchesSetContainsAny(propValues, filterValues);
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.matchString = function(propValue, op, filterValues) {
+        var _this = this;
+        switch (op) {
+          case EvaluationOperator.IS:
+            return this.matchesIs(propValue, filterValues);
+          case EvaluationOperator.IS_NOT:
+            return !this.matchesIs(propValue, filterValues);
+          case EvaluationOperator.CONTAINS:
+            return this.matchesContains(propValue, filterValues);
+          case EvaluationOperator.DOES_NOT_CONTAIN:
+            return !this.matchesContains(propValue, filterValues);
+          case EvaluationOperator.LESS_THAN:
+          case EvaluationOperator.LESS_THAN_EQUALS:
+          case EvaluationOperator.GREATER_THAN:
+          case EvaluationOperator.GREATER_THAN_EQUALS:
+            return this.matchesComparable(propValue, op, filterValues, function(value) {
+              return _this.parseNumber(value);
+            }, this.comparator);
+          case EvaluationOperator.VERSION_LESS_THAN:
+          case EvaluationOperator.VERSION_LESS_THAN_EQUALS:
+          case EvaluationOperator.VERSION_GREATER_THAN:
+          case EvaluationOperator.VERSION_GREATER_THAN_EQUALS:
+            return this.matchesComparable(propValue, op, filterValues, function(value) {
+              return SemanticVersion.parse(value);
+            }, this.versionComparator);
+          case EvaluationOperator.REGEX_MATCH:
+            return this.matchesRegex(propValue, filterValues);
+          case EvaluationOperator.REGEX_DOES_NOT_MATCH:
+            return !this.matchesRegex(propValue, filterValues);
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.matchesIs = function(propValue, filterValues) {
+        if (this.containsBooleans(filterValues)) {
+          var lower_1 = propValue.toLowerCase();
+          if (lower_1 === "true" || lower_1 === "false") {
+            return filterValues.some(function(value) {
+              return value.toLowerCase() === lower_1;
+            });
+          }
+        }
+        return filterValues.some(function(value) {
+          return propValue === value;
+        });
+      };
+      EvaluationEngine2.prototype.matchesContains = function(propValue, filterValues) {
+        var e_7, _a;
+        try {
+          for (var filterValues_1 = __values(filterValues), filterValues_1_1 = filterValues_1.next(); !filterValues_1_1.done; filterValues_1_1 = filterValues_1.next()) {
+            var filterValue = filterValues_1_1.value;
+            if (propValue.toLowerCase().includes(filterValue.toLowerCase())) {
+              return true;
+            }
+          }
+        } catch (e_7_1) {
+          e_7 = { error: e_7_1 };
+        } finally {
+          try {
+            if (filterValues_1_1 && !filterValues_1_1.done && (_a = filterValues_1.return))
+              _a.call(filterValues_1);
+          } finally {
+            if (e_7)
+              throw e_7.error;
+          }
+        }
+        return false;
+      };
+      EvaluationEngine2.prototype.matchesComparable = function(propValue, op, filterValues, typeTransformer, typeComparator) {
+        var _this = this;
+        var propValueTransformed = typeTransformer(propValue);
+        var filterValuesTransformed = filterValues.map(function(filterValue) {
+          return typeTransformer(filterValue);
+        }).filter(function(filterValue) {
+          return filterValue !== void 0;
+        });
+        if (propValueTransformed === void 0 || filterValuesTransformed.length === 0) {
+          return filterValues.some(function(filterValue) {
+            return _this.comparator(propValue, op, filterValue);
+          });
+        } else {
+          return filterValuesTransformed.some(function(filterValueTransformed) {
+            return typeComparator(propValueTransformed, op, filterValueTransformed);
+          });
+        }
+      };
+      EvaluationEngine2.prototype.comparator = function(propValue, op, filterValue) {
+        switch (op) {
+          case EvaluationOperator.LESS_THAN:
+          case EvaluationOperator.VERSION_LESS_THAN:
+            return propValue < filterValue;
+          case EvaluationOperator.LESS_THAN_EQUALS:
+          case EvaluationOperator.VERSION_LESS_THAN_EQUALS:
+            return propValue <= filterValue;
+          case EvaluationOperator.GREATER_THAN:
+          case EvaluationOperator.VERSION_GREATER_THAN:
+            return propValue > filterValue;
+          case EvaluationOperator.GREATER_THAN_EQUALS:
+          case EvaluationOperator.VERSION_GREATER_THAN_EQUALS:
+            return propValue >= filterValue;
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.versionComparator = function(propValue, op, filterValue) {
+        var compareTo = propValue.compareTo(filterValue);
+        switch (op) {
+          case EvaluationOperator.LESS_THAN:
+          case EvaluationOperator.VERSION_LESS_THAN:
+            return compareTo < 0;
+          case EvaluationOperator.LESS_THAN_EQUALS:
+          case EvaluationOperator.VERSION_LESS_THAN_EQUALS:
+            return compareTo <= 0;
+          case EvaluationOperator.GREATER_THAN:
+          case EvaluationOperator.VERSION_GREATER_THAN:
+            return compareTo > 0;
+          case EvaluationOperator.GREATER_THAN_EQUALS:
+          case EvaluationOperator.VERSION_GREATER_THAN_EQUALS:
+            return compareTo >= 0;
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.matchesRegex = function(propValue, filterValues) {
+        return filterValues.some(function(filterValue) {
+          return Boolean(new RegExp(filterValue).exec(propValue));
+        });
+      };
+      EvaluationEngine2.prototype.containsNone = function(filterValues) {
+        return filterValues.some(function(filterValue) {
+          return filterValue === "(none)";
+        });
+      };
+      EvaluationEngine2.prototype.containsBooleans = function(filterValues) {
+        return filterValues.some(function(filterValue) {
+          switch (filterValue.toLowerCase()) {
+            case "true":
+            case "false":
+              return true;
+            default:
+              return false;
+          }
+        });
+      };
+      EvaluationEngine2.prototype.parseNumber = function(value) {
+        var _a;
+        return (_a = Number(value)) !== null && _a !== void 0 ? _a : void 0;
+      };
+      EvaluationEngine2.prototype.coerceString = function(value) {
+        if (!value) {
+          return void 0;
+        }
+        if (typeof value === "object") {
+          return JSON.stringify(value);
+        }
+        return String(value);
+      };
+      EvaluationEngine2.prototype.coerceStringArray = function(value) {
+        var _this = this;
+        if (Array.isArray(value)) {
+          var anyArray = value;
+          return anyArray.map(function(e) {
+            return _this.coerceString(e);
+          }).filter(Boolean);
+        }
+        var stringValue = String(value);
+        try {
+          var parsedValue = JSON.parse(stringValue);
+          if (Array.isArray(parsedValue)) {
+            var anyArray = value;
+            return anyArray.map(function(e) {
+              return _this.coerceString(e);
+            }).filter(Boolean);
+          } else {
+            return void 0;
+          }
+        } catch (_a) {
+          return void 0;
+        }
+      };
+      EvaluationEngine2.prototype.isSetOperator = function(op) {
+        switch (op) {
+          case EvaluationOperator.SET_IS:
+          case EvaluationOperator.SET_IS_NOT:
+          case EvaluationOperator.SET_CONTAINS:
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN:
+          case EvaluationOperator.SET_CONTAINS_ANY:
+          case EvaluationOperator.SET_DOES_NOT_CONTAIN_ANY:
+            return true;
+          default:
+            return false;
+        }
+      };
+      EvaluationEngine2.prototype.setEquals = function(xa, ya) {
+        var xs = new Set(xa);
+        var ys = new Set(ya);
+        return xs.size === ys.size && __spreadArray([], __read(ys), false).every(function(y) {
+          return xs.has(y);
+        });
+      };
+      EvaluationEngine2.prototype.matchesSetContainsAll = function(propValues, filterValues) {
+        var e_8, _a;
+        if (propValues.length < filterValues.length) {
+          return false;
+        }
+        try {
+          for (var filterValues_2 = __values(filterValues), filterValues_2_1 = filterValues_2.next(); !filterValues_2_1.done; filterValues_2_1 = filterValues_2.next()) {
+            var filterValue = filterValues_2_1.value;
+            if (!this.matchesIs(filterValue, propValues)) {
+              return false;
+            }
+          }
+        } catch (e_8_1) {
+          e_8 = { error: e_8_1 };
+        } finally {
+          try {
+            if (filterValues_2_1 && !filterValues_2_1.done && (_a = filterValues_2.return))
+              _a.call(filterValues_2);
+          } finally {
+            if (e_8)
+              throw e_8.error;
+          }
+        }
+        return true;
+      };
+      EvaluationEngine2.prototype.matchesSetContainsAny = function(propValues, filterValues) {
+        var e_9, _a;
+        try {
+          for (var filterValues_3 = __values(filterValues), filterValues_3_1 = filterValues_3.next(); !filterValues_3_1.done; filterValues_3_1 = filterValues_3.next()) {
+            var filterValue = filterValues_3_1.value;
+            if (this.matchesIs(filterValue, propValues)) {
+              return true;
+            }
+          }
+        } catch (e_9_1) {
+          e_9 = { error: e_9_1 };
+        } finally {
+          try {
+            if (filterValues_3_1 && !filterValues_3_1.done && (_a = filterValues_3.return))
+              _a.call(filterValues_3);
+          } finally {
+            if (e_9)
+              throw e_9.error;
+          }
+        }
+        return false;
+      };
+      return EvaluationEngine2;
+    }()
+  );
+  var topologicalSort = function(flags, flagKeys) {
+    var e_1, _a;
+    var available = __assign2({}, flags);
+    var result = [];
+    var startingKeys = flagKeys || Object.keys(available);
+    try {
+      for (var startingKeys_1 = __values(startingKeys), startingKeys_1_1 = startingKeys_1.next(); !startingKeys_1_1.done; startingKeys_1_1 = startingKeys_1.next()) {
+        var flagKey = startingKeys_1_1.value;
+        var traversal = parentTraversal(flagKey, available);
+        if (traversal) {
+          result.push.apply(result, __spreadArray([], __read(traversal), false));
+        }
+      }
+    } catch (e_1_1) {
+      e_1 = { error: e_1_1 };
+    } finally {
+      try {
+        if (startingKeys_1_1 && !startingKeys_1_1.done && (_a = startingKeys_1.return))
+          _a.call(startingKeys_1);
+      } finally {
+        if (e_1)
+          throw e_1.error;
+      }
+    }
+    return result;
+  };
+  var parentTraversal = function(flagKey, available, path) {
+    var e_2, _a;
+    if (path === void 0) {
+      path = [];
+    }
+    var flag = available[flagKey];
+    if (!flag) {
+      return void 0;
+    } else if (!flag.dependencies || flag.dependencies.length === 0) {
+      delete available[flag.key];
+      return [flag];
+    }
+    path.push(flag.key);
+    var result = [];
+    var _loop_1 = function(parentKey2) {
+      if (path.some(function(p) {
+        return p === parentKey2;
+      })) {
+        throw Error("Detected a cycle between flags ".concat(path));
+      }
+      var traversal = parentTraversal(parentKey2, available, path);
+      if (traversal) {
+        result.push.apply(result, __spreadArray([], __read(traversal), false));
+      }
+    };
+    try {
+      for (var _b = __values(flag.dependencies), _c = _b.next(); !_c.done; _c = _b.next()) {
+        var parentKey = _c.value;
+        _loop_1(parentKey);
+      }
+    } catch (e_2_1) {
+      e_2 = { error: e_2_1 };
+    } finally {
+      try {
+        if (_c && !_c.done && (_a = _b.return))
+          _a.call(_b);
+      } finally {
+        if (e_2)
+          throw e_2.error;
+      }
+    }
+    result.push(flag);
+    path.pop();
+    delete available[flag.key];
+    return result;
+  };
+  var version = "3.7.5";
+  var VERSION = version;
+  var _hasatob = typeof atob === "function";
+  var _hasbtoa = typeof btoa === "function";
+  var _hasBuffer = typeof Buffer === "function";
+  var _TD = typeof TextDecoder === "function" ? new TextDecoder() : void 0;
+  var _TE = typeof TextEncoder === "function" ? new TextEncoder() : void 0;
+  var b64ch = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+  var b64chs = Array.prototype.slice.call(b64ch);
+  var b64tab = ((a) => {
+    let tab = {};
+    a.forEach((c, i) => tab[c] = i);
+    return tab;
+  })(b64chs);
+  var b64re = /^(?:[A-Za-z\d+\/]{4})*?(?:[A-Za-z\d+\/]{2}(?:==)?|[A-Za-z\d+\/]{3}=?)?$/;
+  var _fromCC = String.fromCharCode.bind(String);
+  var _U8Afrom = typeof Uint8Array.from === "function" ? Uint8Array.from.bind(Uint8Array) : (it) => new Uint8Array(Array.prototype.slice.call(it, 0));
+  var _mkUriSafe = (src) => src.replace(/=/g, "").replace(/[+\/]/g, (m0) => m0 == "+" ? "-" : "_");
+  var _tidyB64 = (s) => s.replace(/[^A-Za-z0-9\+\/]/g, "");
+  var btoaPolyfill = (bin) => {
+    let u32, c0, c1, c2, asc = "";
+    const pad = bin.length % 3;
+    for (let i = 0; i < bin.length; ) {
+      if ((c0 = bin.charCodeAt(i++)) > 255 || (c1 = bin.charCodeAt(i++)) > 255 || (c2 = bin.charCodeAt(i++)) > 255)
+        throw new TypeError("invalid character found");
+      u32 = c0 << 16 | c1 << 8 | c2;
+      asc += b64chs[u32 >> 18 & 63] + b64chs[u32 >> 12 & 63] + b64chs[u32 >> 6 & 63] + b64chs[u32 & 63];
+    }
+    return pad ? asc.slice(0, pad - 3) + "===".substring(pad) : asc;
+  };
+  var _btoa = _hasbtoa ? (bin) => btoa(bin) : _hasBuffer ? (bin) => Buffer.from(bin, "binary").toString("base64") : btoaPolyfill;
+  var _fromUint8Array = _hasBuffer ? (u8a) => Buffer.from(u8a).toString("base64") : (u8a) => {
+    const maxargs = 4096;
+    let strs = [];
+    for (let i = 0, l = u8a.length; i < l; i += maxargs) {
+      strs.push(_fromCC.apply(null, u8a.subarray(i, i + maxargs)));
+    }
+    return _btoa(strs.join(""));
+  };
+  var fromUint8Array = (u8a, urlsafe = false) => urlsafe ? _mkUriSafe(_fromUint8Array(u8a)) : _fromUint8Array(u8a);
+  var cb_utob = (c) => {
+    if (c.length < 2) {
+      var cc = c.charCodeAt(0);
+      return cc < 128 ? c : cc < 2048 ? _fromCC(192 | cc >>> 6) + _fromCC(128 | cc & 63) : _fromCC(224 | cc >>> 12 & 15) + _fromCC(128 | cc >>> 6 & 63) + _fromCC(128 | cc & 63);
+    } else {
+      var cc = 65536 + (c.charCodeAt(0) - 55296) * 1024 + (c.charCodeAt(1) - 56320);
+      return _fromCC(240 | cc >>> 18 & 7) + _fromCC(128 | cc >>> 12 & 63) + _fromCC(128 | cc >>> 6 & 63) + _fromCC(128 | cc & 63);
+    }
+  };
+  var re_utob = /[\uD800-\uDBFF][\uDC00-\uDFFFF]|[^\x00-\x7F]/g;
+  var utob = (u) => u.replace(re_utob, cb_utob);
+  var _encode = _hasBuffer ? (s) => Buffer.from(s, "utf8").toString("base64") : _TE ? (s) => _fromUint8Array(_TE.encode(s)) : (s) => _btoa(utob(s));
+  var encode = (src, urlsafe = false) => urlsafe ? _mkUriSafe(_encode(src)) : _encode(src);
+  var encodeURI = (src) => encode(src, true);
+  var re_btou = /[\xC0-\xDF][\x80-\xBF]|[\xE0-\xEF][\x80-\xBF]{2}|[\xF0-\xF7][\x80-\xBF]{3}/g;
+  var cb_btou = (cccc) => {
+    switch (cccc.length) {
+      case 4:
+        var cp = (7 & cccc.charCodeAt(0)) << 18 | (63 & cccc.charCodeAt(1)) << 12 | (63 & cccc.charCodeAt(2)) << 6 | 63 & cccc.charCodeAt(3), offset = cp - 65536;
+        return _fromCC((offset >>> 10) + 55296) + _fromCC((offset & 1023) + 56320);
+      case 3:
+        return _fromCC((15 & cccc.charCodeAt(0)) << 12 | (63 & cccc.charCodeAt(1)) << 6 | 63 & cccc.charCodeAt(2));
+      default:
+        return _fromCC((31 & cccc.charCodeAt(0)) << 6 | 63 & cccc.charCodeAt(1));
+    }
+  };
+  var btou = (b) => b.replace(re_btou, cb_btou);
+  var atobPolyfill = (asc) => {
+    asc = asc.replace(/\s+/g, "");
+    if (!b64re.test(asc))
+      throw new TypeError("malformed base64.");
+    asc += "==".slice(2 - (asc.length & 3));
+    let u24, bin = "", r1, r2;
+    for (let i = 0; i < asc.length; ) {
+      u24 = b64tab[asc.charAt(i++)] << 18 | b64tab[asc.charAt(i++)] << 12 | (r1 = b64tab[asc.charAt(i++)]) << 6 | (r2 = b64tab[asc.charAt(i++)]);
+      bin += r1 === 64 ? _fromCC(u24 >> 16 & 255) : r2 === 64 ? _fromCC(u24 >> 16 & 255, u24 >> 8 & 255) : _fromCC(u24 >> 16 & 255, u24 >> 8 & 255, u24 & 255);
+    }
+    return bin;
+  };
+  var _atob = _hasatob ? (asc) => atob(_tidyB64(asc)) : _hasBuffer ? (asc) => Buffer.from(asc, "base64").toString("binary") : atobPolyfill;
+  var _toUint8Array = _hasBuffer ? (a) => _U8Afrom(Buffer.from(a, "base64")) : (a) => _U8Afrom(_atob(a).split("").map((c) => c.charCodeAt(0)));
+  var toUint8Array = (a) => _toUint8Array(_unURI(a));
+  var _decode = _hasBuffer ? (a) => Buffer.from(a, "base64").toString("utf8") : _TD ? (a) => _TD.decode(_toUint8Array(a)) : (a) => btou(_atob(a));
+  var _unURI = (a) => _tidyB64(a.replace(/[-_]/g, (m0) => m0 == "-" ? "+" : "/"));
+  var decode = (src) => _decode(_unURI(src));
+  var isValid2 = (src) => {
+    if (typeof src !== "string")
+      return false;
+    const s = src.replace(/\s+/g, "").replace(/={0,2}$/, "");
+    return !/[^\s0-9a-zA-Z\+/]/.test(s) || !/[^\s0-9a-zA-Z\-_]/.test(s);
+  };
+  var _noEnum = (v) => {
+    return {
+      value: v,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    };
+  };
+  var extendString = function() {
+    const _add = (name, body) => Object.defineProperty(String.prototype, name, _noEnum(body));
+    _add("fromBase64", function() {
+      return decode(this);
+    });
+    _add("toBase64", function(urlsafe) {
+      return encode(this, urlsafe);
+    });
+    _add("toBase64URI", function() {
+      return encode(this, true);
+    });
+    _add("toBase64URL", function() {
+      return encode(this, true);
+    });
+    _add("toUint8Array", function() {
+      return toUint8Array(this);
+    });
+  };
+  var extendUint8Array = function() {
+    const _add = (name, body) => Object.defineProperty(Uint8Array.prototype, name, _noEnum(body));
+    _add("toBase64", function(urlsafe) {
+      return fromUint8Array(this, urlsafe);
+    });
+    _add("toBase64URI", function() {
+      return fromUint8Array(this, true);
+    });
+    _add("toBase64URL", function() {
+      return fromUint8Array(this, true);
+    });
+  };
+  var extendBuiltins = () => {
+    extendString();
+    extendUint8Array();
+  };
+  var gBase64 = {
+    version,
+    VERSION,
+    atob: _atob,
+    atobPolyfill,
+    btoa: _btoa,
+    btoaPolyfill,
+    fromBase64: decode,
+    toBase64: encode,
+    encode,
+    encodeURI,
+    encodeURL: encodeURI,
+    utob,
+    btou,
+    decode,
+    isValid: isValid2,
+    fromUint8Array,
+    toUint8Array,
+    extendString,
+    extendUint8Array,
+    extendBuiltins
+  };
+  var FetchError = (
+    /** @class */
+    function(_super) {
+      __extends(FetchError2, _super);
+      function FetchError2(statusCode, message) {
+        var _this = _super.call(this, message) || this;
+        _this.statusCode = statusCode;
+        Object.setPrototypeOf(_this, FetchError2.prototype);
+        return _this;
+      }
+      return FetchError2;
+    }(Error)
+  );
+  var SdkEvaluationApi = (
+    /** @class */
+    function() {
+      function SdkEvaluationApi2(deploymentKey, serverUrl, httpClient) {
+        this.deploymentKey = deploymentKey;
+        this.serverUrl = serverUrl;
+        this.httpClient = httpClient;
+      }
+      SdkEvaluationApi2.prototype.getVariants = function(user, options) {
+        return __awaiter(this, void 0, void 0, function() {
+          var userJsonBase64, headers, url, response;
+          return __generator(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                userJsonBase64 = gBase64.encodeURL(JSON.stringify(user));
+                headers = {
+                  Authorization: "Api-Key ".concat(this.deploymentKey),
+                  "X-Amp-Exp-User": userJsonBase64
+                };
+                if (options === null || options === void 0 ? void 0 : options.flagKeys) {
+                  headers["X-Amp-Exp-Flag-Keys"] = gBase64.encodeURL(JSON.stringify(options.flagKeys));
+                }
+                if (options === null || options === void 0 ? void 0 : options.trackingOption) {
+                  headers["X-Amp-Exp-Track"] = options.trackingOption;
+                }
+                url = new URL("".concat(this.serverUrl, "/sdk/v2/vardata?v=0"));
+                if (options === null || options === void 0 ? void 0 : options.evaluationMode) {
+                  url.searchParams.append("eval_mode", options === null || options === void 0 ? void 0 : options.evaluationMode);
+                }
+                if (options === null || options === void 0 ? void 0 : options.deliveryMethod) {
+                  url.searchParams.append("delivery_method", options === null || options === void 0 ? void 0 : options.deliveryMethod);
+                }
+                return [4, this.httpClient.request({
+                  requestUrl: url.toString(),
+                  method: "GET",
+                  headers,
+                  timeoutMillis: options === null || options === void 0 ? void 0 : options.timeoutMillis
+                })];
+              case 1:
+                response = _a.sent();
+                if (response.status != 200) {
+                  throw new FetchError(response.status, "Fetch error response: status=".concat(response.status));
+                }
+                return [2, JSON.parse(response.body)];
+            }
+          });
+        });
+      };
+      return SdkEvaluationApi2;
+    }()
+  );
+  var SdkFlagApi = (
+    /** @class */
+    function() {
+      function SdkFlagApi2(deploymentKey, serverUrl, httpClient) {
+        this.deploymentKey = deploymentKey;
+        this.serverUrl = serverUrl;
+        this.httpClient = httpClient;
+      }
+      SdkFlagApi2.prototype.getFlags = function(options) {
+        return __awaiter(this, void 0, void 0, function() {
+          var headers, response, flagsArray;
+          return __generator(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                headers = {
+                  Authorization: "Api-Key ".concat(this.deploymentKey)
+                };
+                if ((options === null || options === void 0 ? void 0 : options.libraryName) && (options === null || options === void 0 ? void 0 : options.libraryVersion)) {
+                  headers["X-Amp-Exp-Library"] = "".concat(options.libraryName, "/").concat(options.libraryVersion);
+                }
+                return [4, this.httpClient.request({
+                  requestUrl: "".concat(this.serverUrl, "/sdk/v2/flags"),
+                  method: "GET",
+                  headers,
+                  timeoutMillis: options === null || options === void 0 ? void 0 : options.timeoutMillis
+                })];
+              case 1:
+                response = _a.sent();
+                if (response.status != 200) {
+                  throw Error("Flags error response: status=".concat(response.status));
+                }
+                flagsArray = JSON.parse(response.body);
+                return [2, flagsArray.reduce(function(map, flag) {
+                  map[flag.key] = flag;
+                  return map;
+                }, {})];
+            }
+          });
+        });
+      };
+      return SdkFlagApi2;
+    }()
+  );
+  var safeGlobal2 = typeof globalThis !== "undefined" ? globalThis : global || self;
+  var Poller = (
+    /** @class */
+    function() {
+      function Poller2(action, ms) {
+        this.poller = void 0;
+        this.action = action;
+        this.ms = ms;
+      }
+      Poller2.prototype.start = function() {
+        if (this.poller) {
+          return;
+        }
+        this.poller = safeGlobal2.setInterval(this.action, this.ms);
+        void this.action();
+      };
+      Poller2.prototype.stop = function() {
+        if (!this.poller) {
+          return;
+        }
+        safeGlobal2.clearInterval(this.poller);
+        this.poller = void 0;
+      };
+      return Poller2;
+    }()
+  );
+
+  // node_modules/@amplitude/experiment-js-client/dist/experiment.esm.js
+  var import_ua_parser_js = __toESM(require_ua_parser());
+  var AmplitudeUserProvider = (
+    /** @class */
+    function() {
+      function AmplitudeUserProvider2(amplitudeInstance) {
+        this.amplitudeInstance = amplitudeInstance;
+      }
+      AmplitudeUserProvider2.prototype.getUser = function() {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+        return {
+          device_id: (_b = (_a = this.amplitudeInstance) === null || _a === void 0 ? void 0 : _a.options) === null || _b === void 0 ? void 0 : _b.deviceId,
+          user_id: (_d = (_c = this.amplitudeInstance) === null || _c === void 0 ? void 0 : _c.options) === null || _d === void 0 ? void 0 : _d.userId,
+          version: (_f = (_e = this.amplitudeInstance) === null || _e === void 0 ? void 0 : _e.options) === null || _f === void 0 ? void 0 : _f.versionName,
+          language: (_h = (_g = this.amplitudeInstance) === null || _g === void 0 ? void 0 : _g.options) === null || _h === void 0 ? void 0 : _h.language,
+          platform: (_k = (_j = this.amplitudeInstance) === null || _j === void 0 ? void 0 : _j.options) === null || _k === void 0 ? void 0 : _k.platform,
+          os: this.getOs(),
+          device_model: this.getDeviceModel()
+        };
+      };
+      AmplitudeUserProvider2.prototype.getOs = function() {
+        var _a, _b, _c, _d, _e, _f;
+        return [
+          (_c = (_b = (_a = this.amplitudeInstance) === null || _a === void 0 ? void 0 : _a._ua) === null || _b === void 0 ? void 0 : _b.browser) === null || _c === void 0 ? void 0 : _c.name,
+          (_f = (_e = (_d = this.amplitudeInstance) === null || _d === void 0 ? void 0 : _d._ua) === null || _e === void 0 ? void 0 : _e.browser) === null || _f === void 0 ? void 0 : _f.major
+        ].filter(function(e) {
+          return e !== null && e !== void 0;
+        }).join(" ");
+      };
+      AmplitudeUserProvider2.prototype.getDeviceModel = function() {
+        var _a, _b, _c;
+        return (_c = (_b = (_a = this.amplitudeInstance) === null || _a === void 0 ? void 0 : _a._ua) === null || _b === void 0 ? void 0 : _b.os) === null || _c === void 0 ? void 0 : _c.name;
+      };
+      return AmplitudeUserProvider2;
+    }()
+  );
+  var AmplitudeAnalyticsProvider = (
+    /** @class */
+    function() {
+      function AmplitudeAnalyticsProvider2(amplitudeInstance) {
+        this.amplitudeInstance = amplitudeInstance;
+      }
+      AmplitudeAnalyticsProvider2.prototype.track = function(event) {
+        this.amplitudeInstance.logEvent(event.name, event.properties);
+      };
+      AmplitudeAnalyticsProvider2.prototype.setUserProperty = function(event) {
+        var _a;
+        var _b;
+        this.amplitudeInstance.setUserProperties((_a = {}, _a[event.userProperty] = (_b = event.variant) === null || _b === void 0 ? void 0 : _b.value, _a));
+      };
+      AmplitudeAnalyticsProvider2.prototype.unsetUserProperty = function(event) {
+        var _a;
+        this.amplitudeInstance["_logEvent"]("$identify", null, null, {
+          $unset: (_a = {}, _a[event.userProperty] = "-", _a)
+        });
+      };
+      return AmplitudeAnalyticsProvider2;
+    }()
+  );
+  var __assign3 = function() {
+    __assign3 = Object.assign || function __assign4(t) {
+      for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s)
+          if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+      }
+      return t;
+    };
+    return __assign3.apply(this, arguments);
+  };
+  function __awaiter2(thisArg, _arguments, P, generator) {
+    function adopt(value) {
+      return value instanceof P ? value : new P(function(resolve) {
+        resolve(value);
+      });
+    }
+    return new (P || (P = Promise))(function(resolve, reject) {
+      function fulfilled(value) {
+        try {
+          step(generator.next(value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function rejected(value) {
+        try {
+          step(generator["throw"](value));
+        } catch (e) {
+          reject(e);
+        }
+      }
+      function step(result) {
+        result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected);
+      }
+      step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+  }
+  function __generator2(thisArg, body) {
+    var _ = {
+      label: 0,
+      sent: function() {
+        if (t[0] & 1)
+          throw t[1];
+        return t[1];
+      },
+      trys: [],
+      ops: []
+    }, f, y, t, g;
+    return g = {
+      next: verb(0),
+      "throw": verb(1),
+      "return": verb(2)
+    }, typeof Symbol === "function" && (g[Symbol.iterator] = function() {
+      return this;
+    }), g;
+    function verb(n) {
+      return function(v) {
+        return step([n, v]);
+      };
+    }
+    function step(op) {
+      if (f)
+        throw new TypeError("Generator is already executing.");
+      while (g && (g = 0, op[0] && (_ = 0)), _)
+        try {
+          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done)
+            return t;
+          if (y = 0, t)
+            op = [op[0] & 2, t.value];
+          switch (op[0]) {
+            case 0:
+            case 1:
+              t = op;
+              break;
+            case 4:
+              _.label++;
+              return {
+                value: op[1],
+                done: false
+              };
+            case 5:
+              _.label++;
+              y = op[1];
+              op = [0];
+              continue;
+            case 7:
+              op = _.ops.pop();
+              _.trys.pop();
+              continue;
+            default:
+              if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) {
+                _ = 0;
+                continue;
+              }
+              if (op[0] === 3 && (!t || op[1] > t[0] && op[1] < t[3])) {
+                _.label = op[1];
+                break;
+              }
+              if (op[0] === 6 && _.label < t[1]) {
+                _.label = t[1];
+                t = op;
+                break;
+              }
+              if (t && _.label < t[2]) {
+                _.label = t[2];
+                _.ops.push(op);
+                break;
+              }
+              if (t[2])
+                _.ops.pop();
+              _.trys.pop();
+              continue;
+          }
+          op = body.call(thisArg, _);
+        } catch (e) {
+          op = [6, e];
+          y = 0;
+        } finally {
+          f = t = 0;
+        }
+      if (op[0] & 5)
+        throw op[1];
+      return {
+        value: op[0] ? op[1] : void 0,
+        done: true
+      };
+    }
+  }
+  function __values2(o) {
+    var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+    if (m)
+      return m.call(o);
+    if (o && typeof o.length === "number")
+      return {
+        next: function() {
+          if (o && i >= o.length)
+            o = void 0;
+          return {
+            value: o && o[i++],
+            done: !o
+          };
+        }
+      };
+    throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  }
+  function __read2(o, n) {
+    var m = typeof Symbol === "function" && o[Symbol.iterator];
+    if (!m)
+      return o;
+    var i = m.call(o), r, ar = [], e;
+    try {
+      while ((n === void 0 || n-- > 0) && !(r = i.next()).done)
+        ar.push(r.value);
+    } catch (error) {
+      e = {
+        error
+      };
+    } finally {
+      try {
+        if (r && !r.done && (m = i["return"]))
+          m.call(i);
+      } finally {
+        if (e)
+          throw e.error;
+      }
+    }
+    return ar;
+  }
+  function __spreadArray2(to, from, pack) {
+    if (pack || arguments.length === 2)
+      for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+          if (!ar)
+            ar = Array.prototype.slice.call(from, 0, i);
+          ar[i] = from[i];
+        }
+      }
+    return to.concat(ar || Array.prototype.slice.call(from));
+  }
+  function unfetch(e, n) {
+    return n = n || {}, new Promise(function(t, r) {
+      var s = new XMLHttpRequest(), o = [], u = [], i = {}, a = function() {
+        return {
+          ok: 2 == (s.status / 100 | 0),
+          statusText: s.statusText,
+          status: s.status,
+          url: s.responseURL,
+          text: function() {
+            return Promise.resolve(s.responseText);
+          },
+          json: function() {
+            return Promise.resolve(JSON.parse(s.responseText));
+          },
+          blob: function() {
+            return Promise.resolve(new Blob([s.response]));
+          },
+          clone: a,
+          headers: {
+            keys: function() {
+              return o;
+            },
+            entries: function() {
+              return u;
+            },
+            get: function(e2) {
+              return i[e2.toLowerCase()];
+            },
+            has: function(e2) {
+              return e2.toLowerCase() in i;
+            }
+          }
+        };
+      };
+      for (var l in s.open(n.method || "get", e, true), s.onload = function() {
+        s.getAllResponseHeaders().replace(/^(.*?):[^\S\n]*([\s\S]*?)$/gm, function(e2, n2, t2) {
+          o.push(n2 = n2.toLowerCase()), u.push([n2, t2]), i[n2] = i[n2] ? i[n2] + "," + t2 : t2;
+        }), t(a());
+      }, s.onerror = r, s.withCredentials = "include" == n.credentials, n.headers)
+        s.setRequestHeader(l, n.headers[l]);
+      s.send(n.body || null);
+    });
+  }
+  var fetch = safeGlobal2.fetch || unfetch;
+  var timeout = function(promise, timeoutMillis) {
+    if (timeoutMillis == null || timeoutMillis <= 0) {
+      return promise;
+    }
+    return new Promise(function(resolve, reject) {
+      safeGlobal2.setTimeout(function() {
+        reject(Error("Request timeout after " + timeoutMillis + " milliseconds"));
+      }, timeoutMillis);
+      promise.then(resolve, reject);
+    });
+  };
+  var _request = function(requestUrl, method, headers, data, timeoutMillis) {
+    var call = function() {
+      return __awaiter2(void 0, void 0, void 0, function() {
+        var response, simpleResponse;
+        var _a;
+        return __generator2(this, function(_b) {
+          switch (_b.label) {
+            case 0:
+              return [4, fetch(requestUrl, {
+                method,
+                headers,
+                body: data
+              })];
+            case 1:
+              response = _b.sent();
+              _a = {
+                status: response.status
+              };
+              return [4, response.text()];
+            case 2:
+              simpleResponse = (_a.body = _b.sent(), _a);
+              return [2, simpleResponse];
+          }
+        });
+      });
+    };
+    return timeout(call(), timeoutMillis);
+  };
+  var WrapperClient = (
+    /** @class */
+    function() {
+      function WrapperClient2(client) {
+        this.client = client;
+      }
+      WrapperClient2.prototype.request = function(request) {
+        return __awaiter2(this, void 0, void 0, function() {
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                return [4, this.client.request(request.requestUrl, request.method, request.headers, null, request.timeoutMillis)];
+              case 1:
+                return [2, _a.sent()];
+            }
+          });
+        });
+      };
+      return WrapperClient2;
+    }()
+  );
+  var FetchHttpClient = { request: _request };
+  var Source;
+  (function(Source2) {
+    Source2["LocalStorage"] = "localStorage";
+    Source2["InitialVariants"] = "initialVariants";
+  })(Source || (Source = {}));
+  var VariantSource;
+  (function(VariantSource2) {
+    VariantSource2["LocalStorage"] = "storage";
+    VariantSource2["InitialVariants"] = "initial";
+    VariantSource2["SecondaryLocalStorage"] = "secondary-storage";
+    VariantSource2["SecondaryInitialVariants"] = "secondary-initial";
+    VariantSource2["FallbackInline"] = "fallback-inline";
+    VariantSource2["FallbackConfig"] = "fallback-config";
+    VariantSource2["LocalEvaluation"] = "local-evaluation";
+  })(VariantSource || (VariantSource = {}));
+  var isFallback = function(source) {
+    return !source || source === VariantSource.FallbackInline || source === VariantSource.FallbackConfig || source === VariantSource.SecondaryInitialVariants;
+  };
+  var Defaults = {
+    debug: false,
+    instanceName: "$default_instance",
+    fallbackVariant: {},
+    initialVariants: {},
+    initialFlags: void 0,
+    source: Source.LocalStorage,
+    serverUrl: "https://api.lab.amplitude.com",
+    flagsServerUrl: "https://flag.lab.amplitude.com",
+    serverZone: "US",
+    fetchTimeoutMillis: 1e4,
+    retryFetchOnFailure: true,
+    automaticExposureTracking: true,
+    pollOnStart: true,
+    fetchOnStart: true,
+    automaticFetchOnAmplitudeIdentityChange: false,
+    userProvider: null,
+    analyticsProvider: null,
+    exposureTrackingProvider: null,
+    httpClient: FetchHttpClient
+  };
+  var version2 = "1.11.0";
+  var ConnectorUserProvider = (
+    /** @class */
+    function() {
+      function ConnectorUserProvider2(identityStore) {
+        this.identityStore = identityStore;
+      }
+      ConnectorUserProvider2.prototype.identityReady = function(ms) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var identity;
+          var _this = this;
+          return __generator2(this, function(_a) {
+            identity = this.identityStore.getIdentity();
+            if (!identity.userId && !identity.deviceId) {
+              return [2, Promise.race([
+                new Promise(function(resolve) {
+                  var listener = function() {
+                    resolve(void 0);
+                    _this.identityStore.removeIdentityListener(listener);
+                  };
+                  _this.identityStore.addIdentityListener(listener);
+                }),
+                new Promise(function(resolve, reject) {
+                  safeGlobal2.setTimeout(reject, ms, "Timed out waiting for Amplitude Analytics SDK to initialize. You must ensure that the analytics SDK is initialized prior to calling fetch().");
+                })
+              ])];
+            }
+            return [
+              2
+              /*return*/
+            ];
+          });
+        });
+      };
+      ConnectorUserProvider2.prototype.getUser = function() {
+        var identity = this.identityStore.getIdentity();
+        var userProperties = void 0;
+        try {
+          userProperties = identity.userProperties;
+        } catch (_a) {
+          console.warn("[Experiment] failed to cast user properties");
+        }
+        return {
+          user_id: identity.userId,
+          device_id: identity.deviceId,
+          user_properties: userProperties
+        };
+      };
+      return ConnectorUserProvider2;
+    }()
+  );
+  var ConnectorExposureTrackingProvider = (
+    /** @class */
+    function() {
+      function ConnectorExposureTrackingProvider2(eventBridge) {
+        this.eventBridge = eventBridge;
+      }
+      ConnectorExposureTrackingProvider2.prototype.track = function(exposure) {
+        this.eventBridge.logEvent({
+          eventType: "$exposure",
+          eventProperties: exposure
+        });
+      };
+      return ConnectorExposureTrackingProvider2;
+    }()
+  );
+  var DefaultUserProvider = (
+    /** @class */
+    function() {
+      function DefaultUserProvider2(applicationContextProvider, userProvider) {
+        this.ua = new import_ua_parser_js.UAParser(typeof navigator !== "undefined" ? navigator.userAgent : null).getResult();
+        this.contextProvider = applicationContextProvider;
+        this.userProvider = userProvider;
+      }
+      DefaultUserProvider2.prototype.getUser = function() {
+        var _a;
+        var user = ((_a = this.userProvider) === null || _a === void 0 ? void 0 : _a.getUser()) || {};
+        var context = this.contextProvider.getApplicationContext();
+        return __assign3({ version: context.versionName, language: context.language, platform: context.platform, os: context.os || this.getOs(this.ua), device_model: context.deviceModel || this.getDeviceModel(this.ua) }, user);
+      };
+      DefaultUserProvider2.prototype.getOs = function(ua) {
+        var _a, _b;
+        return [(_a = ua.browser) === null || _a === void 0 ? void 0 : _a.name, (_b = ua.browser) === null || _b === void 0 ? void 0 : _b.major].filter(function(e) {
+          return e !== null && e !== void 0;
+        }).join(" ");
+      };
+      DefaultUserProvider2.prototype.getDeviceModel = function(ua) {
+        var _a;
+        return (_a = ua.os) === null || _a === void 0 ? void 0 : _a.name;
+      };
+      return DefaultUserProvider2;
+    }()
+  );
+  var LocalStorage = (
+    /** @class */
+    function() {
+      function LocalStorage2() {
+      }
+      LocalStorage2.prototype.get = function(key) {
+        return localStorage.getItem(key);
+      };
+      LocalStorage2.prototype.put = function(key, value) {
+        localStorage.setItem(key, value);
+      };
+      LocalStorage2.prototype.delete = function(key) {
+        localStorage.removeItem(key);
+      };
+      return LocalStorage2;
+    }()
+  );
+  var getVariantStorage = function(deploymentKey, instanceName, storage) {
+    var truncatedDeployment = deploymentKey.substring(deploymentKey.length - 6);
+    var namespace = "amp-exp-".concat(instanceName, "-").concat(truncatedDeployment);
+    return new LoadStoreCache(namespace, storage, transformVariantFromStorage);
+  };
+  var getFlagStorage = function(deploymentKey, instanceName, storage) {
+    if (storage === void 0) {
+      storage = new LocalStorage();
+    }
+    var truncatedDeployment = deploymentKey.substring(deploymentKey.length - 6);
+    var namespace = "amp-exp-".concat(instanceName, "-").concat(truncatedDeployment, "-flags");
+    return new LoadStoreCache(namespace, storage);
+  };
+  var LoadStoreCache = (
+    /** @class */
+    function() {
+      function LoadStoreCache2(namespace, storage, transformer) {
+        this.cache = {};
+        this.namespace = namespace;
+        this.storage = storage;
+        this.transformer = transformer;
+      }
+      LoadStoreCache2.prototype.get = function(key) {
+        return this.cache[key];
+      };
+      LoadStoreCache2.prototype.getAll = function() {
+        return __assign3({}, this.cache);
+      };
+      LoadStoreCache2.prototype.put = function(key, value) {
+        this.cache[key] = value;
+      };
+      LoadStoreCache2.prototype.putAll = function(values) {
+        var e_1, _a;
+        try {
+          for (var _b = __values2(Object.keys(values)), _c = _b.next(); !_c.done; _c = _b.next()) {
+            var key = _c.value;
+            this.cache[key] = values[key];
+          }
+        } catch (e_1_1) {
+          e_1 = { error: e_1_1 };
+        } finally {
+          try {
+            if (_c && !_c.done && (_a = _b.return))
+              _a.call(_b);
+          } finally {
+            if (e_1)
+              throw e_1.error;
+          }
+        }
+      };
+      LoadStoreCache2.prototype.remove = function(key) {
+        delete this.cache[key];
+      };
+      LoadStoreCache2.prototype.clear = function() {
+        this.cache = {};
+      };
+      LoadStoreCache2.prototype.load = function() {
+        var e_2, _a;
+        var rawValues = this.storage.get(this.namespace);
+        var jsonValues;
+        try {
+          jsonValues = JSON.parse(rawValues) || {};
+        } catch (_b) {
+          return;
+        }
+        var values = {};
+        try {
+          for (var _c = __values2(Object.keys(jsonValues)), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var key = _d.value;
+            try {
+              var value = void 0;
+              if (this.transformer) {
+                value = this.transformer(jsonValues[key]);
+              } else {
+                value = jsonValues[key];
+              }
+              if (value) {
+                values[key] = value;
+              }
+            } catch (_e) {
+            }
+          }
+        } catch (e_2_1) {
+          e_2 = { error: e_2_1 };
+        } finally {
+          try {
+            if (_d && !_d.done && (_a = _c.return))
+              _a.call(_c);
+          } finally {
+            if (e_2)
+              throw e_2.error;
+          }
+        }
+        this.clear();
+        this.putAll(values);
+      };
+      LoadStoreCache2.prototype.store = function(values) {
+        if (values === void 0) {
+          values = this.cache;
+        }
+        this.storage.put(this.namespace, JSON.stringify(values));
+      };
+      return LoadStoreCache2;
+    }()
+  );
+  var transformVariantFromStorage = function(storageValue) {
+    if (typeof storageValue === "string") {
+      return {
+        key: storageValue,
+        value: storageValue
+      };
+    } else if (typeof storageValue === "object") {
+      var key = storageValue["key"];
+      var value = storageValue["value"];
+      var payload = storageValue["payload"];
+      var metadata = storageValue["metadata"];
+      var experimentKey = storageValue["expKey"];
+      if (metadata && metadata.experimentKey) {
+        experimentKey = metadata.experimentKey;
+      } else if (experimentKey) {
+        metadata = metadata || {};
+        metadata["experimentKey"] = experimentKey;
+      }
+      var variant = {};
+      if (key) {
+        variant.key = key;
+      } else if (value) {
+        variant.key = value;
+      }
+      if (value)
+        variant.value = value;
+      if (metadata)
+        variant.metadata = metadata;
+      if (payload)
+        variant.payload = payload;
+      if (experimentKey)
+        variant.expKey = experimentKey;
+      return variant;
+    }
+  };
+  var exposureEvent = function(user, key, variant, source) {
+    var _a;
+    var name = "[Experiment] Exposure";
+    var value = variant === null || variant === void 0 ? void 0 : variant.value;
+    var userProperty = "[Experiment] ".concat(key);
+    return {
+      name,
+      user,
+      key,
+      variant,
+      userProperty,
+      properties: {
+        key,
+        variant: value,
+        source
+      },
+      userProperties: (_a = {}, _a[userProperty] = value, _a)
+    };
+  };
+  var isNullOrUndefined = function(value) {
+    return value === null || value === void 0;
+  };
+  var isNullUndefinedOrEmpty = function(value) {
+    if (isNullOrUndefined(value))
+      return true;
+    return value && Object.keys(value).length === 0;
+  };
+  var isLocalEvaluationMode = function(flag) {
+    var _a;
+    return ((_a = flag === null || flag === void 0 ? void 0 : flag.metadata) === null || _a === void 0 ? void 0 : _a.evaluationMode) === "local";
+  };
+  var Backoff = (
+    /** @class */
+    function() {
+      function Backoff2(attempts, min, max, scalar) {
+        this.started = false;
+        this.done = false;
+        this.attempts = attempts;
+        this.min = min;
+        this.max = max;
+        this.scalar = scalar;
+      }
+      Backoff2.prototype.start = function(fn) {
+        return __awaiter2(this, void 0, void 0, function() {
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                if (!this.started) {
+                  this.started = true;
+                } else {
+                  throw Error("Backoff already started");
+                }
+                return [4, this.backoff(fn, 0, this.min)];
+              case 1:
+                _a.sent();
+                return [
+                  2
+                  /*return*/
+                ];
+            }
+          });
+        });
+      };
+      Backoff2.prototype.cancel = function() {
+        this.done = true;
+        clearTimeout(this.timeoutHandle);
+      };
+      Backoff2.prototype.backoff = function(fn, attempt, delay) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var _this = this;
+          return __generator2(this, function(_a) {
+            if (this.done) {
+              return [
+                2
+                /*return*/
+              ];
+            }
+            this.timeoutHandle = safeGlobal2.setTimeout(function() {
+              return __awaiter2(_this, void 0, void 0, function() {
+                var nextAttempt, nextDelay;
+                return __generator2(this, function(_a2) {
+                  switch (_a2.label) {
+                    case 0:
+                      _a2.trys.push([0, 2, , 3]);
+                      return [4, fn()];
+                    case 1:
+                      _a2.sent();
+                      return [3, 3];
+                    case 2:
+                      _a2.sent();
+                      nextAttempt = attempt + 1;
+                      if (nextAttempt < this.attempts) {
+                        nextDelay = Math.min(delay * this.scalar, this.max);
+                        this.backoff(fn, nextAttempt, nextDelay);
+                      }
+                      return [3, 3];
+                    case 3:
+                      return [
+                        2
+                        /*return*/
+                      ];
+                  }
+                });
+              });
+            }, delay);
+            return [
+              2
+              /*return*/
+            ];
+          });
+        });
+      };
+      return Backoff2;
+    }()
+  );
+  var convertUserToContext = function(user) {
+    var e_1, _a;
+    var _b, _c;
+    if (!user) {
+      return {};
+    }
+    var context = { user };
+    var groups = {};
+    if (!user.groups) {
+      return context;
+    }
+    try {
+      for (var _d = __values2(Object.keys(user.groups)), _e = _d.next(); !_e.done; _e = _d.next()) {
+        var groupType = _e.value;
+        var groupNames = user.groups[groupType];
+        if (groupNames.length > 0 && groupNames[0]) {
+          var groupName = groupNames[0];
+          var groupNameMap = {
+            group_name: groupName
+          };
+          var groupProperties = (_c = (_b = user.group_properties) === null || _b === void 0 ? void 0 : _b[groupType]) === null || _c === void 0 ? void 0 : _c[groupName];
+          if (groupProperties && Object.keys(groupProperties).length > 0) {
+            groupNameMap["group_properties"] = groupProperties;
+          }
+          groups[groupType] = groupNameMap;
+        }
+      }
+    } catch (e_1_1) {
+      e_1 = { error: e_1_1 };
+    } finally {
+      try {
+        if (_e && !_e.done && (_a = _d.return))
+          _a.call(_d);
+      } finally {
+        if (e_1)
+          throw e_1.error;
+      }
+    }
+    if (Object.keys(groups).length > 0) {
+      context["groups"] = groups;
+    }
+    delete context.user["groups"];
+    delete context.user["group_properties"];
+    return context;
+  };
+  var convertVariant = function(value) {
+    if (value === null || value === void 0) {
+      return {};
+    }
+    if (typeof value == "string") {
+      return {
+        key: value,
+        value
+      };
+    } else {
+      return value;
+    }
+  };
+  var convertEvaluationVariantToVariant = function(evaluationVariant) {
+    if (!evaluationVariant) {
+      return {};
+    }
+    var experimentKey = void 0;
+    if (evaluationVariant.metadata) {
+      experimentKey = evaluationVariant.metadata["experimentKey"];
+    }
+    var variant = {};
+    if (evaluationVariant.key)
+      variant.key = evaluationVariant.key;
+    if (evaluationVariant.value)
+      variant.value = evaluationVariant.value;
+    if (evaluationVariant.payload)
+      variant.payload = evaluationVariant.payload;
+    if (experimentKey)
+      variant.expKey = experimentKey;
+    if (evaluationVariant.metadata)
+      variant.metadata = evaluationVariant.metadata;
+    return variant;
+  };
+  var SessionAnalyticsProvider = (
+    /** @class */
+    function() {
+      function SessionAnalyticsProvider2(analyticsProvider) {
+        this.setProperties = {};
+        this.unsetProperties = {};
+        this.analyticsProvider = analyticsProvider;
+      }
+      SessionAnalyticsProvider2.prototype.track = function(event) {
+        if (this.setProperties[event.key] == event.variant.value) {
+          return;
+        } else {
+          this.setProperties[event.key] = event.variant.value;
+          delete this.unsetProperties[event.key];
+        }
+        this.analyticsProvider.track(event);
+      };
+      SessionAnalyticsProvider2.prototype.setUserProperty = function(event) {
+        if (this.setProperties[event.key] == event.variant.value) {
+          return;
+        }
+        this.analyticsProvider.setUserProperty(event);
+      };
+      SessionAnalyticsProvider2.prototype.unsetUserProperty = function(event) {
+        if (this.unsetProperties[event.key]) {
+          return;
+        } else {
+          this.unsetProperties[event.key] = "unset";
+          delete this.setProperties[event.key];
+        }
+        this.analyticsProvider.unsetUserProperty(event);
+      };
+      return SessionAnalyticsProvider2;
+    }()
+  );
+  var SessionExposureTrackingProvider = (
+    /** @class */
+    function() {
+      function SessionExposureTrackingProvider2(exposureTrackingProvider) {
+        this.tracked = {};
+        this.exposureTrackingProvider = exposureTrackingProvider;
+      }
+      SessionExposureTrackingProvider2.prototype.track = function(exposure) {
+        var trackedExposure = this.tracked[exposure.flag_key];
+        if (trackedExposure && trackedExposure.variant === exposure.variant) {
+          return;
+        } else {
+          this.tracked[exposure.flag_key] = exposure;
+          this.exposureTrackingProvider.track(exposure);
+        }
+      };
+      return SessionExposureTrackingProvider2;
+    }()
+  );
+  var fetchBackoffTimeout = 1e4;
+  var fetchBackoffAttempts = 8;
+  var fetchBackoffMinMillis = 500;
+  var fetchBackoffMaxMillis = 1e4;
+  var fetchBackoffScalar = 1.5;
+  var flagPollerIntervalMillis = 6e4;
+  var euServerUrl = "https://api.lab.eu.amplitude.com";
+  var euFlagsServerUrl = "https://flag.lab.eu.amplitude.com";
+  var ExperimentClient = (
+    /** @class */
+    function() {
+      function ExperimentClient2(apiKey, config) {
+        var _this = this;
+        var _a, _b;
+        this.engine = new EvaluationEngine();
+        this.poller = new Poller(function() {
+          return _this.doFlags();
+        }, flagPollerIntervalMillis);
+        this.isRunning = false;
+        this.apiKey = apiKey;
+        this.config = __assign3(__assign3(__assign3({}, Defaults), config), {
+          // Set server URLs separately
+          serverUrl: (config === null || config === void 0 ? void 0 : config.serverUrl) || (((_a = config === null || config === void 0 ? void 0 : config.serverZone) === null || _a === void 0 ? void 0 : _a.toLowerCase()) === "eu" ? euServerUrl : Defaults.serverUrl),
+          flagsServerUrl: (config === null || config === void 0 ? void 0 : config.flagsServerUrl) || (((_b = config === null || config === void 0 ? void 0 : config.serverZone) === null || _b === void 0 ? void 0 : _b.toLowerCase()) === "eu" ? euFlagsServerUrl : Defaults.flagsServerUrl)
+        });
+        if (this.config.initialVariants) {
+          for (var flagKey in this.config.initialVariants) {
+            this.config.initialVariants[flagKey] = transformVariantFromStorage(this.config.initialVariants[flagKey]);
+          }
+        }
+        if (this.config.userProvider) {
+          this.userProvider = this.config.userProvider;
+        }
+        if (this.config.analyticsProvider) {
+          this.analyticsProvider = new SessionAnalyticsProvider(this.config.analyticsProvider);
+        }
+        if (this.config.exposureTrackingProvider) {
+          this.exposureTrackingProvider = new SessionExposureTrackingProvider(this.config.exposureTrackingProvider);
+        }
+        var httpClient = new WrapperClient(this.config.httpClient || FetchHttpClient);
+        this.flagApi = new SdkFlagApi(this.apiKey, this.config.flagsServerUrl, httpClient);
+        this.evaluationApi = new SdkEvaluationApi(this.apiKey, this.config.serverUrl, httpClient);
+        var storage = new LocalStorage();
+        this.variants = getVariantStorage(this.apiKey, this.config.instanceName, storage);
+        this.flags = getFlagStorage(this.apiKey, this.config.instanceName, storage);
+        try {
+          this.flags.load();
+          this.variants.load();
+        } catch (e) {
+        }
+        this.mergeInitialFlagsWithStorage();
+      }
+      ExperimentClient2.prototype.start = function(user) {
+        var _a;
+        return __awaiter2(this, void 0, void 0, function() {
+          var flagsReadyPromise, fetchOnStart;
+          return __generator2(this, function(_b) {
+            switch (_b.label) {
+              case 0:
+                if (this.isRunning) {
+                  return [
+                    2
+                    /*return*/
+                  ];
+                } else {
+                  this.isRunning = true;
+                }
+                this.setUser(user);
+                flagsReadyPromise = this.doFlags();
+                fetchOnStart = (_a = this.config.fetchOnStart) !== null && _a !== void 0 ? _a : true;
+                if (!fetchOnStart)
+                  return [3, 2];
+                return [4, Promise.all([this.fetch(user), flagsReadyPromise])];
+              case 1:
+                _b.sent();
+                return [3, 4];
+              case 2:
+                return [4, flagsReadyPromise];
+              case 3:
+                _b.sent();
+                _b.label = 4;
+              case 4:
+                if (this.config.pollOnStart) {
+                  this.poller.start();
+                }
+                return [
+                  2
+                  /*return*/
+                ];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.stop = function() {
+        if (!this.isRunning) {
+          return;
+        }
+        this.poller.stop();
+        this.isRunning = false;
+      };
+      ExperimentClient2.prototype.fetch = function(user, options) {
+        if (user === void 0) {
+          user = this.user;
+        }
+        return __awaiter2(this, void 0, void 0, function() {
+          var e_1;
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                this.setUser(user || {});
+                _a.label = 1;
+              case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4, this.fetchInternal(user, this.config.fetchTimeoutMillis, this.config.retryFetchOnFailure, options)];
+              case 2:
+                _a.sent();
+                return [3, 4];
+              case 3:
+                e_1 = _a.sent();
+                console.error(e_1);
+                return [3, 4];
+              case 4:
+                return [2, this];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.variant = function(key, fallback) {
+        var _a, _b;
+        if (!this.apiKey) {
+          return { value: void 0 };
+        }
+        var sourceVariant = this.variantAndSource(key, fallback);
+        if (this.config.automaticExposureTracking) {
+          this.exposureInternal(key, sourceVariant);
+        }
+        this.debug("[Experiment] variant for ".concat(key, " is ").concat(((_a = sourceVariant.variant) === null || _a === void 0 ? void 0 : _a.key) || ((_b = sourceVariant.variant) === null || _b === void 0 ? void 0 : _b.value)));
+        return sourceVariant.variant || {};
+      };
+      ExperimentClient2.prototype.exposure = function(key) {
+        var sourceVariant = this.variantAndSource(key);
+        this.exposureInternal(key, sourceVariant);
+      };
+      ExperimentClient2.prototype.all = function() {
+        if (!this.apiKey) {
+          return {};
+        }
+        var evaluatedVariants = this.evaluate();
+        for (var flagKey in evaluatedVariants) {
+          var flag = this.flags.get(flagKey);
+          if (!isLocalEvaluationMode(flag)) {
+            delete evaluatedVariants[flagKey];
+          }
+        }
+        return __assign3(__assign3(__assign3({}, this.secondaryVariants()), this.sourceVariants()), evaluatedVariants);
+      };
+      ExperimentClient2.prototype.clear = function() {
+        this.variants.clear();
+        try {
+          void this.variants.store();
+        } catch (e) {
+        }
+      };
+      ExperimentClient2.prototype.getUser = function() {
+        var _a;
+        if (!this.user) {
+          return this.user;
+        }
+        if ((_a = this.user) === null || _a === void 0 ? void 0 : _a.user_properties) {
+          var userPropertiesCopy = __assign3({}, this.user.user_properties);
+          return __assign3(__assign3({}, this.user), { user_properties: userPropertiesCopy });
+        } else {
+          return __assign3({}, this.user);
+        }
+      };
+      ExperimentClient2.prototype.setUser = function(user) {
+        var _a;
+        if (!user) {
+          this.user = null;
+          return;
+        }
+        if ((_a = this.user) === null || _a === void 0 ? void 0 : _a.user_properties) {
+          var userPropertiesCopy = __assign3({}, user.user_properties);
+          this.user = __assign3(__assign3({}, user), { user_properties: userPropertiesCopy });
+        } else {
+          this.user = __assign3({}, user);
+        }
+      };
+      ExperimentClient2.prototype.getUserProvider = function() {
+        return this.userProvider;
+      };
+      ExperimentClient2.prototype.setUserProvider = function(userProvider) {
+        this.userProvider = userProvider;
+        return this;
+      };
+      ExperimentClient2.prototype.mergeInitialFlagsWithStorage = function() {
+        var _this = this;
+        if (this.config.initialFlags) {
+          var initialFlags = JSON.parse(this.config.initialFlags);
+          initialFlags.forEach(function(flag) {
+            if (!_this.flags.get(flag.key)) {
+              _this.flags.put(flag.key, flag);
+            }
+          });
+        }
+      };
+      ExperimentClient2.prototype.evaluate = function(flagKeys) {
+        var e_2, _a;
+        var user = this.addContext(this.user);
+        var flags = topologicalSort(this.flags.getAll(), flagKeys);
+        var context = convertUserToContext(user);
+        var evaluationVariants = this.engine.evaluate(context, flags);
+        var variants = {};
+        try {
+          for (var _b = __values2(Object.keys(evaluationVariants)), _c = _b.next(); !_c.done; _c = _b.next()) {
+            var flagKey = _c.value;
+            variants[flagKey] = convertEvaluationVariantToVariant(evaluationVariants[flagKey]);
+          }
+        } catch (e_2_1) {
+          e_2 = { error: e_2_1 };
+        } finally {
+          try {
+            if (_c && !_c.done && (_a = _b.return))
+              _a.call(_b);
+          } finally {
+            if (e_2)
+              throw e_2.error;
+          }
+        }
+        return variants;
+      };
+      ExperimentClient2.prototype.variantAndSource = function(key, fallback) {
+        var sourceVariant = {};
+        if (this.config.source === Source.LocalStorage) {
+          sourceVariant = this.localStorageVariantAndSource(key, fallback);
+        } else if (this.config.source === Source.InitialVariants) {
+          sourceVariant = this.initialVariantsVariantAndSource(key, fallback);
+        }
+        var flag = this.flags.get(key);
+        if (isLocalEvaluationMode(flag) || !sourceVariant.variant && flag) {
+          sourceVariant = this.localEvaluationVariantAndSource(key, flag, fallback);
+        }
+        return sourceVariant;
+      };
+      ExperimentClient2.prototype.localEvaluationVariantAndSource = function(key, flag, fallback) {
+        var _a;
+        var defaultSourceVariant = {};
+        var variant = this.evaluate([flag.key])[key];
+        var source = VariantSource.LocalEvaluation;
+        var isLocalEvaluationDefault = (_a = variant === null || variant === void 0 ? void 0 : variant.metadata) === null || _a === void 0 ? void 0 : _a.default;
+        if (!isNullOrUndefined(variant) && !isLocalEvaluationDefault) {
+          return {
+            variant: convertVariant(variant),
+            source,
+            hasDefaultVariant: false
+          };
+        } else if (isLocalEvaluationDefault) {
+          defaultSourceVariant = {
+            variant: convertVariant(variant),
+            source,
+            hasDefaultVariant: true
+          };
+        }
+        if (!isNullOrUndefined(fallback)) {
+          return {
+            variant: convertVariant(fallback),
+            source: VariantSource.FallbackInline,
+            hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+          };
+        }
+        var initialVariant = this.config.initialVariants[key];
+        if (!isNullOrUndefined(initialVariant)) {
+          return {
+            variant: convertVariant(initialVariant),
+            source: VariantSource.SecondaryInitialVariants,
+            hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+          };
+        }
+        var fallbackVariant = convertVariant(this.config.fallbackVariant);
+        var fallbackSourceVariant = {
+          variant: fallbackVariant,
+          source: VariantSource.FallbackConfig,
+          hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+        };
+        if (!isNullUndefinedOrEmpty(fallbackVariant)) {
+          return fallbackSourceVariant;
+        }
+        return defaultSourceVariant;
+      };
+      ExperimentClient2.prototype.localStorageVariantAndSource = function(key, fallback) {
+        var _a;
+        var defaultSourceVariant = {};
+        var localStorageVariant = this.variants.get(key);
+        var isLocalStorageDefault = (_a = localStorageVariant === null || localStorageVariant === void 0 ? void 0 : localStorageVariant.metadata) === null || _a === void 0 ? void 0 : _a.default;
+        if (!isNullOrUndefined(localStorageVariant) && !isLocalStorageDefault) {
+          return {
+            variant: convertVariant(localStorageVariant),
+            source: VariantSource.LocalStorage,
+            hasDefaultVariant: false
+          };
+        } else if (isLocalStorageDefault) {
+          defaultSourceVariant = {
+            variant: convertVariant(localStorageVariant),
+            source: VariantSource.LocalStorage,
+            hasDefaultVariant: true
+          };
+        }
+        if (!isNullOrUndefined(fallback)) {
+          return {
+            variant: convertVariant(fallback),
+            source: VariantSource.FallbackInline,
+            hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+          };
+        }
+        var initialVariant = this.config.initialVariants[key];
+        if (!isNullOrUndefined(initialVariant)) {
+          return {
+            variant: convertVariant(initialVariant),
+            source: VariantSource.SecondaryInitialVariants,
+            hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+          };
+        }
+        var fallbackVariant = convertVariant(this.config.fallbackVariant);
+        var fallbackSourceVariant = {
+          variant: fallbackVariant,
+          source: VariantSource.FallbackConfig,
+          hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+        };
+        if (!isNullUndefinedOrEmpty(fallbackVariant)) {
+          return fallbackSourceVariant;
+        }
+        return defaultSourceVariant;
+      };
+      ExperimentClient2.prototype.initialVariantsVariantAndSource = function(key, fallback) {
+        var _a;
+        var defaultSourceVariant = {};
+        var initialVariantsVariant = this.config.initialVariants[key];
+        if (!isNullOrUndefined(initialVariantsVariant)) {
+          return {
+            variant: convertVariant(initialVariantsVariant),
+            source: VariantSource.InitialVariants,
+            hasDefaultVariant: false
+          };
+        }
+        var localStorageVariant = this.variants.get(key);
+        var isLocalStorageDefault = (_a = localStorageVariant === null || localStorageVariant === void 0 ? void 0 : localStorageVariant.metadata) === null || _a === void 0 ? void 0 : _a.default;
+        if (!isNullOrUndefined(localStorageVariant) && !isLocalStorageDefault) {
+          return {
+            variant: convertVariant(localStorageVariant),
+            source: VariantSource.LocalStorage,
+            hasDefaultVariant: false
+          };
+        } else if (isLocalStorageDefault) {
+          defaultSourceVariant = {
+            variant: convertVariant(localStorageVariant),
+            source: VariantSource.LocalStorage,
+            hasDefaultVariant: true
+          };
+        }
+        if (!isNullOrUndefined(fallback)) {
+          return {
+            variant: convertVariant(fallback),
+            source: VariantSource.FallbackInline,
+            hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+          };
+        }
+        var fallbackVariant = convertVariant(this.config.fallbackVariant);
+        var fallbackSourceVariant = {
+          variant: fallbackVariant,
+          source: VariantSource.FallbackConfig,
+          hasDefaultVariant: defaultSourceVariant.hasDefaultVariant
+        };
+        if (!isNullUndefinedOrEmpty(fallbackVariant)) {
+          return fallbackSourceVariant;
+        }
+        return defaultSourceVariant;
+      };
+      ExperimentClient2.prototype.fetchInternal = function(user, timeoutMillis, retry, options) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var variants, e_3;
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                if (!this.apiKey) {
+                  throw Error("Experiment API key is empty");
+                }
+                this.debug("[Experiment] Fetch all: retry=".concat(retry));
+                if (retry) {
+                  this.stopRetries();
+                }
+                _a.label = 1;
+              case 1:
+                _a.trys.push([1, 4, , 5]);
+                return [4, this.doFetch(user, timeoutMillis, options)];
+              case 2:
+                variants = _a.sent();
+                return [4, this.storeVariants(variants, options)];
+              case 3:
+                _a.sent();
+                return [2, variants];
+              case 4:
+                e_3 = _a.sent();
+                if (retry && this.shouldRetryFetch(e_3)) {
+                  void this.startRetries(user, options);
+                }
+                throw e_3;
+              case 5:
+                return [
+                  2
+                  /*return*/
+                ];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.doFetch = function(user, timeoutMillis, options) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var results, variants, _a, _b, key;
+          var e_4, _c;
+          return __generator2(this, function(_d) {
+            switch (_d.label) {
+              case 0:
+                return [4, this.addContextOrWait(user, 1e4)];
+              case 1:
+                user = _d.sent();
+                this.debug("[Experiment] Fetch variants for user: ", user);
+                return [4, this.evaluationApi.getVariants(user, __assign3({ timeoutMillis }, options))];
+              case 2:
+                results = _d.sent();
+                variants = {};
+                try {
+                  for (_a = __values2(Object.keys(results)), _b = _a.next(); !_b.done; _b = _a.next()) {
+                    key = _b.value;
+                    variants[key] = convertEvaluationVariantToVariant(results[key]);
+                  }
+                } catch (e_4_1) {
+                  e_4 = { error: e_4_1 };
+                } finally {
+                  try {
+                    if (_b && !_b.done && (_c = _a.return))
+                      _c.call(_a);
+                  } finally {
+                    if (e_4)
+                      throw e_4.error;
+                  }
+                }
+                this.debug("[Experiment] Received variants: ", variants);
+                return [2, variants];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.doFlags = function() {
+        return __awaiter2(this, void 0, void 0, function() {
+          var flags;
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                return [4, this.flagApi.getFlags({
+                  libraryName: "experiment-js-client",
+                  libraryVersion: version2,
+                  timeoutMillis: this.config.fetchTimeoutMillis
+                })];
+              case 1:
+                flags = _a.sent();
+                this.flags.clear();
+                this.flags.putAll(flags);
+                try {
+                  this.flags.store();
+                } catch (e) {
+                }
+                this.mergeInitialFlagsWithStorage();
+                return [
+                  2
+                  /*return*/
+                ];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.storeVariants = function(variants, options) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var failedFlagKeys, _loop_1, this_1, key, key;
+          return __generator2(this, function(_a) {
+            failedFlagKeys = options && options.flagKeys ? options.flagKeys : [];
+            if (failedFlagKeys.length === 0) {
+              this.variants.clear();
+            }
+            _loop_1 = function(key2) {
+              failedFlagKeys = failedFlagKeys.filter(function(flagKey) {
+                return flagKey !== key2;
+              });
+              this_1.variants.put(key2, variants[key2]);
+            };
+            this_1 = this;
+            for (key in variants) {
+              _loop_1(key);
+            }
+            for (key in failedFlagKeys) {
+              this.variants.remove(key);
+            }
+            try {
+              this.variants.store();
+            } catch (e) {
+            }
+            this.debug("[Experiment] Stored variants: ", variants);
+            return [
+              2
+              /*return*/
+            ];
+          });
+        });
+      };
+      ExperimentClient2.prototype.startRetries = function(user, options) {
+        return __awaiter2(this, void 0, void 0, function() {
+          var _this = this;
+          return __generator2(this, function(_a) {
+            this.debug("[Experiment] Retry fetch");
+            this.retriesBackoff = new Backoff(fetchBackoffAttempts, fetchBackoffMinMillis, fetchBackoffMaxMillis, fetchBackoffScalar);
+            void this.retriesBackoff.start(function() {
+              return __awaiter2(_this, void 0, void 0, function() {
+                return __generator2(this, function(_a2) {
+                  switch (_a2.label) {
+                    case 0:
+                      return [4, this.fetchInternal(user, fetchBackoffTimeout, false, options)];
+                    case 1:
+                      _a2.sent();
+                      return [
+                        2
+                        /*return*/
+                      ];
+                  }
+                });
+              });
+            });
+            return [
+              2
+              /*return*/
+            ];
+          });
+        });
+      };
+      ExperimentClient2.prototype.stopRetries = function() {
+        if (this.retriesBackoff) {
+          this.retriesBackoff.cancel();
+        }
+      };
+      ExperimentClient2.prototype.addContext = function(user) {
+        var _a, _b;
+        var providedUser = (_a = this.userProvider) === null || _a === void 0 ? void 0 : _a.getUser();
+        var mergedUserProperties = __assign3(__assign3({}, user === null || user === void 0 ? void 0 : user.user_properties), providedUser === null || providedUser === void 0 ? void 0 : providedUser.user_properties);
+        return __assign3(__assign3(__assign3({ library: "experiment-js-client/".concat(version2) }, (_b = this.userProvider) === null || _b === void 0 ? void 0 : _b.getUser()), user), { user_properties: mergedUserProperties });
+      };
+      ExperimentClient2.prototype.addContextOrWait = function(user, ms) {
+        return __awaiter2(this, void 0, void 0, function() {
+          return __generator2(this, function(_a) {
+            switch (_a.label) {
+              case 0:
+                if (!(this.userProvider instanceof DefaultUserProvider))
+                  return [3, 2];
+                if (!(this.userProvider.userProvider instanceof ConnectorUserProvider))
+                  return [3, 2];
+                return [4, this.userProvider.userProvider.identityReady(ms)];
+              case 1:
+                _a.sent();
+                _a.label = 2;
+              case 2:
+                return [2, this.addContext(user)];
+            }
+          });
+        });
+      };
+      ExperimentClient2.prototype.sourceVariants = function() {
+        if (this.config.source == Source.LocalStorage) {
+          return this.variants.getAll();
+        } else if (this.config.source == Source.InitialVariants) {
+          return this.config.initialVariants;
+        }
+      };
+      ExperimentClient2.prototype.secondaryVariants = function() {
+        if (this.config.source == Source.LocalStorage) {
+          return this.config.initialVariants;
+        } else if (this.config.source == Source.InitialVariants) {
+          return this.variants.getAll();
+        }
+      };
+      ExperimentClient2.prototype.exposureInternal = function(key, sourceVariant) {
+        var _a, _b, _c, _d, _e, _f;
+        this.legacyExposureInternal(key, sourceVariant.variant, sourceVariant.source);
+        var exposure = { flag_key: key };
+        var fallback = isFallback(sourceVariant.source);
+        if (fallback && !sourceVariant.hasDefaultVariant) {
+          return;
+        }
+        if ((_a = sourceVariant.variant) === null || _a === void 0 ? void 0 : _a.expKey) {
+          exposure.experiment_key = (_b = sourceVariant.variant) === null || _b === void 0 ? void 0 : _b.expKey;
+        }
+        var metadata = (_c = sourceVariant.variant) === null || _c === void 0 ? void 0 : _c.metadata;
+        if (!fallback && !(metadata === null || metadata === void 0 ? void 0 : metadata.default)) {
+          if ((_d = sourceVariant.variant) === null || _d === void 0 ? void 0 : _d.key) {
+            exposure.variant = sourceVariant.variant.key;
+          } else if ((_e = sourceVariant.variant) === null || _e === void 0 ? void 0 : _e.value) {
+            exposure.variant = sourceVariant.variant.value;
+          }
+        }
+        if (metadata)
+          exposure.metadata = metadata;
+        (_f = this.exposureTrackingProvider) === null || _f === void 0 ? void 0 : _f.track(exposure);
+      };
+      ExperimentClient2.prototype.legacyExposureInternal = function(key, variant, source) {
+        var _a, _b, _c, _d, _e;
+        if (this.analyticsProvider) {
+          var user = this.addContext(this.getUser());
+          var event_1 = exposureEvent(user, key, variant, source);
+          if (isFallback(source) || !(variant === null || variant === void 0 ? void 0 : variant.value)) {
+            (_b = (_a = this.analyticsProvider) === null || _a === void 0 ? void 0 : _a.unsetUserProperty) === null || _b === void 0 ? void 0 : _b.call(_a, event_1);
+          } else if (variant === null || variant === void 0 ? void 0 : variant.value) {
+            (_d = (_c = this.analyticsProvider) === null || _c === void 0 ? void 0 : _c.setUserProperty) === null || _d === void 0 ? void 0 : _d.call(_c, event_1);
+            (_e = this.analyticsProvider) === null || _e === void 0 ? void 0 : _e.track(event_1);
+          }
+        }
+      };
+      ExperimentClient2.prototype.debug = function(message) {
+        var optionalParams = [];
+        for (var _i = 1; _i < arguments.length; _i++) {
+          optionalParams[_i - 1] = arguments[_i];
+        }
+        if (this.config.debug) {
+          console.debug.apply(console, __spreadArray2([message], __read2(optionalParams), false));
+        }
+      };
+      ExperimentClient2.prototype.shouldRetryFetch = function(e) {
+        if (e instanceof FetchError) {
+          return e.statusCode < 400 || e.statusCode >= 500 || e.statusCode === 429;
+        }
+        return true;
+      };
+      return ExperimentClient2;
+    }()
+  );
+  var instances = {};
+  var initialize = function(apiKey, config) {
+    var instanceName = (config === null || config === void 0 ? void 0 : config.instanceName) || Defaults.instanceName;
+    var instanceKey = "".concat(instanceName, ".").concat(apiKey);
+    var connector = AnalyticsConnector.getInstance(instanceName);
+    if (!instances[instanceKey]) {
+      config = __assign3(__assign3({}, config), { userProvider: new DefaultUserProvider(connector.applicationContextProvider, config === null || config === void 0 ? void 0 : config.userProvider) });
+      instances[instanceKey] = new ExperimentClient(apiKey, config);
+    }
+    return instances[instanceKey];
+  };
+  var initializeWithAmplitudeAnalytics = function(apiKey, config) {
+    var instanceName = (config === null || config === void 0 ? void 0 : config.instanceName) || Defaults.instanceName;
+    var instanceKey = "".concat(instanceName, ".").concat(apiKey);
+    var connector = AnalyticsConnector.getInstance(instanceName);
+    if (!instances[instanceKey]) {
+      config = __assign3({ userProvider: new DefaultUserProvider(connector.applicationContextProvider, new ConnectorUserProvider(connector.identityStore)), exposureTrackingProvider: new ConnectorExposureTrackingProvider(connector.eventBridge) }, config);
+      instances[instanceKey] = new ExperimentClient(apiKey, config);
+      if (config.automaticFetchOnAmplitudeIdentityChange) {
+        connector.identityStore.addIdentityListener(function() {
+          instances[instanceKey].fetch();
+        });
+      }
+    }
+    return instances[instanceKey];
+  };
+  var Experiment = {
+    initialize,
+    initializeWithAmplitudeAnalytics
+  };
+  var StubExperimentClient = (
+    /** @class */
+    function() {
+      function StubExperimentClient2() {
+      }
+      StubExperimentClient2.prototype.getUser = function() {
+        return {};
+      };
+      StubExperimentClient2.prototype.start = function(user) {
+        return __awaiter2(this, void 0, void 0, function() {
+          return __generator2(this, function(_a) {
+            return [
+              2
+              /*return*/
+            ];
+          });
+        });
+      };
+      StubExperimentClient2.prototype.stop = function() {
+      };
+      StubExperimentClient2.prototype.setUser = function(user) {
+      };
+      StubExperimentClient2.prototype.fetch = function(user) {
+        return __awaiter2(this, void 0, void 0, function() {
+          return __generator2(this, function(_a) {
+            return [2, this];
+          });
+        });
+      };
+      StubExperimentClient2.prototype.getUserProvider = function() {
+        return null;
+      };
+      StubExperimentClient2.prototype.setUserProvider = function(uerProvider) {
+        return this;
+      };
+      StubExperimentClient2.prototype.variant = function(key, fallback) {
+        return Defaults.fallbackVariant;
+      };
+      StubExperimentClient2.prototype.all = function() {
+        return {};
+      };
+      StubExperimentClient2.prototype.clear = function() {
+      };
+      StubExperimentClient2.prototype.exposure = function(key) {
+      };
+      return StubExperimentClient2;
+    }()
+  );
+
+  // src/tracking/experiment.js
+  function initExperiment() {
+    async function experimentCode() {
+      try {
+        const isProd = new URL(window.location.href).host === "modular-prod-dev.webflow.io";
+        const apiKey = isProd ? "client-ejPfaOrUEtTflNBKKrNtLWx5IB1QbAmy" : "client-fhQfFdzMgOCoCAWmoV0W8KvnbhFe2dUu";
+        const experiment = Experiment.initializeWithAmplitudeAnalytics(apiKey);
+        await experiment.fetch();
+        Object.entries(experiment.variants.getAll()).forEach(([key, val]) => {
+          if (val.payload) {
+            experiment.exposure(key);
+            const hideStr = val.payload.hide ? `.${val.payload.hide} { display: none !important; }
+` : "";
+            const showStr = val.payload.hide ? `.${val.payload.show} { display: flex !important; }` : "";
+            const style = document.createElement("style");
+            style.type = "text/css";
+            style.innerHTML = hideStr + showStr;
+            document.getElementsByTagName("head")[0].appendChild(style);
+          }
+        });
+      } catch (e) {
+      }
+      if (document.querySelector(".section_hp-hero")) {
+        document.querySelector(".section_hp-hero").style.opacity = 1;
+      }
+    }
+    waitUntil(() => window.amplitude).then(() => {
+      const isProd = location.href.indexOf("www.modular.com") !== 0;
+      const sessionReplayTracking = window.sessionReplay.plugin({ sampleRate: isProd ? 0.1 : 0 });
+      window.amplitude.add(sessionReplayTracking);
+      window.amplitude.init(
+        isProd ? "3878a0571d1575870a7d0a5f7e644d23" : "d8bf208ebdc1b1000d38da8b826a74c4"
+      );
+      experimentCode();
+    });
+  }
+
+  // src/index.js
+  $(document).ready(function() {
+    initScrollToggle();
+    initNav();
+    initTabs();
+    initSwipers();
+    initModalBasic();
+    initMojoAnimations();
+    initMaxReplacements();
+    initAnims();
+    initAmplitude();
+    setupHookForFormSubmission();
+    initExperiment();
+    installAndScrollAnchorTags();
+    initCheckSectionThemeScroll();
+  });
+  $(document).ready(function() {
+    const ctaButton = document.querySelector(".cta-button");
+    const contentSection = document.querySelector(".section-content-blog-template");
+    if (ctaButton && contentSection) {
+      let updateCTAVisibility2 = function() {
+        if (contentSectionVisible && !nextSiblingVisible) {
+          ctaButton.style.opacity = 1;
+        } else {
+          ctaButton.style.opacity = 0;
+        }
+      };
+      var updateCTAVisibility = updateCTAVisibility2;
+      ctaButton.style.transition = "opacity 0.2s ease, transform 0.2s ease";
+      ctaButton.style.opacity = 0;
+      let contentSectionVisible = false;
+      let nextSiblingVisible = false;
+      const contentObserver = new IntersectionObserver((entries) => {
+        contentSectionVisible = entries[0].isIntersecting;
+        updateCTAVisibility2();
+      });
+      contentObserver.observe(contentSection);
+      const nextSibling = contentSection.nextElementSibling;
+      if (nextSibling) {
+        const nextSiblingObserver = new IntersectionObserver((entries) => {
+          nextSiblingVisible = entries[0].isIntersecting;
+          updateCTAVisibility2();
+        });
+        nextSiblingObserver.observe(nextSibling);
+      }
+    }
+  });
+})();
+//# sourceMappingURL=index.js.map
