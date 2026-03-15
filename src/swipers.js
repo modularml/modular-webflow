@@ -65,8 +65,23 @@ function initStoriesCards() {
     var nextArrow = currentSection.find('.swiper-arrow.is-next');
     var prevArrow = currentSection.find('.swiper-arrow.is-prev');
 
+    // Clone slides before Swiper init
+    function cloneSlides(sliderEl, times = 2) {
+      var $track = $('.cs-wrap_inner .swiper-wrapper'); // or '.swiper-wrapper'
+      var $originals = $track.children().clone(true, true);
+      console.log($originals);
+
+      for (var i = 0; i < times; i++) {
+        $track.append($originals.clone(true, true));
+      }
+    }
+
+    cloneSlides(slider[0]);
+
     var csQuote = new Swiper(slider[0], {
-      slidesPerView: 'auto',
+      slidesPerView: 1,
+      loop: true,
+      centeredSlides: true,
       spaceBetween: 20,
       navigation: {
         nextEl: nextArrow[0],
