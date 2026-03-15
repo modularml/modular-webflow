@@ -58,6 +58,23 @@ function initTestimonialCards() {
     });
   });
 }
+function initStoriesCards() {
+  $('.cs_wrap').each(function (index) {
+    var currentSection = $(this);
+    var slider = currentSection.find('.cs-wrap_inner');
+    var nextArrow = currentSection.find('.swiper-arrow.is-next');
+    var prevArrow = currentSection.find('.swiper-arrow.is-prev');
+
+    var csQuote = new Swiper(slider[0], {
+      slidesPerView: 'auto',
+      spaceBetween: 20,
+      navigation: {
+        nextEl: nextArrow[0],
+        prevEl: prevArrow[0],
+      },
+    });
+  });
+}
 
 function initLatestBlog() {
   $('.section_latest-blog').each(function (index) {
@@ -169,4 +186,5 @@ export function initSwipers() {
   initDeploy();
   initTestimonialCards();
   initCareerGallery();
+  initStoriesCards();
 }

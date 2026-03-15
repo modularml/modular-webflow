@@ -19,7 +19,6 @@ let originalParent = null;
 function killAllTweens() {
   gsap.killTweensOf($menuInner);
   gsap.killTweensOf($menuBg);
-  gsap.killTweensOf($menuInner);
   $allTargets.each(function () {
     gsap.killTweensOf($(this));
     gsap.killTweensOf($(this).find('li'));
@@ -148,13 +147,11 @@ function handleTriggerHover(targetName) {
     ease: 'power2.out',
   });
 
+  gsap.to($menuInner, { autoAlpha: 1, duration: 0.2 });
+
   if ($prevTarget.length) {
     hideAllTargets(() => showTarget($currentTarget));
   } else {
-    gsap.to($menuInner, {
-      autoAlpha: 1,
-      duration: 0.2,
-    });
     showTarget($currentTarget);
   }
 }

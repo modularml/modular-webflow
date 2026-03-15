@@ -2,18 +2,24 @@ function animateLines() {
   $('[data-line-dividers]').each(function () {
     let wrap = $(this);
     let lines = wrap.find('.line-divider');
+    let transformOrigin = wrap.attr('data-transform-origin') || 'bottom';
+    let isTopOrigin = transformOrigin === 'top';
 
-    lines.each(function (index) {
-      let scaleStart = $(this).attr('data-start-scale') || 0;
-      let scaleEnd = $(this).attr('data-end-scale') || 0.2;
+    lines.each(function () {
+      let scaleStart = parseFloat($(this).attr('data-start-scale') ?? 0);
+      let scaleEnd = parseFloat($(this).attr('data-end-scale') ?? 0.2);
+
+      // When origin is top, reverse direction so the line grows from top downward
+      let fromScale = isTopOrigin ? scaleEnd : scaleStart;
+      let toScale = isTopOrigin ? scaleStart : scaleEnd;
 
       gsap.set($(this), {
-        scaleY: scaleStart,
-        transformOrigin: 'bottom',
+        scaleY: fromScale,
+        transformOrigin: transformOrigin,
       });
 
       gsap.to($(this), {
-        scaleY: scaleEnd,
+        scaleY: toScale,
         ease: 'power2.out',
         scrollTrigger: {
           trigger: wrap,
