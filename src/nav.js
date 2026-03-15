@@ -122,18 +122,36 @@ function handleTriggerHover(targetName) {
   currentTrigger = targetName;
   gsap.set($currentTarget, { autoAlpha: 1 });
 
-  const parentRect = $menuInner.parent()[0].getBoundingClientRect();
+  // Reset x so we can measure the natural position
+  gsap.set($menuInner, { left: '50%', xPercent: -50 });
+
   const triggerRect = $currentTriggerEl[0].getBoundingClientRect();
-  const menuWidth = $menuInner.outerWidth();
 
-  const triggerCenter = triggerRect.left + triggerRect.width / 2;
-  const parentCenter = parentRect.left + parentRect.width / 2;
-  let offsetFromCenter = triggerCenter - parentCenter;
+  // Natural center = parentLeft + 50% of parentWidth (from CSS left: 50%)
+  const parentRect = $menuInner.parent()[0].getBoundingClientRect();
+  const menuNaturalCenter = parentRect.left + parentRect.width / 2;
 
-  const finalLeft = parentRect.left + offsetFromCenter;
-  const finalRight = finalLeft + menuWidth;
+  // Use a fixed known width — read once on init or from first panel
+  const menuWidth = $allTargets.first()[0].scrollWidth;
+
   const windowWidth = $(window).width();
   const edgePadding = 20;
+
+  const triggerCenter = triggerRect.left + triggerRect.width / 2;
+  let offsetFromCenter = triggerCenter - menuNaturalCenter;
+
+  const finalLeft = menuNaturalCenter - menuWidth / 2 + offsetFromCenter;
+  const finalRight = finalLeft + menuWidth;
+
+  console.log({
+    menuWidth,
+    menuNaturalCenter,
+    triggerCenter,
+    offsetFromCenter,
+    finalLeft,
+    finalRight,
+    windowWidth,
+  });
 
   if (finalLeft < edgePadding) {
     offsetFromCenter += edgePadding - finalLeft;
