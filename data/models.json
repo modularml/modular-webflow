@@ -1,0 +1,886 @@
+[
+  {
+    "display_name": "FLUX.2 Dev",
+    "name": "flux2",
+    "model_id": "black-forest-labs/FLUX.2-dev",
+    "logo_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTk2IiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE5NiAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzQ4MTNfMjIxNikiPjxwYXRoIGQ9Ik0xMzkuNzU3IDU5LjgzODloLTIwLjg0Nkw5OC4wNjU0IDMwLjQ3MTcgMzMuMDM4MSAxMjEuOTgyaDIwLjg4OTZsNDQuMTM2OC02Mi4xNDEySDExOC45MUw3NC43NzM0IDEyMS45ODJoMjAuOTQ4M2w0NC4wMzUzLTYyLjE0MzFMMTk2IDEzOS4wMjVoLTE1LjczMnYuMDAxaC0xNy4xNzV2LTE2Ljk3N2wtMjMuMzM2LTMyLjg0MjktMjMuMjA2IDMyLjc3OTl2MTcuMDM5SDYyLjY2OGwtLjAwMS4wMDJINDEuODIxM2wuMDAxLS4wMDJIMEw5OC4wNjU0Ljk3MzYzMyAxMzkuNzU3IDU5LjgzODlaIiBmaWxsPSIjMDcxMzBFIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDBfNDgxM18yMjE2Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDE5NnYxNDBIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=",
+    "modalities": [
+      "Image"
+    ],
+    "total_params": "32B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/black-forest-labs/FLUX.2-dev",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://flux2.default.bentoml.dev",
+    "isLive": true,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "smollm",
+    "name": "smollm-135m-instruct-fp32",
+    "description": "smollm-135m-instruct-fp32",
+    "model_id": "modularai/smollm-135m-instruct-fp32",
+    "logo_url": "data:image/png;base64,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",
+    "provider": "Modular",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128k",
+    "precision": "FP8",
+    "pricing": {
+      "cached_input": "1",
+      "input": "1",
+      "output": "1"
+    },
+    "endpoint_url": "https://smollm.default.bentoml.dev",
+    "isLive": true,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "GLM-5",
+    "name": "glm-5",
+    "description": "GLM-5 by Zhipu AI is a 744B MoE model with 44B active parameters, featuring strong reasoning capabilities across multilingual tasks.",
+    "model_id": "zai-org/GLM-5",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/62dc173789b4cf157d36ebee/i_pxzM2ZDo3Ub-BEgIkE9.png",
+    "provider": "Zhipu AI",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "200K",
+    "total_params": "744B",
+    "active_params": "44B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/zai-org/GLM-5",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://glm-5.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "Kimi K2.5",
+    "name": "kimi-k2-5",
+    "description": "Kimi K2.5 by Moonshot AI is a ~1T MoE model with 32B active parameters, supporting text and vision with reasoning capabilities.",
+    "model_id": "moonshotai/Kimi-K2.5",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/641c1e77c3983aa9490f8121/X1yT2rsaIbR9cdYGEVu0X.jpeg",
+    "provider": "Moonshot AI",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "~1T",
+    "active_params": "32B",
+    "precision": "BF16 / INT4",
+    "model_url": "https://huggingface.co/moonshotai/Kimi-K2.5",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://kimi-k2-5.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "MiniMax M2.5",
+    "name": "minimax-m2-5",
+    "description": "MiniMax M2.5 is a 230B MoE model with 10B active parameters, optimized for efficient text generation.",
+    "model_id": "MiniMaxAI/MiniMax-M2.5",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/676e38ad04af5bec20bc9faf/dUd-LsZEX0H_d4qefO_g6.jpeg",
+    "provider": "MiniMax",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "200K",
+    "total_params": "230B",
+    "active_params": "10B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://minimax-m2-5.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "DeepSeek V3.2",
+    "name": "deepseek-v3-2",
+    "description": "DeepSeek V3.2 is a 685B MoE model with 37B active parameters, excelling at code, math, and general reasoning tasks.",
+    "model_id": "deepseek-ai/DeepSeek-V3.2",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeek",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "685B",
+    "active_params": "37B",
+    "precision": "FP8 / NVFP4",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://deepseek-v3-2.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "Qwen3.5-397B-A17B",
+    "name": "qwen3-5-397b-a17b",
+    "description": "Qwen3.5-397B-A17B by Alibaba is a 397B MoE model with 17B active parameters, supporting text, vision, and video with hybrid reasoning.",
+    "model_id": "Qwen/Qwen3.5-397B-A17B",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "262K",
+    "total_params": "397B",
+    "active_params": "17B",
+    "precision": "FP8 / NVFP4",
+    "model_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-5-397b-a17b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-235B-A22B",
+    "name": "qwen3-235b-a22b",
+    "description": "Qwen3-235B-A22B by Alibaba is a 235B MoE model with 22B active parameters, featuring hybrid reasoning for text tasks.",
+    "model_id": "Qwen/Qwen3-235B-A22B-Instruct-2507",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "262K",
+    "total_params": "235B",
+    "active_params": "22B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-235b-a22b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "DeepSeek V3.1",
+    "name": "deepseek-v3-1",
+    "description": "DeepSeek V3.1 is a 671B MoE model with 37B active parameters, supporting hybrid reasoning for text generation.",
+    "model_id": "deepseek-ai/DeepSeek-V3.1",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeek",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "671B",
+    "active_params": "37B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://deepseek-v3-1.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "GLM-4.7",
+    "name": "glm-4-7",
+    "description": "GLM-4.7 by Zhipu AI is a 355B MoE model with 32B active parameters, supporting text, vision, and audio with reasoning.",
+    "model_id": "zai-org/GLM-4.7",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/62dc173789b4cf157d36ebee/i_pxzM2ZDo3Ub-BEgIkE9.png",
+    "provider": "Zhipu AI",
+    "modalities": [
+      "LLM",
+      "Vision",
+      "Audio"
+    ],
+    "context_window": "200K",
+    "total_params": "355B",
+    "active_params": "32B",
+    "precision": "BF16 / INT4",
+    "model_url": "https://huggingface.co/zai-org/GLM-4.7",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://glm-4-7.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "DeepSeek R1-0528",
+    "name": "deepseek-r1-0528",
+    "description": "DeepSeek R1-0528 is a 671B MoE reasoning model with 37B active parameters, specialized in chain-of-thought reasoning.",
+    "model_id": "deepseek-ai/DeepSeek-R1-0528",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeek",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "671B",
+    "active_params": "37B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://deepseek-r1-0528.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Llama 4 Maverick",
+    "name": "llama-4-maverick",
+    "description": "Llama 4 Maverick by Meta is a 400B MoE model with 17B active parameters and 128 experts, delivering frontier-level multimodal performance.",
+    "model_id": "meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/646cf8084eefb026fb8fd8bc/oCTqufkdTkjyGodsx1vo1.png",
+    "provider": "Meta",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "1M",
+    "total_params": "400B",
+    "active_params": "17B",
+    "precision": "BF16 / FP8",
+    "model_url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://llama-4-maverick.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Mistral Large 3",
+    "name": "mistral-large-3",
+    "description": "Mistral Large 3 is a 675B MoE model with 41B active parameters, supporting text and vision tasks.",
+    "model_id": "mistralai/Mistral-Large-3-675B-Instruct-2512",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/634c17653d11eaedd88b314d/9OgyfKstSZtbmsmuG8MbU.png",
+    "provider": "Mistral AI",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "675B",
+    "active_params": "41B",
+    "precision": "FP8 / NVFP4",
+    "model_url": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://mistral-large-3.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "MiMo-V2-Flash",
+    "name": "mimo-v2-flash",
+    "description": "MiMo-V2-Flash by Xiaomi is a 309B MoE reasoning model with 15B active parameters.",
+    "model_id": "XiaomiMiMo/MiMo-V2-Flash",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/680cb7d1233834890a64acee/5w_4aLfF-7MAyaIPOV498.jpeg",
+    "provider": "Xiaomi",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "256K",
+    "total_params": "309B",
+    "active_params": "15B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://mimo-v2-flash.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-Coder-480B-A35B",
+    "name": "qwen3-coder-480b-a35b",
+    "description": "Qwen3-Coder-480B-A35B by Alibaba is a 480B MoE model with 35B active parameters, optimized for code generation with hybrid reasoning.",
+    "model_id": "Qwen/Qwen3-Coder-480B-A35B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "262K",
+    "total_params": "480B",
+    "active_params": "35B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-coder-480b-a35b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "gpt-oss-120b",
+    "name": "gpt-oss-120b",
+    "description": "gpt-oss-120b by OpenAI is a 117B MoE model with 5.1B active parameters and 128 experts, featuring reasoning capabilities.",
+    "model_id": "openai/gpt-oss-120b",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/68783facef79a05727260de3/UPX5RQxiPGA-ZbBmArIKq.png",
+    "provider": "OpenAI",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "117B",
+    "active_params": "5.1B",
+    "precision": "MXFP4",
+    "model_url": "https://huggingface.co/openai/gpt-oss-120b",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://gpt-oss-120b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": true
+  },
+  {
+    "display_name": "Llama 3.1 405B",
+    "name": "llama-3-1-405b",
+    "description": "Llama 3.1 405B by Meta is a dense 405B parameter model for text generation.",
+    "model_id": "meta-llama/Meta-Llama-3.1-405B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/646cf8084eefb026fb8fd8bc/oCTqufkdTkjyGodsx1vo1.png",
+    "provider": "Meta",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "405B",
+    "active_params": "405B",
+    "precision": "BF16 / FP8",
+    "model_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://llama-3-1-405b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Llama 4 Scout",
+    "name": "llama-4-scout",
+    "description": "Llama 4 Scout by Meta is a 109B MoE model with 17B active parameters and 16 experts, supporting text and vision with a 10M context window.",
+    "model_id": "meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/646cf8084eefb026fb8fd8bc/oCTqufkdTkjyGodsx1vo1.png",
+    "provider": "Meta",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "10M",
+    "total_params": "109B",
+    "active_params": "17B",
+    "precision": "BF16 / INT4",
+    "model_url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://llama-4-scout.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "DeepSeek R1",
+    "name": "deepseek-r1",
+    "description": "DeepSeek R1 (January 2025) is a 671B MoE reasoning model with 37B active parameters.",
+    "model_id": "deepseek-ai/DeepSeek-R1",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeek",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "671B",
+    "active_params": "37B",
+    "precision": "FP8 / BF16",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://deepseek-r1.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3 30B-A3B",
+    "name": "qwen3-30b-a3b",
+    "description": "Qwen3 30B-A3B by Alibaba is a 30.5B MoE model with 3.3B active parameters, featuring hybrid reasoning.",
+    "model_id": "Qwen/Qwen3-30B-A3B",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "262K",
+    "total_params": "30.5B",
+    "active_params": "3.3B",
+    "precision": "FP8 / AWQ",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-30b-a3b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "EXAONE 4.0 32B",
+    "name": "exaone-4-0-32b",
+    "description": "EXAONE 4.0 32B by LG AI Research is a dense 32B parameter model with hybrid reasoning capabilities.",
+    "model_id": "LGAI-EXAONE/EXAONE-4.0-32B",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/66a899a72f11aaf66001a8dc/UfdrP3GMo9pNT62BaMnhw.png",
+    "provider": "LG AI Research",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "32B",
+    "active_params": "32B",
+    "precision": "BF16 / AWQ",
+    "model_url": "https://huggingface.co/LGAI-EXAONE/EXAONE-4.0-32B",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://exaone-4-0-32b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-Omni-30B-A3B",
+    "name": "qwen3-omni-30b-a3b",
+    "description": "Qwen3-Omni-30B-A3B by Alibaba is a 30B omni-modal MoE model with 3B active parameters, supporting text, audio, vision, and video.",
+    "model_id": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM",
+      "Audio",
+      "Vision"
+    ],
+    "context_window": "262K",
+    "total_params": "30B",
+    "active_params": "3B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-omni-30b-a3b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Ministral 14B",
+    "name": "ministral-14b",
+    "description": "Ministral 14B by Mistral AI is a dense 14B parameter model supporting text and vision with reasoning.",
+    "model_id": "mistralai/Ministral-3-14B-Instruct-2512",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/634c17653d11eaedd88b314d/9OgyfKstSZtbmsmuG8MbU.png",
+    "provider": "Mistral AI",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "14B",
+    "active_params": "14B",
+    "precision": "FP8 / BF16",
+    "model_url": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://ministral-14b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "gpt-oss-20b",
+    "name": "gpt-oss-20b",
+    "description": "gpt-oss-20b by OpenAI is a 21B MoE model with 3.6B active parameters and 32 experts, featuring reasoning capabilities.",
+    "model_id": "openai/gpt-oss-20b",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/68783facef79a05727260de3/UPX5RQxiPGA-ZbBmArIKq.png",
+    "provider": "OpenAI",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "21B",
+    "active_params": "3.6B",
+    "precision": "MXFP4",
+    "model_url": "https://huggingface.co/openai/gpt-oss-20b",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://gpt-oss-20b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Gemma 3 12B",
+    "name": "gemma-3-12b",
+    "description": "Gemma 3 12B by Google DeepMind is a dense 12B parameter model supporting text and vision.",
+    "model_id": "google/gemma-3-12b-it",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/WtA3YYitedOr9n02eHfJe.png",
+    "provider": "Google DeepMind",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "128K",
+    "total_params": "12B",
+    "active_params": "12B",
+    "precision": "BF16 / QAT-INT4",
+    "model_url": "https://huggingface.co/google/gemma-3-12b-it",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://gemma-3-12b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Phi-4",
+    "name": "phi-4",
+    "description": "Phi-4 by Microsoft is a dense 14B parameter model for text generation.",
+    "model_id": "microsoft/phi-4",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/1583646260758-5e64858c87403103f9f1055d.png",
+    "provider": "Microsoft",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "16K",
+    "total_params": "14B",
+    "active_params": "14B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/microsoft/phi-4",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://phi-4.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Nemotron 3 Nano",
+    "name": "nemotron-3-nano",
+    "description": "Nemotron 3 Nano by NVIDIA is a 31.6B MoE model with 3.2B active parameters, featuring reasoning and a 1M context window.",
+    "model_id": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/1613114437487-60262a8e0703121c822a80b6.png",
+    "provider": "NVIDIA",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "1M",
+    "total_params": "31.6B",
+    "active_params": "3.2B",
+    "precision": "FP8 / NVFP4",
+    "model_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://nemotron-3-nano.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Llama 3.3 70B",
+    "name": "llama-3-3-70b",
+    "description": "Llama 3.3 70B by Meta is a dense 70B parameter model for text generation.",
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/646cf8084eefb026fb8fd8bc/oCTqufkdTkjyGodsx1vo1.png",
+    "provider": "Meta",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "70B",
+    "active_params": "70B",
+    "precision": "BF16 / FP8",
+    "model_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://llama-3-3-70b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen2.5 72B",
+    "name": "qwen2-5-72b",
+    "description": "Qwen2.5 72B by Alibaba is a dense 72B parameter model for text generation.",
+    "model_id": "Qwen/Qwen2.5-72B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "72B",
+    "active_params": "72B",
+    "precision": "BF16 / FP8",
+    "model_url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen2-5-72b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Mistral Small 3.1 24B",
+    "name": "mistral-small-3-1-24b",
+    "description": "Mistral Small 3.1 by Mistral AI is a dense 24B parameter model supporting text and vision.",
+    "model_id": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/634c17653d11eaedd88b314d/9OgyfKstSZtbmsmuG8MbU.png",
+    "provider": "Mistral AI",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "128K",
+    "total_params": "24B",
+    "active_params": "24B",
+    "precision": "BF16 / FP8",
+    "model_url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://mistral-small-3-1-24b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Gemma 3 27B",
+    "name": "gemma-3-27b",
+    "description": "Gemma 3 27B by Google DeepMind is a dense 27B parameter model supporting text and vision.",
+    "model_id": "google/gemma-3-27b-it",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/5dd96eb166059660ed1ee413/WtA3YYitedOr9n02eHfJe.png",
+    "provider": "Google DeepMind",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "128K",
+    "total_params": "27B",
+    "active_params": "27B",
+    "precision": "BF16 / QAT-INT4",
+    "model_url": "https://huggingface.co/google/gemma-3-27b-it",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://gemma-3-27b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "DeepSeek R1 Distill Llama 70B",
+    "name": "deepseek-r1-distill-llama-70b",
+    "description": "DeepSeek R1 Distill Llama 70B is a dense 70B parameter distilled reasoning model.",
+    "model_id": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeek",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "70B",
+    "active_params": "70B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://deepseek-r1-distill-llama-70b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-VL-30B-A3B",
+    "name": "qwen3-vl-30b-a3b",
+    "description": "Qwen3-VL-30B-A3B by Alibaba is a 30B MoE vision-language model with 3B active parameters, supporting text, vision, and video with reasoning.",
+    "model_id": "Qwen/Qwen3-VL-30B-A3B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "30B",
+    "active_params": "3B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-vl-30b-a3b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-VL-8B",
+    "name": "qwen3-vl-8b",
+    "description": "Qwen3-VL-8B by Alibaba is a dense 8B vision-language model supporting text, vision, and video with reasoning.",
+    "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "8B",
+    "active_params": "8B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-vl-8b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "Qwen3-VL-4B",
+    "name": "qwen3-vl-4b",
+    "description": "Qwen3-VL-4B by Alibaba is a dense 4B vision-language model supporting text, vision, and video with reasoning.",
+    "model_id": "Qwen/Qwen3-VL-4B-Instruct",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/620760a26e3b7210c2ff1943/-s1gyJfvbE1RgO5iBeNOi.png",
+    "provider": "Alibaba",
+    "modalities": [
+      "LLM",
+      "Vision"
+    ],
+    "context_window": "256K",
+    "total_params": "4B",
+    "active_params": "4B",
+    "precision": "BF16",
+    "model_url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct",
+    "pricing": {
+      "cached_input": "0",
+      "input": "0",
+      "output": "0"
+    },
+    "endpoint_url": "https://qwen3-vl-4b.api.modular.com",
+    "isLive": false,
+    "isNew": false,
+    "isTrending": false
+  }
+]
