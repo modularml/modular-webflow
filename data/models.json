@@ -6,7 +6,7 @@
     {
       "uid": "69b4a68396ee6c5b0866f6278",
       "created_at": "2026-03-14T00:06:27.076803Z",
-      "updated_at": "2026-03-14T01:00:36.208822Z",
+      "updated_at": "2026-03-16T19:02:04.487942Z",
       "deleted_at": null,
       "name": "flux2",
       "resource_type": "model_garden",
@@ -17,6 +17,9 @@
         "logo_url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTk2IiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE5NiAxNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzQ4MTNfMjIxNikiPjxwYXRoIGQ9Ik0xMzkuNzU3IDU5LjgzODloLTIwLjg0Nkw5OC4wNjU0IDMwLjQ3MTcgMzMuMDM4MSAxMjEuOTgyaDIwLjg4OTZsNDQuMTM2OC02Mi4xNDEySDExOC45MUw3NC43NzM0IDEyMS45ODJoMjAuOTQ4M2w0NC4wMzUzLTYyLjE0MzFMMTk2IDEzOS4wMjVoLTE1LjczMnYuMDAxaC0xNy4xNzV2LTE2Ljk3N2wtMjMuMzM2LTMyLjg0MjktMjMuMjA2IDMyLjc3OTl2MTcuMDM5SDYyLjY2OGwtLjAwMS4wMDJINDEuODIxM2wuMDAxLS4wMDJIMEw5OC4wNjU0Ljk3MzYzMyAxMzkuNzU3IDU5LjgzODlaIiBmaWxsPSIjMDcxMzBFIi8+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDBfNDgxM18yMjE2Ij48cGF0aCBmaWxsPSIjZmZmIiBkPSJNMCAwaDE5NnYxNDBIMHoiLz48L2NsaXBQYXRoPjwvZGVmcz48L3N2Zz4=",
         "modalities": [
           "Image"
+        ],
+        "tags": [
+          "Trending"
         ],
         "total_params": "32B",
         "precision": "BF16",
@@ -68,7 +71,7 @@
     {
       "uid": "69b084f853be9c64debc1ba17",
       "created_at": "2026-03-10T20:54:16.515097Z",
-      "updated_at": "2026-03-10T20:54:16.515097Z",
+      "updated_at": "2026-03-16T19:01:16.983943Z",
       "deleted_at": null,
       "name": "glm-5",
       "resource_type": "model_garden",
@@ -82,7 +85,8 @@
           "LLM"
         ],
         "tags": [
-          "Reasoning"
+          "Reasoning",
+          "Trending"
         ],
         "context_window": "200K",
         "total_params": "744B",
@@ -103,7 +107,7 @@
     {
       "uid": "69b084fa6a8c1564dec99b718",
       "created_at": "2026-03-10T20:54:18.914914Z",
-      "updated_at": "2026-03-10T20:54:18.914914Z",
+      "updated_at": "2026-03-16T19:00:21.701523Z",
       "deleted_at": null,
       "name": "kimi-k2-5",
       "resource_type": "model_garden",
@@ -118,7 +122,8 @@
           "Vision"
         ],
         "tags": [
-          "Reasoning"
+          "Reasoning",
+          "Trending"
         ],
         "context_window": "256K",
         "total_params": "~1T",
@@ -139,7 +144,7 @@
     {
       "uid": "69b084fd940aa164de5e053f9",
       "created_at": "2026-03-10T20:54:21.335267Z",
-      "updated_at": "2026-03-10T20:54:21.335267Z",
+      "updated_at": "2026-03-16T19:00:46.720022Z",
       "deleted_at": null,
       "name": "minimax-m2-5",
       "resource_type": "model_garden",
@@ -151,6 +156,9 @@
         "provider": "MiniMax",
         "modalities": [
           "LLM"
+        ],
+        "tags": [
+          "Trending"
         ],
         "context_window": "200K",
         "total_params": "230B",
@@ -170,7 +178,7 @@
     {
       "uid": "69b084ff3e115164defe08241",
       "created_at": "2026-03-10T20:54:23.859307Z",
-      "updated_at": "2026-03-10T20:54:23.859307Z",
+      "updated_at": "2026-03-16T18:59:09.088196Z",
       "deleted_at": null,
       "name": "deepseek-v3-2",
       "resource_type": "model_garden",
@@ -182,6 +190,9 @@
         "provider": "DeepSeek",
         "modalities": [
           "LLM"
+        ],
+        "tags": [
+          "Trending"
         ],
         "context_window": "128K",
         "total_params": "685B",
@@ -514,7 +525,7 @@
     {
       "uid": "69b08522e84b7264de9289312",
       "created_at": "2026-03-10T20:54:58.047772Z",
-      "updated_at": "2026-03-10T20:54:58.047772Z",
+      "updated_at": "2026-03-16T19:01:43.043617Z",
       "deleted_at": null,
       "name": "gpt-oss-120b",
       "resource_type": "model_garden",
@@ -528,7 +539,8 @@
           "LLM"
         ],
         "tags": [
-          "Reasoning"
+          "Reasoning",
+          "Trending"
         ],
         "context_window": "128K",
         "total_params": "117B",
