@@ -1,4 +1,4 @@
-import { writeFileSync, mkdirSync } from 'fs';
+import { writeFileSync, mkdirSync, rmSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -12,6 +12,7 @@ if (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL) {
 }
 
 const API_DOMAIN = 'api.modular.com';
+const JSDELIVR_BASE = 'https://cdn.jsdelivr.net/gh/modularml/modular-webflow@master/data/images';
 
 const headers = {
   'X-Yatai-Api-Token': MODULAR_CLOUD_API_TOKEN,
@@ -45,6 +46,31 @@ function toSubdomain(displayName) {
     .replace(/^-|-$/g, '');
 }
 
+const MIME_TO_EXT = {
+  'image/png': '.png',
+  'image/svg+xml': '.svg',
+  'image/jpeg': '.jpg',
+  'image/jpg': '.jpg',
+  'image/gif': '.gif',
+  'image/webp': '.webp',
+};
+
+function parseDataUri(dataUri) {
+  if (!dataUri || !dataUri.startsWith('data:')) return null;
+
+  const match = dataUri.match(/^data:([^;]+);base64,(.+)$/s);
+  if (!match) return null;
+
+  const [, mime, payload] = match;
+  const ext = MIME_TO_EXT[mime];
+  if (!ext) return null;
+
+  const buffer = Buffer.from(payload, 'base64');
+  if (buffer.length === 0) return null;
+
+  return { mime, ext, buffer };
+}
+
 function transformModel(model, endpointUrl) {
   const meta = model.metadata || {};
   const tags = meta.tags || [];
@@ -72,6 +98,9 @@ function transformModel(model, endpointUrl) {
 
 async function processModelGarden(modelGarden) {
   const results = [];
+  const imagesDir = join(__dirname, '..', 'data', 'images');
+  rmSync(imagesDir, { recursive: true, force: true });
+  mkdirSync(imagesDir, { recursive: true });
 
   for (const model of modelGarden.items) {
     let endpointUrl;
@@ -89,7 +118,22 @@ async function processModelGarden(modelGarden) {
       endpointUrl = `https://${subdomain}.${API_DOMAIN}`;
     }
 
-    results.push(transformModel(model, endpointUrl));
+    const transformed = transformModel(model, endpointUrl);
+
+    const parsed = parseDataUri(transformed.logo_url);
+    if (parsed) {
+      try {
+        const filename = `${transformed.name}${parsed.ext}`;
+        writeFileSync(join(imagesDir, filename), parsed.buffer);
+        transformed.logo_url = `${JSDELIVR_BASE}/${filename}`;
+        console.log(`Saved image for ${transformed.name}: ${filename}`);
+      } catch (err) {
+        console.error(`Failed to save image for ${transformed.name}: ${err.message}`);
+        transformed.logo_url = null;
+      }
+    }
+
+    results.push(transformed);
   }
 
   return results;
