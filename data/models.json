@@ -10,32 +10,42 @@
     "total_params": "32B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/black-forest-labs/FLUX.2-dev",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": true,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
-    "display_name": "smollm",
-    "name": "smollm-135m-instruct-fp32",
-    "description": "smollm-135m-instruct-fp32",
-    "model_id": "modularai/smollm-135m-instruct-fp32",
-    "logo_url": "https://cdn.jsdelivr.net/gh/modularml/modular-webflow@master/data/images/smollm-135m-instruct-fp32.png",
-    "provider": "Modular",
+    "display_name": "DeepSeek V3.1",
+    "name": "deepseek-v3-1",
+    "model_id": "deepseek/deepseek-chat-v3.1",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeekAI",
+    "modalities": [
+      "LLM"
+    ],
+    "context_window": "128K",
+    "total_params": "671B",
+    "active_params": "37B",
+    "precision": "FP8",
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
+    "isLive": true,
+    "isNew": false,
+    "isTrending": false
+  },
+  {
+    "display_name": "DeepSeek V3",
+    "name": "deepseek-v3-0324",
+    "model_id": "deepseek-ai/deepseek-v3-0324",
+    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
+    "provider": "DeepSeekAI",
     "modalities": [
       "LLM"
     ],
     "context_window": "128k",
+    "total_params": "671B",
+    "active_params": "37B",
     "precision": "FP8",
-    "pricing": {
-      "cached_input": "1",
-      "input": "1",
-      "output": "1"
-    },
+    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3-0324",
     "isLive": true,
     "isNew": false,
     "isTrending": false
@@ -55,14 +65,9 @@
     "active_params": "44B",
     "precision": "FP8",
     "model_url": "https://huggingface.co/zai-org/GLM-5",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
     "display_name": "Kimi K2.5",
@@ -80,14 +85,9 @@
     "active_params": "32B",
     "precision": "BF16 / INT4",
     "model_url": "https://huggingface.co/moonshotai/Kimi-K2.5",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
     "display_name": "MiniMax M2.5",
@@ -104,14 +104,9 @@
     "active_params": "10B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/MiniMaxAI/MiniMax-M2.5",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
     "display_name": "DeepSeek V3.2",
@@ -128,14 +123,9 @@
     "active_params": "37B",
     "precision": "FP8 / NVFP4",
     "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.2",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
     "display_name": "Qwen3.5-397B-A17B",
@@ -153,11 +143,6 @@
     "active_params": "17B",
     "precision": "FP8 / NVFP4",
     "model_url": "https://huggingface.co/Qwen/Qwen3.5-397B-A17B",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -177,35 +162,6 @@
     "active_params": "22B",
     "precision": "FP8",
     "model_url": "https://huggingface.co/Qwen/Qwen3-235B-A22B-Instruct-2507",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
-    "isLive": false,
-    "isNew": false,
-    "isTrending": false
-  },
-  {
-    "display_name": "DeepSeek V3.1",
-    "name": "deepseek-v3-1",
-    "description": "DeepSeek V3.1 is a 671B MoE model with 37B active parameters, supporting hybrid reasoning for text generation.",
-    "model_id": "deepseek-ai/DeepSeek-V3.1",
-    "logo_url": "https://cdn-avatars.huggingface.co/v1/production/uploads/6538815d1bdb3c40db94fbfa/xMBly9PUMphrFVMxLX4kq.png",
-    "provider": "DeepSeek",
-    "modalities": [
-      "LLM"
-    ],
-    "context_window": "128K",
-    "total_params": "671B",
-    "active_params": "37B",
-    "precision": "FP8",
-    "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-V3.1",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -227,11 +183,6 @@
     "active_params": "32B",
     "precision": "BF16 / INT4",
     "model_url": "https://huggingface.co/zai-org/GLM-4.7",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -251,11 +202,6 @@
     "active_params": "37B",
     "precision": "FP8",
     "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-0528",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -276,11 +222,6 @@
     "active_params": "17B",
     "precision": "BF16 / FP8",
     "model_url": "https://huggingface.co/meta-llama/Llama-4-Maverick-17B-128E-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -301,11 +242,6 @@
     "active_params": "41B",
     "precision": "FP8 / NVFP4",
     "model_url": "https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -325,11 +261,6 @@
     "active_params": "15B",
     "precision": "FP8",
     "model_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2-Flash",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -349,11 +280,6 @@
     "active_params": "35B",
     "precision": "FP8",
     "model_url": "https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -373,14 +299,9 @@
     "active_params": "5.1B",
     "precision": "MXFP4",
     "model_url": "https://huggingface.co/openai/gpt-oss-120b",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
-    "isTrending": true
+    "isTrending": false
   },
   {
     "display_name": "Llama 3.1 405B",
@@ -397,11 +318,6 @@
     "active_params": "405B",
     "precision": "BF16 / FP8",
     "model_url": "https://huggingface.co/meta-llama/Meta-Llama-3.1-405B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -422,11 +338,6 @@
     "active_params": "17B",
     "precision": "BF16 / INT4",
     "model_url": "https://huggingface.co/meta-llama/Llama-4-Scout-17B-16E-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -446,11 +357,6 @@
     "active_params": "37B",
     "precision": "FP8 / BF16",
     "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -470,11 +376,6 @@
     "active_params": "3.3B",
     "precision": "FP8 / AWQ",
     "model_url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -494,11 +395,6 @@
     "active_params": "32B",
     "precision": "BF16 / AWQ",
     "model_url": "https://huggingface.co/LGAI-EXAONE/EXAONE-4.0-32B",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -520,11 +416,6 @@
     "active_params": "3B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/Qwen/Qwen3-Omni-30B-A3B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -545,11 +436,6 @@
     "active_params": "14B",
     "precision": "FP8 / BF16",
     "model_url": "https://huggingface.co/mistralai/Ministral-3-14B-Instruct-2512",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -569,11 +455,6 @@
     "active_params": "3.6B",
     "precision": "MXFP4",
     "model_url": "https://huggingface.co/openai/gpt-oss-20b",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -594,11 +475,6 @@
     "active_params": "12B",
     "precision": "BF16 / QAT-INT4",
     "model_url": "https://huggingface.co/google/gemma-3-12b-it",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -618,11 +494,6 @@
     "active_params": "14B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/microsoft/phi-4",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -642,11 +513,6 @@
     "active_params": "3.2B",
     "precision": "FP8 / NVFP4",
     "model_url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-FP8",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -666,11 +532,6 @@
     "active_params": "70B",
     "precision": "BF16 / FP8",
     "model_url": "https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -690,11 +551,6 @@
     "active_params": "72B",
     "precision": "BF16 / FP8",
     "model_url": "https://huggingface.co/Qwen/Qwen2.5-72B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -715,11 +571,6 @@
     "active_params": "24B",
     "precision": "BF16 / FP8",
     "model_url": "https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -740,11 +591,6 @@
     "active_params": "27B",
     "precision": "BF16 / QAT-INT4",
     "model_url": "https://huggingface.co/google/gemma-3-27b-it",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -764,11 +610,6 @@
     "active_params": "70B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -789,11 +630,6 @@
     "active_params": "3B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -814,11 +650,6 @@
     "active_params": "8B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/Qwen/Qwen3-VL-8B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -839,11 +670,6 @@
     "active_params": "4B",
     "precision": "BF16",
     "model_url": "https://huggingface.co/Qwen/Qwen3-VL-4B-Instruct",
-    "pricing": {
-      "cached_input": "0",
-      "input": "0",
-      "output": "0"
-    },
     "isLive": false,
     "isNew": false,
     "isTrending": false
