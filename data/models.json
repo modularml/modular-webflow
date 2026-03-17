@@ -15,7 +15,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://flux2.default.bentoml.dev",
     "isLive": true,
     "isNew": false,
     "isTrending": true
@@ -37,7 +36,6 @@
       "input": "1",
       "output": "1"
     },
-    "endpoint_url": "https://smollm.default.bentoml.dev",
     "isLive": true,
     "isNew": false,
     "isTrending": false
@@ -62,7 +60,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://glm-5.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": true
@@ -88,7 +85,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://kimi-k2-5.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": true
@@ -113,7 +109,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://minimax-m2-5.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": true
@@ -138,7 +133,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://deepseek-v3-2.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": true
@@ -164,7 +158,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-5-397b-a17b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -189,7 +182,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-235b-a22b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -214,7 +206,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://deepseek-v3-1.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -241,7 +232,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://glm-4-7.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -266,7 +256,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://deepseek-r1-0528.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -292,7 +281,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://llama-4-maverick.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -318,7 +306,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://mistral-large-3.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -343,7 +330,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://mimo-v2-flash.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -368,7 +354,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-coder-480b-a35b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -393,7 +378,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://gpt-oss-120b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": true
@@ -418,7 +402,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://llama-3-1-405b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -444,7 +427,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://llama-4-scout.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -469,7 +451,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://deepseek-r1.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -494,7 +475,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-30b-a3b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -519,7 +499,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://exaone-4-0-32b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -546,7 +525,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-omni-30b-a3b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -572,7 +550,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://ministral-14b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -597,7 +574,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://gpt-oss-20b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -623,7 +599,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://gemma-3-12b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -648,7 +623,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://phi-4.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -673,7 +647,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://nemotron-3-nano.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -698,7 +671,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://llama-3-3-70b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -723,7 +695,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen2-5-72b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -749,7 +720,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://mistral-small-3-1-24b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -775,7 +745,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://gemma-3-27b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -800,7 +769,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://deepseek-r1-distill-llama-70b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -826,7 +794,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-vl-30b-a3b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -852,7 +819,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-vl-8b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
@@ -878,7 +844,6 @@
       "input": "0",
       "output": "0"
     },
-    "endpoint_url": "https://qwen3-vl-4b.api.modular.com",
     "isLive": false,
     "isNew": false,
     "isTrending": false
