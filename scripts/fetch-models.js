@@ -11,7 +11,6 @@ if (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL) {
   process.exit(1);
 }
 
-const API_DOMAIN = 'api.modular.com';
 const JSDELIVR_BASE = 'https://cdn.jsdelivr.net/gh/modularml/modular-webflow@master/data/images';
 
 const headers = {
@@ -29,21 +28,6 @@ async function fetchModelGarden() {
   });
   if (!listRes.ok) throw new Error(`List request failed: ${listRes.status}`);
   return listRes.json();
-}
-
-async function fetchEndpoint(gatewayUid) {
-  const res = await fetch(`${MODULAR_CLOUD_BASE_URL}/api/v1/endpoints/${gatewayUid}`, { headers });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.json();
-}
-
-function toSubdomain(displayName) {
-  return displayName
-    .toLowerCase()
-    .replace(/[\s._]+/g, '-')
-    .replace(/[^a-z0-9-]/g, '')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
 }
 
 const MIME_TO_EXT = {
@@ -71,7 +55,7 @@ function parseDataUri(dataUri) {
   return { mime, ext, buffer };
 }
 
-function transformModel(model, endpointUrl) {
+function transformModel(model) {
   const meta = model.metadata || {};
   const tags = meta.tags || [];
 
@@ -89,7 +73,6 @@ function transformModel(model, endpointUrl) {
     precision: meta.precision,
     model_url: meta.model_url,
     pricing: model.pricing,
-    endpoint_url: endpointUrl,
     isLive: Boolean(model.gateway_id),
     isNew: tags.includes('New'),
     isTrending: tags.includes('Trending'),
@@ -103,22 +86,7 @@ async function processModelGarden(modelGarden) {
   mkdirSync(imagesDir, { recursive: true });
 
   for (const model of modelGarden.items) {
-    let endpointUrl;
-
-    if (model.gateway_uid) {
-      try {
-        const endpoint = await fetchEndpoint(model.gateway_uid);
-        endpointUrl = endpoint.url;
-      } catch (err) {
-        console.error(`Failed to fetch endpoint for ${model.name}: ${err.message}`);
-        endpointUrl = null;
-      }
-    } else {
-      const subdomain = toSubdomain(model.display_name);
-      endpointUrl = `https://${subdomain}.${API_DOMAIN}`;
-    }
-
-    const transformed = transformModel(model, endpointUrl);
+    const transformed = transformModel(model);
 
     const parsed = parseDataUri(transformed.logo_url);
     if (parsed) {
