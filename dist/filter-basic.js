@@ -1,1 +1,63 @@
-"use strict";(()=>{function l(){$("[data-filter-group]").each(function(){let n=$(this),i=n.find("[data-filter-target]"),s=n.find("[data-filter-name]"),r=300,c=(e,t)=>{e.setAttribute("data-filter-status",t?"active":"not-active"),e.setAttribute("aria-hidden",t?"false":"true")},o=()=>{i.each(function(){let e=$(this).attr("data-filter-target"),t=$(this).find("[data-filter-counter]"),a=e==="all"?s.length:s.filter(`[data-filter-name="${e}"]`).length;t.length&&t.text(a),e!=="all"&&a===0?$(this).hide():$(this).show()})},u=e=>{s.each(function(){let t=this,a=e==="all"||$(t).attr("data-filter-name")===e;$(t).attr("data-filter-status")==="active"?(t.setAttribute("data-filter-status","transition-out"),setTimeout(()=>c(t,a),r)):setTimeout(()=>c(t,a),r)}),i.each(function(){let t=$(this).attr("data-filter-target")===e;this.setAttribute("data-filter-status",t?"active":"not-active"),this.setAttribute("aria-pressed",t?"true":"false")})};i.on("click",function(){let e=$(this).attr("data-filter-target");$(this).attr("data-filter-status")!=="active"&&u(e)}),o()})}$(document).ready(()=>{l()});})();
+"use strict";
+(() => {
+  // bin/live-reload.js
+  new EventSource(`${"http://localhost:3000"}/esbuild`).addEventListener("change", () => location.reload());
+
+  // src/filter-basic.js
+  function initFilterBasic() {
+    $("[data-filter-group]").each(function() {
+      const $group = $(this);
+      const $buttons = $group.find("[data-filter-target]");
+      const $items = $group.find("[data-filter-name]");
+      const transitionDelay = 300;
+      const updateStatus = (element, shouldBeActive) => {
+        element.setAttribute("data-filter-status", shouldBeActive ? "active" : "not-active");
+        element.setAttribute("aria-hidden", shouldBeActive ? "false" : "true");
+      };
+      const updateCounters = () => {
+        $buttons.each(function() {
+          const target = $(this).attr("data-filter-target");
+          const $counter = $(this).find("[data-filter-counter]");
+          const itemsLength = target === "all" ? $items.length : $items.filter(`[data-filter-name="${target}"]`).length;
+          if ($counter.length) {
+            $counter.text(itemsLength);
+          }
+          if (target !== "all" && itemsLength === 0) {
+            $(this).hide();
+          } else {
+            $(this).show();
+          }
+        });
+      };
+      const handleFilter = (target) => {
+        $items.each(function() {
+          const item = this;
+          const shouldBeActive = target === "all" || $(item).attr("data-filter-name") === target;
+          const currentStatus = $(item).attr("data-filter-status");
+          if (currentStatus === "active") {
+            item.setAttribute("data-filter-status", "transition-out");
+            setTimeout(() => updateStatus(item, shouldBeActive), transitionDelay);
+          } else {
+            setTimeout(() => updateStatus(item, shouldBeActive), transitionDelay);
+          }
+        });
+        $buttons.each(function() {
+          const isActive = $(this).attr("data-filter-target") === target;
+          this.setAttribute("data-filter-status", isActive ? "active" : "not-active");
+          this.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+      };
+      $buttons.on("click", function() {
+        const target = $(this).attr("data-filter-target");
+        if ($(this).attr("data-filter-status") === "active")
+          return;
+        handleFilter(target);
+      });
+      updateCounters();
+    });
+  }
+  $(document).ready(() => {
+    initFilterBasic();
+  });
+})();
+//# sourceMappingURL=filter-basic.js.map
