@@ -37,6 +37,29 @@ function createClient(apiToken) {
     return response.json();
   }
 
+  // Detect whether /items/live endpoints are available (they 404 on
+  // sites that have never been published). Cache the result per collection.
+  const liveSupported = new Map();
+
+  async function supportsLive(collectionId) {
+    if (liveSupported.has(collectionId)) return liveSupported.get(collectionId);
+
+    try {
+      await webflowFetch(
+        `/collections/${collectionId}/items/live?limit=1`
+      );
+      liveSupported.set(collectionId, true);
+      return true;
+    } catch (err) {
+      if (err.message.includes('404')) {
+        console.log('Live endpoints not available for this site, using staged + publish');
+        liveSupported.set(collectionId, false);
+        return false;
+      }
+      throw err;
+    }
+  }
+
   async function getCollections(siteId) {
     const data = await webflowFetch(`/sites/${siteId}/collections`);
     return data.collections;
@@ -72,7 +95,19 @@ function createClient(apiToken) {
     return allItems;
   }
 
+  async function publishItems(collectionId, itemIds) {
+    const batches = chunk(itemIds, 100);
+    for (const batch of batches) {
+      await webflowFetch(`/collections/${collectionId}/items/publish`, {
+        method: 'POST',
+        body: JSON.stringify({ itemIds: batch }),
+      });
+    }
+  }
+
   async function createItems(collectionId, fieldDataArray) {
+    const live = await supportsLive(collectionId);
+    const suffix = live ? '/live' : '';
     const batches = chunk(fieldDataArray, 100);
     const allCreated = [];
 
@@ -80,7 +115,7 @@ function createClient(apiToken) {
       const body = {
         items: batch.map((fieldData) => ({ fieldData })),
       };
-      const data = await webflowFetch(`/collections/${collectionId}/items/live`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
         method: 'POST',
         body: JSON.stringify(body),
       });
@@ -88,15 +123,21 @@ function createClient(apiToken) {
       allCreated.push(...created);
     }
 
+    if (!live && allCreated.length > 0) {
+      await publishItems(collectionId, allCreated.map((item) => item.id));
+    }
+
     return { items: allCreated };
   }
 
   async function updateItems(collectionId, itemsArray) {
+    const live = await supportsLive(collectionId);
+    const suffix = live ? '/live' : '';
     const batches = chunk(itemsArray, 100);
     const allUpdated = [];
 
     for (const batch of batches) {
-      const data = await webflowFetch(`/collections/${collectionId}/items/live`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
         method: 'PATCH',
         body: JSON.stringify({ items: batch }),
       });
@@ -104,14 +145,20 @@ function createClient(apiToken) {
       allUpdated.push(...updated);
     }
 
+    if (!live && allUpdated.length > 0) {
+      await publishItems(collectionId, allUpdated.map((item) => item.id));
+    }
+
     return { items: allUpdated };
   }
 
   async function deleteItems(collectionId, itemIds) {
+    const live = await supportsLive(collectionId);
+    const suffix = live ? '/live' : '';
     const batches = chunk(itemIds, 100);
 
     for (const batch of batches) {
-      await webflowFetch(`/collections/${collectionId}/items/live`, {
+      await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
         method: 'DELETE',
         body: JSON.stringify({ itemIds: batch }),
       });
@@ -119,10 +166,8 @@ function createClient(apiToken) {
   }
 
   async function uploadAsset(siteId, fileName, fileBuffer) {
-    // Step 1: Compute MD5 hash
     const fileHash = createHash('md5').update(fileBuffer).digest('hex');
 
-    // Step 2: Request presigned upload URL
     const metadata = await webflowFetch(`/sites/${siteId}/assets`, {
       method: 'POST',
       body: JSON.stringify({ fileName, fileHash }),
@@ -130,7 +175,6 @@ function createClient(apiToken) {
 
     const { uploadUrl, uploadDetails } = metadata;
 
-    // Step 3: Upload file via multipart/form-data to the presigned URL
     const formData = new FormData();
     for (const [key, value] of Object.entries(uploadDetails)) {
       formData.append(key, value);
@@ -149,7 +193,6 @@ function createClient(apiToken) {
       );
     }
 
-    // Step 4: Return hosted URL
     return metadata.hostedUrl || metadata.url || metadata.assetUrl;
   }
 
