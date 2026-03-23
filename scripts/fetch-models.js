@@ -200,8 +200,10 @@ async function resolveLogo(model) {
 async function fetchModels() {
   console.log('Fetching models from Modular Cloud API...');
   const modelGarden = await fetchModelGarden();
-  const models = modelGarden.items.map(normalizeApiModel);
-  console.log(`Fetched ${models.length} models`);
+  const allModels = modelGarden.items;
+  const publicModels = allModels.filter((m) => !m.is_private);
+  const models = publicModels.map(normalizeApiModel);
+  console.log(`Fetched ${allModels.length} models (${allModels.length - publicModels.length} private, ${publicModels.length} public)`);
   return models;
 }
 
