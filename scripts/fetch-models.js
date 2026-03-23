@@ -2,11 +2,14 @@ import { writeFileSync, mkdirSync, rmSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const isMain = process.argv[1] === __filename;
 
 const { MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL } = process.env;
 
-if (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL) {
+if (isMain && (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL)) {
   console.error('Missing required environment variables: MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL');
   process.exit(1);
 }
@@ -107,15 +110,81 @@ async function processModelGarden(modelGarden) {
   return results;
 }
 
-fetchModelGarden()
-  .then((data) => processModelGarden(data))
-  .then((models) => {
-    const outDir = join(__dirname, '..', 'data');
-    mkdirSync(outDir, { recursive: true });
-    writeFileSync(join(outDir, 'models.json'), JSON.stringify(models, null, 2));
-    console.log(`Wrote ${models.length} models to ${outDir}/models.json`);
-  })
-  .catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+if (isMain) {
+  fetchModelGarden()
+    .then((data) => processModelGarden(data))
+    .then((models) => {
+      const outDir = join(__dirname, '..', 'data');
+      mkdirSync(outDir, { recursive: true });
+      writeFileSync(join(outDir, 'models.json'), JSON.stringify(models, null, 2));
+      console.log(`Wrote ${models.length} models to ${outDir}/models.json`);
+    })
+    .catch((err) => {
+      console.error(err);
+      process.exit(1);
+    });
+}
+
+export function toWebflowFields(model, modalities, categoryMap, logoField) {
+  return {
+    name: model.display_name || model.name,
+    slug: model.name,
+    'display-name': model.display_name || '',
+    'model-id': model.model_id || '',
+    'logo-image': logoField,
+    description: model.description ? `<p>${model.description}</p>` : '',
+    provider: model.provider || '',
+    'context-window': model.context_window || '',
+    'total-params': model.total_params || '',
+    'active-params': model.active_params || '',
+    precision: model.precision || '',
+    'model-url': model.model_url || '',
+    live: model.isLive,
+    new: model.isNew,
+    trending: model.isTrending,
+    categories: modalities.map((m) => categoryMap[m.toLowerCase()]).filter(Boolean),
+  };
+}
+
+const SKIP_DIFF_FIELDS = new Set(['logo-image', 'slug']);
+
+export function diffModels(apiModels, webflowItems) {
+  const wfBySlug = new Map();
+  for (const item of webflowItems) {
+    wfBySlug.set(item.fieldData.slug, item);
+  }
+
+  const toCreate = [];
+  const toUpdate = [];
+  let unchanged = 0;
+  const apiSlugs = new Set();
+
+  for (const model of apiModels) {
+    apiSlugs.add(model.slug);
+    const existing = wfBySlug.get(model.slug);
+
+    if (!existing) {
+      toCreate.push(model.fields);
+      continue;
+    }
+
+    const hasChanges = Object.keys(model.fields).some((key) => {
+      if (SKIP_DIFF_FIELDS.has(key)) return false;
+      const apiVal = model.fields[key];
+      const wfVal = existing.fieldData[key];
+      return JSON.stringify(apiVal) !== JSON.stringify(wfVal);
+    });
+
+    if (hasChanges) {
+      toUpdate.push({ id: existing.id, fieldData: model.fields });
+    } else {
+      unchanged++;
+    }
+  }
+
+  const toDelete = webflowItems
+    .filter((item) => !apiSlugs.has(item.fieldData.slug))
+    .map((item) => item.id);
+
+  return { toCreate, toUpdate, toDelete, unchanged };
+}
