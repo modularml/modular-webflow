@@ -7,7 +7,8 @@ const isMain = process.argv[1] === __filename;
 // -- Environment variables --
 
 const { MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL } = process.env;
-const { WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID } = process.env;
+const { WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID, DRY_RUN } = process.env;
+const dryRun = DRY_RUN === 'true';
 
 let wf;
 if (isMain) {
@@ -167,6 +168,10 @@ async function resolveLogo(model) {
     const buffer = Buffer.from(payload, 'base64');
     if (buffer.length === 0) return null;
 
+    if (dryRun) {
+      console.log(`[dry run] Would upload logo for: ${name}`);
+      return { url: 'dry-run-placeholder', alt: `${display_name || name} logo` };
+    }
     console.log(`Uploading logo for: ${name}`);
     const assetUrl = await wf.uploadAsset(WEBFLOW_SITE_ID, `${name}${ext}`, buffer);
     return { url: assetUrl, alt: `${display_name || name} logo` };
@@ -196,6 +201,9 @@ async function syncCategories(models, categoriesCollectionId) {
     const slug = modality.toLowerCase();
     if (existingBySlug.has(slug)) {
       categoryMap[slug] = existingBySlug.get(slug);
+    } else if (dryRun) {
+      console.log(`[dry run] Would create category: ${modality}`);
+      categoryMap[slug] = `dry-run-${slug}`;
     } else {
       console.log(`Creating category: ${modality}`);
       const result = await wf.createItems(categoriesCollectionId, [{ name: modality, slug }]);
@@ -211,6 +219,8 @@ async function syncCategories(models, categoriesCollectionId) {
 // -- Main --
 
 async function main() {
+  if (dryRun) console.log('=== DRY RUN MODE — no changes will be pushed to Webflow ===\n');
+
   // Phase 1: Fetch
   console.log('Fetching models from Modular Cloud API...');
   const modelGarden = await fetchModelGarden();
@@ -242,6 +252,28 @@ async function main() {
   const { toCreate, toUpdate, toDelete, unchanged } = diffModels(apiModels, webflowItems);
 
   // Phase 3: Sync
+  if (dryRun) {
+    if (toCreate.length > 0) {
+      console.log(`[dry run] Would create ${toCreate.length} models:`);
+      for (const fields of toCreate) {
+        console.log(`  ${fields.slug}`);
+      }
+    }
+    if (toUpdate.length > 0) {
+      console.log(`[dry run] Would update ${toUpdate.length} models:`);
+      for (const item of toUpdate) {
+        console.log(`  ${item.fieldData.slug}`);
+      }
+    }
+    if (toDelete.length > 0) {
+      console.log(`[dry run] Would delete ${toDelete.length} models`);
+    }
+    console.log(
+      `\n[dry run] Summary — Create: ${toCreate.length}, Update: ${toUpdate.length}, Delete: ${toDelete.length}, Unchanged: ${unchanged}`
+    );
+    return;
+  }
+
   const publishIds = [];
 
   if (toCreate.length > 0) {

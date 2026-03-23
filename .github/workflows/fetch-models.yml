@@ -1,9 +1,21 @@
-name: Fetch Model Garden
+name: Sync Model Library
 
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        type: choice
+        options:
+          - test
+          - production
+        default: 'test'
+      dry_run:
+        description: 'Dry run (show changes without pushing to Webflow)'
+        type: boolean
+        default: false
 
 jobs:
   sync:
@@ -21,5 +33,6 @@ jobs:
           MODULAR_CLOUD_API_TOKEN: ${{ secrets.MODULAR_CLOUD_API_TOKEN }}
           MODULAR_CLOUD_ORG: ${{ vars.MODULAR_CLOUD_ORG }}
           MODULAR_CLOUD_BASE_URL: ${{ vars.MODULAR_CLOUD_BASE_URL }}
-          WEBFLOW_API_TOKEN: ${{ secrets.TEST_WEBFLOW_API_TOKEN }}
-          WEBFLOW_SITE_ID: ${{ vars.TEST_WEBFLOW_SITE_ID }}
+          WEBFLOW_API_TOKEN: ${{ inputs.environment == 'production' && secrets.PROD_WEBFLOW_API_TOKEN || secrets.TEST_WEBFLOW_API_TOKEN }}
+          WEBFLOW_SITE_ID: ${{ inputs.environment == 'production' && vars.PROD_WEBFLOW_SITE_ID || vars.TEST_WEBFLOW_SITE_ID }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
