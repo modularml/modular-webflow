@@ -250,8 +250,9 @@ async function main() {
   for (const model of models) {
     const existing = existingBySlug.get(model.name);
     const existingLogo = existing?.fieldData?.logo;
-    // Skip logo upload if the model already exists with a logo
-    const logoField = existingLogo ? existingLogo : await resolveLogo(model);
+    // Skip base64 logo re-upload if the model already has a logo in Webflow
+    const isBase64 = model.logo_url && model.logo_url.startsWith('data:');
+    const logoField = isBase64 && existingLogo ? existingLogo : await resolveLogo(model);
     const fields = toWebflowFields(model, model.modalities || [], categoryMap, logoField);
     apiModels.push({ slug: model.name, fields });
   }
