@@ -25,7 +25,7 @@ describe('buildWebflowFields', () => {
 
     const result = buildWebflowFields(model, modalities, categoryMap, logoField);
 
-    assert.equal(result.name, 'My Model');
+    assert.equal(result.name, 'my-model');
     assert.equal(result.slug, 'my-model');
     assert.equal(result['display-name'], 'My Model');
     assert.equal(result['model-id'], 'org/my-model');
@@ -64,18 +64,18 @@ describe('buildWebflowFields', () => {
     assert.deepEqual(result.modalities, []);
   });
 
-  it('falls back to name when display_name is falsy', () => {
+  it('uses model.name as the CMS item name (not display_name)', () => {
     const model = {
-      display_name: '',
-      name: 'fallback-model',
+      display_name: 'Human Readable Name',
+      name: 'machine-name',
       isLive: false,
       isNew: false,
       isTrending: false,
     };
     const result = buildWebflowFields(model, [], {}, null);
 
-    assert.equal(result.name, 'fallback-model');
-    assert.equal(result['display-name'], '');
+    assert.equal(result.name, 'machine-name');
+    assert.equal(result['display-name'], 'Human Readable Name');
   });
 
   it('drops unknown modalities not in categoryMap', () => {

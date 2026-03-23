@@ -72,7 +72,7 @@ function normalizeApiModel(model) {
 
 export function buildWebflowFields(model, modalities, categoryMap, logoField) {
   return {
-    name: model.display_name || model.name,
+    name: model.name,
     slug: model.name,
     'display-name': model.display_name || '',
     'model-id': model.model_id || '',
