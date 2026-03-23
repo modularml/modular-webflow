@@ -126,32 +126,51 @@ async function listCollectionItems(collectionId) {
 - [ ] **Step 4: Add batch create, update, delete, and publish**
 
 ```js
+function chunk(array, size) {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunks.push(array.slice(i, i + size));
+  }
+  return chunks;
+}
+
 async function createItems(collectionId, fieldDataArray) {
-  return webflowFetch(`/collections/${collectionId}/items`, {
-    method: 'POST',
-    body: JSON.stringify({ fieldData: fieldDataArray }),
-  });
+  const results = [];
+  for (const batch of chunk(fieldDataArray, 100)) {
+    const data = await webflowFetch(`/collections/${collectionId}/items`, {
+      method: 'POST',
+      body: JSON.stringify({ items: batch.map((fieldData) => ({ fieldData })) }),
+    });
+    results.push(...data.items);
+  }
+  return { items: results };
 }
 
 async function updateItems(collectionId, itemsArray) {
-  return webflowFetch(`/collections/${collectionId}/items`, {
-    method: 'PATCH',
-    body: JSON.stringify({ items: itemsArray }),
-  });
+  for (const batch of chunk(itemsArray, 100)) {
+    await webflowFetch(`/collections/${collectionId}/items`, {
+      method: 'PATCH',
+      body: JSON.stringify({ items: batch }),
+    });
+  }
 }
 
 async function deleteItems(collectionId, itemIds) {
-  return webflowFetch(`/collections/${collectionId}/items`, {
-    method: 'DELETE',
-    body: JSON.stringify({ items: itemIds.map((id) => ({ id })) }),
-  });
+  for (const batch of chunk(itemIds, 100)) {
+    await webflowFetch(`/collections/${collectionId}/items`, {
+      method: 'DELETE',
+      body: JSON.stringify({ itemIds: batch }),
+    });
+  }
 }
 
 async function publishItems(collectionId, itemIds) {
-  return webflowFetch(`/collections/${collectionId}/items/publish`, {
-    method: 'POST',
-    body: JSON.stringify({ itemIds }),
-  });
+  for (const batch of chunk(itemIds, 100)) {
+    await webflowFetch(`/collections/${collectionId}/items/publish`, {
+      method: 'POST',
+      body: JSON.stringify({ itemIds: batch }),
+    });
+  }
 }
 ```
 
@@ -183,13 +202,16 @@ async function uploadAsset(siteId, fileName, fileBuffer) {
     throw new Error(`Asset upload to S3 failed (${uploadRes.status})`);
   }
 
-  return metadata.assetUrl;
+  // The response shape may vary — check for url, hostedUrl, or assetUrl
+  return metadata.hostedUrl || metadata.url || metadata.assetUrl;
 }
 ```
 
+> **Note:** The exact property name for the hosted URL in the Webflow Assets API response should be verified during integration testing (Task 6). The code defensively checks `hostedUrl`, `url`, and `assetUrl`.
+
 - [ ] **Step 6: Export all functions and commit**
 
-Ensure `createClient` returns all functions: `getCollections`, `findCollectionBySlug`, `listCollectionItems`, `createItems`, `updateItems`, `deleteItems`, `publishItems`, `uploadAsset`.
+Ensure `createClient` returns all functions: `getCollections`, `findCollectionBySlug`, `listCollectionItems`, `createItems`, `updateItems`, `deleteItems`, `publishItems`, `uploadAsset`, `chunk`.
 
 ```bash
 git add scripts/webflow-api.js
@@ -201,6 +223,10 @@ git commit -m "feat: add Webflow Data API client module"
 ### Task 2: Transform and Diff Logic (with tests)
 
 Build the pure functions for transforming API data to Webflow field format and diffing against existing items.
+
+> **Note:** After this task, `scripts/fetch-models.js` will be in a transitional state — containing both the old pipeline code and the new exported pure functions. Task 3 does a full rewrite that replaces everything.
+
+> **Note:** Run unit tests with `node --test tests/fetch-models/`. The existing `pnpm test` runs Playwright e2e tests and is unrelated.
 
 **Files:**
 - Create: `tests/fetch-models/transform.test.js`
@@ -270,6 +296,33 @@ describe('toWebflowFields', () => {
     assert.equal(result.description, '');
     assert.equal(result['model-url'], '');
     assert.equal(result.logo, null);
+  });
+
+  it('falls back to name when display_name is falsy', () => {
+    const model = {
+      name: 'test-model',
+      isLive: false,
+      isNew: false,
+      isTrending: false,
+    };
+    const result = toWebflowFields(model, [], {}, null);
+
+    assert.equal(result.name, 'test-model');
+  });
+
+  it('drops unknown modalities not in categoryMap', () => {
+    const model = {
+      display_name: 'Test',
+      name: 'test',
+      isLive: false,
+      isNew: false,
+      isTrending: false,
+    };
+    const categoryMap = { llm: 'cat-1' };
+    const modalities = ['LLM', 'UnknownModality'];
+    const result = toWebflowFields(model, modalities, categoryMap, null);
+
+    assert.deepEqual(result.categories, ['cat-1']);
   });
 });
 ```
@@ -812,6 +865,7 @@ Key changes:
 - Added `workflow_dispatch` inputs with environment choice
 - Added conditional env var selection for test vs production
 - Renamed job from `fetch` to `sync`
+- **Scheduled runs** (cron): `inputs.environment` is undefined, so the conditional falls through to test secrets — scheduled runs always target the test site
 
 - [ ] **Step 2: Commit**
 
