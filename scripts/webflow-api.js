@@ -80,7 +80,7 @@ function createClient(apiToken) {
       const body = {
         items: batch.map((fieldData) => ({ fieldData })),
       };
-      const data = await webflowFetch(`/collections/${collectionId}/items`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items/live`, {
         method: 'POST',
         body: JSON.stringify(body),
       });
@@ -96,7 +96,7 @@ function createClient(apiToken) {
     const allUpdated = [];
 
     for (const batch of batches) {
-      const data = await webflowFetch(`/collections/${collectionId}/items`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items/live`, {
         method: 'PATCH',
         body: JSON.stringify({ items: batch }),
       });
@@ -111,31 +111,11 @@ function createClient(apiToken) {
     const batches = chunk(itemIds, 100);
 
     for (const batch of batches) {
-      await webflowFetch(`/collections/${collectionId}/items`, {
+      await webflowFetch(`/collections/${collectionId}/items/live`, {
         method: 'DELETE',
         body: JSON.stringify({ itemIds: batch }),
       });
     }
-  }
-
-  async function publishItems(collectionId, itemIds) {
-    const batches = chunk(itemIds, 100);
-    const allPublished = [];
-
-    for (const batch of batches) {
-      const data = await webflowFetch(
-        `/collections/${collectionId}/items/publish`,
-        {
-          method: 'POST',
-          body: JSON.stringify({ itemIds: batch }),
-        }
-      );
-      if (data?.publishedItemIds) {
-        allPublished.push(...data.publishedItemIds);
-      }
-    }
-
-    return { publishedItemIds: allPublished };
   }
 
   async function uploadAsset(siteId, fileName, fileBuffer) {
@@ -181,7 +161,6 @@ function createClient(apiToken) {
     createItems,
     updateItems,
     deleteItems,
-    publishItems,
     uploadAsset,
   };
 }

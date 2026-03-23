@@ -209,7 +209,6 @@ async function syncCategories(models, categoriesCollectionId) {
       const result = await wf.createItems(categoriesCollectionId, [{ name: modality, slug }]);
       const newItem = result.items[0];
       categoryMap[slug] = newItem.id;
-      await wf.publishItems(categoriesCollectionId, [newItem.id]);
     }
   }
 
@@ -274,15 +273,12 @@ async function main() {
     return;
   }
 
-  const publishIds = [];
-
   if (toCreate.length > 0) {
     console.log(`Creating ${toCreate.length} models...`);
     for (const fields of toCreate) {
       console.log(`  Creating: ${fields.slug}`);
     }
-    const created = await wf.createItems(modelsCol.id, toCreate);
-    publishIds.push(...created.items.map((item) => item.id));
+    await wf.createItems(modelsCol.id, toCreate);
   }
 
   if (toUpdate.length > 0) {
@@ -291,17 +287,11 @@ async function main() {
       console.log(`  Updating: ${item.fieldData.slug}`);
     }
     await wf.updateItems(modelsCol.id, toUpdate);
-    publishIds.push(...toUpdate.map((item) => item.id));
   }
 
   if (toDelete.length > 0) {
     console.log(`Deleting ${toDelete.length} models...`);
     await wf.deleteItems(modelsCol.id, toDelete);
-  }
-
-  if (publishIds.length > 0) {
-    console.log(`Publishing ${publishIds.length} items...`);
-    await wf.publishItems(modelsCol.id, publishIds);
   }
 
   // Summary
