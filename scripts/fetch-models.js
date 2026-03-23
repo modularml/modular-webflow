@@ -76,8 +76,8 @@ export function toWebflowFields(model, modalities, categoryMap, logoField) {
     slug: model.name,
     'display-name': model.display_name || '',
     'model-id': model.model_id || '',
-    'logo-image': logoField,
-    description: model.description ? `<p>${model.description}</p>` : '',
+    logo: logoField,
+    description: model.description || '',
     provider: model.provider || '',
     'context-window': model.context_window || '',
     'total-params': model.total_params || '',
@@ -87,13 +87,13 @@ export function toWebflowFields(model, modalities, categoryMap, logoField) {
     live: model.isLive,
     new: model.isNew,
     trending: model.isTrending,
-    categories: modalities.map((m) => categoryMap[m.toLowerCase()]).filter(Boolean),
+    modalities: modalities.map((m) => categoryMap[m.toLowerCase()]).filter(Boolean),
   };
 }
 
 // -- Diff --
 
-const SKIP_DIFF_FIELDS = new Set(['logo-image', 'slug']);
+const SKIP_DIFF_FIELDS = new Set(['logo', 'slug']);
 
 export function diffModels(apiModels, webflowItems) {
   const wfBySlug = new Map();
@@ -229,7 +229,7 @@ async function main() {
 
   // Discover collections
   const collections = await wf.getCollections(WEBFLOW_SITE_ID);
-  const categoriesCol = wf.findCollectionBySlug(collections, 'models-categories');
+  const categoriesCol = wf.findCollectionBySlug(collections, 'models-category');
   const modelsCol = wf.findCollectionBySlug(collections, 'models');
 
   // Sync categories

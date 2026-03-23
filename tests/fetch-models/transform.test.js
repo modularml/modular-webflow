@@ -29,8 +29,8 @@ describe('toWebflowFields', () => {
     assert.equal(result.slug, 'my-model');
     assert.equal(result['display-name'], 'My Model');
     assert.equal(result['model-id'], 'org/my-model');
-    assert.deepEqual(result['logo-image'], logoField);
-    assert.equal(result.description, '<p>A great model</p>');
+    assert.deepEqual(result.logo, logoField);
+    assert.equal(result.description, 'A great model');
     assert.equal(result.provider, 'Acme');
     assert.equal(result['context-window'], 8192);
     assert.equal(result['total-params'], '70B');
@@ -40,7 +40,7 @@ describe('toWebflowFields', () => {
     assert.equal(result.live, true);
     assert.equal(result.new, false);
     assert.equal(result.trending, true);
-    assert.deepEqual(result.categories, ['id-text', 'id-image']);
+    assert.deepEqual(result.modalities, ['id-text', 'id-image']);
   });
 
   it('handles undefined optional fields with empty string defaults', () => {
@@ -61,7 +61,7 @@ describe('toWebflowFields', () => {
     assert.equal(result['active-params'], '');
     assert.equal(result.precision, '');
     assert.equal(result['model-url'], '');
-    assert.deepEqual(result.categories, []);
+    assert.deepEqual(result.modalities, []);
   });
 
   it('falls back to name when display_name is falsy', () => {
@@ -91,6 +91,6 @@ describe('toWebflowFields', () => {
 
     const result = toWebflowFields(model, modalities, categoryMap, null);
 
-    assert.deepEqual(result.categories, ['id-text', 'id-audio']);
+    assert.deepEqual(result.modalities, ['id-text', 'id-audio']);
   });
 });

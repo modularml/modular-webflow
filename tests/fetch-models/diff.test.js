@@ -63,17 +63,17 @@ describe('diffModels', () => {
     assert.equal(result.toDelete.length, 0);
   });
 
-  it('ignores logo-image field differences in comparison', () => {
+  it('ignores logo field differences in comparison', () => {
     const apiModels = [
       makeApiModel('logo-model', {
         name: 'Logo Model',
-        'logo-image': { fileId: 'new-file-id', url: 'https://cdn.example.com/new.png' },
+        'logo': { fileId: 'new-file-id', url: 'https://cdn.example.com/new.png' },
       }),
     ];
     const webflowItems = [
       makeWfItem('wf-id-4', 'logo-model', {
         name: 'Logo Model',
-        'logo-image': { fileId: 'old-file-id', url: 'https://cdn.example.com/old.png' },
+        'logo': { fileId: 'old-file-id', url: 'https://cdn.example.com/old.png' },
       }),
     ];
 
