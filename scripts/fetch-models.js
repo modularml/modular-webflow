@@ -1,67 +1,53 @@
-import { writeFileSync, mkdirSync, rmSync } from 'fs';
-import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
+import { createClient } from './webflow-api.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 const isMain = process.argv[1] === __filename;
 
-const { MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL } = process.env;
+// -- Environment variables --
 
-if (isMain && (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL)) {
-  console.error('Missing required environment variables: MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL');
-  process.exit(1);
+const { MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL } = process.env;
+const { WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID } = process.env;
+
+let wf;
+if (isMain) {
+  if (!MODULAR_CLOUD_API_TOKEN || !MODULAR_CLOUD_ORG || !MODULAR_CLOUD_BASE_URL) {
+    console.error(
+      'Missing required env vars: MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL'
+    );
+    process.exit(1);
+  }
+  if (!WEBFLOW_API_TOKEN || !WEBFLOW_SITE_ID) {
+    console.error('Missing required env vars: WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID');
+    process.exit(1);
+  }
+  wf = createClient(WEBFLOW_API_TOKEN);
 }
 
-const JSDELIVR_BASE = 'https://cdn.jsdelivr.net/gh/modularml/modular-webflow@master/data/images';
-
-const headers = {
+const modularHeaders = {
   'X-Yatai-Api-Token': MODULAR_CLOUD_API_TOKEN,
   'X-Yatai-Organization': MODULAR_CLOUD_ORG,
 };
 
+// -- Modular Cloud API --
+
 async function fetchModelGarden() {
-  const countRes = await fetch(`${MODULAR_CLOUD_BASE_URL}/api/v1/model_garden`, { headers });
+  const countRes = await fetch(`${MODULAR_CLOUD_BASE_URL}/api/v1/model_garden`, {
+    headers: modularHeaders,
+  });
   if (!countRes.ok) throw new Error(`Count request failed: ${countRes.status}`);
   const { total } = await countRes.json();
 
   const listRes = await fetch(`${MODULAR_CLOUD_BASE_URL}/api/v1/model_garden?count=${total}`, {
-    headers,
+    headers: modularHeaders,
   });
   if (!listRes.ok) throw new Error(`List request failed: ${listRes.status}`);
   return listRes.json();
 }
 
-const MIME_TO_EXT = {
-  'image/png': '.png',
-  'image/svg+xml': '.svg',
-  'image/jpeg': '.jpg',
-  'image/jpg': '.jpg',
-  'image/gif': '.gif',
-  'image/webp': '.webp',
-};
-
-function parseDataUri(dataUri) {
-  if (!dataUri || !dataUri.startsWith('data:')) return null;
-
-  const match = dataUri.match(/^data:([^;]+);base64,(.+)$/s);
-  if (!match) return null;
-
-  const [, mime, payload] = match;
-  const ext = MIME_TO_EXT[mime];
-  if (!ext) return null;
-
-  const buffer = Buffer.from(payload, 'base64');
-  if (buffer.length === 0) return null;
-
-  return { mime, ext, buffer };
-}
-
 function transformModel(model) {
   const meta = model.metadata || {};
   const tags = meta.tags || [];
-
   return {
     display_name: model.display_name,
     name: model.name,
@@ -75,55 +61,13 @@ function transformModel(model) {
     active_params: meta.active_params,
     precision: meta.precision,
     model_url: meta.model_url,
-    pricing: model.pricing,
     isLive: Boolean(model.gateway_id),
     isNew: tags.includes('New'),
     isTrending: tags.includes('Trending'),
   };
 }
 
-async function processModelGarden(modelGarden) {
-  const results = [];
-  const imagesDir = join(__dirname, '..', 'data', 'images');
-  rmSync(imagesDir, { recursive: true, force: true });
-  mkdirSync(imagesDir, { recursive: true });
-
-  for (const model of modelGarden.items) {
-    const transformed = transformModel(model);
-
-    const parsed = parseDataUri(transformed.logo_url);
-    if (parsed) {
-      try {
-        const filename = `${transformed.name}${parsed.ext}`;
-        writeFileSync(join(imagesDir, filename), parsed.buffer);
-        transformed.logo_url = `${JSDELIVR_BASE}/${filename}`;
-        console.log(`Saved image for ${transformed.name}: ${filename}`);
-      } catch (err) {
-        console.error(`Failed to save image for ${transformed.name}: ${err.message}`);
-        transformed.logo_url = null;
-      }
-    }
-
-    results.push(transformed);
-  }
-
-  return results;
-}
-
-if (isMain) {
-  fetchModelGarden()
-    .then((data) => processModelGarden(data))
-    .then((models) => {
-      const outDir = join(__dirname, '..', 'data');
-      mkdirSync(outDir, { recursive: true });
-      writeFileSync(join(outDir, 'models.json'), JSON.stringify(models, null, 2));
-      console.log(`Wrote ${models.length} models to ${outDir}/models.json`);
-    })
-    .catch((err) => {
-      console.error(err);
-      process.exit(1);
-    });
-}
+// -- Field mapping --
 
 export function toWebflowFields(model, modalities, categoryMap, logoField) {
   return {
@@ -145,6 +89,8 @@ export function toWebflowFields(model, modalities, categoryMap, logoField) {
     categories: modalities.map((m) => categoryMap[m.toLowerCase()]).filter(Boolean),
   };
 }
+
+// -- Diff --
 
 const SKIP_DIFF_FIELDS = new Set(['logo-image', 'slug']);
 
@@ -187,4 +133,153 @@ export function diffModels(apiModels, webflowItems) {
     .map((item) => item.id);
 
   return { toCreate, toUpdate, toDelete, unchanged };
+}
+
+// -- Logo resolution --
+
+const MIME_TO_EXT = {
+  'image/png': '.png',
+  'image/svg+xml': '.svg',
+  'image/jpeg': '.jpg',
+  'image/jpg': '.jpg',
+  'image/gif': '.gif',
+  'image/webp': '.webp',
+};
+
+async function resolveLogo(model) {
+  const { logo_url, display_name, name } = model;
+
+  if (!logo_url) return null;
+
+  if (logo_url.startsWith('http')) {
+    return { url: logo_url, alt: `${display_name || name} logo` };
+  }
+
+  if (logo_url.startsWith('data:')) {
+    const match = logo_url.match(/^data:([^;]+);base64,(.+)$/s);
+    if (!match) return null;
+
+    const [, mime, payload] = match;
+    const ext = MIME_TO_EXT[mime];
+    if (!ext) return null;
+
+    const buffer = Buffer.from(payload, 'base64');
+    if (buffer.length === 0) return null;
+
+    console.log(`Uploading logo for: ${name}`);
+    const assetUrl = await wf.uploadAsset(WEBFLOW_SITE_ID, `${name}${ext}`, buffer);
+    return { url: assetUrl, alt: `${display_name || name} logo` };
+  }
+
+  return null;
+}
+
+// -- Categories sync --
+
+async function syncCategories(models, categoriesCollectionId) {
+  const allModalities = new Set();
+  for (const model of models) {
+    if (model.modalities) {
+      for (const m of model.modalities) allModalities.add(m);
+    }
+  }
+
+  const existingItems = await wf.listCollectionItems(categoriesCollectionId);
+  const existingBySlug = new Map();
+  for (const item of existingItems) {
+    existingBySlug.set(item.fieldData.slug, item.id);
+  }
+
+  const categoryMap = {};
+  for (const modality of allModalities) {
+    const slug = modality.toLowerCase();
+    if (existingBySlug.has(slug)) {
+      categoryMap[slug] = existingBySlug.get(slug);
+    } else {
+      console.log(`Creating category: ${modality}`);
+      const result = await wf.createItems(categoriesCollectionId, [{ name: modality, slug }]);
+      const newItem = result.items[0];
+      categoryMap[slug] = newItem.id;
+      await wf.publishItems(categoriesCollectionId, [newItem.id]);
+    }
+  }
+
+  return categoryMap;
+}
+
+// -- Main --
+
+async function main() {
+  // Phase 1: Fetch
+  console.log('Fetching models from Modular Cloud API...');
+  const modelGarden = await fetchModelGarden();
+  const models = modelGarden.items.map(transformModel);
+  console.log(`Fetched ${models.length} models`);
+
+  // Discover collections
+  const collections = await wf.getCollections(WEBFLOW_SITE_ID);
+  const categoriesCol = wf.findCollectionBySlug(collections, 'models-categories');
+  const modelsCol = wf.findCollectionBySlug(collections, 'models');
+
+  // Sync categories
+  console.log('Syncing categories...');
+  const categoryMap = await syncCategories(models, categoriesCol.id);
+  console.log(`Categories ready: ${Object.keys(categoryMap).join(', ')}`);
+
+  // Resolve logos and build field data
+  console.log('Resolving logos and building field data...');
+  const apiModels = [];
+  for (const model of models) {
+    const logoField = await resolveLogo(model);
+    const fields = toWebflowFields(model, model.modalities || [], categoryMap, logoField);
+    apiModels.push({ slug: model.name, fields });
+  }
+
+  // Phase 2: Diff
+  console.log('Fetching existing Webflow items...');
+  const webflowItems = await wf.listCollectionItems(modelsCol.id);
+  const { toCreate, toUpdate, toDelete, unchanged } = diffModels(apiModels, webflowItems);
+
+  // Phase 3: Sync
+  const publishIds = [];
+
+  if (toCreate.length > 0) {
+    console.log(`Creating ${toCreate.length} models...`);
+    for (const fields of toCreate) {
+      console.log(`  Creating: ${fields.slug}`);
+    }
+    const created = await wf.createItems(modelsCol.id, toCreate);
+    publishIds.push(...created.items.map((item) => item.id));
+  }
+
+  if (toUpdate.length > 0) {
+    console.log(`Updating ${toUpdate.length} models...`);
+    for (const item of toUpdate) {
+      console.log(`  Updating: ${item.fieldData.slug}`);
+    }
+    await wf.updateItems(modelsCol.id, toUpdate);
+    publishIds.push(...toUpdate.map((item) => item.id));
+  }
+
+  if (toDelete.length > 0) {
+    console.log(`Deleting ${toDelete.length} models...`);
+    await wf.deleteItems(modelsCol.id, toDelete);
+  }
+
+  if (publishIds.length > 0) {
+    console.log(`Publishing ${publishIds.length} items...`);
+    await wf.publishItems(modelsCol.id, publishIds);
+  }
+
+  // Summary
+  console.log(
+    `\nSync complete. Created: ${toCreate.length}, Updated: ${toUpdate.length}, Deleted: ${toDelete.length}, Unchanged: ${unchanged}`
+  );
+}
+
+if (isMain) {
+  main().catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
 }
