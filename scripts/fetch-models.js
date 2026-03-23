@@ -116,16 +116,19 @@ export function diffModels(apiModels, webflowItems) {
       continue;
     }
 
-    const hasChanges = Object.keys(model.fields).some((key) => {
-      if (FIELDS_MANAGED_OUTSIDE_DIFF.has(key)) return false;
+    const changedFields = [];
+    for (const key of Object.keys(model.fields)) {
+      if (FIELDS_MANAGED_OUTSIDE_DIFF.has(key)) continue;
       const apiVal = model.fields[key];
       const wfVal = existing.fieldData[key];
-      if ((apiVal === '' || apiVal == null) && (wfVal === '' || wfVal == null)) return false;
-      return JSON.stringify(apiVal) !== JSON.stringify(wfVal);
-    });
+      if ((apiVal === '' || apiVal == null) && (wfVal === '' || wfVal == null)) continue;
+      if (JSON.stringify(apiVal) !== JSON.stringify(wfVal)) {
+        changedFields.push({ field: key, from: wfVal, to: apiVal });
+      }
+    }
 
-    if (hasChanges) {
-      toUpdate.push({ id: existing.id, fieldData: model.fields });
+    if (changedFields.length > 0) {
+      toUpdate.push({ id: existing.id, fieldData: model.fields, changedFields });
     } else {
       unchanged++;
     }
@@ -295,6 +298,17 @@ async function buildModelFieldData(models, categoryMap, existingItems) {
   return apiModels;
 }
 
+function truncate(val, maxLen = 80) {
+  const str = typeof val === 'string' ? val : JSON.stringify(val);
+  return str.length > maxLen ? str.slice(0, maxLen) + '...' : str;
+}
+
+function logChangedFields(changedFields) {
+  for (const { field, from, to } of changedFields) {
+    console.log(`    ${field}: ${truncate(from)} → ${truncate(to)}`);
+  }
+}
+
 async function applyChanges(collectionId, { toCreate, toUpdate, toDelete }) {
   if (toCreate.length > 0) {
     console.log(`Creating ${toCreate.length} models...`);
@@ -304,7 +318,10 @@ async function applyChanges(collectionId, { toCreate, toUpdate, toDelete }) {
 
   if (toUpdate.length > 0) {
     console.log(`Updating ${toUpdate.length} models...`);
-    for (const item of toUpdate) console.log(`  Updating: ${item.fieldData.slug}`);
+    for (const item of toUpdate) {
+      console.log(`  Updating: ${item.fieldData.slug}`);
+      logChangedFields(item.changedFields);
+    }
     await wf.updateItems(collectionId, toUpdate);
   }
 
@@ -321,7 +338,10 @@ function logDryRunSummary({ toCreate, toUpdate, toDelete, unchanged }) {
   }
   if (toUpdate.length > 0) {
     console.log(`[dry run] Would update ${toUpdate.length} models:`);
-    for (const item of toUpdate) console.log(`  ${item.fieldData.slug}`);
+    for (const item of toUpdate) {
+      console.log(`  ${item.fieldData.slug}`);
+      logChangedFields(item.changedFields);
+    }
   }
   if (toDelete.length > 0) {
     console.log(`[dry run] Would delete ${toDelete.length} models`);

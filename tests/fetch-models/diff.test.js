@@ -46,6 +46,9 @@ describe('diffModels', () => {
     assert.equal(result.toUpdate.length, 1);
     assert.equal(result.toUpdate[0].id, 'wf-id-2');
     assert.deepEqual(result.toUpdate[0].fieldData, { slug: 'existing-model', name: 'Updated Name' });
+    assert.deepEqual(result.toUpdate[0].changedFields, [
+      { field: 'name', from: 'Old Name', to: 'Updated Name' },
+    ]);
     assert.equal(result.toCreate.length, 0);
     assert.equal(result.toDelete.length, 0);
     assert.equal(result.unchanged, 0);
