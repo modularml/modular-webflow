@@ -1,15 +1,25 @@
-name: Fetch Model Garden
+name: Sync Model Library
 
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        type: choice
+        options:
+          - test
+          - production
+        default: 'test'
+      dry_run:
+        description: 'Dry run (show changes without pushing to Webflow)'
+        type: boolean
+        default: false
 
 jobs:
-  fetch:
+  sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -17,17 +27,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Fetch models
+      - name: Sync models to Webflow
         run: node scripts/fetch-models.js
         env:
           MODULAR_CLOUD_API_TOKEN: ${{ secrets.MODULAR_CLOUD_API_TOKEN }}
           MODULAR_CLOUD_ORG: ${{ vars.MODULAR_CLOUD_ORG }}
           MODULAR_CLOUD_BASE_URL: ${{ vars.MODULAR_CLOUD_BASE_URL }}
-
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/models.json data/images/
-          git diff --cached --quiet || git commit -m "Update models.json"
-          git push
+          WEBFLOW_API_TOKEN: ${{ inputs.environment == 'test' && secrets.TEST_WEBFLOW_API_TOKEN || secrets.PROD_WEBFLOW_API_TOKEN }}
+          WEBFLOW_SITE_ID: ${{ inputs.environment == 'test' && vars.TEST_WEBFLOW_SITE_ID || vars.PROD_WEBFLOW_SITE_ID }}
+          DRY_RUN: ${{ inputs.dry_run || 'false' }}
