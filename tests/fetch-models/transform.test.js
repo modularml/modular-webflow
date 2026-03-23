@@ -1,8 +1,8 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { toWebflowFields } from '../../scripts/fetch-models.js';
+import { buildWebflowFields } from '../../scripts/fetch-models.js';
 
-describe('toWebflowFields', () => {
+describe('buildWebflowFields', () => {
   it('maps all fields correctly for a full model', () => {
     const model = {
       display_name: 'My Model',
@@ -23,7 +23,7 @@ describe('toWebflowFields', () => {
     const categoryMap = { text: 'id-text', image: 'id-image' };
     const logoField = { fileId: 'abc', url: 'https://cdn.example.com/logo.png' };
 
-    const result = toWebflowFields(model, modalities, categoryMap, logoField);
+    const result = buildWebflowFields(model, modalities, categoryMap, logoField);
 
     assert.equal(result.name, 'My Model');
     assert.equal(result.slug, 'my-model');
@@ -51,7 +51,7 @@ describe('toWebflowFields', () => {
       isNew: false,
       isTrending: false,
     };
-    const result = toWebflowFields(model, [], {}, null);
+    const result = buildWebflowFields(model, [], {}, null);
 
     assert.equal(result['model-id'], '');
     assert.equal(result.description, '');
@@ -72,7 +72,7 @@ describe('toWebflowFields', () => {
       isNew: false,
       isTrending: false,
     };
-    const result = toWebflowFields(model, [], {}, null);
+    const result = buildWebflowFields(model, [], {}, null);
 
     assert.equal(result.name, 'fallback-model');
     assert.equal(result['display-name'], '');
@@ -89,7 +89,7 @@ describe('toWebflowFields', () => {
     const modalities = ['Text', 'Video', 'Audio'];
     const categoryMap = { text: 'id-text', audio: 'id-audio' };
 
-    const result = toWebflowFields(model, modalities, categoryMap, null);
+    const result = buildWebflowFields(model, modalities, categoryMap, null);
 
     assert.deepEqual(result.modalities, ['id-text', 'id-audio']);
   });

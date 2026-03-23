@@ -114,8 +114,8 @@ function createClient(apiToken) {
   }
 
   async function createItems(collectionId, fieldDataArray) {
-    const live = await supportsLive(collectionId);
-    const suffix = live ? '/live' : '';
+    const useLiveEndpoint = await supportsLive(collectionId);
+    const liveSuffix = useLiveEndpoint ? '/live' : '';
     const batches = chunk(fieldDataArray, 100);
     const allCreated = [];
 
@@ -123,7 +123,7 @@ function createClient(apiToken) {
       const body = {
         items: batch.map((fieldData) => ({ fieldData })),
       };
-      const data = await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items${liveSuffix}`, {
         method: 'POST',
         body: JSON.stringify(body),
       });
@@ -131,7 +131,7 @@ function createClient(apiToken) {
       allCreated.push(...created);
     }
 
-    if (!live && allCreated.length > 0) {
+    if (!useLiveEndpoint && allCreated.length > 0) {
       await publishItems(collectionId, allCreated.map((item) => item.id));
     }
 
@@ -139,13 +139,13 @@ function createClient(apiToken) {
   }
 
   async function updateItems(collectionId, itemsArray) {
-    const live = await supportsLive(collectionId);
-    const suffix = live ? '/live' : '';
+    const useLiveEndpoint = await supportsLive(collectionId);
+    const liveSuffix = useLiveEndpoint ? '/live' : '';
     const batches = chunk(itemsArray, 100);
     const allUpdated = [];
 
     for (const batch of batches) {
-      const data = await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
+      const data = await webflowFetch(`/collections/${collectionId}/items${liveSuffix}`, {
         method: 'PATCH',
         body: JSON.stringify({ items: batch }),
       });
@@ -153,7 +153,7 @@ function createClient(apiToken) {
       allUpdated.push(...updated);
     }
 
-    if (!live && allUpdated.length > 0) {
+    if (!useLiveEndpoint && allUpdated.length > 0) {
       await publishItems(collectionId, allUpdated.map((item) => item.id));
     }
 
@@ -161,12 +161,12 @@ function createClient(apiToken) {
   }
 
   async function deleteItems(collectionId, itemIds) {
-    const live = await supportsLive(collectionId);
-    const suffix = live ? '/live' : '';
+    const useLiveEndpoint = await supportsLive(collectionId);
+    const liveSuffix = useLiveEndpoint ? '/live' : '';
     const batches = chunk(itemIds, 100);
 
     for (const batch of batches) {
-      await webflowFetch(`/collections/${collectionId}/items${suffix}`, {
+      await webflowFetch(`/collections/${collectionId}/items${liveSuffix}`, {
         method: 'DELETE',
         body: JSON.stringify({ itemIds: batch }),
       });
@@ -201,6 +201,7 @@ function createClient(apiToken) {
       );
     }
 
+    // Webflow's response shape varies by API version — check all known fields
     return metadata.hostedUrl || metadata.url || metadata.assetUrl;
   }
 
