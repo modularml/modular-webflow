@@ -8,7 +8,7 @@ function chunk(array, size) {
   return chunks;
 }
 
-function createClient(apiToken, { liveUpdate = false } = {}) {
+function createClient(apiToken) {
   async function webflowFetch(path, options = {}) {
     const url = `https://api.webflow.com/v2${path}`;
     const method = options.method || 'GET';
@@ -42,7 +42,6 @@ function createClient(apiToken, { liveUpdate = false } = {}) {
   const liveSupported = new Map();
 
   async function supportsLive(collectionId) {
-    if (!liveUpdate) return false;
     if (liveSupported.has(collectionId)) return liveSupported.get(collectionId);
 
     try {

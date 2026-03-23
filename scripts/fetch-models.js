@@ -7,9 +7,8 @@ const isMain = process.argv[1] === __filename;
 // -- Configuration --
 
 const { MODULAR_CLOUD_API_TOKEN, MODULAR_CLOUD_ORG, MODULAR_CLOUD_BASE_URL } = process.env;
-const { WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID, DRY_RUN, LIVE_UPDATE } = process.env;
+const { WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID, DRY_RUN } = process.env;
 const dryRun = DRY_RUN === 'true';
-const liveUpdate = LIVE_UPDATE === 'true';
 
 let wf;
 if (isMain) {
@@ -23,7 +22,7 @@ if (isMain) {
     console.error('Missing required env vars: WEBFLOW_API_TOKEN, WEBFLOW_SITE_ID');
     process.exit(1);
   }
-  wf = createClient(WEBFLOW_API_TOKEN, { liveUpdate });
+  wf = createClient(WEBFLOW_API_TOKEN);
 }
 
 const modularHeaders = {
