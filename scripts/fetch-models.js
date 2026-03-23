@@ -114,17 +114,15 @@ export function diffModels(apiModels, webflowItems) {
       continue;
     }
 
-    const changedFields = Object.keys(model.fields).filter((key) => {
+    const hasChanges = Object.keys(model.fields).some((key) => {
       if (SKIP_DIFF_FIELDS.has(key)) return false;
       const apiVal = model.fields[key];
       const wfVal = existing.fieldData[key];
+      if ((apiVal === '' || apiVal == null) && (wfVal === '' || wfVal == null)) return false;
       return JSON.stringify(apiVal) !== JSON.stringify(wfVal);
     });
 
-    if (changedFields.length > 0) {
-      for (const key of changedFields) {
-        console.log(`  [diff] ${model.slug}.${key}: API=${JSON.stringify(model.fields[key])} WF=${JSON.stringify(existing.fieldData[key])}`);
-      }
+    if (hasChanges) {
       toUpdate.push({ id: existing.id, fieldData: model.fields });
     } else {
       unchanged++;

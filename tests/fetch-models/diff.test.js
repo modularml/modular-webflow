@@ -82,4 +82,18 @@ describe('diffModels', () => {
     assert.equal(result.unchanged, 1);
     assert.equal(result.toUpdate.length, 0);
   });
+
+  it('treats empty string and undefined as equivalent', () => {
+    const apiModels = [
+      makeApiModel('sparse-model', { name: 'Sparse', description: '', provider: '' }),
+    ];
+    const webflowItems = [
+      makeWfItem('wf-id-5', 'sparse-model', { name: 'Sparse' }),
+    ];
+
+    const result = diffModels(apiModels, webflowItems);
+
+    assert.equal(result.unchanged, 1);
+    assert.equal(result.toUpdate.length, 0);
+  });
 });
