@@ -236,18 +236,25 @@ async function main() {
   const categoryMap = await syncCategories(models, categoriesCol.id);
   console.log(`Categories ready: ${Object.keys(categoryMap).join(', ')}`);
 
+  // Fetch existing Webflow items (needed for diff and logo skip)
+  console.log('Fetching existing Webflow items...');
+  const webflowItems = await wf.listCollectionItems(modelsCol.id);
+  const existingBySlug = new Map();
+  for (const item of webflowItems) {
+    existingBySlug.set(item.fieldData.slug, item);
+  }
+
   // Resolve logos and build field data
   console.log('Resolving logos and building field data...');
   const apiModels = [];
   for (const model of models) {
-    const logoField = await resolveLogo(model);
+    const existing = existingBySlug.get(model.name);
+    const existingLogo = existing?.fieldData?.logo;
+    // Skip logo upload if the model already exists with a logo
+    const logoField = existingLogo ? existingLogo : await resolveLogo(model);
     const fields = toWebflowFields(model, model.modalities || [], categoryMap, logoField);
     apiModels.push({ slug: model.name, fields });
   }
-
-  // Phase 2: Diff
-  console.log('Fetching existing Webflow items...');
-  const webflowItems = await wf.listCollectionItems(modelsCol.id);
   const { toCreate, toUpdate, toDelete, unchanged } = diffModels(apiModels, webflowItems);
 
   // Phase 3: Sync
