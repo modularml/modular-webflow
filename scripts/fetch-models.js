@@ -62,7 +62,7 @@ function normalizeApiModel(model) {
     active_params: meta.active_params,
     precision: meta.precision,
     model_url: meta.model_url,
-    isLive: Boolean(model.gateway_id),
+    isLive: Boolean(model.gateway_id) || tags.includes('Live'),
     isNew: tags.includes('New'),
     isTrending: tags.includes('Trending'),
   };
