@@ -98,10 +98,18 @@ function createClient(apiToken) {
   async function publishItems(collectionId, itemIds) {
     const batches = chunk(itemIds, 100);
     for (const batch of batches) {
-      await webflowFetch(`/collections/${collectionId}/items/publish`, {
-        method: 'POST',
-        body: JSON.stringify({ itemIds: batch }),
-      });
+      try {
+        await webflowFetch(`/collections/${collectionId}/items/publish`, {
+          method: 'POST',
+          body: JSON.stringify({ itemIds: batch }),
+        });
+      } catch (err) {
+        if (err.message.includes('404')) {
+          console.log('Publish endpoint not available — site may need to be published first');
+          return;
+        }
+        throw err;
+      }
     }
   }
 
