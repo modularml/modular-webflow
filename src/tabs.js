@@ -153,6 +153,11 @@ export function initTabs() {
 
     let wrapTimeline = null;
 
+    // Ensure an active tab exists on page load
+    if (!$menuItems.filter('.is-active').length) {
+      $menuItems.first().addClass('is-active');
+    }
+
     $menuItems.on('click', function () {
       if (wrapTimeline) {
         wrapTimeline.kill();
@@ -178,7 +183,6 @@ export function initTabs() {
 
       const newHeight = $wrap.height();
 
-      const computedHeight = window.getComputedStyle($wrap[0]).height;
       const inlineHeight = $wrap[0].style.height;
 
       if (!inlineHeight) {
