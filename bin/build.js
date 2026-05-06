@@ -17,6 +17,7 @@ const ENTRY_POINTS = [
   'src/about.js',
   'src/plyr.js',
   'src/utils/nice-select.css',
+  'src/modcon.js',
 ];
 
 // Config dev serving
@@ -36,7 +37,7 @@ const context = await esbuild.context({
   define: {
     SERVE_ORIGIN: JSON.stringify(SERVE_ORIGIN),
   },
-  external: ['jquery', 'gsap', 'gsap/ScrollTrigger', 'gsap/ScrollTo', 'swiper'],
+  external: ['jquery', 'gsap', 'gsap/ScrollTrigger', 'gsap/ScrollTo', 'gsap/CustomEase', 'swiper'],
 });
 
 // Build files in prod
