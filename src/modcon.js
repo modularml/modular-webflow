@@ -916,10 +916,11 @@ function initHeroLogoIntro() {
     return;
   }
 
-  // Scale to match starter width; translate so centers align
+  // Scale to match starter width; translate so the small logo lands at the viewport center
+  // (was: starter's center — broke once starter stopped being 100dvh tall)
   const scale = starterRect.width / logoRect.width;
-  const dx = starterRect.left + starterRect.width / 2 - (logoRect.left + logoRect.width / 2);
-  const dy = starterRect.top + starterRect.height / 2 - (logoRect.top + logoRect.height / 2);
+  const dx = window.innerWidth / 2 - (logoRect.left + logoRect.width / 2);
+  const dy = window.innerHeight / 2 - (logoRect.top + logoRect.height / 2);
 
   const cols = logoWrap.querySelectorAll('.modcon-hero-logo-col');
   const lastCol = logoWrap.querySelector('.modcon-hero-logo-col.cc-last');
