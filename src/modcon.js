@@ -556,6 +556,7 @@ function initStackingStickyCardsBounce() {
     const stickyTop = parseFloat(getComputedStyle(cards[0]).top) || 0;
 
     const rotateValues = (() => {
+      return 0;
       if (tier === 'desktop')
         return parseRotateValues(section, 'data-stacking-cards-desktop-rotate');
       if (tier === 'tablet') return parseRotateValues(section, 'data-stacking-cards-tablet-rotate');
@@ -966,10 +967,10 @@ function initHeroLogoIntro() {
   }
 
   // 4. Hold, then fly logo back to its natural position
-  tl.to(logoWrap, { x: 0, y: 0, scale: 1, duration: 1.2, ease: 'power3.out' }, '+=0.4');
+  tl.to(logoWrap, { x: 0, y: 0, scale: 1, duration: 1.2, ease: 'power3.out' }, '+=0.01');
 
   // 5. Reveal everything else after the logo lands
-  tl.addLabel('reveal');
+  tl.addLabel('reveal', '-=1');
   if (nav) {
     tl.to(nav, { yPercent: 0, duration: 0.7, ease: 'power3.out' }, 'reveal');
   }
