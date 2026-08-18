@@ -10,6 +10,8 @@ import { initScrollToggle } from './scroll.js';
 import { initCheckSectionThemeScroll } from './scroll-themes.js';
 import { initSwipers } from './swipers.js';
 import { initTabs } from './tabs.js';
+import { initAmplitude } from './tracking/amplitude.js';
+import { initExperiment } from './tracking/experiment.js';
 
 $(document).ready(function () {
   initScrollToggle();
@@ -20,7 +22,9 @@ $(document).ready(function () {
   initMojoAnimations();
   initMaxReplacements();
   initAnims();
+  initAmplitude();
   setupHookForFormSubmission();
+  initExperiment();
   installAndScrollAnchorTags();
   initCheckSectionThemeScroll();
 });
