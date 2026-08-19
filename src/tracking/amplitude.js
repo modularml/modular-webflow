@@ -1,10 +1,11 @@
 import { SniffEmailForAmplitude } from '../forms/sniffEmail';
+import { trackEvent } from '../utils/amplitude';
 
 export function initAmplitude() {
   SniffEmailForAmplitude();
   function amplitudeTrack(anchorTag, trackTitle) {
     return () => {
-      amplitude.track(trackTitle, {
+      trackEvent(trackTitle, {
         href: window.location.href,
         location: anchorTag.dataset.analyticsLocation,
       });
@@ -39,7 +40,7 @@ export function initAmplitude() {
       return;
     }
     const durationInSeconds = Math.round(new Date().getTime() - timeStartedOnPage.getTime()) / 1000;
-    amplitude.track('TimeOnPage', {
+    trackEvent('TimeOnPage', {
       duration: `${Math.round(durationInSeconds)}`,
       minutes: `${Math.round(durationInSeconds / 60)}`,
       pathname,
@@ -69,7 +70,7 @@ export function initAmplitude() {
   window.addEventListener('beforeunload', () => {
     const { pathname } = window.location;
     trackTimeOnPage(pathname);
-    amplitude.track('MaxScrollPercentage', { maxScroll, pathname });
+    trackEvent('MaxScrollPercentage', { maxScroll, pathname });
     return undefined;
   });
 }
