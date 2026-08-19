@@ -1,3 +1,5 @@
+import { trackEvent } from '../utils/amplitude';
+
 export function SniffEmailForAmplitude() {
   const interval = setInterval(() => {
     const inputs = document.querySelectorAll('input[type=email]');
@@ -25,7 +27,7 @@ function sniffEmail(inputs) {
         return;
       }
       lastFire = input.value;
-      amplitude.track('emailInput', { email: input.value, formId });
+      trackEvent('emailInput', { email: input.value, formId });
     }, 3000);
     input.addEventListener('input', (ev) => {
       if (ev.target.value === lastFire) {
