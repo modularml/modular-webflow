@@ -119,7 +119,8 @@ function initCSSMarquee() {
     const startOpacity = toMode === 'grid' ? '0' : '1';
 
     // Use document-relative positioning so proxies scroll with the page mid-animation
-    const { scrollX, scrollY } = window;
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
 
     const proxies = [];
     sources.forEach((src, id) => {
@@ -385,9 +386,7 @@ function initCSSMarquee() {
     marquee.style.overflow = 'hidden';
 
     const hideOverlays = () => {
-      overlays.forEach((o) => {
-        o.style.display = 'none';
-      });
+      overlays.forEach((o) => (o.style.display = 'none'));
     };
 
     const fadeOutOverlays = () => {
@@ -833,17 +832,18 @@ function initCountdown() {
         if (this.done) this.stopSec();
       },
       startSec: function () {
-        const tick = () => {
-          if (this.done) return this.stopSec();
-          const ms = this.tgt - Date.now();
+        var self = this;
+        function t() {
+          if (self.done) return self.stopSec();
+          var ms = self.tgt - Date.now();
           if (ms <= 0) {
-            this.render(0);
-            return this.stopSec();
+            self.render(0);
+            return self.stopSec();
           }
-          this.render(ms);
-        };
-        tick();
-        this.st = setInterval(tick, 1000);
+          self.render(ms);
+        }
+        t();
+        self.st = setInterval(t, 1000);
       },
       stopSec: function () {
         if (this.st) {

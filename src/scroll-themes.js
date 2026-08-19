@@ -3,7 +3,7 @@ export function initCheckSectionThemeScroll() {
   const themeObserverOffset = navBarHeight ? navBarHeight.offsetHeight / 2 : 0;
 
   function initializeAttributes() {
-    const { body } = document;
+    const body = document.body;
 
     if (!body.hasAttribute('data-theme-nav')) {
       body.setAttribute('data-theme-nav', 'light');

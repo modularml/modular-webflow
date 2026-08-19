@@ -192,7 +192,9 @@ function checkCapitalization(name) {
     }
 
     if (word.length > 2) {
-      const isException = /^(ma?c|o'|d'|de|van|von|la|le|di|da)[A-Z]/i.test(word);
+      const isException = /^(ma?c|o'|d'|de|van|von|la|le|di|da)[A-Z]/i.test(
+        word
+      );
       if (isException) {
         return suspiciousPatterns;
       }

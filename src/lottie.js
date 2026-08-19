@@ -19,7 +19,8 @@ export function initMojoAnimations() {
     }
   });
 
-  $('[data-lottie]').each(function (_, target) {
+  $('[data-lottie]').each(function () {
+    const target = this;
     let anim;
 
     ScrollTrigger.create({
