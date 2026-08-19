@@ -1,9 +1,9 @@
-import { setupCodeBlocks } from './blog/code-highlight';
 import { initBlogLiveReload } from './blog/blog-live-reload';
+import { setupCodeBlocks } from './blog/code-highlight';
 import { initCopyToClipboard } from './blog/copy-to-clipboard';
-import { initImageZoom } from './blog/image-zoom';
-import { initBlogFilters } from './blog/filters';
 import { initDecompute } from './blog/decompute';
+import { initBlogFilters } from './blog/filters';
+import { initImageZoom } from './blog/image-zoom';
 
 // init
 $(document).ready(function () {

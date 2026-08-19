@@ -30,8 +30,7 @@ function initFilterBasic() {
     };
 
     const handleFilter = (target) => {
-      $items.each(function () {
-        const item = this;
+      $items.each((_, item) => {
         const shouldBeActive = target === 'all' || $(item).attr('data-filter-name') === target;
         const currentStatus = $(item).attr('data-filter-status');
 

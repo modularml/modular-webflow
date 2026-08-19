@@ -137,7 +137,7 @@ function initDeploy() {
 function initCareerGallery() {
   let slider = $('.about-company_slider');
 
-  if (slider.length == 0) return;
+  if (slider.length === 0) return;
 
   function initBasicCustomCursor() {
     gsap.set('.cursor-box_wrap', { xPercent: -50, yPercent: -50 });
