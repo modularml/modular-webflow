@@ -3,13 +3,31 @@ import { trackEvent } from '../utils/amplitude';
 
 export function initAmplitude() {
   SniffEmailForAmplitude();
-  function amplitudeTrack(anchorTag, trackTitle) {
+  function amplitudeTrack(anchorTag, trackTitle, location = anchorTag.dataset.analyticsLocation) {
     return () => {
       trackEvent(trackTitle, {
         href: window.location.href,
-        location: anchorTag.dataset.analyticsLocation,
+        destination: anchorTag.href || anchorTag.getAttribute('href') || '',
+        location,
       });
     };
+  }
+
+  // Untagged links to intent destinations still get tracked, named by where they go.
+  function intentEventFor(anchorTag) {
+    let url;
+    try {
+      url = new URL(anchorTag.href);
+    } catch (e) {
+      return null;
+    }
+    if (url.pathname.replace(/\/$/, '') === '/request-demo') {
+      return 'RequestDemoClicked';
+    }
+    if (url.hostname === 'console.modular.com' && url.pathname.startsWith('/signup')) {
+      return 'GetStartedClicked';
+    }
+    return null;
   }
 
   // Delay these calls to avoid blocking main thread
@@ -29,9 +47,20 @@ export function initAmplitude() {
       });
   }, 200);
   setTimeout(() => {
-    [...document.querySelectorAll('[data-analytics-onclick]')].forEach((a) => {
-      a.onclick = amplitudeTrack(a, a.dataset.analyticsOnclick);
-    });
+    [...document.querySelectorAll('[data-analytics-onclick]')]
+      .filter((a) => a.dataset.analyticsOnclick)
+      .forEach((a) => {
+        a.onclick = amplitudeTrack(a, a.dataset.analyticsOnclick);
+      });
+
+    [...document.querySelectorAll('a')]
+      .filter((a) => !a.dataset.analyticsOnclick)
+      .forEach((a) => {
+        const eventName = intentEventFor(a);
+        if (eventName) {
+          a.onclick = amplitudeTrack(a, eventName, `Inline-${window.location.pathname}`);
+        }
+      });
   }, 300);
   let timeStartedOnPage = new Date();
 
