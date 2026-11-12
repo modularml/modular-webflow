@@ -13,6 +13,11 @@ const $menuBack = $('.nav_menu-back');
 const $allTriggers = $('[data-dropdown-trigger]');
 const $allTargets = $('[data-dropdown-target]');
 let currentTrigger = null;
+
+// Items that stagger in when a panel opens: list items plus non-li blocks marked in Webflow (Models CMS rows etc.)
+function revealItems($panel) {
+  return $panel.find('li').add($panel.find('[data-nav-stagger]'));
+}
 let originalParent = null;
 
 // __ Desktop
@@ -21,7 +26,7 @@ function killAllTweens() {
   gsap.killTweensOf($menuBg);
   $allTargets.each(function () {
     gsap.killTweensOf($(this));
-    gsap.killTweensOf($(this).find('li'));
+    gsap.killTweensOf(revealItems($(this)));
   });
 }
 
@@ -38,7 +43,7 @@ function resetAllStyles() {
   $allTargets.each(function () {
     const $target = $(this);
     $target.removeClass('is-active');
-    gsap.set($target.find('li'), { clearProps: 'all' });
+    gsap.set(revealItems($target), { clearProps: 'all' });
 
     const $triggerLi = $target.prev('li');
     if ($triggerLi.length) {
@@ -58,7 +63,7 @@ function hideAllTargets(callback) {
     const $target = $(this);
     $target.removeClass('is-active');
     gsap.set($target, { autoAlpha: 0 });
-    gsap.set($target.find('li'), { autoAlpha: 0, y: 0 });
+    gsap.set(revealItems($target), { autoAlpha: 0, y: 0 });
   });
   if (callback) callback();
 }
@@ -83,7 +88,7 @@ function showTarget($target) {
   resizeBackground($target);
 
   gsap.fromTo(
-    $target.find('li'),
+    revealItems($target),
     { autoAlpha: 0, y: 10 },
     {
       autoAlpha: 1,
@@ -97,7 +102,7 @@ function showTarget($target) {
 }
 
 function hideTarget($target, callback) {
-  gsap.to($target.find('li'), {
+  gsap.to(revealItems($target), {
     autoAlpha: 0,
     y: -10,
     duration: 0.15,
@@ -108,6 +113,12 @@ function hideTarget($target, callback) {
       if (callback) callback();
     },
   });
+}
+
+// Open trigger goes twilight60 -> twilight100 via the .is-open combo in Webflow
+function setOpenTrigger($trigger) {
+  $allTriggers.removeClass('is-open');
+  if ($trigger && $trigger.length) $trigger.addClass('is-open');
 }
 
 function handleTriggerHover(targetName) {
@@ -131,27 +142,25 @@ function handleTriggerHover(targetName) {
   const parentRect = $menuInner.parent()[0].getBoundingClientRect();
   const menuNaturalCenter = parentRect.left + parentRect.width / 2;
 
-  // Use a fixed known width — read once on init or from first panel
-  const menuWidth = $allTargets.first()[0].scrollWidth;
+  // Panels differ in width since the 2026 nav, so measure the one being opened
+  const menuWidth = $currentTarget[0].scrollWidth;
 
   const windowWidth = $(window).width();
   const edgePadding = 20;
 
+  // Centred on the link row; shifts to the trigger only when the trigger would fall outside it
+  const linksRect = $navMenu[0].getBoundingClientRect();
   const triggerCenter = triggerRect.left + triggerRect.width / 2;
-  let offsetFromCenter = triggerCenter - menuNaturalCenter;
+  let panelLeft = linksRect.left + linksRect.width / 2 - menuWidth / 2;
+  if (triggerCenter < panelLeft + 24 || triggerCenter > panelLeft + menuWidth - 24) {
+    panelLeft = triggerRect.left - 12;
+  }
+  let offsetFromCenter = panelLeft + menuWidth / 2 - menuNaturalCenter;
 
   const finalLeft = menuNaturalCenter - menuWidth / 2 + offsetFromCenter;
   const finalRight = finalLeft + menuWidth;
 
-  console.log({
-    menuWidth,
-    menuNaturalCenter,
-    triggerCenter,
-    offsetFromCenter,
-    finalLeft,
-    finalRight,
-    windowWidth,
-  });
+  setOpenTrigger($currentTriggerEl);
 
   if (finalLeft < edgePadding) {
     offsetFromCenter += edgePadding - finalLeft;
@@ -180,6 +189,7 @@ function handleNavLeave() {
   const $activeTarget = $allTargets.filter('.is-active');
 
   currentTrigger = null;
+  setOpenTrigger(null);
 
   if ($activeTarget.length) {
     hideTarget($activeTarget);
@@ -199,15 +209,28 @@ function handleNavLeave() {
 }
 
 // __ Mobile
+// Fade-out before a mobile submenu opens; Back/close during it must cancel the open
+let pendingShow = null;
+
+function cancelPendingShow() {
+  if (!pendingShow) return false;
+  pendingShow.kill();
+  gsap.killTweensOf($navMenu); // its fade-out runs alongside and would leave the root list invisible
+  pendingShow = null;
+  return true;
+}
+
 function resetToDefault() {
   killAllTweens();
+  cancelPendingShow();
 
   gsap.set($menuBack, { autoAlpha: 0 });
   gsap.set($navBrand, { autoAlpha: 1 });
   gsap.set($allTargets, { display: 'none', autoAlpha: 0, clearProps: 'height' });
   $allTargets.removeClass('is-active');
 
-  const $siblings = $navMenu.find('li').not('[data-dropdown-target]');
+  // Top-level items only; find('li') also forced display:block onto panel internals (e.g. the mobile-hidden promo)
+  const $siblings = $navMenu.children('li').not('[data-dropdown-target]');
   gsap.set($siblings, { display: 'block', autoAlpha: 1 });
   gsap.set($navMenu, { autoAlpha: 1 });
 }
@@ -215,14 +238,16 @@ function resetToDefault() {
 function showTargetMobile($target, $triggerLi) {
   const $siblings = $triggerLi.siblings('li');
 
-  gsap.set($navBrand, { autoAlpha: 0 });
+  // 2026 nav keeps the logo visible in submenus (Figma)
   gsap.set($menuBack, { autoAlpha: 1 });
 
+  cancelPendingShow();
   gsap.to($navMenu, { autoAlpha: 0, duration: 0.15 });
-  gsap.to([$siblings, $allTargets], {
+  pendingShow = gsap.to([$siblings, $allTargets], {
     autoAlpha: 0,
     duration: 0.15,
     onComplete: () => {
+      pendingShow = null;
       gsap.set($siblings, { display: 'none' });
       gsap.set($allTargets, { display: 'none' });
       $allTargets.removeClass('is-active');
@@ -242,7 +267,7 @@ function showTargetMobile($target, $triggerLi) {
       });
 
       gsap.fromTo(
-        $target.find('li'),
+        revealItems($target),
         { autoAlpha: 0, x: -10 },
         { autoAlpha: 1, x: 0, duration: 0.2, stagger: 0.03, ease: 'power2.out', delay: 0.1 }
       );
@@ -251,10 +276,12 @@ function showTargetMobile($target, $triggerLi) {
 }
 
 function hideTargetMobile() {
+  if (cancelPendingShow()) return resetToDefault();
+
   const $activeTarget = $allTargets.filter('.is-active');
   if (!$activeTarget.length) return;
 
-  gsap.to($activeTarget.find('li'), {
+  gsap.to(revealItems($activeTarget), {
     autoAlpha: 0,
     x: 10,
     duration: 0.15,
